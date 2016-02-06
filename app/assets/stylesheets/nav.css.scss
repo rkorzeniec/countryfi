@@ -1,0 +1,42 @@
+/* Nav */
+.navbar{
+  nav{
+    background-color: #424242;
+    min-height: 50px;
+    margin-bottom: 20px;
+
+    ul.nav{
+      li{
+        float: left;
+        position: relative;
+        display: block;
+        padding: 15px;
+
+        a{
+          color: #999999;
+        }
+      }
+    }
+
+    .pull-right{
+      float: right;
+    }
+
+    .pull-left{
+      float: left;
+    }
+  }
+}
+
+.navbar:after{
+  clear: both;
+}
+
+.navbar-fixed-top{
+  top: 0;
+  border-width: 0 0 1px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
