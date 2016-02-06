@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206204215) do
+ActiveRecord::Schema.define(version: 20160206234629) do
+
+  create_table "checkins", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "country_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "checkins", ["country_id"], name: "fk_rails_b90146f6c0", using: :btree
+  add_index "checkins", ["user_id"], name: "index_checkins_on_user_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "name_common",   limit: 255
@@ -54,4 +64,6 @@ ActiveRecord::Schema.define(version: 20160206204215) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "checkins", "countries"
+  add_foreign_key "checkins", "users"
 end
