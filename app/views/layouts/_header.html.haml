@@ -1,18 +1,14 @@
 %header.navbar.navbar-fixed-top
   .container
-    = link_to "RApp Messaging", root_path, id: "logo"
+    = link_to "Country Diary", root_path, id: "logo"
   %nav
 
     %ul.nav.pull-right
       - if user_signed_in?
-        - if current_user.try(:admin?)
-          %ul.nav.pull-left
-            %li= link_to 'All Messages', admins_messages_path
-            %li= link_to 'All Users', admins_users_path
-            %li= link_to 'All Phones', admins_phones_path
-        %li= link_to "Your Messages", messages_path
+        %li= link_to "Countries", countries_path
         %li= link_to "Settings", edit_user_registration_path
         %li= link_to "Sign out", destroy_user_session_path, :method => :delete
       - else
+        %li= link_to "Countries", countries_path
         %li= link_to "Sign in", new_user_session_path
         %li= link_to "Sign up", new_user_registration_path
