@@ -1,0 +1,12 @@
+- provide(:title, "Countries")
+
+.row
+  .col.col-6
+    = #render 'shared/country', id: @country.id
+  .col.col-6
+    - @country.attributes.each do |key, value|
+      .row
+        .col.col-6
+          %b= key
+        .col.col-6
+          = value.

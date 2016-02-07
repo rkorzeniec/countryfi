@@ -1,0 +1,23 @@
+- provide(:title, "Countries")
+.row
+  .col.col-12
+    = render 'shared/map'
+
+.row
+  .col.col-4
+    %b Country
+  .col.col-2
+    %b Country Code
+  .col.col-2
+    %b Capital
+  .col.col-1
+    %b Currency
+  .col.col-3
+    %b Region
+- @countries.each do |country|
+  .row
+    .col.col-4= country.name_official
+    .col.col-2= country.cca2
+    .col.col-2= country.capital
+    .col.col-1= country.currency
+    .col.col-3= "#{country.region} - #{country.subregion}"
