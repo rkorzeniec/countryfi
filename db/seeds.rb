@@ -13,6 +13,7 @@ json.each do |a|
   c.cioc = a['cioc']
   c.currency = a['currency']
   c.capital = a['capital']
+  c.callingCode = a['callingCode']
   c.altSpellings = a['altSpellings']
   c.region = a['region']
   c.subregion = a['subregion']
