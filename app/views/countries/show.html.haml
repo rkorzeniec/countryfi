@@ -4,87 +4,10 @@
   .col.col-6
     = #render 'shared/country', id: @country.id
   .col.col-6
-    .row
-      .col.col-6
-        %b Official Name
-      .col.col-6= @country.name_official
-    .row
-      .col.col-6
-        %b Common Name
-      .col.col-6= @country.name_common
-    .row
-      .col.col-6
-        %b Native Name(s)
-      .col.col-6= @country.name_native
-    .row
-      .col.col-6
-        %b Capital City
-      .col.col-6= @country.capital
-    .row
-      .col.col-6
-        %b Top Level Domain
-      .col.col-6= @country.tld
-    .row
-      .col.col-6
-        %b Country Code Alpha 2
-      .col.col-6= @country.cca2
-    .row
-      .col.col-6
-        %b Country Code Numeric
-      .col.col-6= @country.ccn3
-    .row
-      .col.col-6
-        %b Country Code Alpha 3
-      .col.col-6= @country.cca3
-    .row
-      .col.col-6
-        %b International Olympic Committee Code
-      .col.col-6= @country.cioc
-    .row
-      .col.col-6
-        %b Currency
-      .col.col-6= @country.currency
-    .row
-      .col.col-6
-        %b Calling Code
-      .col.col-6= @country.callingCode
-    .row
-      .col.col-6
-        %b Alternative Spellings
-      .col.col-6= @country.altSpellings
-    .row
-      .col.col-6
-        %b Region
-      .col.col-6= @country.region
-    .row
-      .col.col-6
-        %b Subregion
-      .col.col-6= @country.subregion
-    .row
-      .col.col-6
-        %b Languages
-      .col.col-6= @country.languages
-    .row
-      .col.col-6
-        %b Translations
-      .col.col-6= @country.translations
-    .row
-      .col.col-6
-        %b Latlang
-      .col.col-6= @country.latlng
-    .row
-      .col.col-6
-        %b Demonym
-      .col.col-6= @country.demonym
-    .row
-      .col.col-6
-        %b Landlocked
-      .col.col-6= @country.landlocked
-    .row
-      .col.col-6
-        %b Borders
-      .col.col-6= @country.borders
-    .row
-      .col.col-6
-        %b Area
-      .col.col-6= @country.area
+    - values = county_field_values(@country)
+    - country_field_labels.each_with_index do |label, index|
+      .row
+        .col.col-6
+          %b= label
+        .col.col-6
+          = values[index]
