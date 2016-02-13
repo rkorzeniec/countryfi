@@ -12,18 +12,12 @@ module CountryHelper
 
   def county_field_values(country)
     [
-      country.name_official, country.name_official, country.name_common,
+      country.name_official, country.name_common,
       country.name_native, country.capital, country.demonym, country.languages,
       country.region, country.subregion, country.currency, country.callingCode,
       country.latlng, country.landlocked, country.borders, country.area,
       country.tld, country.cca2, country.ccn3, country.cca3, country.cioc,
       country.altSpellings, country.translations
     ]
-  end
-
-  def country_fields
-    {
-      
-    }
   end
 end
