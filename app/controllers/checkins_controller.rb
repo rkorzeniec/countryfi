@@ -8,10 +8,10 @@ class CheckinsController < ApplicationController
   end
 
   def new
+    @checkin = Checkin.new
   end
 
   def create
-
   end
 
   def edit
