@@ -1,4 +1,7 @@
 class CheckinsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user_or_admin, only: [:show, :index]
+
   def index
     @checkins = Checkin.all
   end
