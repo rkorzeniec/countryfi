@@ -23,6 +23,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # pagination
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
+gem 'select2-rails', '~> 4.0.1'
 
 group :development, :test do
   gem 'byebug'
