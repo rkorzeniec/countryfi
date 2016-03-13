@@ -1,14 +1,15 @@
-%header.navbar.navbar-fixed-top
-  .container
-    = link_to "Country Diary", root_path, id: "logo"
-    
-  %nav
-    %ul.nav.pull-right
-      %li= link_to "Countries", countries_path
-      - if user_signed_in?
-        %li= link_to "Checkin", new_checkin_path
-        %li= link_to "Settings", edit_user_registration_path
-        %li= link_to "Sign out", destroy_user_session_path, :method => :delete
-      - else
-        %li= link_to "Sign in", new_user_session_path
-        %li= link_to "Sign up", new_user_registration_path
+.row
+  .col-lg-12
+    %header.navbar.navbar-fixed-top
+      = link_to 'Country Diary', root_path, id: 'logo', class: 'margin-l-10'
+
+      %nav
+        %ul.nav.pull-right
+          %li= link_to 'Countries', countries_path
+          - if user_signed_in?
+            %li= link_to 'Checkin', new_checkin_path
+            %li= link_to 'Settings', edit_user_registration_path
+            %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+          - else
+            %li= link_to 'Sign in', new_user_session_path
+            %li= link_to 'Sign up', new_user_registration_path
