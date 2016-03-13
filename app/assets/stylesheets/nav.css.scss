@@ -1,34 +1,36 @@
 /* Nav */
-.navbar{
-  nav{
-    background-color: #424242;
-    min-height: 50px;
+.navbar {
+  nav {
+    background-color: #282F37;
+    min-height: 40px;
     margin-bottom: 20px;
 
-    ul.nav{
-      li{
+    ul.nav {
+      li {
         float: left;
         position: relative;
         display: block;
-        padding: 15px;
-
-        a{
+        a {
           color: #999999;
+        }
+
+        a:hover {
+          background-color: #000
         }
       }
     }
 
-    .pull-right{
+    .pull-right {
       float: right;
     }
 
-    .pull-left{
+    .pull-left {
       float: left;
     }
   }
 }
 
-.navbar:after{
+.navbar:after {
   clear: both;
 }
 
