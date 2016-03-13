@@ -1,3 +1,9 @@
+robert = User.new
+robert.email = 'r.korzeniec@gmail.com'
+robert.password = 'password'
+robert.password_confirmation = 'password'
+robert.save!
+
 json = ActiveSupport::JSON.decode(File.read('db/seeds/countries.json'))
 
 json.each do |a|
