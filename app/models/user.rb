@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
   has_many :countries, through: :checkin
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :trackable, :validatable
 end
