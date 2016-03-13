@@ -1,0 +1,16 @@
+.row
+  .col-md-12
+    %h2 Log in
+
+.row
+  .col-lg-4.center
+    = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'panel') do |f|
+      .form-group-lg
+        = f.email_field :email, autofocus: true, placeholder: :email, class: 'form-control'
+      .form-group-lg.signin-password
+        = f.password_field :password, autocomplete: 'off', placeholder: :password, class: 'form-control'
+        = link_to 'Forgot your password?', new_password_path(:user), class: 'forgot'
+      .form-group
+        = f.submit 'Log in', class: 'btn btn-primary btn-lg'
+
+    = render "devise/shared/links"
