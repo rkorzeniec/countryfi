@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210221009) do
+ActiveRecord::Schema.define(version: 20160313200457) do
 
   create_table "checkins", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "country_id", limit: 4
+    t.integer  "user_id",      limit: 4
+    t.integer  "country_id",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "checkin_date"
   end
 
   add_index "checkins", ["country_id"], name: "fk_rails_b90146f6c0", using: :btree
