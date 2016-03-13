@@ -15,10 +15,10 @@ class CheckinsController < ApplicationController
   end
 
   def create
-    checkin = CheckinCreator.new(current_user, checkin_params)
+    @checkin = Checkin.new(checkin_params)
 
     respond_to do |format|
-      if checkin.process
+      if @checkin.save
         format.html { redirect_to root_url, notice: 'Checkin done...' }
       else
         format.html { render :new }
@@ -36,6 +36,6 @@ class CheckinsController < ApplicationController
   private
 
   def checkin_params
-      params.permit(:country)
+      params.require(:checkin).permit(:country, :checkin_date)
     end
 end
