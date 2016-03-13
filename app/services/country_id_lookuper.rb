@@ -1,4 +1,4 @@
-class CountryNameLookuper
+class CountryIDLookuper
   attr_reader :country_code
 
   def initialize(code)
@@ -6,6 +6,6 @@ class CountryNameLookuper
   end
 
   def lookup
-    Country.find_by(cca2: country_code).name_common
+    Country.find_by(cca2: country_code).id
   end
 end
