@@ -1,0 +1,259 @@
+.sharoo-search {
+  #main-navbar .navbar-inner .navbar-header {
+    padding-left: initial !important;
+    width: initial;
+  }
+
+  .bootstrap-timepicker-hour, .bootstrap-timepicker-minute {
+    cursor: pointer;
+  }
+
+  .form-control {
+    font-size: 16px;
+    @include placeholder(white);
+  }
+
+  #results_search_form_location {
+    background-color: $sharoo-yellow;
+    border: solid 1px $sharoo-yellow;
+    color: white;
+  }
+
+  #results_search_form_start_date, #results_search_form_start_time {
+    background-color: $sharoo-blue;
+    border: solid 1px $sharoo-blue;
+    color: white;
+    cursor: default;
+  }
+
+  #results_search_form_end_date, #results_search_form_end_time {
+    background-color: $sharoo-green;
+    border: solid 1px $sharoo-green;
+    color: white;
+    cursor: default;
+  }
+
+  .estimated_kilometers {
+    padding-top: 10px;
+
+    span:first-child {
+      color: $sharoo-green;
+      font-size: 16px;
+    }
+  }
+
+  #load-more.btn {
+    margin: auto;
+  }
+  .ui-slider-range {
+    background: $sharoo-green;
+  }
+
+  .ui-slider-horizontal {
+    height: 3px;
+  }
+
+  .ui-slider-handle {
+    top: -5px;
+    background: $sharoo-green;
+    border: none;
+  }
+
+  .ui-slider-handle:before {
+    background: $sharoo-green;
+  }
+
+  #ui-slider {
+    margin-top: -5px;
+  }
+
+  #locate_me {
+    padding: 6px 8px 6px 8px;
+    font-size: 16px;
+    border-color: $sharoo-grey;
+    background: $sharoo-grey;
+  }
+
+  .search-result {
+    hr {
+      border: 1px dotted $sharoo-border-grey;
+    }
+    .vehicle-image {
+      position: relative;
+
+      .rating {
+        position: absolute;
+        background: white;
+        bottom: 10px;
+        padding: 2px 5px 2px 5px;
+      }
+    }
+    .vehicle-info {
+      height: 110px;
+      overflow: hidden;
+    }
+
+    .circle-type {
+      top: 15px;
+      i {
+        color: $sharoo-blue;
+      }
+    }
+
+    .btn-outline {
+      border-color: #000;
+      .btn-label {
+        background: none;
+      }
+    }
+  }
+
+  .sharoo-sorting {
+    padding: 15px 10px 10px 10px;
+  }
+
+
+  .sharoo-filters {
+    font-size: 16px;
+
+    .filter-trigger {
+      cursor: pointer;
+      color: #02aec9;
+
+      hr {
+        width: 100vw;
+        margin-left: -22px;
+      }
+
+      hr:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    .filter-backlay {
+      display: none;
+      background: black;
+      position: absolute;
+      margin-left: -20px;
+      opacity: 0.5;
+      height: 600vh;
+      width: 100vw;
+      z-index: 4;
+    }
+
+    .filters {
+      background-color: $sharoo-light-grey;
+      position: absolute;
+      margin-top: -1px;
+      margin-left: -11px;
+      width: 100vw;
+      z-index: 5;
+    }
+
+    .select2-container {
+      padding: 2px 8px 2px 8px;
+      width: 100vw;
+      margin-left: -20px;
+      background-color: $sharoo-light-grey;
+
+      .select2-choices {
+        width: initial;
+        padding: 5px 5px 0px 5px;
+        border: none;
+        background-color: $sharoo-light-grey;
+
+        .select2-search-choice {
+          padding: 2px 22px 2px 8px;
+        }
+      }
+    }
+
+    .filter-delete {
+      padding: 5px 18px 0px 0px;
+
+      a {
+        color: black;
+      }
+    }
+
+    i.fa.fa-sliders {
+      font-size: 24px;
+    }
+
+    a.selected {
+      background-color: initial;
+    }
+
+    .vehicle_type {
+      margin: 5px;
+      float: left;
+      position: relative;
+      border-radius: 9px;
+      background-color: $sharoo-light-grey;
+
+      &.selected {
+        color: white;
+        background-color: $sharoo-border-grey;
+      }
+
+      .type-select {
+        width: 85px;
+        height: 85px;
+        border: 1px solid $sharoo-border-grey;
+
+        &.selected {
+          filter: invert(100%);
+          -webkit-filter: invert(100%);
+          -moz-filter: invert(100%);
+          -ms-filter: invert(100%);
+          -o-filter: invert(100%);
+        }
+      }
+
+      .caption {
+        position: absolute;
+        font-size: 12px;
+        bottom: 5px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .help-block {
+    z-index: 2;
+  }
+
+  input.px {
+    & + .lbl {
+      padding-left: 10px;
+
+      &:before {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    & + .lbl:before,
+    & + .lbl:after {
+      margin: -2px 3px -3px -20px !important;
+    }
+  }
+
+  input[type="checkbox"].px {
+    & + .lbl:after {
+      line-height: 22px;
+      font-size: 23px;
+    }
+  }
+
+  input[type="radio"].px {
+    & + .lbl:after {
+      width: 12px;
+      height: 12px;
+      top: 6px;
+      left: 6px;
+    }
+  }
+}

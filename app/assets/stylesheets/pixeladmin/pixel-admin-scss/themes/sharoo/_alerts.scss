@@ -1,0 +1,56 @@
+//
+// Themes / Sharoo / Alerts
+// --------------------------------------------------
+
+// Default alerts
+//
+
+.alert {
+  @include pixel-alert(#f9f1c7, $sharoo-text-color, #f9f1c7);
+}
+
+.alert.alert-danger {
+  @include pixel-alert(#f2dede, $sharoo-text-color, #f2dede);
+}
+
+.alert.alert-success {
+  @include pixel-alert($sharoo-success-color, $sharoo-text-color, $sharoo-success-color);
+}
+
+.alert.alert-info {
+  @include pixel-alert(#d9edf7, $sharoo-text-color, #d9edf7);
+}
+
+
+// Dark alerts
+//
+
+.alert.alert-dark {
+  color: $sharoo-text-color;
+  text-shadow: none;
+  @include pixel-alert-dark($warning-color);
+  border-color: $warning-color;
+}
+
+.alert.alert-danger.alert-dark {
+  @include pixel-alert-dark($danger-color, $stripes-opacity: .04);
+  border-color: $danger-color;
+}
+
+.alert.alert-success.alert-dark {
+  @include pixel-alert-dark($sharoo-success-color);
+  border-color: $sharoo-success-color;
+}
+
+.alert.alert-info.alert-dark {
+  @include pixel-alert-dark($info-color);
+  border-color: $info-color;
+}
+
+// Page alerts
+
+.panel, .panel-default {
+  .alert-page {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,151 @@
+@mixin sharoo-pixel-button($color, $font-color: #fff) {
+  color: $font-color;
+
+  &,
+  &:focus {
+    border-color: $color;
+    background: $color;
+  }
+
+  &:hover {
+    color: $color;
+    border-color: $color;
+    background: #fff !important;
+  }
+
+  &:active,
+  &.active,
+  .open &.dropdown-toggle {
+    background: #fff !important;
+    border-color: $color !important;
+    color: $color !important;
+    box-shadow: none !important;
+  }
+
+  &.btn-flat {
+    background: lighten($color, 3%);
+
+    &:hover,
+    &:active,
+    &.active,
+    .open &.dropdown-toggle {
+      background: $color !important;
+      color: $font-color !important;
+      box-shadow: none;
+    }
+  }
+
+  &.btn-outline,
+  &.btn-outline.btn-flat {
+    color: $color;
+    border-color: $color;
+    background: #fff;
+
+    &:hover {
+      color: #fff;
+      background: $color !important;
+    }
+
+    &:active {
+      border-color: $color;
+    }
+  }
+
+  // Button groups & Input groups
+  //
+  .btn-group &,
+  .btn-group &:focus,
+  .input-group-btn &,
+  .input-group-btn &:focus {
+    border-left-color: $color;
+    border-right-color: $color;
+  }
+  .btn-group &:hover,
+  .btn-group.open &.dropdown-toggle,
+  .input-group-btn &:hover,
+  .input-group-btn.open &.dropdown-toggle {
+    color: $font-color;
+    border-color: $color;
+    background: #fff;
+  }
+  .btn-group &:active,
+  .btn-group &.active,
+  .input-group-btn &:active,
+  .input-group-btn &.active {
+    border-left-color: $color;
+    border-right-color: $color;
+  }
+}
+
+.btn, .btn-default {
+  @include sharoo-pixel-button($color: #f4f4f4, $font-color: $text-color);
+
+  &:hover {
+    color: $text-color;
+    border-color: #f4f4f4;
+    background: #fff !important;
+  }
+
+  &:active,
+  &.active,
+  .open &.dropdown-toggle {
+    color: $text-color !important;
+  }
+
+  &.btn-outline,
+  &.btn-outline.btn-flat {
+    color: $text-color;
+    border-color: #f4f4f4;
+    background: #fff;
+
+    &:hover {
+      color: $text-color;
+      background: #f4f4f4 !important;
+    }
+
+    &:active {
+      color: $text-color;
+      border-color: #f4f4f4;
+    }
+  }
+}
+
+.btn-info { @include sharoo-pixel-button($info-color); }
+.btn-primary { @include sharoo-pixel-button($primary-color); }
+.btn-success { @include sharoo-pixel-button($success-color); }
+.btn-warning { @include sharoo-pixel-button($warning-color); }
+.btn-danger { @include sharoo-pixel-button($danger-color); }
+.btn-regular { @include sharoo-pixel-button($sharoo-dark-gray); }
+.btn-sharoo { @include sharoo-pixel-button($sharoo-blue); }
+
+.btn-facebook {
+  width: 35px !important;
+
+  &:focus {
+    color: #fff;
+  }
+  &.btn-outline:focus {
+    color: $text-color;
+  }
+  &.btn-outline.dark:focus {
+    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  @include sharoo-pixel-button(#5571ac);
+}
+
+.btn-group > .dropdown-toggle:not(:first-child) {
+  height: 31px !important;
+}
+
+.btn-group-lg > .dropdown-toggle:not(:first-child) {
+  height: 39px !important;
+}
+
+.btn-group-sm > .dropdown-toggle:not(:first-child) {
+  height: 25px !important;
+}
+
+.btn-group-xs > .dropdown-toggle:not(:first-child) {
+  height: 22px !important;
+}

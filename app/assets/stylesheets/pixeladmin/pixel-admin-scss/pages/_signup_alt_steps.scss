@@ -1,0 +1,131 @@
+//
+// Pages / Sign Up Alt
+//
+// --------------------------------------------------
+
+.page-signup-alt-steps {
+  padding-bottom: 40px;
+
+  .signup-header {
+    background: #fff;
+    padding: 16px 0 16px 16px;
+    position: relative;
+    @include box-shadow(0 2px 2px rgba(0,0,0,0.05),0 1px 0 rgba(0,0,0,0.05));
+
+    .logo {
+      color: $text-color;
+      font-size: 16px;
+      height: 24px;
+      line-height: 24px;
+      width: 24px;
+      opacity: 1;
+      @include transition(all .3s);
+
+      img {
+        margin-top: -4px;
+        max-width: 80px;
+      }
+
+      &[href]:hover {
+        opacity: .6;
+      }
+    }
+
+    .btn {
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      margin-top: 4px;
+    }
+
+    // Demo
+    .demo-logo {
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
+    }
+  }
+
+  .signup-leave {
+    padding: 20px 0 10px 0;
+    text-align: center;
+  }
+
+  .support-link {
+    padding: 0 0 20px 0;
+    text-align: center;
+  }
+
+  .form-header {
+    font-size: 22px;
+    font-weight: 300;
+    text-align: center;
+    margin: 40px 0;
+    padding: 0 10px;
+  }
+
+  .panel {
+    margin: 0 16px;
+    padding: 20px;
+  }
+
+  .wizard-container {
+    border-bottom: 1px solid #e5e5e5;
+    overflow-x: scroll;
+  }
+
+  .wizard-steps {
+    float: initial;
+    padding: initial;
+    li {
+      cursor: initial;
+      max-width: 300px;
+
+      &.completed .wizard-step-number {
+        border-color: #5ebd5e;
+        color: #5ebd5e;
+      }
+
+      &.details, &.phone, &.license, &.payment_card {
+        width: 290px;
+        max-width: 290px;
+        min-width: 290px;
+      }
+
+      &.confirmation {
+        width: 260px;
+        max-width: 260px;
+        min-width: 260px;
+      }
+    }
+  }
+
+  .link_back {
+    display: inline-block;
+    margin-top: 7px;
+
+    &:before {
+      content: "←";
+      display: block;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin: 0 6px 0 0;
+    }
+  }
+}
+
+@media (min-width: $screen-xs-max) {
+  .page-signup-alt-steps {
+    .signup-header {
+      padding-left: 0;
+      text-align: center;
+    }
+
+    .panel {
+      width: 720px;
+      margin: 0 auto;
+      padding: 27px;
+    }
+  }
+}

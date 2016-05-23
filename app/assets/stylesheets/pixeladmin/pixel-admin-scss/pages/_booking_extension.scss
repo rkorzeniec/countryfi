@@ -1,0 +1,72 @@
+.booking-extension {
+  #main-navbar .navbar-inner .navbar-header {
+    padding-left: initial !important;
+    width: initial;
+  }
+
+  .panel-heading {
+    background: initial;
+  }
+
+  .accordion-toggle.collapsed:after {
+    content: "\f107";
+    font-size: 20px;
+  }
+
+  .accordion-toggle:after {
+    content: "\f106";
+    font-size: 20px;
+  }
+
+  .request-from {
+    color: $sharoo-blue
+  }
+  .request-to {
+    color: $sharoo-green
+  }
+
+  .form-control {
+    font-size: 16px;
+    @include placeholder(white);
+  }
+
+  #bookings_extendability_form_end_date, #bookings_extendability_form_end_time {
+    background-color: $sharoo-green;
+    border: solid 1px $sharoo-green;
+    color: white;
+    cursor: default;
+  }
+
+  #price-information-discount::before {
+    content: '-';
+  }
+
+  td.price {
+    width: 120px;
+  }
+
+  .price-caption {
+    padding-left: 5px;
+    margin-top: 14px;
+  }
+
+  .total-price {
+    color: $sharoo-blue;
+    padding-right: 5px;
+  }
+
+  .kilometer-annotation {
+    padding: 5px 5px 15px 5px;
+  }
+
+  hr {
+    border: 1px dotted $sharoo-border-grey;
+  }
+
+  .circle-type {
+    top: 15px;
+    i {
+      color: $sharoo-blue;
+    }
+  }
+}

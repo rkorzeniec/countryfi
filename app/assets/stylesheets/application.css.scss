@@ -10,16 +10,17 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require_self
+ *= require ./map
+ *= require ./devise
+ *= require ./bootstrap
+ *= require ./pixeladmin/pixel-admin
+ *= require ./pixeladmin/pages
+ *= require ./pixeladmin/themes
+ *= require ./pixeladmin/widgets
+ *= require ./pixeladmin/margins
+ *= require ./pixeladmin/paddings
  */
-@import "reset";
-@import "margins";
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "datepicker";
+
 @import "select2";
 @import "select2-bootstrap";
-@import "custom";
-@import "map";
-@import "nav";
-@import "devise";
-@import "flash";
