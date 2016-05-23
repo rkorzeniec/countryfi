@@ -20,4 +20,14 @@ module CountryHelper
       country.altSpellings, country.translations
     ]
   end
+
+  def all_countries
+    Country.all
+  end
+
+  def country_code_array(countries)
+    array = []
+    countries.each { |country| array << country.cca2 }
+    array
+  end
 end

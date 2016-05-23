@@ -1,7 +1,7 @@
 - provide(:title, 'Country Checkin')
 .row
   .col-lg-4.center
-    = form_for @checkin, html: { class: 'form-horizontal'} do |f|
+    = form_for @checkin, html: { class: 'form-horizontal' } do |f|
       = render 'form', f: f
       .form-group
         = submit_tag 'Create', class: 'btn btn-primary'
