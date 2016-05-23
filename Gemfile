@@ -32,9 +32,10 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'spring'
   # Use Capistrano for deployment
   gem 'rvm-capistrano', '~> 1.5.6'
+
+  gem 'spring', '~> 1.6.2'
 end
 
 group :test do
