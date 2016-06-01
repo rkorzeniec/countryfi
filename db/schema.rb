@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313200457) do
+ActiveRecord::Schema.define(version: 20160531083528) do
 
   create_table "checkins", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
@@ -27,28 +27,76 @@ ActiveRecord::Schema.define(version: 20160313200457) do
   create_table "countries", force: :cascade do |t|
     t.string   "name_common",   limit: 255
     t.string   "name_official", limit: 255
-    t.text     "name_native",   limit: 65535
-    t.string   "tld",           limit: 255
     t.string   "cca2",          limit: 255
     t.string   "ccn3",          limit: 255
     t.string   "cca3",          limit: 255
     t.string   "cioc",          limit: 255
-    t.string   "currency",      limit: 255
     t.string   "capital",       limit: 255
-    t.text     "altSpellings",  limit: 65535
     t.string   "region",        limit: 255
     t.string   "subregion",     limit: 255
-    t.text     "languages",     limit: 65535
-    t.text     "translations",  limit: 65535
-    t.string   "latlng",        limit: 255
+    t.string   "latlang",       limit: 255
     t.string   "demonym",       limit: 255
     t.boolean  "landlocked"
-    t.text     "borders",       limit: 65535
     t.float    "area",          limit: 24
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "callingCode",   limit: 255
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.decimal  "latitude",                  precision: 10, default: 0
+    t.decimal  "longitude",                 precision: 10, default: 0
   end
+
+  create_table "country_alternative_spellings", force: :cascade do |t|
+    t.integer  "country_id", limit: 4
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "country_alternative_spellings", ["country_id"], name: "fk_rails_4501639dad", using: :btree
+
+  create_table "country_borders", force: :cascade do |t|
+    t.integer  "country_id",        limit: 4
+    t.integer  "border_country_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "country_borders", ["country_id"], name: "fk_rails_dbcc34e82e", using: :btree
+
+  create_table "country_calling_codes", force: :cascade do |t|
+    t.integer  "country_id",   limit: 4
+    t.string   "calling_code", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "country_calling_codes", ["country_id"], name: "fk_rails_7d6ab3b33a", using: :btree
+
+  create_table "country_languages", force: :cascade do |t|
+    t.integer  "country_id", limit: 4
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "country_languages", ["country_id"], name: "fk_rails_512239a8b1", using: :btree
+
+  create_table "currencies", force: :cascade do |t|
+    t.integer  "country_id",    limit: 4
+    t.string   "currency_code", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "currencies", ["country_id"], name: "fk_rails_47700155d2", using: :btree
+
+  create_table "top_level_domains", force: :cascade do |t|
+    t.integer  "country_id", limit: 4
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "top_level_domains", ["country_id"], name: "fk_rails_24af1ffde5", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -68,4 +116,10 @@ ActiveRecord::Schema.define(version: 20160313200457) do
 
   add_foreign_key "checkins", "countries"
   add_foreign_key "checkins", "users"
+  add_foreign_key "country_alternative_spellings", "countries"
+  add_foreign_key "country_borders", "countries"
+  add_foreign_key "country_calling_codes", "countries"
+  add_foreign_key "country_languages", "countries"
+  add_foreign_key "currencies", "countries"
+  add_foreign_key "top_level_domains", "countries"
 end
