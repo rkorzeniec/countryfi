@@ -19,7 +19,9 @@
     .col-lg-4= country.name_official
     .col-lg-2= country.cca2
     .col-lg-2= country.capital
-    .col-lg-1= country.currency
+    .col-lg-1
+      - country.currencies.each do |currency|
+        = currency.currency_code
     .col-lg-3= "#{country.region} - #{country.subregion}"
 .row
   .col-lg-12
