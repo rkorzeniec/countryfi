@@ -16,7 +16,7 @@ class CreateCountries < ActiveRecord::Migration
       t.string :subregion
       t.text :languages
       t.text :translations
-      t.string :latlng
+      t.string :latlang
       t.string :demonym
       t.boolean :landlocked
       t.text :borders
