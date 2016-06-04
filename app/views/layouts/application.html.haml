@@ -1,12 +1,9 @@
 %html
   %head
     = render 'layouts/head'
-  %body
-    = render 'layouts/header'
-    .container
-      .row
-        .col-lg-12
-          = render 'layouts/flash'
-      .row
-        .col-lg-12
-          = yield
+  %body.theme-default.main-menu-animated.animate-mm-sm.animate-mm-md.animate-mm-lg
+    .main-wrapper.margin-l-10.margin-r-10
+      = render 'layouts/header'
+      .content-wrapper.margin-t-60
+        = render 'layouts/flash'
+        = yield
