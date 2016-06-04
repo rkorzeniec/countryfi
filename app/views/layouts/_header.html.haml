@@ -1,18 +1,17 @@
-.row
-  .col-lg-12
-    %header.navbar.navbar-fixed-top
-      = link_to 'Countryfier', root_path, id: 'logo', class: 'margin-l-10'
-
-      %nav
-        %ul.nav.pull-right
-          - if user_signed_in?
-            %li= link_to 'Profile', '#'
-            %li= link_to 'Add checkin', new_checkin_path
-            %li= link_to 'My countries', checkins_path
-            %li= link_to 'Settings', edit_user_registration_path
-            %li= link_to 'Countries database', countries_path
-            %li= link_to 'Sign out', destroy_user_session_path, method: :delete
-          - else
-            %li= link_to 'Countries database', countries_path
-            %li= link_to 'Sign in', new_user_session_path
-            %li= link_to 'Sign up', new_user_registration_path
+%div#main-navbar.navbar.navbar-inverse{ role: 'navigation' }
+  .navbar-inner
+    .navbar-header
+      = link_to 'Countryfier', root_path, id: 'logo', class: 'margin-l-10 navbar-brand'
+    #main-navbar-collapse.collapse.navbar-collapse.main-navbar-collpase
+      %ul.nav.navbar-nav.pull-right.right-navbar-nav
+        - if user_signed_in?
+          %li= link_to 'Profile', '#'
+          %li= link_to 'Add checkin', new_checkin_path
+          %li= link_to 'My countries', checkins_path
+          %li= link_to 'Settings', edit_user_registration_path
+          %li= link_to 'Countries database', countries_path
+          %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Countries database', countries_path
+          %li= link_to 'Sign in', new_user_session_path
+          %li= link_to 'Sign up', new_user_registration_path
