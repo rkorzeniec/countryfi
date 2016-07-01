@@ -1,7 +1,7 @@
 %html
   %head
     = render 'layouts/head'
-  %body.theme-default.main-menu-animated.animate-mm-sm.animate-mm-md.animate-mm-lg
+  %body{ class: "theme-default main-menu-animated animate-mm-sm animate-mm-md animate-mm-lg #{ yield :page_specific_body_class }" }
     .main-wrapper.margin-l-10.margin-r-10
       = render 'layouts/header'
       .content-wrapper.margin-t-60
