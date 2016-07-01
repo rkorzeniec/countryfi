@@ -1,0 +1,77 @@
+$danger-red: #e3503e;
+
+.dropzone-box {
+  min-height: 150px;
+
+  .fa.fa-cloud-upload {
+    position: initial;
+    margin: 0 auto;
+    margin-top: 35px;
+  }
+}
+
+.dz-default.dz-message {
+  padding: initial;
+  width: initial;
+  left: initial;
+  margin: initial;
+  position: relative;
+
+  .col-md-7 {
+    margin-top: 48px;
+  }
+}
+
+.dropzone-image, .dz-preview {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  margin: 10px;
+  display: inline-block;
+  padding: 0px;
+  border: 1px solid #eee;
+
+  .progress {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 90%;
+  }
+}
+
+.dropzone-image {
+  a {
+    position: absolute;
+    margin: 10px;
+    top: 0px;
+    right: 0px;
+  }
+
+  a.expandLink {
+    margin: 10px;
+    padding: 5px;
+    top: initial;
+    bottom: 0px;
+    left: 0px;
+    right: initial;
+  }
+
+  .btn.btn-outline {
+    border-color: $danger-red;
+  }
+
+  img {
+    max-height: 120px;
+  }
+}
+
+.dz-thumbnail-wrapper {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+.dz-details {
+  position: relative;
+}

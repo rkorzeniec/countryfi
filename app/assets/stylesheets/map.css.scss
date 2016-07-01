@@ -19,8 +19,12 @@
 
   svg.checkin {
     .land {
-      fill: #FFF;
+      fill: #282F37;
       stroke: gray;
+    }
+
+    .land:hover {
+      fill: #2E7060;
     }
 
     .checked {
