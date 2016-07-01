@@ -19,11 +19,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 # twitter bootstrap
-gem 'bootstrap-sass', '~> 3.3.6'
 # pagination
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
-gem 'select2-rails', '~> 4.0.1'
 
 group :development, :test do
   gem 'byebug'

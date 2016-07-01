@@ -13,15 +13,4 @@
  *= require_self
  *= require ./map
  *= require ./devise
- *= require ./bootstrap
- *= require ./pixeladmin/pixel-admin
- *= require ./pixeladmin/pages
- *= require ./pixeladmin/themes
- *= require ./pixeladmin/widgets
- *= require ./pixeladmin/margins
- *= require ./pixeladmin/paddings
- *= require ./pixeladmin/overrides
  */
-
-@import "select2";
-@import "select2-bootstrap";

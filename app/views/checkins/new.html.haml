@@ -1,7 +1,19 @@
 - provide(:title, 'Country Checkin')
-.row
-  .col-lg-4.center
-    = form_for @checkin, html: { class: 'form-horizontal' } do |f|
+.row.center-block
+  .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.margin-t-10
+    = form_for @checkin do |f|
       = render 'form', f: f
-      .form-group
-        = submit_tag 'Create', class: 'btn btn-primary'
+      .form-group-lg.margin-t-10
+        = submit_tag 'Create', class: 'btn btn-primary btn-lg btn-block'
+
+:javascript
+window.init.push(function() {
+  $( "#checkin_country_id" ).select2({
+      theme: "bootstrap", width: '100%'
+  });
+
+  var checkin = $('#checkin_checkin_date').datepicker({ format: 'yyyy-mm-dd' }).datepicker('setValue', new Date)
+  checkin.on('changeDate', function(ev) {
+    checkin.datepicker('hide');
+  });
+});
