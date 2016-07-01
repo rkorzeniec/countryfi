@@ -23,5 +23,24 @@ module CountryDiary
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.enabled = true
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
+
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+    # Make sure we precompile separately the javascripts that are called in specific places
+    config.assets.precompile += [
+      'application.scss',
+      'pixeladmin/*',
+      '*.svg',
+      '*.eot',
+      '*.woff',
+      '*.woff2',
+      '*.ttf',
+      '*.png'
+    ]
+
   end
 end
