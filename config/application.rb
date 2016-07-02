@@ -21,7 +21,22 @@ module CountryDiary
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.3'
+    
+    # Make sure we precompile separately the javascripts that are called in specific places
+    config.assets.precompile += [
+      '*.svg',
+      '*.eot',
+      '*.woff',
+      '*.woff2',
+      '*.ttf',
+      '*.png'
+    ]
   end
 end

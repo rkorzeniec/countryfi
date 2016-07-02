@@ -1,7 +1,9 @@
 #main-navbar.navbar.navbar-inverse{ role: 'navigation' }
   .navbar-inner
     .navbar-header
-      = link_to 'Countryfier', root_path, id: 'logo', class: 'margin-l-10 navbar-brand'
+      = link_to root_path, id: 'logo', class: 'margin-l-10 navbar-brand' do
+        %i.fa.fa-check
+        Countryfier
     #main-navbar-collapse.collapse.navbar-collapse.main-navbar-collpase
       %ul.nav.navbar-nav.pull-right.right-navbar-nav
         - if user_signed_in?
