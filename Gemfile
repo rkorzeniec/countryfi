@@ -24,7 +24,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry-rails'
 end
 
 group :development do
