@@ -4,7 +4,7 @@ class CheckinsController < ApplicationController
   def index
     @checkins = current_user.checkins
                             .paginate(page: params[:page], per_page: 15)
-                            .order(:checkin_date)
+                            .order(checkin_date: :desc)
   end
 
   def show
