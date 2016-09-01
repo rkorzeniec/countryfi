@@ -39,6 +39,7 @@
 //= require ./libs/jquery-ui-1.10.4/jquery.ui.spinner.js
 //= require ./libs/jquery-ui-1.10.4/jquery.ui.progressbar.js
 //= require ./libs/jquery-ui-1.10.4/jquery.ui.tabs.js
+//= require ./libs/jquery.ui.touch-punch-0.2.3.js
 
 // PixelAdmin App Components and Plugins
 //= require ./build/components_main-navbar.js
