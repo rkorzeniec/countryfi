@@ -1,9 +1,10 @@
 class CheckinsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user_or_admin, only: :show
 
   def index
-    @checkins = current_user.checkins.paginate(page: params[:page]).order(:checkin_date)
+    @checkins = current_user.checkins
+                            .paginate(page: params[:page], per_page: 15)
+                            .order(:checkin_date)
   end
 
   def show
@@ -37,13 +38,5 @@ class CheckinsController < ApplicationController
 
   def checkin_params
     params.require(:checkin).permit(:country_id, :checkin_date)
-  end
-
-  def correct_user_or_admin
-    @checkin = Checkin.find(params[:id])
-    unless current_user.ch.include?(@checkin) || current_user.admin
-      flash[:error] = 'You do not have the rights to view this page'
-      redirect_to(root_url)
-    end
   end
 end

@@ -1,8 +1,32 @@
-= render 'world'
-= render 'europe'
-= render 'north_america'
-= render 'south_america'
-= render 'asia'
-= render 'africa'
-= render 'australia'
-= render 'country_checked', countries: countries
+%ul.nav.nav-pills
+  %li.active
+    = link_to 'World', '#world-pill', data: { toggle: 'tab' }
+  %li
+    = link_to 'Europe', '#europe-pill', data: { toggle: 'tab' }
+  %li
+    = link_to 'North America', '#north_america-pill', data: { toggle: 'tab' }
+  %li
+    = link_to 'South America', '#south_america-pill', data: { toggle: 'tab' }
+  %li
+    = link_to 'Asia', '#asia-pill', data: { toggle: 'tab' }
+  %li
+    = link_to 'Africa', '#africa-pill', data: { toggle: 'tab' }
+  %li
+    = link_to 'Australia', '#australia-pill', data: { toggle: 'tab' }
+
+%div.tab-content
+  %div.tab-pane.active#world-pill
+    = render 'checkins/maps/world'
+  %div.tab-pane#europe-pill
+    = render 'checkins/maps/europe'
+  %div.tab-pane#north_america-pill
+    = render 'checkins/maps/north_america'
+  %div.tab-pane#south_america-pill
+    = render 'checkins/maps/south_america'
+  %div.tab-pane#asia-pill
+    = render 'checkins/maps/asia'
+  %div.tab-pane#africa-pill
+    = render 'checkins/maps/africa'
+  %div.tab-pane#australia-pill
+    = render 'checkins/maps/australia'
+= render 'checkins/maps/country_checked', countries: countries

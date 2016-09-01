@@ -3,19 +3,4 @@
   .col-lg-7
     = render 'map', countries: country_code_array(current_user.countries)
   .col-lg-5
-    %table.table.table-striped.right
-      %thead
-        %th
-          %b Visit date
-        %th
-          %b Country
-        %th
-      %tbody
-        - @checkins.each do |checkin|
-          %tr
-            %td= checkin.checkin_date
-            %td= checkin.country.name_common
-            %td= link_to 'Edit', edit_checkin_path(checkin)
-    .row
-      .col-lg-12
-        = will_paginate @checkins, renderer: BootstrapPagination::Rails
+    = render 'country_list', checkins: @checkins

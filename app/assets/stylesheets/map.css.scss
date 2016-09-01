@@ -1,6 +1,6 @@
 .map {
   svg {
-    margin: auto;
+    margin: 0 auto;
     width: 100%;
     height: auto;
 
@@ -17,7 +17,7 @@
     }
   }
 
-  svg.checkin {
+  svg.checkins {
     .land {
       fill: #FFF;
       stroke: gray;
@@ -29,6 +29,10 @@
 
     .checked {
       fill: #2E7060;
+    }
+
+    g {
+      margin-left:auto; margin-right:auto; display:block;
     }
   }
 }
