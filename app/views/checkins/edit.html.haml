@@ -10,7 +10,7 @@ window.init.push(function() {
       theme: "bootstrap", width: '100%'
   });
 
-  var checkin = $('#checkin_checkin_date').datepicker({ format: 'yyyy-mm-dd' }).datepicker('setValue', new Date)
+  var checkin = $('#checkin_checkin_date').datepicker({ format: 'yyyy-mm-dd' }).datepicker('setValue', "#{render_date(@checkin.checkin_date)}")
   checkin.on('changeDate', function(ev) {
     checkin.datepicker('hide');
   });

@@ -1,5 +1,6 @@
 class CheckinsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_checkin, only: [:show, :edit, :update]
 
   def index
     @checkins = current_user.checkins
@@ -8,7 +9,6 @@ class CheckinsController < ApplicationController
   end
 
   def show
-    @checkin = Checkin.find(params[:id])
   end
 
   def new
@@ -31,10 +31,19 @@ class CheckinsController < ApplicationController
   end
 
   def update
-
+    if @checkin.update_attributes(checkin_params)
+      flash[:success] = 'Checkin updated successfully'
+    else
+      flash[:error] = 'Checkin could not be updated'
+    end
+    redirect_to checkins_path
   end
 
   private
+
+  def find_checkin
+    @checkin = Checkin.find(params[:id])
+  end
 
   def checkin_params
     params.require(:checkin).permit(:country_id, :checkin_date)
