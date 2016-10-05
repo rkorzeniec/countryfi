@@ -1,6 +1,6 @@
 class CheckinsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_checkin, only: [:show, :edit, :update]
+  before_action :find_checkin, only: [:show, :edit, :update, :destroy]
 
   def index
     @checkins = current_user.checkins
@@ -36,6 +36,17 @@ class CheckinsController < ApplicationController
     else
       flash[:error] = 'Checkin could not be updated'
     end
+
+    redirect_to checkins_path
+  end
+
+  def destroy
+    if @checkin.destroy
+      flash[:success] = 'Checkin deleted successfully'
+    else
+      flash[:error] = 'Checkin could not be deleted'
+    end
+
     redirect_to checkins_path
   end
 

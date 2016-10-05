@@ -5,13 +5,19 @@
     %th
       %b Country
     %th
+    %th
   %tbody
     - checkins.each do |checkin|
       %tr
         %td
           %b= render_date(checkin.checkin_date)
         %td= checkin.country.name_common
-        %td= link_to 'Edit', edit_checkin_path(checkin)
+        %td
+          = link_to edit_checkin_path(checkin) do
+            %i.fa.fa-pencil
+        %td
+          = link_to checkin, method: :delete, data: { confirm: "You sure?" } do
+            %i.fa.fa-trash-o
 .row
   .col-lg-12
     = will_paginate checkins, renderer: BootstrapPagination::Rails
