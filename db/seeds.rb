@@ -7,16 +7,13 @@ robert.save!
 json = ActiveSupport::JSON.decode(File.read('db/seeds/countries.json'))
 
 json.each do |a|
-  # Country.create!(a[''country'], without_protection: true')
   country = Country.new
 
   country.name_common = a['name']['common']
   country.name_official = a['name']['official']
 
   a['tld'].each do |a_tld|
-    tld = TopLevelDomain.new
-    tld.name = a_tld
-    tld.country = country
+    TopLevelDomain.create!(name: a_tld, country: country)
   end
 
   country.cca2 = a['cca2']
@@ -25,36 +22,24 @@ json.each do |a|
   country.cioc = a['cioc']
 
   a['currency'].each do |a_currency|
-    currency = Currency.new
-    currency.currency_code = a_currency
-    currency.country = country
-    currency.save!
+    Currency.create!(currency_code: a_currency, country: country)
   end
 
   country.capital = a['capital']
 
   a['callingCode'].each do |a_code|
-    code = CountryCallingCode.new
-    code.calling_code = a_code
-    code.country = country
-    code.save!
+    CountryCallingCode.create!(calling_code: a_code, country: country)
   end
 
   a['altSpellings'].each do |a_alt|
-    alt = CountryAlternativeSpelling.new
-    alt.name = a_alt
-    alt.country = country
-    alt.save!
+    CountryAlternativeSpelling.create!(name: a_alt, country: country)
   end
 
   country.region = a['region']
   country.subregion = a['subregion']
 
   a['languages'].each do |a_language|
-    language = CountryLanguage.new
-    language.name = a_language
-    language.country = country
-    language.save!
+    CountryLanguage.create!(name: a_language, country: country)
   end
 
   country.latitude = a['latlng'][0]
@@ -69,10 +54,7 @@ end
 json.each do |a|
   country = Country.find_by(cca3: a['cca3'])
   a['borders'].each do |a_borders|
-    border = CountryBorder.new
     border_country = Country.where('cca3 = ? OR cioc = ?', a_borders, a_borders).first
-    border.border_country_id = border_country.id
-    border.country = country
-    border.save!
+    CountryBorder.create!(border_country_id: border_country.id, country: country)
   end
 end
