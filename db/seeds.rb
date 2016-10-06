@@ -39,7 +39,7 @@ json.each do |a|
   country.subregion = a['subregion']
 
   a['languages'].each do |a_language|
-    CountryLanguage.create!(name: a_language, country: country)
+    CountryLanguage.create!(code: a_language[0], name: a_language[1], country: country)
   end
 
   country.latitude = a['latlng'][0]

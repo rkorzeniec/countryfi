@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531083528) do
+ActiveRecord::Schema.define(version: 20161006101341) do
 
   create_table "checkins", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160531083528) do
     t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code",       limit: 255
   end
 
   add_index "country_languages", ["country_id"], name: "fk_rails_512239a8b1", using: :btree
