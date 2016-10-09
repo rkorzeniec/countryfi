@@ -16,6 +16,7 @@ class Country < ActiveRecord::Base
       OR cca3 LIKE ?
       OR cioc LIKE ?",
       "%#{name}%", "%#{name}%", "%#{name}%",
-      "%#{name}%", "%#{name}%", "%#{name}%").first
+      "%#{name}%", "%#{name}%", "%#{name}%"
+    ).first
   end
 end
