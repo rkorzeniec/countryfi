@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009154204) do
+ActiveRecord::Schema.define(version: 20161009154924) do
 
   create_table "checkins", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20161009154204) do
     t.string   "capital",       limit: 255
     t.string   "region",        limit: 255
     t.string   "subregion",     limit: 255
-    t.string   "latlang",       limit: 255
     t.string   "demonym",       limit: 255
     t.boolean  "landlocked"
     t.float    "area",          limit: 24
