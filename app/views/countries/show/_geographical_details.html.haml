@@ -1,0 +1,35 @@
+.panel
+  .panel-heading Geographical details
+  %table.table.text-sm
+    %tr
+      %td
+        %b Region
+      %td= country.region
+    %tr
+      %td
+        %b Subregion
+      %td= country.subregion
+    %tr
+      %td
+        %b Location
+      %td= "#{country.latitude}, #{country.longitude}"
+    %tr
+      %td
+        %b Area
+      %td
+        = country.area
+        %span
+          km²
+    %tr
+      %td
+        %b Landlocked
+      %td= country.landlocked
+    %tr
+      %td
+        %b Borders
+      %td
+        - if country.border_countries.empty?
+          = '-'
+        - else
+          - country.border_countries.each do |border|
+            = "#{border.border_country.name_common} "

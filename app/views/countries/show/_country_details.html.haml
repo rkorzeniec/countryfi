@@ -1,0 +1,40 @@
+.panel
+  .panel-heading Country details
+  %table.table.text-sm
+    %tr
+      %td
+        %b Official name
+      %td= country.name_official
+    %tr
+      %td
+        %b Common name
+      %td= country.name_common
+    %tr
+      %td
+        %b Capital
+      %td= country.capital
+    -# %tr
+    -#   %td
+    -#     %b Flag
+    -#   %td
+    -#     = embedded_svg("flags/#{@country.cca3.downcase}.svg", class: 'flag')
+    %tr
+      %td
+        %b Languages
+      %td
+        - country.country_languages.each do |language|
+          = "#{language.name} (#{language.code}) "
+    %tr
+      %td
+        %b Currency
+      %td= country.currencies.map(&:code).join(', ')
+    %tr
+      %td
+        %b Calling code
+      %td
+        - country.country_calling_codes.each do |code|
+          = "+#{code.calling_code} "
+    %tr
+      %td
+        %b Demonym
+      %td= country.demonym

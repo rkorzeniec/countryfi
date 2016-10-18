@@ -1,13 +1,60 @@
-- provide(:title, "Country")
+- provide(:title, @country.name_common)
 
+.page-header
+  %h1= @country.name_common
 .row
-  .col.col-6
-    = #render 'shared/country', id: @country.id
-  .col.col-6
-    - values = county_field_values(@country)
-    - country_field_labels.each_with_index do |label, index|
-      .row
-        .col.col-6
-          %b= label
-        .col.col-6
-          = values[index]
+  .col.col-md-6
+    #mapbox.mapbox
+    .visible-xs.padding-sm
+  .col.col-md-6
+    = render 'countries/show/country_details', country: @country
+    = render 'countries/show/geographical_details', country: @country
+    = render 'countries/show/miscellaneous_details', country: @country
+:javascript
+  mapboxgl.accessToken = 'pk.eyJ1IjoidHJlYm9yIiwiYSI6ImNpdHg0a24xczAwMzgydG4yemF6YXkzY2MifQ.H8nqDel1PDvxl07Bm7a0DQ';
+  var map = new mapboxgl.Map({
+      container: 'mapbox', // container id
+      style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
+      center: ["#{@country.longitude}", "#{@country.latitude}"], // starting position
+      zoom: 4 // starting zoom
+  });
+
+  var nav = new mapboxgl.NavigationControl({position: 'bottom-right'}); // position is optional
+  map.addControl(nav);
+
+  map.on('load', function() {
+    getCountry(map)
+  });
+
+  function getCountry(map) {
+    $.ajax({
+      dataType: 'text',
+      url: '/countries/#{@country.id}.json',
+      success: function(country) {
+        var geojson = $.parseJSON(country);
+        console.log(geojson);
+        map.addSource("#{@country.cca3}", {
+          'type': 'geojson',
+          'data': geojson
+        });
+
+        map.addLayer({
+          'id': 'route',
+          'type': 'fill',
+          'source': "#{@country.cca3}",
+          'layout': {},
+          'paint': {
+              'fill-color': '#088',
+              'fill-opacity': 0.8
+          }
+        });
+
+        var bbox = turf.extent(geojson);
+
+        map.fitBounds(bbox, {padding: 20});
+      },
+      error:function() {
+        alert("Could not load the country map");
+      }
+    });
+  }

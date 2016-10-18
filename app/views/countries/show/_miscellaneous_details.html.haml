@@ -1,0 +1,27 @@
+.panel
+  .panel-heading Miscellaneous details
+  %table.table.text-sm
+    %tr
+      %td
+        %b CCA2
+      %td= country.cca2
+    %tr
+      %td
+        %b CCA3
+      %td= country.cca3
+    %tr
+      %td
+        %b Domains
+      %td= country.top_level_domains.map(&:name).join(', ')
+    %tr
+      %td
+        %b CCN3
+      %td= country.ccn3
+    %tr
+      %td
+        %b CIOC
+      %td= country.cioc || '-'
+    %tr
+      %td
+        %b Alternative spellings
+      %td= country.country_alternative_spellings.map(&:name).join(', ')
