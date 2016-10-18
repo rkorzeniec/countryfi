@@ -22,7 +22,7 @@ json.each do |a|
   country.cioc = a['cioc']
 
   a['currency'].each do |a_currency|
-    Currency.create!(currency_code: a_currency, country: country)
+    Currency.create!(code: a_currency, country: country)
   end
 
   country.capital = a['capital']
@@ -55,6 +55,6 @@ json.each do |a|
   country = Country.find_by(cca3: a['cca3'])
   a['borders'].each do |a_borders|
     border_country = Country.where('cca3 = ? OR cioc = ?', a_borders, a_borders).first
-    CountryBorder.create!(border_country_id: border_country.id, country: country)
+    BorderCountry.create!(border_country: border_country, country: country)
   end
 end

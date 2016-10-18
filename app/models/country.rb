@@ -4,7 +4,7 @@ class Country < ActiveRecord::Base
   has_many :top_level_domains
   has_many :country_languages
   has_many :country_calling_codes
-  has_many :country_borders
+  has_many :border_countries
   has_many :country_alternative_spellings
 
   def self.find_by_any(name)

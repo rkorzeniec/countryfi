@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009154924) do
+ActiveRecord::Schema.define(version: 20161009163103) do
+
+  create_table "border_countries", force: :cascade do |t|
+    t.integer  "country_id",        limit: 4
+    t.integer  "border_country_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "border_countries", ["country_id"], name: "fk_rails_dbcc34e82e", using: :btree
 
   create_table "checkins", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
@@ -51,15 +60,6 @@ ActiveRecord::Schema.define(version: 20161009154924) do
   end
 
   add_index "country_alternative_spellings", ["country_id"], name: "fk_rails_4501639dad", using: :btree
-
-  create_table "country_borders", force: :cascade do |t|
-    t.integer  "country_id",        limit: 4
-    t.integer  "border_country_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "country_borders", ["country_id"], name: "fk_rails_dbcc34e82e", using: :btree
 
   create_table "country_calling_codes", force: :cascade do |t|
     t.integer  "country_id",   limit: 4
@@ -114,10 +114,10 @@ ActiveRecord::Schema.define(version: 20161009154924) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "border_countries", "countries"
   add_foreign_key "checkins", "countries"
   add_foreign_key "checkins", "users"
   add_foreign_key "country_alternative_spellings", "countries"
-  add_foreign_key "country_borders", "countries"
   add_foreign_key "country_calling_codes", "countries"
   add_foreign_key "country_languages", "countries"
   add_foreign_key "currencies", "countries"
