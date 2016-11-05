@@ -1,5 +1,4 @@
 class CheckinsController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_checkin, only: [:show, :edit, :update, :destroy]
 
   def index
