@@ -27,6 +27,7 @@ gem 'better_errors', '~> 2.1.1'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.4.0'
 end
 
 group :development do
@@ -40,6 +41,7 @@ end
 
 group :test do
   gem 'simplecov', require: false
+  gem 'factory_girl_rails', '~> 4.5.0'
 end
 
 # Use rollbar for server-side notifications
