@@ -1,7 +1,14 @@
 - provide(:title, @country.name_common)
 
 .page-header
-  %h1= @country.name_common
+  .row
+    %h1.col-sm-6= @country.name_common
+    .col-sm-6
+      .visible-xs
+        %hr
+      = link_to new_checkin_path(country: @country.cca2), class: 'btn btn-labeled btn-primary pull-right col-xs-12 col-sm-auto' do
+        %i.btn-label.icon.fa.fa-plus
+        Add checkin
 .row
   .col.col-md-6
     #mapbox.mapbox
