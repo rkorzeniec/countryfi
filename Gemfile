@@ -42,6 +42,8 @@ end
 group :test do
   gem 'simplecov', require: false
   gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'shoulda-matchers',   '~> 2.8.0'
+  gem 'database_cleaner',   '~> 1.5.0'
 end
 
 # Use rollbar for server-side notifications
