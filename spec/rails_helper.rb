@@ -6,6 +6,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'spec_helper'
 require 'rspec/rails'
+require 'devise'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -25,6 +26,7 @@ RSpec.configure do |config|
   config.filter_run_excluding broken: true
 
   config.infer_spec_type_from_file_location!
+  config.use_transactional_fixtures = true
 
   config.filter_rails_from_backtrace!
 
@@ -49,28 +51,15 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
-    FileUtils.rm_rf(Dir["#{rails_root}/spec/support/uploads"])
-  end
-
-  config.before(:example, exceptions: :catch) do
-    allow(Rails.application.config.action_dispatch).to receive(
-      :show_exceptions
-    ) { true }
+    # FileUtils.rm_rf(Dir["#{rails_root}/spec/support/uploads"])
   end
 
   config.fixture_path = "#{rails_root}/spec/fixtures"
 
   config.include FactoryGirl::Syntax::Methods
-  config.include ActionDispatch::TestProcess
-  config.include ApplicationHelper, type: :controller
   config.include Devise::TestHelpers, type: :controller
   config.include Devise::TestHelpers, type: :view
-  config.include CustomMatchers
-
-  unless ENV['TRAVIS']
-    config.before(:all) { DeferredGarbageCollection.start }
-    config.after(:all)  { DeferredGarbageCollection.reconsider }
-  end
+  config.include ApplicationHelper, type: :controller
 
   config.around(:each, :migration) do |example|
     ActiveRecord::Migration.verbose = false

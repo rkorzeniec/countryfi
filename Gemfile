@@ -44,6 +44,7 @@ group :test do
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'shoulda-matchers',   '~> 2.8.0'
   gem 'database_cleaner',   '~> 1.5.0'
+  gem 'stub_env'
 end
 
 # Use rollbar for server-side notifications
