@@ -52,6 +52,6 @@ gem 'rollbar', '~> 2.7.1'
 # Use HAML for as view engine
 gem 'haml', '~> 4.0.7'
 # Use devise for user authentication
-gem 'devise', '~> 3.5.5'
+gem 'devise', '~> 4.2.0'
 # Use dotenv for loading env vars
 gem 'dotenv-rails', '~> 0.9.0'
