@@ -1,5 +1,6 @@
 class CheckinsController < ApplicationController
-  before_action :find_checkin, only: [:show, :edit, :update, :destroy]
+  before_action :find_checkin, only: [:edit, :update, :destroy]
+  before_action :build_checkin, only: [:new, :create]
 
   def index
     @checkins = current_user.checkins
@@ -7,16 +8,10 @@ class CheckinsController < ApplicationController
                             .order(checkin_date: :desc)
   end
 
-  def show
-  end
-
   def new
-    @checkin = Checkin.new
   end
 
   def create
-    @checkin = Checkin.new(checkin_params.merge(user: current_user))
-
     if @checkin.save
       flash[:success] = 'Checkin done.'
       redirect_to checkins_path
@@ -32,11 +27,11 @@ class CheckinsController < ApplicationController
   def update
     if @checkin.update_attributes(checkin_params)
       flash[:success] = 'Checkin updated successfully'
+      redirect_to checkins_path
     else
       flash[:error] = 'Checkin could not be updated'
+      render :edit
     end
-
-    redirect_to checkins_path
   end
 
   def destroy
@@ -55,7 +50,11 @@ class CheckinsController < ApplicationController
     @checkin = Checkin.find(params[:id])
   end
 
+  def build_checkin
+    @checkin = Checkin.new(checkin_params.merge(user: current_user))
+  end
+
   def checkin_params
-    params.require(:checkin).permit(:country_id, :checkin_date)
+    params.fetch(:checkin, {}).permit(:country_id, :checkin_date)
   end
 end
