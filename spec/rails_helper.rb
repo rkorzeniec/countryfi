@@ -57,8 +57,8 @@ RSpec.configure do |config|
   config.fixture_path = "#{rails_root}/spec/fixtures"
 
   config.include FactoryGirl::Syntax::Methods
-  config.include Devise::TestHelpers, type: :controller
-  config.include Devise::TestHelpers, type: :view
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
   config.include ApplicationHelper, type: :controller
 
   config.around(:each, :migration) do |example|
