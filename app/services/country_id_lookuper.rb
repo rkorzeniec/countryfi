@@ -1,5 +1,6 @@
 class CountryIDLookuper
   def self.lookup(code)
-    Country.find_by(cca2: code).id
+    country = Country.find_by(cca2: code)
+    return country.id unless country.nil?
   end
 end
