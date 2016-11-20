@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :country do
-    id 1
     name_common 'Switzerland'
     name_official 'Swiss Confederation'
     cca2 'CH'
