@@ -2,7 +2,7 @@
 .form-group-lg.margin-t-10
   = f.label :country, class: 'form-label'
 .form-group-lg
-  = f.collection_select(:country_id, Country.all, :id, :name_common, { include_blank: 'Please select a country', class: 'form-control', selected: ( @checkin.country_id || country_name_lookup) })
+  = f.collection_select(:country_id, Country.all, :id, :name_common, { include_blank: 'Please select a country', class: 'form-control', selected: selected_country(@checkin) })
 .form-group-lg.margin-t-10
   = f.label :checkin_date, class: 'form-label'
   = f.text_field :checkin_date, value: render_date(@checkin.checkin_date), class: 'form-control'
