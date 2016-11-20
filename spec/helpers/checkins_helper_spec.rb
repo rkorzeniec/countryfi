@@ -8,7 +8,7 @@ describe CheckinsHelper do
       let(:checkin) { build_stubbed(:checkin) }
       let(:params) { {} }
 
-      it { expect(subject).to eq(checkin.id) }
+      it { expect(subject).to eq(checkin.country_id) }
     end
 
     context 'when checkin not supplied' do
