@@ -1,5 +1,5 @@
 module CheckinsHelper
-  def country_name_lookup
-    CountryIDLookuper.lookup(params[:country]) unless params[:country].nil?
+  def selected_country(checkin = nil)
+    checkin.nil? ? CountryIDLookuper.lookup(params[:country]) : checkin.country_id
   end
 end

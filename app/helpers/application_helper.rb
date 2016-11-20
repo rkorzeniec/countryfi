@@ -1,11 +1,12 @@
 module ApplicationHelper
-  def full_title(page_title = '')
+  def full_title(page_title = nil)
     base_title = 'Countryfier'
-    page_title.empty? ? base_title : "#{page_title} | #{base_title}"
+    page_title.nil? ? base_title : "#{page_title} | #{base_title}"
   end
 
   def render_date(date)
-    h(date.strftime('%Y-%m-%d')) if date
+    return unless date
+    date.strftime('%Y-%m-%d')
   end
 
   def embedded_svg(filename, options = {})
