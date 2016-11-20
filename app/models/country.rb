@@ -8,6 +8,7 @@ class Country < ActiveRecord::Base
   has_many :country_alternative_spellings
 
   def self.find_by_any(name)
+    return unless name
     where(
       "name_common LIKE ?
       OR name_official LIKE ?
