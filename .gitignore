@@ -24,3 +24,6 @@
 
 #Byebug histroy
 .byebug_history
+
+#Specs
+spec/examples.txt
