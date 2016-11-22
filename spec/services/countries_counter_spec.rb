@@ -3,6 +3,7 @@ describe CountriesCounter do
   let(:asian_country) { create(:country, region: 'Asia') }
   let(:oceanian_country) { create(:country, region: 'Oceania') }
   let(:african_country) { create(:country, region: 'Africa') }
+  let(:antarctic_country) { create(:country, region: 'Antarctica') }
   let(:north_american_country) do
     create(:country, region: 'Americas', subregion: 'North America')
   end
@@ -17,6 +18,24 @@ describe CountriesCounter do
   end
 
   context 'when class methods are called' do
+    describe '.world_countries_count' do
+      subject { described_class.world_countries_count }
+
+      context 'when countries exist' do
+        before do
+          european_country
+          asian_country
+          african_country
+        end
+
+        it { expect(subject).to eq(3) }
+      end
+
+      context 'when countries does not exist' do
+        it { expect(subject).to eq(0) }
+      end
+    end
+
     describe '.european_countries_count' do
       subject { described_class.european_countries_count }
 
@@ -104,11 +123,26 @@ describe CountriesCounter do
 
       context 'when african countries exist' do
         before { african_country }
+
         it { expect(subject).to eq(1) }
       end
 
       context 'when african countries does not exist' do
         it { expect(subject).to eq(0) }
+      end
+
+      describe '.antarctican_countries_count' do
+        subject { described_class.antarctican_countries_count }
+
+        context 'when african countries exist' do
+          before { antarctic_country }
+
+          it { expect(subject).to eq(1) }
+        end
+
+        context 'when african countries does not exist' do
+          it { expect(subject).to eq(0) }
+        end
       end
     end
   end
@@ -133,6 +167,27 @@ describe CountriesCounter do
     end
     let(:oceanian_checkin) do
       create(:checkin, user: user, country: oceanian_country)
+    end
+    let(:antarctic_checkin) do
+      create(:checkin, user: user, country: antarctic_country)
+    end
+
+    describe '#visited_world_countries_count' do
+      subject { counter.visited_world_countries_count }
+
+      context 'when world checkin exist' do
+        before do
+          european_checkin
+          asian_checkin
+          african_checkin
+        end
+
+        it { expect(subject).to eq(3) }
+      end
+
+      context 'when world checkin does not exist' do
+        it { expect(subject).to eq(0) }
+      end
     end
 
     describe '#visited_european_countries_count' do
@@ -241,6 +296,20 @@ describe CountriesCounter do
       end
 
       context 'when african checkin does not exist' do
+        it { expect(subject).to eq(0) }
+      end
+    end
+
+    describe '#visited_antarctican_countries_count' do
+      subject { counter.visited_antarctican_countries_count }
+
+      context 'when antarctic checkin exist' do
+        before { antarctic_checkin }
+
+        it { expect(subject).to eq(1) }
+      end
+
+      context 'when antarctic checkin does not exist' do
         it { expect(subject).to eq(0) }
       end
     end

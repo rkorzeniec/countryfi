@@ -2,22 +2,28 @@ class CountriesCounter
   attr_reader :user
 
   class << self
+    def world_countries_count
+      Country.count
+    end
+
     def european_countries_count
       Country.where(region: 'Europe').count
     end
 
     def north_american_countries_count
-      Country.where([
-        "region = 'Americas' AND "\
-        "subregion = :north_america OR "\
-        "subregion = :central_america OR "\
-        "subregion = :caribbean",
-        {
-          north_america: 'North America',
-          central_america: 'Central America',
-          caribbean: 'Caribbean'
-        }
-      ]).count
+      Country.where(
+        [
+          "region = 'Americas' AND "\
+          'subregion = :north_america OR '\
+          'subregion = :central_america OR '\
+          'subregion = :caribbean',
+          {
+            north_america: 'North America',
+            central_america: 'Central America',
+            caribbean: 'Caribbean'
+          }
+        ]
+      ).count
     end
 
     def south_american_countries_count
@@ -35,10 +41,18 @@ class CountriesCounter
     def african_countries_count
       Country.where(region: 'Africa').count
     end
+
+    def antarctican_countries_count
+      Country.where(region: 'Antarctica').count
+    end
   end
 
   def initialize(user)
     @user = user
+  end
+
+  def visited_world_countries_count
+    user.countries.count
   end
 
   def visited_european_countries_count
@@ -46,17 +60,19 @@ class CountriesCounter
   end
 
   def visited_north_american_countries_count
-    user.countries.where([
-      "region = 'Americas' AND "\
-      "subregion = :north_america OR "\
-      "subregion = :central_america OR "\
-      "subregion = :caribbean",
-      {
-        north_america: 'North America',
-        central_america: 'Central America',
-        caribbean: 'Caribbean'
-      }
-    ]).count
+    user.countries.where(
+      [
+        "region = 'Americas' AND "\
+        'subregion = :north_america OR '\
+        'subregion = :central_america OR '\
+        'subregion = :caribbean',
+        {
+          north_america: 'North America',
+          central_america: 'Central America',
+          caribbean: 'Caribbean'
+        }
+      ]
+    ).count
   end
 
   def visited_south_american_countries_count
@@ -73,5 +89,9 @@ class CountriesCounter
 
   def visited_african_countries_count
     user.countries.where(region: 'Africa').count
+  end
+
+  def visited_antarctican_countries_count
+    user.countries.where(region: 'Antarctica').count
   end
 end
