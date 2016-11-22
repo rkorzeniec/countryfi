@@ -1,0 +1,25 @@
+- total_countries = CountriesCounter.european_countries_count
+- visited_percent = (visited_countries_count / total_countries.to_f) * 100
+.stat-panel.text-center
+  .stat-row
+    .stat-cell.bg-dark-gray.padding-sm.text-xs.text-semibold Europe
+  .stat-row
+    .stat-cell.bordered.no-border-t.no-padding-hr
+      .pie-chart#europe_pie_chart{ 'data-percent': "#{visited_percent}" }
+        .pie-chart-label
+          = "#{visited_countries_count}/#{total_countries}"
+:javascript
+  window.PixelAdmin.init.push(function () {
+    var pieChartDefaults = {
+      animate: 2000,
+      scaleColor: false,
+      lineWidth: 6,
+      lineCap: 'square',
+      size: 90,
+      trackColor: '#e5e5e5'
+    };
+
+    $('#europe_pie_chart').easyPieChart($.extend({}, pieChartDefaults, {
+      barColor: PixelAdmin.settings.consts.COLORS[1]
+    }));
+  });
