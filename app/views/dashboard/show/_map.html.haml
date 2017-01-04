@@ -17,7 +17,7 @@
       %li
         = link_to 'Australia', '#australia-pill', data: { toggle: 'tab' }
       %li
-        = link_to 'Antarctica', '#australia-pill', data: { toggle: 'tab' }
+        = link_to 'Antarctica', '#antarctica-pill', data: { toggle: 'tab' }
 .row
   .col-sm-12
     .tab-content{ style: 'max-height: 600px;' }
@@ -35,4 +35,6 @@
         = render 'dashboard/show/maps/africa'
       .tab-pane#australia-pill
         = render 'dashboard/show/maps/australia'
+      .tab-pane#antarctica-pill
+        = render 'dashboard/show/maps/antarctica'
     = render 'dashboard/show/maps/country_checked', countries: country_code_array(current_user.countries)
