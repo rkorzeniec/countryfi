@@ -2,7 +2,7 @@ describe User do
   it { is_expected.to have_many(:checkins) }
   it { is_expected.to have_many(:countries).through(:checkins) }
 
-  context 'destroys chheckins' do
+  context 'destroys checkins' do
     let!(:user) { create(:user) }
     let!(:country) { create(:country) }
     let!(:checkin) { create(:checkin, user: user, country: country) }
