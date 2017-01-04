@@ -1,8 +1,10 @@
+= content_for :page_specific_css do
+  = stylesheet_link_tag 'dashboard'
+
 .row
-  .col-sm-8.col-sm-offset-2{ style: 'margin-bottom: 20px;' }
+  .col-sm-7#dashboard-maps
     = render 'dashboard/show/map'
-.row
-  .col-sm-10.col-sm-offset-1
+  .col-sm-5#dashboard-pie-charts
     = render 'dashboard/show/continent_progress_charts'
 .row
   .col-sm-8
