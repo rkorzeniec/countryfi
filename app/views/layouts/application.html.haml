@@ -1,6 +1,8 @@
 %html
   %head
     = render 'layouts/head'
+    = yield :page_specific_css
+    = yield :page_specific_js
     = render 'layouts/mapbox'
   %body{ class: "theme-default main-menu-animated animate-mm-sm animate-mm-md animate-mm-lg #{ yield :page_specific_body_class }" }
     .main-wrapper.margin-l-10.margin-r-10

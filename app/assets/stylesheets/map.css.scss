@@ -2,7 +2,7 @@
   svg {
     margin: 0 auto;
     width: 100%;
-    height: auto;
+    height: 100%;
 
     .land {
       fill: #282F37;
@@ -32,7 +32,19 @@
     }
 
     g {
-      margin-left:auto; margin-right:auto; display:block;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
     }
   }
 }
+
+.flag {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#mapbox { width:100%; height: 500px; }
