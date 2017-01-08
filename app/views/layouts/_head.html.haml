@@ -1,4 +1,7 @@
-%title= full_title(yield(:title))
+%title= page_title
+%meta{name: 'title', content: page_title }
+%meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' }
+-# %link{href: '/favicon.png', rel: 'icon', type: 'image/png'}
+= csrf_meta_tags
 = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
 = javascript_include_tag 'application', 'data-turbolinks-track' => true
-= csrf_meta_tags
