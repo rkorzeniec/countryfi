@@ -5,7 +5,6 @@ describe CheckinsController do
 
   context 'when user not authenticated' do
     it_behaves_like 'authentication_protected_controller', [
-      [:get, :index],
       [:get, :new],
       [:get, :edit, { id: 1 }],
       [:put, :update, { id: 1 }],
@@ -16,19 +15,6 @@ describe CheckinsController do
 
   context 'when user signed in' do
     before { sign_in(user) }
-
-    describe 'GET index' do
-      before do
-        allow(CountryIDLookuper).to receive(:lookup).and_return(country.id)
-      end
-      before { get(:index) }
-
-      it { expect(response).to be_success }
-      it { expect(subject).to render_template(:index) }
-      it { expect(assigns(:checkins)).to include(checkin) }
-      it { expect(assigns(:checkins).count).to eq(1) }
-      it { expect(response.body).to include(country.name_common) }
-    end
 
     describe 'GET new' do
       before { get(:new) }
@@ -83,7 +69,6 @@ describe CheckinsController do
       let!(:now) { '2016-01-01' }
 
       context 'when successful' do
-
         before { post(:update, id: checkin.id, checkin: { checkin_date: now }) }
 
         it { expect(response).to redirect_to(checkins_path) }
@@ -95,7 +80,7 @@ describe CheckinsController do
 
       context 'when unsuccessful' do
         before do
-          post(:update, id: checkin.id, checkin: { country_id: 'NaN' })
+          post(:update, id: checkin.id, checkin: { checkin_date: nil })
         end
 
         it { expect(subject).to render_template(:edit) }

@@ -2,11 +2,7 @@ class CheckinsController < ApplicationController
   before_action :find_checkin, only: [:edit, :update, :destroy]
   before_action :build_checkin, only: [:new, :create]
 
-  def index
-    @checkins = current_user.checkins
-                            .paginate(page: params[:page], per_page: 15)
-                            .order(checkin_date: :desc)
-  end
+  layout 'application_non_menu'
 
   def new
   end
