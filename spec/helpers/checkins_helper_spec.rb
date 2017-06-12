@@ -14,9 +14,11 @@ describe CheckinsHelper do
     context 'when checkin not supplied' do
       let(:checkin) { nil }
       let(:params) { { country: 'CH' } }
-      let!(:country) { create(:country) }
 
-      it { expect(subject).to eq(country.id) }
+      it do
+        expect(CountryIDLookuper).to receive(:lookup).with('CH')
+        subject
+      end
     end
   end
 end
