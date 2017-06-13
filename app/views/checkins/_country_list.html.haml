@@ -11,7 +11,8 @@
       %tr
         %td
           %b= render_date(checkin.checkin_date)
-        %td= checkin.country.name_common
+        %td
+          = link_to checkin.country.name_common, country_path(checkin.country)
         %td
           = link_to edit_checkin_path(checkin) do
             %i.fa.fa-pencil
