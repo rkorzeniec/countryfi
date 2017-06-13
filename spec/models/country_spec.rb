@@ -51,7 +51,105 @@ describe Country do
     context 'when name is neither' do
       let(:name) { nil }
 
-      it { expect(subject).to be_nil }
+      it { expect(subject).to eq(Country.first) }
+    end
+  end
+
+  describe '#european' do
+    it do
+      expect { create(:country) }.to change {
+        Country.european.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country, :asian) }.not_to change {
+        Country.european.count
+      }
+    end
+  end
+
+  describe '#asian' do
+    it do
+      expect { create(:country, :asian) }.to change {
+        Country.asian.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country) }.not_to change {
+        Country.asian.count
+      }
+    end
+  end
+
+  describe '#african' do
+    it do
+      expect { create(:country, :african) }.to change {
+        Country.african.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country) }.not_to change {
+        Country.african.count
+      }
+    end
+  end
+
+  describe '#antarctican' do
+    it do
+      expect { create(:country, :antarctican) }.to change {
+        Country.antarctican.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country) }.not_to change {
+        Country.antarctican.count
+      }
+    end
+  end
+
+  describe '#oceanian' do
+    it do
+      expect { create(:country, :oceanian) }.to change {
+        Country.oceanian.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country) }.not_to change {
+        Country.oceanian.count
+      }
+    end
+  end
+
+  describe '#north_american' do
+    it do
+      expect { create(:country, :north_american) }.to change {
+        Country.north_american.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country) }.not_to change {
+        Country.north_american.count
+      }
+    end
+  end
+
+  describe '#south_american' do
+    it do
+      expect { create(:country, :south_american) }.to change {
+        Country.south_american.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country) }.not_to change {
+        Country.south_american.count
+      }
     end
   end
 end
