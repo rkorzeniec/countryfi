@@ -1,4 +1,4 @@
-- visited_countries = CountriesCounter.new(current_user)
+- visited_countries = VisitedCountriesCounter.new(current_user)
 .row
   .col-xs-4
     = render 'dashboard/show/pie_charts/world_pie_chart', visited_countries_count: visited_countries.visited_world_countries_count
