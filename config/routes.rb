@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show], controller: 'dashboard'
 
   root 'static_pages#home'
+
+  unless Rails.application.config.consider_all_requests_local
+    get '*path', to: 'exceptions#show', code: '404'
+  end
 end
