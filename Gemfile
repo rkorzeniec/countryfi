@@ -55,3 +55,6 @@ gem 'haml', '~> 4.0.7'
 gem 'devise', '~> 4.2.0'
 # Use dotenv for loading env vars
 gem 'dotenv-rails', '~> 0.9.0'
+
+# Ruby enabled charts
+gem 'chartkick', '~> 2.2.4'
