@@ -8,3 +8,4 @@
   = f.text_field :checkin_date, value: render_date(@checkin.checkin_date), class: 'form-control'
 .form-group-lg.margin-t-10
   = submit_tag 'Save', class: 'btn btn-primary btn-block'
+  = link_to 'Cancel', checkins_worlds_path, class: 'btn btn-block'
