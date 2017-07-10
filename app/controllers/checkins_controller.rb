@@ -2,8 +2,6 @@ class CheckinsController < ApplicationController
   before_action :find_checkin, only: [:edit, :update, :destroy]
   before_action :build_checkin, only: [:new, :create]
 
-  layout 'application_non_menu'
-
   def new
   end
 
