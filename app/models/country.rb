@@ -25,7 +25,6 @@ class Country < ActiveRecord::Base
   end
 
   def self.find_by_any(name)
-    return unless name
     where(
       "name_common LIKE ?
       OR name_official LIKE ?

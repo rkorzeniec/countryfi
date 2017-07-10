@@ -7,43 +7,31 @@ class CountriesCounter
     end
 
     def european_countries_count
-      Country.where(region: 'Europe').count
+      Country.european.count
     end
 
     def north_american_countries_count
-      Country.where(
-        [
-          "region = 'Americas' AND "\
-          'subregion = :north_america OR '\
-          'subregion = :central_america OR '\
-          'subregion = :caribbean',
-          {
-            north_america: 'North America',
-            central_america: 'Central America',
-            caribbean: 'Caribbean'
-          }
-        ]
-      ).count
+      Country.north_american.count
     end
 
     def south_american_countries_count
-      Country.where(subregion: 'South America').count
+      Country.south_american.count
     end
 
     def asian_countries_count
-      Country.where(region: 'Asia').count
+      Country.asian.count
     end
 
     def oceanian_countries_count
-      Country.where(region: 'Oceania').count
+      Country.oceanian.count
     end
 
     def african_countries_count
-      Country.where(region: 'Africa').count
+      Country.african.count
     end
 
     def antarctican_countries_count
-      Country.where(region: 'Antarctica').count
+      Country.antarctican.count
     end
   end
 
@@ -56,42 +44,30 @@ class CountriesCounter
   end
 
   def visited_european_countries_count
-    user.countries.where(region: 'Europe').count
+    user.countries.european.count
   end
 
   def visited_north_american_countries_count
-    user.countries.where(
-      [
-        "region = 'Americas' AND "\
-        'subregion = :north_america OR '\
-        'subregion = :central_america OR '\
-        'subregion = :caribbean',
-        {
-          north_america: 'North America',
-          central_america: 'Central America',
-          caribbean: 'Caribbean'
-        }
-      ]
-    ).count
+    user.countries.north_american.count
   end
 
   def visited_south_american_countries_count
-    user.countries.where(subregion: 'South America').count
+    user.countries.south_american.count
   end
 
   def visited_asian_countries_count
-    user.countries.where(region: 'Asia').count
+    user.countries.asian.count
   end
 
   def visited_oceanian_countries_count
-    user.countries.where(region: 'Oceania').count
+    user.countries.oceanian.count
   end
 
   def visited_african_countries_count
-    user.countries.where(region: 'Africa').count
+    user.countries.african.count
   end
 
   def visited_antarctican_countries_count
-    user.countries.where(region: 'Antarctica').count
+    user.countries.antarctican.count
   end
 end
