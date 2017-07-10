@@ -1,7 +1,10 @@
 module ApplicationHelper
-  def full_title(page_title = nil)
-    base_title = 'Countryfier'
-    page_title.nil? ? base_title : "#{page_title} | #{base_title}"
+  def page_title
+    if @page_title.present?
+      @page_title
+    else
+      'Countryfier'
+    end
   end
 
   def render_date(date)

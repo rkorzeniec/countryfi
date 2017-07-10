@@ -1,17 +1,18 @@
 describe ApplicationHelper do
-  describe '#full_title' do
-    subject { helper.full_title(title) }
+  describe '#page_title' do
+    subject { helper.page_title }
 
-    context 'when base title' do
-      let(:title) { nil }
-
+    context 'when default title' do
       it { expect(subject).to eq('Countryfier') }
     end
 
     context 'when page title' do
-      let(:title) { 'Checkins' }
+      let(:title) { 'Checkins | Countryfier' }
 
-      it { expect(subject).to eq('Checkins | Countryfier') }
+      it do
+        assign(:page_title, title)
+        expect(subject).to eq(title)
+      end
     end
   end
 
@@ -33,15 +34,15 @@ describe ApplicationHelper do
 
   describe '#embedded_svg' do
     context 'when file exists' do
-      it "is a pending example"
+      it 'is a pending example'
     end
 
     context 'when class is supplied' do
-      it "is a pending example"
+      it 'is a pending example'
     end
 
     context 'when class is not supplied' do
-      it "is a pending example"
+      it 'is a pending example'
     end
   end
 end
