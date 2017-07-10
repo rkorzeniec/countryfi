@@ -10,9 +10,12 @@
     = yield :page_specific_js
     = render 'layouts/mapbox'
   %body{ class: "theme-default main-menu-animated animate-mm-sm animate-mm-md animate-mm-lg #{ yield :page_specific_body_class }" }
-    .main-wrapper.margin-l-10.margin-r-10
-      = render 'layouts/header_navigation', hide_toggle_button: true
-      .content-wrapper.margin-t-60
+    #main-wrapper
+      = render 'layouts/header_navigation'
+      - if user_signed_in?
+        = render 'layouts/main_menu'
+      #content-wrapper
         = render 'layouts/flash'
         = yield
+      #main-menu-bg
     = yield :scripts
