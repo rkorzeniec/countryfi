@@ -55,5 +55,11 @@ module CountryDiary
       '*.ttf',
       '*.png'
     ]
+
+    config.action_controller.include_all_helpers = true
+
+    # config.to_prepare do
+    #   Devise::SessionsController.layout('application_non_menu')
+    # end
   end
 end
