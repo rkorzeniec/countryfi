@@ -31,7 +31,7 @@ describe CheckinsController do
           post(:create, checkin: { country_id: country.id, checkin_date: now })
         end
 
-        it { expect(subject).to redirect_to(checkins_path) }
+        it { expect(subject).to redirect_to(checkins_worlds_path) }
         it { expect { subject }.to change { Checkin.count }.from(1).to(2) }
         it do
           subject
@@ -71,7 +71,7 @@ describe CheckinsController do
       context 'when successful' do
         before { post(:update, id: checkin.id, checkin: { checkin_date: now }) }
 
-        it { expect(response).to redirect_to(checkins_path) }
+        it { expect(response).to redirect_to(checkins_worlds_path) }
         it { expect(flash[:success]).to be_present }
         it do
           expect(checkin.reload.checkin_date.strftime('%Y-%m-%d')).to eq(now)
@@ -93,7 +93,7 @@ describe CheckinsController do
       context 'when successful' do
         subject { delete(:destroy, id: checkin.id) }
 
-        it { expect(subject).to redirect_to(checkins_path) }
+        it { expect(subject).to redirect_to(checkins_worlds_path) }
         it { expect { subject }.to change { Checkin.count }.from(1).to(0) }
         it do
           subject
@@ -109,7 +109,7 @@ describe CheckinsController do
           subject
         end
 
-        it { expect(subject).to redirect_to(checkins_path) }
+        it { expect(subject).to redirect_to(checkins_worlds_path) }
         it { expect(flash[:error]).to be_present }
         it { expect { subject }.not_to change { Checkin.count } }
       end
