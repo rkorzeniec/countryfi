@@ -1,6 +1,39 @@
 describe User do
   it { is_expected.to have_many(:checkins) }
   it { is_expected.to have_many(:countries).through(:checkins) }
+  describe 'countries extended associations' do
+    let(:user) { create(:user) }
+    let(:country) { create(:country) }
+
+    subject { user.countries.visited }
+
+    context 'when no yet visited' do
+      let!(:checkin) do
+        create(
+          :checkin,
+          user: user,
+          country:
+          country,
+          checkin_date: Time.zone.now + 1.day
+        )
+      end
+
+      it { expect(subject).to eq([]) }
+    end
+
+    context 'when already visited' do
+      let!(:checkin) do
+        create(
+          :checkin,
+          user: user,
+          country: country,
+          checkin_date: Time.zone.now - 1.day
+        )
+      end
+
+      it { expect(subject).to eq([country]) }
+    end
+  end
 
   describe 'delegations' do
     it do

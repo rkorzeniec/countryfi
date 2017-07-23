@@ -2,23 +2,15 @@ describe VisitedCountriesCounter do
   let(:counter) { described_class.new(user) }
   let(:user) { create(:user) }
 
-  let(:european_country) { create(:country, region: 'Europe') }
-  let(:asian_country) { create(:country, region: 'Asia') }
-  let(:oceanian_country) { create(:country, region: 'Oceania') }
-  let(:african_country) { create(:country, region: 'Africa') }
-  let(:antarctic_country) { create(:country, region: 'Antarctica') }
-  let(:north_american_country) do
-    create(:country, region: 'Americas', subregion: 'Northern America')
-  end
-  let(:central_american_country) do
-    create(:country, region: 'Americas', subregion: 'Central America')
-  end
-  let(:caribbean_country) do
-    create(:country, region: 'Americas', subregion: 'Caribbean')
-  end
-  let(:south_american_country) do
-    create(:country, region: 'Americas', subregion: 'South America')
-  end
+  let(:european_country) { create(:country) }
+  let(:asian_country) { create(:country, :asian) }
+  let(:oceanian_country) { create(:country, :oceanian) }
+  let(:african_country) { create(:country, :african) }
+  let(:antarctic_country) { create(:country, :antarctican) }
+  let(:north_american_country) { create(:country, :north_american) }
+  let(:central_american_country) { create(:country, :central_american) }
+  let(:caribbean_country) { create(:country, :caribbean) }
+  let(:south_american_country) { create(:country, :south_american) }
   let(:european_checkin) do
     create(:checkin, user: user, country: european_country)
   end
@@ -52,6 +44,14 @@ describe VisitedCountriesCounter do
       end
 
       it { expect(subject).to eq(3) }
+
+      context 'with two same countries' do
+        let!(:european_checkin_b) do
+          create(:checkin, user: user, country: european_country)
+        end
+
+        it { expect(subject).to eq(3) }
+      end
     end
 
     context 'when world checkin does not exist' do
@@ -66,6 +66,14 @@ describe VisitedCountriesCounter do
       before { european_checkin }
 
       it { expect(subject).to eq(1) }
+
+      context 'with two same countries' do
+        let!(:european_checkin_b) do
+          create(:checkin, user: user, country: european_country)
+        end
+
+        it { expect(subject).to eq(1) }
+      end
     end
 
     context 'when european checkin does not exist' do
@@ -82,9 +90,6 @@ describe VisitedCountriesCounter do
       it { expect(subject).to eq(1) }
 
       context 'with central american country' do
-        let(:central_american_country) do
-          create(:country, region: 'Americas', subregion: 'Central America')
-        end
         let(:central_american_checkin) do
           create(:checkin, user: user, country: central_american_country)
         end
@@ -95,9 +100,6 @@ describe VisitedCountriesCounter do
       end
 
       context 'with caribbean country' do
-        let(:caribbean_country) do
-          create(:country, region: 'Americas', subregion: 'Caribbean')
-        end
         let(:caribbean_checkin) do
           create(:checkin, user: user, country: caribbean_country)
         end
@@ -105,6 +107,14 @@ describe VisitedCountriesCounter do
         before { caribbean_checkin }
 
         it { expect(subject).to eq(2) }
+      end
+
+      context 'with two same countries' do
+        let!(:north_american_checkin_b) do
+          create(:checkin, user: user, country: north_american_country)
+        end
+
+        it { expect(subject).to eq(1) }
       end
     end
 
@@ -120,6 +130,14 @@ describe VisitedCountriesCounter do
       before { south_american_checkin }
 
       it { expect(subject).to eq(1) }
+
+      context 'with two same countries' do
+        let!(:south_american_checkin_b) do
+          create(:checkin, user: user, country: south_american_country)
+        end
+
+        it { expect(subject).to eq(1) }
+      end
     end
 
     context 'when south american checkin does not exist' do
@@ -134,6 +152,14 @@ describe VisitedCountriesCounter do
       before { asian_checkin }
 
       it { expect(subject).to eq(1) }
+
+      context 'with two same countries' do
+        let!(:asian_checkin_b) do
+          create(:checkin, user: user, country: asian_country)
+        end
+
+        it { expect(subject).to eq(1) }
+      end
     end
 
     context 'when asian checkin does not exist' do
@@ -148,6 +174,14 @@ describe VisitedCountriesCounter do
       before { oceanian_checkin }
 
       it { expect(subject).to eq(1) }
+
+      context 'with two same countries' do
+        let!(:oceanian_checkin_b) do
+          create(:checkin, user: user, country: oceanian_country)
+        end
+
+        it { expect(subject).to eq(1) }
+      end
     end
 
     context 'when oceanian checkin does not exist' do
@@ -162,6 +196,14 @@ describe VisitedCountriesCounter do
       before { african_checkin }
 
       it { expect(subject).to eq(1) }
+
+      context 'with two same countries' do
+        let!(:african_checkin_b) do
+          create(:checkin, user: user, country: african_country)
+        end
+
+        it { expect(subject).to eq(1) }
+      end
     end
 
     context 'when african checkin does not exist' do
@@ -176,6 +218,14 @@ describe VisitedCountriesCounter do
       before { antarctic_checkin }
 
       it { expect(subject).to eq(1) }
+
+      context 'with two same countries' do
+        let!(:antarctic_checkin_b) do
+          create(:checkin, user: user, country: antarctic_country)
+        end
+
+        it { expect(subject).to eq(1) }
+      end
     end
 
     context 'when antarctic checkin does not exist' do

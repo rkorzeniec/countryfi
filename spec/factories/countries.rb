@@ -101,6 +101,40 @@ FactoryGirl.define do
     longitude(-95)
   end
 
+  trait :central_american do
+    name_common 'Mexico'
+    name_official 'Mexico'
+    cca2 'MX'
+    ccn3 '484'
+    cca3 'MEX'
+    cioc 'MEX'
+    capital 'Mexico City'
+    region 'Americas'
+    subregion 'Central America'
+    demonym 'Mexican'
+    landlocked false
+    area 1_964_380
+    latitude 23
+    longitude(-102)
+  end
+
+  trait :caribbean do
+    name_common 'Cuba'
+    name_official 'Republic of Cuba'
+    cca2 'CU'
+    ccn3 '192'
+    cca3 'CUB'
+    cioc 'CUB'
+    capital 'Havana'
+    region 'Americas'
+    subregion 'Caribbean'
+    demonym 'Cuban'
+    landlocked false
+    area 109_884
+    latitude 21
+    longitude(-80)
+  end
+
   trait :south_american do
     name_common 'Peru'
     name_official 'Republic of Peru'
