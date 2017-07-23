@@ -14,6 +14,7 @@
     #main-navbar-collapse.collapse.navbar-collapse.main-navbar-collpase
       %ul.nav.navbar-nav.pull-right.right-navbar-nav
         - if user_signed_in?
+          %li= link_to 'Explore', explore_path
           %li= link_to 'Add checkin', new_checkin_path
           %li= link_to 'My checkins', checkins_worlds_path
           %li= link_to 'Edit Profile', edit_user_registration_path
