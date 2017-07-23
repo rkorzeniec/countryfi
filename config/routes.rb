@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :countries, only: [:show]
-  resources :checkins, except: [:index, :show]
+  resources :countries, only: :show
+  resources :checkins, except: %i[index show]
   namespace :checkins do
-    resources :worlds, only: [:index]
-    resources :europeans, only: [:index]
-    resources :north_americans, only: [:index]
-    resources :south_americans, only: [:index]
-    resources :asians, only: [:index]
-    resources :africans, only: [:index]
-    resources :oceanians, only: [:index]
-    resources :antarcticans, only: [:index]
+    resources :worlds, only: :index
+    resources :europeans, only: :index
+    resources :north_americans, only: :index
+    resources :south_americans, only: :index
+    resources :asians, only: :index
+    resources :africans, only: :index
+    resources :oceanians, only: :index
+    resources :antarcticans, only: :index
   end
-  resource :dashboard, only: [:show], controller: 'dashboard'
+  resource :dashboard, only: :show, controller: 'dashboard'
 
   root 'static_pages#home'
 

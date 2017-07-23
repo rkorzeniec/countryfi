@@ -1,9 +1,8 @@
 class CheckinsController < ApplicationController
-  before_action :find_checkin, only: [:edit, :update, :destroy]
-  before_action :build_checkin, only: [:new, :create]
+  before_action :find_checkin, only: %i[edit update destroy]
+  before_action :build_checkin, only: %i[new create]
 
-  def new
-  end
+  def new; end
 
   def create
     if @checkin.save
@@ -15,8 +14,7 @@ class CheckinsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @checkin.update_attributes(checkin_params)
