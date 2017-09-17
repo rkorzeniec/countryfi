@@ -1,7 +1,5 @@
 module Checkins
   class BaseCheckinsController < ApplicationController
-    layout 'application_with_menu'
-
     private
 
     def user_checkins

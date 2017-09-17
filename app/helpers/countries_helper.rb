@@ -1,7 +1,5 @@
 module CountriesHelper
   def country_code_array(countries)
-    array = []
-    countries.each { |country| array << country.cca2 }
-    array
+    countries.map(&:cca2)
   end
 end
