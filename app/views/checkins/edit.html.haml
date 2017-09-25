@@ -3,15 +3,3 @@
   .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.margin-t-10
     = form_for @checkin do |f|
       = render 'form', f: f
-
-:javascript
-window.init.push(function() {
-  $( "#checkin_country_id" ).select2({
-      theme: "bootstrap", width: '100%'
-  });
-
-  var checkin = $('#checkin_checkin_date').datepicker({ format: 'yyyy-mm-dd' }).datepicker('setValue', "#{render_date(@checkin.checkin_date)}")
-  checkin.on('changeDate', function(ev) {
-    checkin.datepicker('hide');
-  });
-});
