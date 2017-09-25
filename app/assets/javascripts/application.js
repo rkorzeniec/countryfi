@@ -5,3 +5,5 @@
 //= require ./pixeladmin/jquery.unveil
 //= require ./pixeladmin/pixeladmin.js
 //= require ./pixeladmin/pixel-admin-init
+//= require chartkick
+//= require Chart.bundle

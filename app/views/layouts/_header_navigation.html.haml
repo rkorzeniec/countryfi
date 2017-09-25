@@ -16,7 +16,36 @@
         - if user_signed_in?
           %li= link_to 'Explore', explore_path
           %li= link_to 'Add checkin', new_checkin_path
-          %li= link_to 'My checkins', checkins_worlds_path
+          %li.dropdown
+            %a.dropdown-toggle{href: '#', 'data-toggle': 'dropdown'}
+              My checkins
+              %span.caret.hidden-xs
+            %ul.dropdown-menu
+              %li
+                = link_to checkins_worlds_path do
+                  %span.mm-text World Checkins
+              %li
+                = link_to checkins_europeans_path do
+                  %span.mm-text Europe Checkins
+              %li
+                = link_to checkins_north_americans_path do
+                  %span.mm-text Noth America Checkins
+              %li
+                = link_to checkins_south_americans_path do
+                  %span.mm-text South America Checkins
+              %li
+                = link_to checkins_asians_path do
+                  %span.mm-text Asia Checkins
+              %li
+                = link_to checkins_africans_path do
+                  %span.mm-text Africa Checkins
+              %li
+                = link_to checkins_oceanians_path do
+                  %span.mm-text Oceania Checkins
+              %li
+                = link_to checkins_antarcticans_path do
+                  %span.mm-text Antrctica Checkins
+
           %li= link_to 'Edit Profile', edit_user_registration_path
           %li= link_to 'Sign out', destroy_user_session_path, method: :delete
         - else
