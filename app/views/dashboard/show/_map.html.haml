@@ -17,4 +17,4 @@
         = render 'shared/maps/australia'
       .tab-pane#antarctica-pill
         = render 'shared/maps/antarctica'
-    = render 'shared/maps/country_checked', countries: country_code_array(current_user.countries.visited)
+    = render 'shared/maps/country_checked', countries: country_code_array(current_user.visited_countries)

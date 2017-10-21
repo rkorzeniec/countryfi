@@ -1,11 +1,17 @@
 describe User do
-  it { is_expected.to have_many(:checkins) }
+  it { is_expected.to have_many(:checkins).dependent(:destroy) }
   it { is_expected.to have_many(:countries).through(:checkins) }
+  it { is_expected.to have_many(:visited_checkins).class_name('Checkin') }
+  it do
+    is_expected.to have_many(:visited_countries).source(:country)
+      .through(:visited_checkins)
+  end
+
   describe 'countries extended associations' do
     let(:user) { create(:user) }
     let(:country) { create(:country) }
 
-    subject { user.countries.visited }
+    subject { user.visited_countries }
 
     context 'when no yet visited' do
       let!(:checkin) do

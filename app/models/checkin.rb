@@ -6,6 +6,7 @@ class Checkin < ActiveRecord::Base
   validates :country, presence: true
   validates :checkin_date, presence: true
 
+  scope :world, -> { joins(:country).merge(Country.all) }
   scope :asian, -> { joins(:country).merge(Country.asian) }
   scope :african, -> { joins(:country).merge(Country.african) }
   scope :antarctican, -> { joins(:country).merge(Country.antarctican) }

@@ -6,6 +6,23 @@ describe Checkin do
   it { is_expected.to validate_presence_of(:country) }
   it { is_expected.to validate_presence_of(:checkin_date) }
 
+  describe '#world' do
+    let(:european_country) { create(:country) }
+    let(:asian_country) { create(:country, :asian) }
+
+    it do
+      expect { create(:checkin, country: european_country) }.to change {
+        Checkin.world.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:checkin, country: asian_country) }.to change {
+        Checkin.world.count
+      }.from(0).to(1)
+    end
+  end
+
   describe '#european' do
     let(:european_country) { create(:country) }
     let(:asian_country) { create(:country, :asian) }

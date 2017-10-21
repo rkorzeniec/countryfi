@@ -1,10 +1,8 @@
 class User < ActiveRecord::Base
   has_many :checkins, dependent: :destroy
-  has_many :countries, through: :checkins do
-    def visited
-      where('checkin_date <= ?', Time.zone.now)
-    end
-  end
+  has_many :countries, through: :checkins
+  has_many :visited_checkins, -> { visited }, class_name: 'Checkin'
+  has_many :visited_countries, source: :country, through: :visited_checkins
 
   delegate :european, :north_american, :south_american, :asian, :oceanian,
            :african, :antarctican, to: :countries, prefix: true
