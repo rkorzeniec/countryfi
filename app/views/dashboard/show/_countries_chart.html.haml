@@ -1,0 +1,19 @@
+.panel.no-border.no-bg
+  .panel-heading.no-border.text-center{ style: 'background: #FFF;' }
+    %span.panel-title.text-sm.text-semibold Countries per Year
+    .panel-heading-controls
+      %a#all_countries.btn.btn-flat.btn-rounded.text-sm all
+      %a#unique_countries.btn.btn-flat.btn-rounded.text-sm unique
+  .panel-body{ style: 'background: #FFF;' }
+    #all_countries_chart
+      = line_chart VisitedCountriesQuery.new(current_user).count_by_year, curve: false
+    #unique_countries_chart
+      = line_chart UniqVisitedCountriesQuery.new(current_user).count_by_year, curve: false
+
+= content_for :page_specific_js do
+  = javascript_include_tag 'visited_countries_charts'
+
+:javascript
+  window.PixelAdmin.init.push(function () {
+    VisitedCountriesCharts.init_charts();
+  });

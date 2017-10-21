@@ -45,6 +45,7 @@ group :test do
   gem 'shoulda-matchers',   '~> 2.8.0'
   gem 'database_cleaner',   '~> 1.5.0'
   gem 'stub_env'
+  gem 'timecop', '~> 0.9'
 end
 
 # Use rollbar for server-side notifications

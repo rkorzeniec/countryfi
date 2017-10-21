@@ -1,45 +1,55 @@
 class VisitedCountriesCounter
-  attr_reader :user
-
   def initialize(user)
     @user = user
   end
 
   def visited_world_countries_count
-    uniq_visited_count(user.countries.visited)
+    uniq_visited_count(visited_checkins.world)
   end
 
   def visited_european_countries_count
-    uniq_visited_count(user.countries_european.visited)
+    uniq_visited_count(visited_checkins.european)
   end
 
   def visited_north_american_countries_count
-    uniq_visited_count(user.countries_north_american.visited)
+    uniq_visited_count(visited_checkins.north_american)
   end
 
   def visited_south_american_countries_count
-    uniq_visited_count(user.countries_south_american.visited)
+    uniq_visited_count(visited_checkins.south_american)
   end
 
   def visited_asian_countries_count
-    uniq_visited_count(user.countries_asian.visited)
+    uniq_visited_count(visited_checkins.asian)
   end
 
   def visited_oceanian_countries_count
-    uniq_visited_count(user.countries_oceanian.visited)
+    uniq_visited_count(visited_checkins.oceanian)
   end
 
   def visited_african_countries_count
-    uniq_visited_count(user.countries_african.visited)
+    uniq_visited_count(visited_checkins.african)
   end
 
   def visited_antarctican_countries_count
-    uniq_visited_count(user.countries_antarctican.visited)
+    uniq_visited_count(visited_checkins.antarctican)
   end
 
   private
 
+  attr_reader :user
+
+  delegate :checkins, to: :user, prefix: true
+
+  def visited_checkins
+    @_visited_checkins ||= user_checkins.visited
+  end
+
   def uniq_visited_count(countries)
-    countries.uniq.pluck(:cca2).count
+    uniq_countries(countries).count
+  end
+
+  def uniq_countries(countries)
+    countries.pluck(:cca2).uniq
   end
 end

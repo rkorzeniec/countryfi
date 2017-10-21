@@ -53,7 +53,8 @@ module CountryDiary
       '*.woff',
       '*.woff2',
       '*.ttf',
-      '*.png'
+      '*.png',
+      'visited_countries_charts.js'
     ]
 
     config.action_controller.include_all_helpers = true
