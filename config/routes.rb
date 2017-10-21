@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :oceanians, only: :index
     resources :antarcticans, only: :index
   end
-  resource :dashboard, only: :show, controller: 'dashboard'
+  get 'dashboard', action: :index, controller: 'dashboard'
 
   root 'static_pages#home'
 
