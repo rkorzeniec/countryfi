@@ -124,4 +124,18 @@ describe Checkin do
       }
     end
   end
+
+  describe '#visited' do
+    it do
+      expect { create(:checkin, checkin_date: Time.current) }.to change {
+        Checkin.visited.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:checkin, checkin_date: Time.current + 1.day) }.not_to change {
+        Checkin.visited.count
+      }
+    end
+  end
 end

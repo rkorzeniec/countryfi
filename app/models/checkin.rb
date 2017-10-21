@@ -13,4 +13,5 @@ class Checkin < ActiveRecord::Base
   scope :oceanian, -> { joins(:country).merge(Country.oceanian) }
   scope :north_american, -> { joins(:country).merge(Country.north_american) }
   scope :south_american, -> { joins(:country).merge(Country.south_american) }
+  scope :visited, -> { where('checkin_date <= ?', Time.current) }
 end
