@@ -5,11 +5,11 @@ describe CheckinsController do
 
   context 'when user not authenticated' do
     it_behaves_like 'authentication_protected_controller', [
-      [:get, :new],
-      [:get, :edit, { id: 1 }],
-      [:put, :update, { id: 1 }],
-      [:post, :create],
-      [:delete, :destroy, { id: 1 }]
+      [:get, :new, params: {}],
+      [:get, :edit, params: { id: 1 }],
+      [:put, :update, params: { id: 1 }],
+      [:post, :create, params: {}],
+      [:delete, :destroy, params: { id: 1 }]
     ]
   end
 
@@ -19,18 +19,21 @@ describe CheckinsController do
     describe 'GET new' do
       before { get(:new) }
 
-      it { expect(response).to be_success }
-      it { expect(subject).to render_template(:new) }
+      it do
+        expect(response).to be_success
+        expect(subject).to render_template(:new)
+      end
     end
 
     describe 'POST create' do
+      let!(:now) { Time.current }
+      let(:params) do
+        { checkin: { country_id: country.id, checkin_date: now } }
+      end
+
+      subject { post(:create, params: params) }
+
       context 'when successful' do
-        let!(:now) { Time.zone.now }
-
-        subject do
-          post(:create, checkin: { country_id: country.id, checkin_date: now })
-        end
-
         it { expect(subject).to redirect_to(checkins_worlds_path) }
         it { expect { subject }.to change { Checkin.count }.from(1).to(2) }
         it do
@@ -40,11 +43,8 @@ describe CheckinsController do
       end
 
       context 'when unsuccessful' do
-        subject do
-          post(
-            :create,
-            checkin: { country_id: 'not_id', checkin_date: 'not_date' }
-          )
+        let(:params) do
+          { checkin: { country_id: 'not_id', checkin_date: 'not_date' } }
         end
 
         it { expect(subject).to render_template(:new) }
@@ -57,42 +57,52 @@ describe CheckinsController do
     end
 
     describe 'GET edit' do
-      before { get(:edit, id: checkin.id) }
+      before { get(:edit, params: { id: checkin.id }) }
 
-      it { expect(response).to be_success }
-      it { expect(subject).to render_template(:edit) }
-      it { expect(assigns(:checkin)).to eq(checkin) }
-      it { expect(response.body).to include(country.name_common) }
+      it do
+        expect(response).to be_success
+        expect(subject).to render_template(:edit)
+        expect(assigns(:checkin)).to eq(checkin)
+        expect(response.body).to include(country.name_common)
+      end
     end
 
     describe 'PUT update' do
       let!(:now) { '2016-01-01' }
 
-      context 'when successful' do
-        before { post(:update, id: checkin.id, checkin: { checkin_date: now }) }
+      subject { post(:update, params: params) }
 
-        it { expect(response).to redirect_to(checkins_worlds_path) }
-        it { expect(flash[:success]).to be_present }
+      context 'when successful' do
+        let(:params) { { id: checkin.id, checkin: { checkin_date: now } } }
+
+        before { subject }
+
+        it do
+          expect(response).to redirect_to(checkins_worlds_path)
+          expect(flash[:success]).to be_present
+        end
         it do
           expect(checkin.reload.checkin_date.strftime('%Y-%m-%d')).to eq(now)
         end
       end
 
       context 'when unsuccessful' do
-        before do
-          post(:update, id: checkin.id, checkin: { checkin_date: nil })
-        end
+        let(:params) { { id: checkin.id, checkin: { checkin_date: nil } } }
 
-        it { expect(subject).to render_template(:edit) }
-        it { expect(flash[:error]).to be_present }
-        it { expect(checkin.reload.country_id).to eq(country.id) }
+        before { subject }
+
+        it do
+          expect(subject).to render_template(:edit)
+          expect(flash[:error]).to be_present
+          expect(checkin.reload.country_id).to eq(country.id)
+        end
       end
     end
 
     describe 'DELETE destroy' do
-      context 'when successful' do
-        subject { delete(:destroy, id: checkin.id) }
+      subject { delete(:destroy, params: { id: checkin.id }) }
 
+      context 'when successful' do
         it { expect(subject).to redirect_to(checkins_worlds_path) }
         it { expect { subject }.to change { Checkin.count }.from(1).to(0) }
         it do
@@ -102,15 +112,16 @@ describe CheckinsController do
       end
 
       context 'when unsuccessful' do
-        subject { delete(:destroy, id: checkin.id) }
 
         before do
           expect_any_instance_of(Checkin).to receive(:destroy).and_return(false)
           subject
         end
 
-        it { expect(subject).to redirect_to(checkins_worlds_path) }
-        it { expect(flash[:error]).to be_present }
+        it do
+          expect(subject).to redirect_to(checkins_worlds_path)
+          expect(flash[:error]).to be_present
+        end
         it { expect { subject }.not_to change { Checkin.count } }
       end
     end

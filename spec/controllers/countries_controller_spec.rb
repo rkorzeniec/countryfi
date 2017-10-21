@@ -4,7 +4,7 @@ describe CountriesController do
 
   context 'when user not authenticated' do
     it_behaves_like 'authentication_protected_controller', [
-      [:get, :show, { id: 1 }]
+      [:get, :show, params: { id: 1 }]
     ]
   end
 
@@ -12,15 +12,17 @@ describe CountriesController do
     before { sign_in(user) }
 
     describe 'GET show' do
-      before { get(:show, params) }
+      before { get(:show, params: params) }
 
       context 'html' do
         let(:params) { { id: country.id, format: :html } }
 
-        it { expect(response).to be_success }
-        it { expect(subject).to render_template(:show) }
-        it { expect(assigns(:country)).to eq(country) }
-        it { expect(response.body).to include(country.name_common) }
+        it do
+          expect(response).to be_success
+          expect(subject).to render_template(:show)
+          expect(assigns(:country)).to eq(country)
+          expect(response.body).to include(country.name_common)
+        end
       end
 
       context 'json' do

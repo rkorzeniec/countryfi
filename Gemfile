@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '5.1.4'
 # Use MySql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -9,7 +9,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -27,7 +27,7 @@ gem 'better_errors', '~> 2.1.1'
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.4.0'
+  gem 'rspec-rails', '~> 3.7.1'
 end
 
 group :development do
@@ -46,14 +46,15 @@ group :test do
   gem 'database_cleaner',   '~> 1.5.0'
   gem 'stub_env'
   gem 'timecop', '~> 0.9'
+  gem 'rails-controller-testing', '~> 1.0.2'
 end
 
 # Use rollbar for server-side notifications
-gem 'rollbar', '~> 2.7.1'
+gem 'rollbar', '~> 2.15.4'
 # Use HAML for as view engine
-gem 'haml', '~> 4.0.7'
+gem 'haml', '~> 5.0.4'
 # Use devise for user authentication
-gem 'devise', '~> 4.2.0'
+gem 'devise', '~> 4.3.0'
 # Use dotenv for loading env vars
 gem 'dotenv-rails', '~> 0.9.0'
 

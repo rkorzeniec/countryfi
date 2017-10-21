@@ -15,7 +15,7 @@ class UniqVisitedCountriesQuery
 
   def visited_country_checkins
     Checkin.select(
-      'country_id', 'year(checkins.checkin_date) AS year'
+      'DISTINCT country_id', 'year(checkins.checkin_date) AS year'
     ).where(
       'user_id = :user_id AND checkin_date <= :now',
       user_id: user.id,

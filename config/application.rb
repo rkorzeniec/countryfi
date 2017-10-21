@@ -41,7 +41,7 @@ module CountryDiary
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.3'

@@ -10,6 +10,8 @@ default: &default
   reconnect: false
   pool: 5
   host: localhost
+  variables:
+    sql_mode: TRADITIONAL
 
 development:
   <<: *default

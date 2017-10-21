@@ -3,7 +3,9 @@ describe DashboardController do
   let(:country) { create(:country) }
 
   context 'when user not authenticated' do
-    it_behaves_like 'authentication_protected_controller', [[:get, :index]]
+    it_behaves_like 'authentication_protected_controller', [
+      [:get, :index, params: {}]
+    ]
   end
 
   context 'when user signed in' do
