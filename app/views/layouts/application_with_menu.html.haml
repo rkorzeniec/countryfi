@@ -13,7 +13,7 @@
     #main-wrapper
       = render 'layouts/header_navigation'
       - if user_signed_in?
-        = render 'layouts/main_menu'
+        = yield :page_specific_menu
       #content-wrapper
         = render 'layouts/flash'
         = yield
