@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :antarcticans, only: :index
   end
   get 'dashboard', action: :index, controller: 'dashboard'
+  get 'explore', action: :index, controller: 'explore'
 
   root 'static_pages#home'
 
