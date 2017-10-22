@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,108 +10,100 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009163103) do
+ActiveRecord::Schema.define(version: 20171022085639) do
 
-  create_table "border_countries", force: :cascade do |t|
-    t.integer  "country_id",        limit: 4
-    t.integer  "border_country_id", limit: 4
+  create_table "border_countries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "country_id"
+    t.integer "border_country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["country_id"], name: "fk_rails_dbcc34e82e"
   end
 
-  add_index "border_countries", ["country_id"], name: "fk_rails_dbcc34e82e", using: :btree
-
-  create_table "checkins", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.integer  "country_id",   limit: 4
+  create_table "checkins", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "user_id"
+    t.integer "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "checkin_date"
+    t.date "checkin_date"
+    t.index ["country_id"], name: "fk_rails_b90146f6c0"
+    t.index ["user_id"], name: "index_checkins_on_user_id"
   end
 
-  add_index "checkins", ["country_id"], name: "fk_rails_b90146f6c0", using: :btree
-  add_index "checkins", ["user_id"], name: "index_checkins_on_user_id", using: :btree
-
-  create_table "countries", force: :cascade do |t|
-    t.string   "name_common",   limit: 255
-    t.string   "name_official", limit: 255
-    t.string   "cca2",          limit: 255
-    t.string   "ccn3",          limit: 255
-    t.string   "cca3",          limit: 255
-    t.string   "cioc",          limit: 255
-    t.string   "capital",       limit: 255
-    t.string   "region",        limit: 255
-    t.string   "subregion",     limit: 255
-    t.string   "demonym",       limit: 255
-    t.boolean  "landlocked"
-    t.float    "area",          limit: 24
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.decimal  "latitude",                  precision: 10, default: 0
-    t.decimal  "longitude",                 precision: 10, default: 0
+  create_table "countries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "name_common"
+    t.string "name_official"
+    t.string "cca2"
+    t.string "ccn3"
+    t.string "cca3"
+    t.string "cioc"
+    t.string "capital"
+    t.string "region"
+    t.string "subregion"
+    t.string "demonym"
+    t.boolean "landlocked"
+    t.float "area", limit: 24
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "latitude", precision: 10, default: "0"
+    t.decimal "longitude", precision: 10, default: "0"
   end
 
-  create_table "country_alternative_spellings", force: :cascade do |t|
-    t.integer  "country_id", limit: 4
-    t.string   "name",       limit: 255
+  create_table "country_alternative_spellings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "country_id"
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["country_id"], name: "fk_rails_4501639dad"
   end
 
-  add_index "country_alternative_spellings", ["country_id"], name: "fk_rails_4501639dad", using: :btree
-
-  create_table "country_calling_codes", force: :cascade do |t|
-    t.integer  "country_id",   limit: 4
-    t.string   "calling_code", limit: 255
+  create_table "country_calling_codes", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "country_id"
+    t.string "calling_code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["country_id"], name: "fk_rails_7d6ab3b33a"
   end
 
-  add_index "country_calling_codes", ["country_id"], name: "fk_rails_7d6ab3b33a", using: :btree
-
-  create_table "country_languages", force: :cascade do |t|
-    t.integer  "country_id", limit: 4
-    t.string   "name",       limit: 255
+  create_table "country_languages", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "country_id"
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "code",       limit: 255
+    t.string "code"
+    t.index ["country_id"], name: "fk_rails_512239a8b1"
   end
 
-  add_index "country_languages", ["country_id"], name: "fk_rails_512239a8b1", using: :btree
-
-  create_table "currencies", force: :cascade do |t|
-    t.integer  "country_id", limit: 4
-    t.string   "code",       limit: 255
+  create_table "currencies", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "country_id"
+    t.string "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["country_id"], name: "fk_rails_47700155d2"
   end
 
-  add_index "currencies", ["country_id"], name: "fk_rails_47700155d2", using: :btree
-
-  create_table "top_level_domains", force: :cascade do |t|
-    t.integer  "country_id", limit: 4
-    t.string   "name",       limit: 255
+  create_table "top_level_domains", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "country_id"
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["country_id"], name: "fk_rails_24af1ffde5"
   end
 
-  add_index "top_level_domains", ["country_id"], name: "fk_rails_24af1ffde5", using: :btree
-
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+  create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "border_countries", "countries"
   add_foreign_key "checkins", "countries"
