@@ -1,7 +1,5 @@
 module Checkins
   class EuropeansController < BaseCheckinsController
-    layout 'application_with_menu'
-
     def index
       @checkins = european_checkins
                   .paginate(page: params[:page], per_page: 15)
