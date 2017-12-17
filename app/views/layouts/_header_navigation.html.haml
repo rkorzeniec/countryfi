@@ -16,8 +16,12 @@
     #main-navbar-collapse.collapse.navbar-collapse.main-navbar-collpase
       %ul.nav.navbar-nav.pull-right.right-navbar-nav
         - if user_signed_in?
+          %li
+            = link_to new_checkin_path do
+              %span.text-sm
+                %i.fa.fa-plus
+                Add checkin
           %li= link_to 'Explore', explore_path
-          %li= link_to 'Add checkin', new_checkin_path
           %li.dropdown
             %a.dropdown-toggle{href: '#', 'data-toggle': 'dropdown'}
               My checkins
