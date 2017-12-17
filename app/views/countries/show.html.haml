@@ -2,16 +2,16 @@
 
 .page-header
   .row
-    %h1.col-sm-6
-      = @country.name_common
+    .col-sm-6
+      %h1= @country.name_common
       = image_tag(@country.flag_image_path, style: 'height: 32px;')
+      = visit_label(current_user, @country)
     .col-sm-6
       .visible-xs
         %hr
       = link_to new_checkin_path(country: @country.cca2), class: 'btn btn-labeled btn-primary pull-right col-xs-12 col-sm-auto' do
         %i.btn-label.icon.fa.fa-plus
         Add checkin
-  .row
 .row
   .col.col-md-6
     #mapbox.mapbox
@@ -20,6 +20,7 @@
     = render 'countries/show/country_details', country: @country
     = render 'countries/show/geographical_details', country: @country
     = render 'countries/show/miscellaneous_details', country: @country
+
 :javascript
   mapboxgl.accessToken = "#{ENV.fetch('MAPBOX_KEY')}";
   var map = new mapboxgl.Map({
