@@ -1,0 +1,16 @@
+.row
+  .col-md-7
+    = render 'map'
+  .col-md-5
+    %h2 Hello there, fellow traveller!
+    %br
+    %h4 Your personal country visits logbook
+    %br
+    %p.text-bg.text-slim
+      Track the countries you have visited and statistics associated with that.
+      Keep up to date with your travels and 'tick' those countries of your bucket list.
+    %br
+    %p
+      = link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-success btn-flat'
+      or
+      = link_to 'Log in', new_user_session_path, class: 'text-bg text-slim'

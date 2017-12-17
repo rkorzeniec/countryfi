@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'dashboard', action: :index, controller: 'dashboard'
   get 'explore', action: :index, controller: 'explore'
 
-  root 'static_pages#home'
+  root 'home', action: :index, controller: 'home_page'
 
   unless Rails.application.config.consider_all_requests_local
     get '*path', to: 'exceptions#show', code: '404'
