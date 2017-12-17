@@ -1,8 +1,13 @@
 module Checkins
   class WorldsController < BaseCheckinsController
     def index
-      @checkins = user_checkins.paginate(page: params[:page], per_page: 15)
-                               .order(checkin_date: :desc)
+      @timeline = Checkins::TimelineFacade.new(checkins)
+    end
+
+    private
+
+    def checkins
+      user_checkins.joins(:country).includes(:country).order(checkin_date: :desc)
     end
   end
 end

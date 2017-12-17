@@ -1,24 +1,24 @@
-%table.table.table-striped.right.text-sm
-  %thead
-    %th
-      %b Visit date
-    %th
-      %b Country
-    %th
-    %th
-  %tbody
-    - checkins.each do |checkin|
-      %tr
-        %td
-          %b= render_date(checkin.checkin_date)
-        %td
-          = link_to checkin.country.name_common, country_path(checkin.country)
-        %td
-          = link_to edit_checkin_path(checkin) do
-            %i.fa.fa-pencil
-        %td
-          = link_to checkin, method: :delete, data: { confirm: "Are you sure?" } do
-            %i.fa.fa-trash-o
-.row
-  .col-lg-12
-    = will_paginate checkins, renderer: BootstrapPagination::Rails
+.timeline.centered
+  - timeline.items.each_with_index do |checkin, index|
+    - future_checkin = timeline.future_checkin?(index)
+    .tl-entry{ class: "#{cycle('', 'left')}" }
+      .tl-time
+        = checkin.checkin_date
+        .timeline_item_actions
+          = link_to 'Edit', edit_checkin_path(checkin.checkin)
+          |
+          = link_to 'Delete', checkin.checkin, method: :delete, data: { confirm: "Are you sure?" }
+      .panel.tl-body
+        %div
+          = future_checkin ? 'You are going to visit' : 'You visited'
+          = link_to checkin.country_common_name, country_path(checkin.country)
+          = image_tag(checkin.flag_image_path, style: 'height: 32px;')
+          - if future_checkin
+            in
+            = distance_of_time_in_words(Time.current, checkin.checkin_date)
+    - if timeline.year_marker?(index)
+      .tl-header
+        = checkin.checkin_year
+    - if timeline.today_marker?(index)
+      .tl-header.now.bg-primary
+        Today

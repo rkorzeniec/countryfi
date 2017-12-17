@@ -1,15 +1,16 @@
 module Checkins
   class SouthAmericansController < BaseCheckinsController
     def index
-      @checkins = south_american_checkins
-                  .paginate(page: params[:page], per_page: 15)
-                  .order(checkin_date: :desc)
+      @timeline = Checkins::TimelineFacade.new(south_american_checkins)
     end
 
     private
 
     def south_american_checkins
       user_checkins.south_american
+                   .joins(:country)
+                   .includes(:country)
+                   .order(checkin_date: :desc)
     end
   end
 end
