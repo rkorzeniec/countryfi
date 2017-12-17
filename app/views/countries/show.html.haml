@@ -11,6 +11,7 @@
       = link_to new_checkin_path(country: @country.cca2), class: 'btn btn-labeled btn-primary pull-right col-xs-12 col-sm-auto' do
         %i.btn-label.icon.fa.fa-plus
         Add checkin
+  .row
 .row
   .col.col-md-6
     #mapbox.mapbox
@@ -20,7 +21,7 @@
     = render 'countries/show/geographical_details', country: @country
     = render 'countries/show/miscellaneous_details', country: @country
 :javascript
-  mapboxgl.accessToken = 'pk.eyJ1IjoidHJlYm9yIiwiYSI6ImNpdHg0a24xczAwMzgydG4yemF6YXkzY2MifQ.H8nqDel1PDvxl07Bm7a0DQ';
+  mapboxgl.accessToken = "#{ENV.fetch('MAPBOX_KEY')}";
   var map = new mapboxgl.Map({
       container: 'mapbox', // container id
       style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
