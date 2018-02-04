@@ -27,11 +27,6 @@ module CountryDiary
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [
-      :password, :password_confirmation, :auth_token, :authentication_token
-    ]
-
     # Set forgery_protection to false to allow posting to url
     config.action_controller.allow_forgery_protection = true
 
@@ -42,20 +37,6 @@ module CountryDiary
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # config.active_record.raise_in_transactional_callbacks = true
-
-    # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.3'
-
-    # Make sure we precompile separately the javascripts that are called in specific places
-    config.assets.precompile += [
-      '*.svg',
-      '*.eot',
-      '*.woff',
-      '*.woff2',
-      '*.ttf',
-      '*.png',
-      'visited_countries_charts.js'
-    ]
 
     config.action_controller.include_all_helpers = true
 

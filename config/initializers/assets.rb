@@ -8,13 +8,14 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w(
-  map.css
-  dashboard.css
+Rails.application.config.assets.precompile += %w[
   *.svg
   *.eot
   *.woff
   *.woff2
   *.ttf
   *.png
-)
+  map.css
+  dashboard.css
+  visited_countries_charts.js
+]
