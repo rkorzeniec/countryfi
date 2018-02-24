@@ -18,6 +18,8 @@
 /log/*
 !/log/.keep
 /tmp
+*~
+.*
 
 #OS files
 .DS_Store
@@ -27,3 +29,15 @@
 
 #Specs
 spec/examples.txt
+coverage/
+
+#db
+database.yml
+db/structure.sql
+config/database.yml
+
+#pubic
+public/uploads/*
+public/exports/**
+exports/**
+public/exports/**
