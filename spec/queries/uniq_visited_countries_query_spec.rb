@@ -1,13 +1,12 @@
 describe UniqVisitedCountriesQuery do
   let(:user) { create(:user) }
-  let(:now) { Time.local(2017, 10, 9) }
+  let(:now) { Time.zone.local(2017, 10, 9) }
   let(:query) { described_class.new(user) }
 
   before { Timecop.freeze(now) }
   after { Timecop.return }
 
   describe '#count_by_year' do
-
     subject { query.count_by_year }
 
     context 'with already visited countries' do
@@ -19,7 +18,7 @@ describe UniqVisitedCountriesQuery do
           create(:checkin, user: user, checkin_date: now - 1.year)
         end
         let!(:checkin_c) do
-          create(:checkin, user: user, checkin_date: now)
+          create(:checkin, user: user, checkin_date: now - 1.day)
         end
 
         it { expect(subject).to eq(2016 => 2, 2017 => 1) }
@@ -33,10 +32,12 @@ describe UniqVisitedCountriesQuery do
           )
         end
         let!(:checkin_b) do
-          create(:checkin, user: user, checkin_date: now)
+          create(:checkin, user: user, checkin_date: now - 1.day)
         end
         let!(:checkin_c) do
-          create(:checkin, user: user, country: country, checkin_date: now)
+          create(
+            :checkin, user: user, country: country, checkin_date: now - 1.day
+          )
         end
 
         it { expect(subject).to eq(2016 => 1, 2017 => 1) }
@@ -44,7 +45,7 @@ describe UniqVisitedCountriesQuery do
     end
 
     context 'with mixed countries' do
-      let!(:checkin) { create(:checkin, user: user, checkin_date: now) }
+      let!(:checkin) { create(:checkin, user: user, checkin_date: now - 1.day) }
       let!(:checkin_b) do
         create(:checkin, user: user, checkin_date: now + 1.day)
       end

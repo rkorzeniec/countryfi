@@ -1,6 +1,6 @@
 describe VisitedCountriesQuery do
   let(:user) { create(:user) }
-  let(:now) { Time.local(2017, 10, 9) }
+  let(:now) { Time.zone.local(2017, 10, 9) }
   let(:query) { described_class.new(user) }
 
   before { Timecop.freeze(now) }
@@ -11,7 +11,7 @@ describe VisitedCountriesQuery do
     subject { query.count_by_year }
 
     context 'with already visited countries' do
-      let!(:checkin) { create(:checkin, user: user, checkin_date: now) }
+      let!(:checkin) { create(:checkin, user: user, checkin_date: now - 1.day) }
       let!(:checkin_b) do
         create(:checkin, user: user, checkin_date: now - 1.year)
       end
@@ -23,7 +23,7 @@ describe VisitedCountriesQuery do
     end
 
     context 'with mixed countries' do
-      let!(:checkin) { create(:checkin, user: user, checkin_date: now) }
+      let!(:checkin) { create(:checkin, user: user, checkin_date: now - 1.day) }
       let!(:checkin_b) do
         create(:checkin, user: user, checkin_date: now + 1.day)
       end

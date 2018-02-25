@@ -15,11 +15,11 @@ class UniqVisitedCountriesQuery
 
   def visited_country_checkins
     Checkin.select(
-      'DISTINCT country_id', 'year(checkins.checkin_date) AS year'
+      "country_id, year(checkins.checkin_date) AS 'year'"
     ).where(
       'user_id = :user_id AND checkin_date <= :now',
       user_id: user.id,
       now: Time.current
-    ).group(:country_id)
+    ).group('country_id', 'year')
   end
 end
