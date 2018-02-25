@@ -8,13 +8,13 @@ Bundler.require(*Rails.groups)
 
 module CountryDiary
   class Application < Rails::Application
-    config.autoload_paths += %W(
+    config.autoload_paths += %w[
       #{config.root}/lib
       #{config.root}/app/decorators
       #{config.root}/app/formatters
       #{config.root}/app/queries
       #{config.root}/app/facades
-    )
+    ]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
