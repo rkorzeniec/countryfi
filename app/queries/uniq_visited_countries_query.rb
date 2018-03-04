@@ -20,6 +20,6 @@ class UniqVisitedCountriesQuery
       'user_id = :user_id AND checkin_date <= :now',
       user_id: user.id,
       now: Time.current
-    ).group('country_id', 'year')
+    ).group('country_id')
   end
 end
