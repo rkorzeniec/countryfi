@@ -1,6 +1,6 @@
 var VisitedCountriesCharts = {
   init_charts: function () {
-    this.toggle_all_countries_chart();
+    this.toggle_unique_countries_chart();
     this.setup_listeners();
   },
 
