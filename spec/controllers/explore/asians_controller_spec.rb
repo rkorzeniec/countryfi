@@ -1,4 +1,4 @@
-describe ExploreController do
+describe Explore::AsiasController do
   let(:user) { create(:user) }
 
   context 'when user not authenticated' do
@@ -11,14 +11,13 @@ describe ExploreController do
     before { sign_in(user) }
 
     describe 'GET index' do
-      before { get(:index) }
+      subject { get(:index) }
 
-      context 'html' do
-
-        it do
-          expect(response).to be_successful
-          expect(subject).to render_template(:index)
-        end
+      it do
+        subject
+        expect(response).to be_successful
+        expect(subject).to render_template(:index)
+        expect(assigns(:explore_facade)).to be_kind_of(ExploreFacade)
       end
     end
   end

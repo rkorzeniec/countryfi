@@ -1,0 +1,33 @@
+- country_categories = ['All', *'A'..'Z']
+.row
+  .col-md-12
+    Countries still to discover
+    .country-categories-nav
+      %ul.country-categories
+        - country_categories.each do |letter|
+          %li.country-category{ id: "#{letter}", content: "country-#{letter}" }
+            = link_to letter, "##{letter}"
+      - country_categories.each do |letter|
+        .row.country-content{ id: "country-#{letter}", style: 'display: none;' }
+          - letter = letter == 'All' ? '' : letter
+          - countries = explore_facade.discoverable_countries(letter)
+          - if countries.exists?
+            - countries.each do |country|
+              .col-md-4.col-xs-6.col-sm-6.country
+                = link_to country.name_common, country_path(country)
+          - else
+            Good job! You have seen it all.
+
+:javascript
+  window.PixelAdmin.init.push(function () {
+    $('#country-All').show();
+    $('.country-categories li').click(function(){
+       $('.country-letter-active').removeClass('country-letter-active');
+       $(this).addClass('country-letter-active');
+
+       var country_content_id = $(this).attr('content');
+       $('.country-content').hide();
+       $('#' + country_content_id).show();
+    });
+  });
+

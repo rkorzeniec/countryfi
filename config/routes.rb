@@ -13,7 +13,16 @@ Rails.application.routes.draw do
     resources :antarcticans, only: :index
   end
   get 'dashboard', action: :index, controller: 'dashboard'
-  get 'explore', action: :index, controller: 'explore'
+  namespace :explore do
+    resources :worlds, only: :index
+    resources :europes, only: :index
+    resources :north_americas, only: :index
+    resources :south_americas, only: :index
+    resources :asias, only: :index
+    resources :africas, only: :index
+    resources :oceanias, only: :index
+    resources :antarcticas, only: :index
+  end
 
   root 'home', action: :index, controller: 'home_page'
 
