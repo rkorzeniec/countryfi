@@ -9,11 +9,11 @@ module Checkins
     end
 
     def checkin_date
-      @_checkin_date ||= checkin.checkin_date.strftime('%Y-%m-%d')
+      @checkin_date ||= checkin.checkin_date.strftime('%Y-%m-%d')
     end
 
     def checkin_year
-      @_checkin_year ||= checkin.checkin_date.year
+      @checkin_year ||= checkin.checkin_date.year
     end
 
     def country_common_name
