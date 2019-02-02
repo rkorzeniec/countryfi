@@ -8,16 +8,6 @@ class CountriesController < ApplicationController
         :top_level_domains, :country_alternative_spellings,
         border_countries: :border_country
       ).find(params[:id])
-  end
-
-  def geo
-    @country = Country.find(params[:id])
-    respond_to do |format|
-      format.json do
-        render json: ActiveSupport::JSON.decode(
-          File.read("app/assets/geojsons/#{@country.cca3}.geo.json")
-        )
-      end
-    end
+    @geojson = File.read("app/assets/geojsons/#{@country.cca3.downcase}.geo.json")
   end
 end

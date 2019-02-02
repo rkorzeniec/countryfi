@@ -14,7 +14,7 @@
         Add checkin
 .row
   .col.col-md-6
-    #mapbox.mapbox
+    #mapbox.mapbox{ data: { country_geojson: @geojson, country_cca3: @country.cca3, country_lat: @country.latitude, country_lng: @country.longitude } }
     .visible-xs.padding-sm
   .col.col-md-6
     = render 'countries/show/country_details', country: @country
@@ -23,10 +23,12 @@
 
 :javascript
   mapboxgl.accessToken = "#{ENV.fetch('MAPBOX_KEY')}";
+  var mapboxSelector = document.querySelector('#mapbox');
+
   var map = new mapboxgl.Map({
       container: 'mapbox', // container id
       style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
-      center: ["#{@country.longitude}", "#{@country.latitude}"], // starting position
+      center: [mapboxSelector.dataset.countryLng, mapboxSelector.dataset.countryLat], // starting position
       zoom: 4 // starting zoom
   });
 
@@ -38,34 +40,24 @@
   });
 
   function getCountry(map) {
-    $.ajax({
-      dataType: 'text',
-      url: '/countries/#{@country.id}/geo.json',
-      success: function(country) {
-        var geojson = $.parseJSON(country);
-        console.log(geojson);
-        map.addSource("#{@country.cca3}", {
-          'type': 'geojson',
-          'data': geojson
-        });
+    var geojson = $.parseJSON(mapboxSelector.dataset.countryGeojson);
+    map.addSource(mapboxSelector.dataset.countryCca3, {
+      'type': 'geojson',
+      'data': geojson
+    });
 
-        map.addLayer({
-          'id': 'route',
-          'type': 'fill',
-          'source': "#{@country.cca3}",
-          'layout': {},
-          'paint': {
-              'fill-color': '#088',
-              'fill-opacity': 0.8
-          }
-        });
-
-        var bbox = turf.extent(geojson);
-
-        map.fitBounds(bbox, {padding: 20});
-      },
-      error:function() {
-        alert("Could not load the country map");
+    map.addLayer({
+      'id': 'route',
+      'type': 'fill',
+      'source': mapboxSelector.dataset.countryCca3,
+      'layout': {},
+      'paint': {
+          'fill-color': '#088',
+          'fill-opacity': 0.8
       }
     });
+
+    var bbox = turf.extent(geojson);
+
+    map.fitBounds(bbox, {padding: 20});
   }
