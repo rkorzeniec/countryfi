@@ -20,7 +20,7 @@ describe CheckinsController do
       before { get(:new) }
 
       it do
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(subject).to render_template(:new)
       end
     end
@@ -60,7 +60,7 @@ describe CheckinsController do
       before { get(:edit, params: { id: checkin.id }) }
 
       it do
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(subject).to render_template(:edit)
         expect(assigns(:checkin)).to eq(checkin)
         expect(response.body).to include(country.name_common)

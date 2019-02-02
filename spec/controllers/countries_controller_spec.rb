@@ -8,7 +8,7 @@ describe CountriesController do
       let(:params) { { id: country.id, format: :html } }
 
       it do
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(subject).to render_template(:show)
         expect(assigns(:country)).to eq(country)
         expect(response.body).to include(country.name_common)

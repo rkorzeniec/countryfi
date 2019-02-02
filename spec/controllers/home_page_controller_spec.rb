@@ -6,7 +6,7 @@ describe HomePageController do
       get(:index)
     end
 
-    it { expect(response).to be_success }
+    it { expect(response).to be_successful }
     it { expect(subject).to render_template('home_page/index') }
   end
 end

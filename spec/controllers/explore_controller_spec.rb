@@ -16,7 +16,7 @@ describe ExploreController do
       context 'html' do
 
         it do
-          expect(response).to be_success
+          expect(response).to be_successful
           expect(subject).to render_template(:index)
         end
       end

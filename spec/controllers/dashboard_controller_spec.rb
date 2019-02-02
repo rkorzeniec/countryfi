@@ -18,7 +18,7 @@ describe DashboardController do
 
       before { get(:index) }
 
-      it { expect(response).to be_success }
+      it { expect(response).to be_successful }
       it { expect(subject).to render_template(:index) }
     end
   end

@@ -30,7 +30,7 @@ describe Checkins::AntarcticansController do
         subject
         timeline_items = assigns(:timeline).items
 
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(subject).to render_template(:index)
         expect(timeline_items.count).to eq(2)
         expect(timeline_items.first.checkin).to eq(checkin)
