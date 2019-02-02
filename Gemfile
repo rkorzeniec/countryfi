@@ -5,6 +5,8 @@ gem 'rails', '5.2.2'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 4.1.20'
+gem 'execjs', '~> 2.7.0'
+gem 'therubyracer', '~> 0.12.3'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
