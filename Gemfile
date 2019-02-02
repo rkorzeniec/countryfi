@@ -33,7 +33,7 @@ group :test do
   gem 'database_cleaner',   '~> 1.6.2'
   gem 'factory_girl_rails', '~> 4.7.0'
   gem 'rails-controller-testing', '~> 1.0.2'
-  gem 'shoulda-matchers',   '~> 3.1.2'
+  gem 'shoulda-matchers',   '~> 4.0.0.rc1'
   gem 'simplecov', require: false
   gem 'stub_env'
   gem 'timecop', '~> 0.9.1'
