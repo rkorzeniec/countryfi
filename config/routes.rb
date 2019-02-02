@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :countries, only: :show
+  resources :countries, only: :show do
+    member do
+      get :geo
+    end
+  end
   resources :checkins, except: %i[index show]
   namespace :checkins do
     resources :worlds, only: :index

@@ -2,7 +2,12 @@ class CountriesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def show
-    @country = Country.find(params[:id])
+    @country = Country
+      .preload(
+        :country_languages, :currencies, :country_calling_codes,
+        :top_level_domains, :country_alternative_spellings,
+        border_countries: :border_country
+      ).find(params[:id])
 
     respond_to do |format|
       format.html
