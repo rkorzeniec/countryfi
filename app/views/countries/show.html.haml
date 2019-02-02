@@ -40,7 +40,7 @@
   function getCountry(map) {
     $.ajax({
       dataType: 'text',
-      url: '/countries/#{@country.id}.json',
+      url: '/countries/#{@country.id}/geo.json',
       success: function(country) {
         var geojson = $.parseJSON(country);
         console.log(geojson);
