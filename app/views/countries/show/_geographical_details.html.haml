@@ -31,5 +31,4 @@
         - if country.border_countries.empty?
           = '-'
         - else
-          - country.border_countries.each do |border|
-            = "#{border.border_country.name_common} "
+          = country.border_countries.map(&:name_common).to_sentence
