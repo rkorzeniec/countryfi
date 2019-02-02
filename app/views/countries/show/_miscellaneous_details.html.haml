@@ -12,7 +12,7 @@
     %tr
       %td
         %b Domains
-      %td= country.top_level_domains.map(&:name).join(', ')
+      %td= country.top_level_domains.map(&:name).to_sentence
     %tr
       %td
         %b CCN3
@@ -24,4 +24,4 @@
     %tr
       %td
         %b Alternative spellings
-      %td= country.country_alternative_spellings.map(&:name).join(', ')
+      %td= country.country_alternative_spellings.map(&:name).to_sentence

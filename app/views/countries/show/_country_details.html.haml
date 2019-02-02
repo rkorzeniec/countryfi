@@ -23,18 +23,16 @@
       %td
         %b Languages
       %td
-        - country.country_languages.each do |language|
-          = "#{language.name} (#{language.code}) "
+        = country.country_languages.map(&:name_and_code).to_sentence
     %tr
       %td
         %b Currency
-      %td= country.currencies.map(&:code).join(', ')
+      %td= country.currencies.map(&:code).to_sentence
     %tr
       %td
         %b Calling code
       %td
-        - country.country_calling_codes.each do |code|
-          = "+#{code.calling_code} "
+        - country.country_calling_codes.map(&:calling_code).to_sentence
     %tr
       %td
         %b Demonym
