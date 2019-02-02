@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module CountryDiary
   class Application < Rails::Application
-    config.autoload_paths += %w[
+    config.autoload_paths += %W[
       #{config.root}/lib
       #{config.root}/app/decorators
       #{config.root}/app/formatters
@@ -43,5 +43,7 @@ module CountryDiary
     # config.to_prepare do
     #   Devise::SessionsController.layout('application_non_menu')
     # end
+
+    config.filter_parameters += %i[password password_confirmation]
   end
 end
