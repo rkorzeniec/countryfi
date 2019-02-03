@@ -18,9 +18,3 @@ test:
   database: countryfier_test
   password: <%= ENV['TEST_DB_PASSWORD'] %>
   username: <%= ENV['TEST_DB_USERNAME'] %>
-
-production:
-  <<: *default
-  database: <%= ENV['PRODUCTION_DB_NAME'] %>
-  username: <%= ENV['PRODUCTION_DB_USERNAME'] %>
-  password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
