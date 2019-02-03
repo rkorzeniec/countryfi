@@ -28,7 +28,7 @@
       %td
         %b Borders
       %td
-        - if country.border_countries.empty?
+        - if country.border_countries.load.empty?
           = '-'
         - else
           = country.border_countries.map(&:name_common).to_sentence
