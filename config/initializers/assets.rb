@@ -17,5 +17,6 @@ Rails.application.config.assets.precompile += %w[
   *.png
   map.css
   dashboard.css
+  explore.css
   visited_countries_charts.js
 ]
