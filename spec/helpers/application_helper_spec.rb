@@ -31,18 +31,4 @@ describe ApplicationHelper do
       it { expect(subject).to be_nil }
     end
   end
-
-  describe '#embedded_svg' do
-    context 'when file exists' do
-      it 'is a pending example'
-    end
-
-    context 'when class is supplied' do
-      it 'is a pending example'
-    end
-
-    context 'when class is not supplied' do
-      it 'is a pending example'
-    end
-  end
 end
