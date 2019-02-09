@@ -1,22 +1,16 @@
-- country_categories = ['All', *'A'..'Z']
 .row
   .col-md-12
     Countries still to discover
     .country-categories-nav
       %ul.country-categories
-        - country_categories.each do |letter|
-          %li.country-category{ id: "#{letter}", content: "country-#{letter}" }
-            = link_to letter, "##{letter}"
-      - country_categories.each do |letter|
-        .row.country-content{ id: "country-#{letter}", style: 'display: none;' }
-          - letter = letter == 'All' ? '' : letter
-          - countries = explore_facade.discoverable_countries(letter)
-          - if countries.exists?
-            - countries.each do |country|
-              .col-md-4.col-xs-6.col-sm-6.country
-                = link_to country.name_common, country_path(country)
-          - else
-            Good job! You have seen it all.
+        - explore_facade.country_categories.each do |category|
+          %li.country-category{ id: "#{category}", content: "country-#{category}" }
+            = link_to category, "##{category}"
+      - explore_facade.country_categories.each do |category|
+        .row.country-content{ id: "country-#{category}", style: 'display: none;' }
+          - explore_facade.discoverable_countries_by_category(category).each do |country|
+            .col-md-4.col-xs-6.col-sm-6.country
+              = link_to country.name_common, country_path(country)
 
 :javascript
   window.PixelAdmin.init.push(function () {

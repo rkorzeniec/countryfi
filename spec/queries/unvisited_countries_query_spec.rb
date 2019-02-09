@@ -2,136 +2,63 @@ describe UnvisitedCountriesQuery do
   let(:params) { {} }
   let(:query) { described_class.new(visited, params) }
 
-  describe '#countries_by' do
+  describe '#all' do
     context 'with prefix' do
-      let(:prefix) { 'S' }
+      let!(:country) { create(:country) }
+      let!(:country_b) { create(:country, :asian) }
+      let!(:country_c) { create(:country, :south_american) }
+      let!(:country_d) { create(:country, :caribbean) }
 
-      subject { query.countries_by(prefix) }
+      subject { query.all }
 
       context 'with visited' do
-        let!(:country) { create(:country) }
-        let!(:country_b) { create(:country, :asian) }
-        let!(:country_c) { create(:country, :african) }
+        let(:visited) { [country] }
+
+        it { is_expected.to eq([country_b, country_d, country_c]) }
 
         context 'with region' do
-          context 'with subregion' do
+          let(:params) { { regions: 'Asia' } }
 
+          it { is_expected.to eq([country_b]) }
+
+          context 'with subregion' do
+            let(:params) { { regions: 'Americas', subregions: 'Caribbean' } }
+
+            it { is_expected.to eq([country_d]) }
           end
 
           context 'with subregions' do
+            let(:params) do
+              { regions: 'Americas', subregions: ['Caribbean', 'South America'] }
+            end
 
-          end
-
-          context 'without subregion' do
-
-          end
-        end
-
-        context 'without region' do
-          context 'with subregion' do
-
-          end
-
-          context 'with subregions' do
-
-          end
-
-          context 'without subregion' do
-
+            it { is_expected.to eq([country_d, country_c]) }
           end
         end
       end
 
       context 'without visited' do
+        let(:visited) { [] }
+
+        it { is_expected.to eq([country_b, country_d, country_c, country]) }
+
         context 'with region' do
-          context 'with subregion' do
+          let(:params) { { regions: 'Asia' } }
 
+          it { is_expected.to eq([country_b]) }
+
+          context 'with subregion' do
+            let(:params) { { regions: 'Americas', subregions: 'Caribbean' } }
+
+            it { is_expected.to eq([country_d]) }
           end
 
           context 'with subregions' do
+            let(:params) do
+              { regions: 'Americas', subregions: ['Caribbean', 'South America'] }
+            end
 
-          end
-
-          context 'without subregion' do
-
-          end
-        end
-
-        context 'without region' do
-          context 'with subregion' do
-
-          end
-
-          context 'with subregions' do
-
-          end
-
-          context 'without subregion' do
-
-          end
-        end
-      end
-    end
-
-    context 'without prefix' do
-      subject { query.countries_by }
-
-      context 'with visited' do
-        context 'with region' do
-          context 'with subregion' do
-
-          end
-
-          context 'with subregions' do
-
-          end
-
-          context 'without subregion' do
-
-          end
-        end
-
-        context 'without region' do
-          context 'with subregion' do
-
-          end
-
-          context 'with subregions' do
-
-          end
-
-          context 'without subregion' do
-
-          end
-        end
-      end
-
-      context 'without visited' do
-        context 'with region' do
-          context 'with subregion' do
-
-          end
-
-          context 'with subregions' do
-
-          end
-
-          context 'without subregion' do
-
-          end
-        end
-
-        context 'without region' do
-          context 'with subregion' do
-
-          end
-
-          context 'with subregions' do
-
-          end
-
-          context 'without subregion' do
-
+            it { is_expected.to eq([country_d, country_c]) }
           end
         end
       end
