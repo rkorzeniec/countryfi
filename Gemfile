@@ -29,6 +29,7 @@ group :development do
   gem 'spring', '~> 2.0.2'
   gem 'web-console', '~> 3.6.2'
   gem 'guard', '~> 2.15.0'
+  gem 'rubocop', '~> 0.63.1'
 end
 
 group :test do
