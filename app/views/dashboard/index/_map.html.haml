@@ -21,19 +21,19 @@
   .col-sm-12
     .tab-content{ style: 'max-height: 650px;' }
       .tab-pane.active#world-pill
-        = render 'shared/maps/world'
+        = render 'dashboard/index/maps/world', dashboard: @dashboard
       .tab-pane#europe-pill
-        = render 'shared/maps/europe'
+        = render 'dashboard/index/maps/europe', dashboard: @dashboard
       .tab-pane#north_america-pill
-        = render 'shared/maps/north_america'
+        = render 'dashboard/index/maps/north_america', dashboard: @dashboard
       .tab-pane#south_america-pill
-        = render 'shared/maps/south_america'
+        = render 'dashboard/index/maps/south_america', dashboard: @dashboard
       .tab-pane#asia-pill
-        = render 'shared/maps/asia'
+        = render 'dashboard/index/maps/asia', dashboard: @dashboard
       .tab-pane#africa-pill
-        = render 'shared/maps/africa'
+        = render 'dashboard/index/maps/africa', dashboard: @dashboard
       .tab-pane#australia-pill
-        = render 'shared/maps/australia'
+        = render 'dashboard/index/maps/australia', dashboard: @dashboard
       .tab-pane#antarctica-pill
-        = render 'shared/maps/antarctica'
-    = render 'shared/maps/country_checked', countries: country_code_array(current_user.visited_countries)
+        = render 'dashboard/index/maps/antarctica', dashboard: @dashboard
+    = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array

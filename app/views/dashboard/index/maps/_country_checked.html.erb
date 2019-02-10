@@ -1,0 +1,11 @@
+<script>
+$(function () {
+  <%- countries.each do |country| %>
+    var elements = document.getElementsByClassName('<%= country %>');
+    for(var e = 0; e < elements.length; e++) {
+      var element = elements[e];
+      element.classList.add('checked');
+    }
+  <% end %>
+});
+</script>

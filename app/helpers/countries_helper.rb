@@ -1,8 +1,4 @@
 module CountriesHelper
-  def country_code_array(countries)
-    countries.map(&:cca2)
-  end
-
   def visit_label(user, country)
     return unless user&.countries.include?(country)
 
