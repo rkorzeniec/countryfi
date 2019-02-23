@@ -54,50 +54,29 @@ class DashboardFacade
 
   def european_countries
     @european_countries ||= countries.european
-    # countries.select do |country|
-    #   country.region
-    # end
   end
 
   def north_american_countries
     @north_american_countries ||= countries.north_american
-    # countries.select do |country|
-    #   country.region
-    # end
   end
 
   def south_american_countries
     @south_american_countries ||= countries.south_american
-    # countries.select do |country|
-    #   country.region
-    # end
   end
 
   def asian_countries
     @asian_countries ||= countries.asian
-    # countries.select do |country|
-    #   country.region
-    # end
   end
 
   def african_countries
     @african_countries ||= countries.african
-    # countries.select do |country|
-    #   country.region
-    # end
   end
 
   def oceanian_countries
     @oceanian_countries ||= countries.oceanian
-    # countries.select do |country|
-    #   country.region
-    # end
   end
 
   def antarctican_countries
     @antarctican_countries ||= countries.antarctican
-    # countries.select do |country|
-    #   country.region
-    # end
   end
 end
