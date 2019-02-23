@@ -1,4 +1,6 @@
 class DashboardFacade
+  attr_reader :countries
+
   def initialize(user)
     @user = user
     @countries = Country.all.load
@@ -40,18 +42,6 @@ class DashboardFacade
     visited_countries.pluck(:cca2)
   end
 
-  def visited_countries_counter
-    VisitedCountriesCounter.new(user)
-  end
-
-  private
-
-  attr_reader :user, :countries
-
-  def visited_countries
-    @visited_countries ||= user.visited_countries.load
-  end
-
   def european_countries
     @european_countries ||= countries.european
   end
@@ -78,5 +68,17 @@ class DashboardFacade
 
   def antarctican_countries
     @antarctican_countries ||= countries.antarctican
+  end
+
+  def visited_countries_counter
+    @visited_countries_counter ||= ::Dashboard::VisitedCountriesCounter.new(user)
+  end
+
+  private
+
+  attr_reader :user
+
+  def visited_countries
+    @visited_countries ||= user.visited_countries.load
   end
 end

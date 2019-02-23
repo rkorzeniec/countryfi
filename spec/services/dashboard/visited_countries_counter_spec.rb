@@ -1,4 +1,4 @@
-describe VisitedCountriesCounter do
+describe Dashboard::VisitedCountriesCounter do
   let(:counter) { described_class.new(user) }
   let(:user) { create(:user) }
 

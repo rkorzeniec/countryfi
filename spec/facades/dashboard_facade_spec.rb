@@ -40,6 +40,19 @@ describe DashboardFacade do
         it { expect(subject).to be_nil }
       end
     end
+
+    describe "##{region}_countries" do
+      let(:countries) { double('countries') }
+      let(:countries_relation) { double('relation', load: countries) }
+
+      subject { facade.send("#{region}_countries".to_sym) }
+
+      it do
+        expect(Country).to receive(:all).and_return(countries_relation)
+        expect(countries).to receive(region)
+        subject
+      end
+    end
   end
 
   describe '#country_code_array' do
@@ -54,5 +67,16 @@ describe DashboardFacade do
     end
 
     it { expect(subject).to eq(%w[AA BB]) }
+  end
+
+  describe '#visited_countries_counter' do
+    subject { facade.visited_countries_counter }
+
+    it do
+      expect(Dashboard::VisitedCountriesCounter).to receive(:new)
+        .with(user)
+        .and_call_original
+      is_expected.to be_a(Dashboard::VisitedCountriesCounter)
+    end
   end
 end
