@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
-gem 'rails', '5.2.2'
+gem 'rails', '5.2.2.1'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 4.1.20'
