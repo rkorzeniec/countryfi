@@ -30,7 +30,7 @@ module Checkins
     attr_reader :checkins
 
     def current_time
-      @_current_time ||= Time.current
+      @current_time ||= Time.current
     end
   end
 end

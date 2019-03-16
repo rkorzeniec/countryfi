@@ -29,5 +29,5 @@ Rails.application.routes.draw do
     resources :antarcticas, only: :index
   end
 
-  root 'home', action: :index, controller: 'home_page'
+  root 'hello', action: :index, controller: 'hello'
 end

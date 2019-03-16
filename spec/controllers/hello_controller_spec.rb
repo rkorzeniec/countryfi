@@ -1,4 +1,4 @@
-describe HomePageController do
+describe HelloController do
   describe 'GET index' do
     let(:country) { double(:country, id: 1) }
     before do
