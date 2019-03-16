@@ -15,14 +15,6 @@ describe DashboardController do
       let(:facade) do
         double(
           'dashboard',
-          country_id: country.id,
-          european_country_id: country.id,
-          north_american_country_id: country.id,
-          south_american_country_id: country.id,
-          asian_country_id: country.id,
-          african_country_id: country.id,
-          oceanian_country_id: country.id,
-          antarctican_country_id: country.id,
           country_code_array: [country.cca2]
         )
       end
