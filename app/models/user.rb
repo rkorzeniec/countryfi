@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   delegate :european, :north_american, :south_american, :asian, :oceanian,
            :african, :antarctican, to: :countries, prefix: true
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :rememberable, :recoverable,
+         :trackable, :validatable
+
+  def remember_me
+    true
+  end
 end
