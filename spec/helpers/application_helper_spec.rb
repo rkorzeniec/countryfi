@@ -3,11 +3,11 @@ describe ApplicationHelper do
     subject { helper.page_title }
 
     context 'when default title' do
-      it { expect(subject).to eq('Countryfier') }
+      it { expect(subject).to eq('Countrify') }
     end
 
     context 'when page title' do
-      let(:title) { 'Checkins | Countryfier' }
+      let(:title) { 'Checkins | Countrify' }
 
       it do
         assign(:page_title, title)

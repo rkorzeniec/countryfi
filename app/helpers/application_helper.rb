@@ -3,7 +3,7 @@ module ApplicationHelper
     if @page_title.present?
       @page_title
     else
-      'Countryfier'
+      'Countrify'
     end
   end
 
