@@ -1,0 +1,14 @@
+/* line 2, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/dashboard.css.scss */
+#dashboard-maps ul {
+  margin-bottom: 10px;
+}
+/* line 5, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/dashboard.css.scss */
+#dashboard-maps ul li {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+/* line 13, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/dashboard.css.scss */
+#dashboard-pie-charts .stat-panel .stat-cell {
+  padding-bottom: 0px;
+}

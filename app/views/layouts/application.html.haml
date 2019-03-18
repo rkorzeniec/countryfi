@@ -7,12 +7,12 @@
   %head
     = render 'layouts/head'
     = yield :page_specific_css
-    = yield :page_specific_js
     = render 'layouts/mapbox'
-  %body{ class: "theme-default main-menu-animated animate-mm-sm animate-mm-md animate-mm-lg #{ yield :page_specific_body_class }" }
-    .main-wrapper.margin-l-10.margin-r-10
-      = render 'layouts/header_navigation', hide_toggle_button: true
-      .content-wrapper.margin-t-60
-        = render 'layouts/flash'
-        = yield
+  %body{ class: "#{ yield :page_specific_body_class }" }
+    = render 'layouts/header_navigation', hide_toggle_button: true
+    .px-content
+      = render 'layouts/flash'
+      = yield
     = yield :scripts
+    = yield :page_specific_js
+

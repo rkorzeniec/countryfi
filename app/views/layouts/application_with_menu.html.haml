@@ -7,15 +7,29 @@
   %head
     = render 'layouts/head'
     = yield :page_specific_css
-    = yield :page_specific_js
     = render 'layouts/mapbox'
-  %body{ class: "theme-default main-menu-animated animate-mm-sm animate-mm-md animate-mm-lg #{ yield :page_specific_body_class }" }
-    #main-wrapper
-      = render 'layouts/header_navigation'
-      - if user_signed_in?
-        = render 'layouts/sidebar_navigation'
-      #content-wrapper
-        = render 'layouts/flash'
-        = yield
-      #main-menu-bg
+  %body{ class: "#{ yield :page_specific_body_class }" }
+    - if user_signed_in?
+      = render 'layouts/sidebar_navigation'
+    = render 'layouts/header_navigation'
+    .px-content
+      = render 'layouts/flash'
+      = yield
     = yield :scripts
+    = yield :page_specific_js
+    :javascript
+      $(function () {
+        var file =
+          "/" +
+          String(document.location)
+            .split("/")
+            .slice(-2)
+            .join("/")
+            .replace("#", "");
+        $(".px-nav")
+          .find('.px-nav-item > a[href="' + file + '"]')
+          .parent()
+          .addClass("active");
+
+        $('.px-nav').pxNav();
+      });

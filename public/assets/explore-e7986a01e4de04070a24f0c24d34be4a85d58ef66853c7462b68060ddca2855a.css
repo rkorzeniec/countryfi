@@ -1,0 +1,53 @@
+/* line 1, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/explore.css.scss */
+.country-categories-nav {
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+/* line 6, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/explore.css.scss */
+.country-categories-nav .country-categories {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+/* line 13, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/explore.css.scss */
+.country-categories-nav .country-categories a {
+  display: block;
+  color: #000;
+}
+/* line 18, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/explore.css.scss */
+.country-categories-nav .country-categories a:hover {
+  display: block;
+  color: #205f82;
+}
+/* line 24, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/explore.css.scss */
+.country-categories-nav .country-categories .country-letter-active a {
+  display: block;
+  color: #205f82;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #205f82;
+  display: inline-block;
+}
+/* line 33, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/explore.css.scss */
+.country-categories-nav .country-categories .country-category {
+  float: left;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 14px;
+  padding: 10px 6px;
+}
+/* line 42, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/explore.css.scss */
+.country-categories-nav .country-content {
+  width: 100%;
+  float: left;
+  min-width: 200px;
+  padding: 0 0 0 15px;
+  font-size: 14px;
+  line-height: 20px;
+}
+/* line 50, /Users/robert/development/personal/rails/countryfier/app/assets/stylesheets/explore.css.scss */
+.country-categories-nav .country-content .country {
+  padding: 3px 0;
+}

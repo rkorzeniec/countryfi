@@ -13,7 +13,7 @@
               = link_to country.name_common, country_path(country)
 
 :javascript
-  window.PixelAdmin.init.push(function () {
+  $(function() {
     $('#country-All').show();
     $('.country-categories li').click(function(){
        $('.country-letter-active').removeClass('country-letter-active');

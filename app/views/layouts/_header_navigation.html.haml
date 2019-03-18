@@ -1,27 +1,21 @@
-- hide_toggle_button ||= false
-
-#main-navbar.navbar.navbar-inverse{ role: 'navigation' }
-  - unless hide_toggle_button
-    %button#main-menu-toggle{ 'type' => 'button' }
-      %i.navbar-icon.fa.fa-bars.icon
-      %span.hide-menu-text
-  .navbar-inner
-    .navbar-header
-      - logo_path = user_signed_in? ? dashboard_path : root_path
-      = link_to logo_path, class: 'navbar-brand' do
-        %i.fa.fa-check
-        Countrify
-      %btn.navbar-toggle.collapsed{ 'data-toggle' => 'collapse', 'data-target' => '#main-navbar-collapse' }
-        %i.navbar-icon.fa.fa-bars.icon
-    #main-navbar-collapse.collapse.navbar-collapse.main-navbar-collpase
-      %ul.nav.navbar-nav.pull-right.right-navbar-nav
-        - if user_signed_in?
-          %li
-            = link_to new_checkin_path do
-              %span.text-sm
-                %i.fa.fa-plus
-                Add checkin
-          %li= link_to 'Explore', explore_worlds_path
-          %li= link_to 'Checkins', checkins_worlds_path
-          %li= link_to 'Edit Profile', edit_user_registration_path
-          %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+%nav.navbar.px-navbar
+  .navbar-header
+    - logo_path = user_signed_in? ? dashboard_path : root_path
+    = link_to logo_path, class: 'navbar-brand font-weight-bold font-size-11' do
+      %i.fas.fa-check.font-size-11
+      %span.text-uppercase
+        countrify
+  %button.navbar-toggle.collapsed{ 'type' => 'button', data: { 'toggle' => 'collapse', 'target' => '#px-navbar-collapse' }, 'aria-expanded' => 'false' }
+    %i.navbar-toggle-icon
+  #px-navbar-collapse.collapse.navbar-collapse
+    %ul.nav.navbar-nav.pull-right
+      - if user_signed_in?
+        %li
+          = link_to new_checkin_path do
+            %span
+              %i.fas.fa-plus.font-size-11
+              Add checkin
+        %li= link_to 'Explore', explore_worlds_path
+        %li= link_to 'Checkins', checkins_worlds_path
+        %li= link_to 'Edit Profile', edit_user_registration_path
+        %li= link_to 'Sign out', destroy_user_session_path, method: :delete

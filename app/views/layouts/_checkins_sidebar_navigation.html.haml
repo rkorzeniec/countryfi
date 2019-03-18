@@ -1,30 +1,30 @@
-%li.mm-dropdown.mm-dropdown-root
-  = link_to '#', class: 'hidden-xs' do
-    %i.menu-icon.fas.fa-calendar-check
-    %span.mm-text.mmc-dropdown-delay.animated.fadeIn
+%li.px-nav-item.px-nav-dropdown
+  = link_to '#' do
+    %i.px-nav-icon.fas.fa-calendar-check
+    %span.px-nav-label
       Checkins
-  %ul.mmc-dropdown-delay.animated.fadeInLeft.hidden-xs
-    %li
-      = link_to checkins_worlds_path do
-        %span.mm-text World
-    %li
-      = link_to checkins_europeans_path do
-        %span.mm-text Europe
-    %li
-      = link_to checkins_north_americans_path do
-        %span.mm-text Noth America
-    %li
-      = link_to checkins_south_americans_path do
-        %span.mm-text South America
-    %li
-      = link_to checkins_asians_path do
-        %span.mm-text Asia
-    %li
-      = link_to checkins_africans_path do
-        %span.mm-text Africa
-    %li
-      = link_to checkins_oceanians_path do
-        %span.mm-text Oceania
-    %li
-      = link_to checkins_antarcticans_path do
-        %span.mm-text Antrctica
+  %ul.px-nav-dropdown-menu
+    %li.px-nav-item
+      = link_to checkins_worlds_path, id: nav_item_id(checkins_worlds_path) do
+        %span.px-nav-label World
+    %li.px-nav-item
+      = link_to checkins_europeans_path, id: nav_item_id(checkins_europeans_path) do
+        %span.px-nav-label Europe
+    %li.px-nav-item
+      = link_to checkins_north_americans_path, id: nav_item_id(checkins_north_americans_path) do
+        %span.px-nav-label Noth America
+    %li.px-nav-item
+      = link_to checkins_south_americans_path, id: nav_item_id(checkins_south_americans_path) do
+        %span.px-nav-label South America
+    %li.px-nav-item
+      = link_to checkins_asians_path, id: nav_item_id(checkins_asians_path) do
+        %span.px-nav-label Asia
+    %li.px-nav-item
+      = link_to checkins_africans_path, id: nav_item_id(checkins_africans_path) do
+        %span.px-nav-label Africa
+    %li.px-nav-item
+      = link_to checkins_oceanians_path, id: nav_item_id(checkins_oceanians_path) do
+        %span.px-nav-label Oceania
+    %li.px-nav-item
+      = link_to checkins_antarcticans_path, id: nav_item_id(checkins_antarcticans_path) do
+        %span.px-nav-label Antrctica
