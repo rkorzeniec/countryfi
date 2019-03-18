@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022085639) do
+ActiveRecord::Schema.define(version: 2019_03_18_223350) do
 
-  create_table "border_countries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "border_countries", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.integer "border_country_id"
     t.datetime "created_at"
@@ -20,17 +20,17 @@ ActiveRecord::Schema.define(version: 20171022085639) do
     t.index ["country_id"], name: "fk_rails_dbcc34e82e"
   end
 
-  create_table "checkins", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "checkins", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "country_id"
+    t.date "checkin_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date "checkin_date"
     t.index ["country_id"], name: "fk_rails_b90146f6c0"
     t.index ["user_id"], name: "index_checkins_on_user_id"
   end
 
-  create_table "countries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "countries", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name_common"
     t.string "name_official"
     t.string "cca2"
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20171022085639) do
     t.string "subregion"
     t.string "demonym"
     t.boolean "landlocked"
-    t.float "area", limit: 24
+    t.float "area"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "latitude", precision: 10, default: "0"
     t.decimal "longitude", precision: 10, default: "0"
   end
 
-  create_table "country_alternative_spellings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "country_alternative_spellings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "name"
     t.datetime "created_at"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20171022085639) do
     t.index ["country_id"], name: "fk_rails_4501639dad"
   end
 
-  create_table "country_calling_codes", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "country_calling_codes", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "calling_code"
     t.datetime "created_at"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20171022085639) do
     t.index ["country_id"], name: "fk_rails_7d6ab3b33a"
   end
 
-  create_table "country_languages", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "country_languages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "name"
     t.datetime "created_at"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20171022085639) do
     t.index ["country_id"], name: "fk_rails_512239a8b1"
   end
 
-  create_table "currencies", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "currencies", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "code"
     t.datetime "created_at"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20171022085639) do
     t.index ["country_id"], name: "fk_rails_47700155d2"
   end
 
-  create_table "top_level_domains", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "top_level_domains", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "name"
     t.datetime "created_at"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20171022085639) do
     t.index ["country_id"], name: "fk_rails_24af1ffde5"
   end
 
-  create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -101,6 +101,9 @@ ActiveRecord::Schema.define(version: 20171022085639) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.json "preferences"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
