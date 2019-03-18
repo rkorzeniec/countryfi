@@ -1,0 +1,28 @@
+.widget-timeline.widget-timeline-centered
+  - timeline.items.each_with_index do |checkin, index|
+    - future_checkin = timeline.future_checkin?(index)
+    .widget-timeline-item{ class: "#{cycle('right', 'left')}" }
+      .widget-timeline-info
+        .widget-timeline-bullet{ class: "#{'bg-primary' if future_checkin}" }
+        .widget-timeline-time
+          = checkin.checkin_date
+        .widget-timeline-time
+          = link_to edit_checkin_path(checkin.checkin) do
+            %i.fas.fa-edit
+          |
+          = link_to checkin.checkin, method: :delete, data: { confirm: "Are you sure?" } do
+            %i.fas.fa-trash
+      .panel
+        .panel-body
+          = future_checkin ? 'You are going to visit' : 'You visited'
+          = link_to checkin.country_common_name, country_path(checkin.country)
+          = image_tag(checkin.flag_image_path, style: 'height: 32px;')
+          - if future_checkin
+            in
+            = distance_of_time_in_words(Time.current, checkin.checkin_date)
+    - if timeline.year_marker?(index)
+      .widget-timeline-section
+        = checkin.checkin_year
+    - if timeline.today_marker?(index)
+      .widget-timeline-section.font-weight-semibold.bg-primary
+        Today

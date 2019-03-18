@@ -1,16 +1,11 @@
 /*
  *= require_self
- *= require ./pixeladmin/bootstrap
- *= require ./pixeladmin/pixel-admin
- *= require ./pixeladmin/themes
- *= require ./pixeladmin/pages
- *= require ./pixeladmin/widgets
- *= require ./pixeladmin/rtl
- *= require ./pixeladmin/dropzone
- *= require ./pixeladmin/margins
- *= require ./pixeladmin/paddings
- *= require ./pixeladmin/overrides
  *= require ./map
  *= require ./devise
  *= require ./explore
+ *= require ./fontawesome/all
+ *= require ./pixeladmin/bootstrap.min
+ *= require ./pixeladmin/pixeladmin.min
+ *= require ./pixeladmin/widgets.min
+ *= require ./pixeladmin/themes/clean.min
  */

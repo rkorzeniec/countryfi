@@ -3,13 +3,13 @@
     %h2.text-center Log in
 
     .row.center-block
-      .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.margin-t-10
+      .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.m-t-1
         = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'panel') do |f|
           = devise_error_messages!
-          .form-group-lg.margin-t-10
+          .form-group-lg.m-t-1
             = f.email_field :email, autofocus: true, placeholder: :email, class: 'form-control input-lg'
-          .form-group-lg.signin-password.margin-t-10
+          .form-group-lg.signin-password.m-t-1
             = f.password_field :password, autocomplete: 'off', placeholder: :password, class: 'form-control input-lg'
             = link_to 'Forgot password?', new_password_path(:user), class: 'forgot'
-          .form-group.margin-t-10
+          .form-group.m-t-1
             = f.submit 'Log in', class: 'btn btn-primary btn-lg btn-block'

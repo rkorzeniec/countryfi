@@ -1,9 +1,8 @@
 //= require_self
-//= require ./pixeladmin/jquery.min
-//= require ./pixeladmin/jquery_ujs
-//= require ./pixeladmin/jquery.slimscroll-1.3.2
-//= require ./pixeladmin/jquery.unveil
-//= require ./pixeladmin/pixeladmin.js
-//= require ./pixeladmin/pixel-admin-init
 //= require chartkick
 //= require Chart.bundle
+//= require ./jquery
+//= require ./pixeladmin/bootstrap.min
+//= require ./pixeladmin/pixeladmin.min
+//= require ./pixeladmin/pace.min
+

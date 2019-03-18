@@ -11,4 +11,8 @@ module ApplicationHelper
     return unless date
     date.strftime('%Y-%m-%d')
   end
+
+  def nav_item_id(path)
+    path.split('/').join('-')[1..-1]
+  end
 end
