@@ -31,4 +31,14 @@ describe ApplicationHelper do
       it { expect(subject).to be_nil }
     end
   end
+
+  describe '#nav_item_id' do
+    subject { helper.nav_item_id(path) }
+
+    context 'when path is provided' do
+      let(:path) { '/mambo/jambo' }
+
+      it { expect(subject).to eq('mambo-jambo') }
+    end
+  end
 end
