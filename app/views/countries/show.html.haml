@@ -9,9 +9,10 @@
     .col-sm-6
       .visible-xs
         %hr
-      = link_to new_checkin_path(country: @country.cca2), class: 'btn btn-labeled btn-primary pull-right col-xs-12 col-sm-auto' do
-        %i.btn-label.icon.fa.fa-plus
-        Add checkin
+      = link_to new_checkin_path(country: @country.cca2), class: 'btn btn-labeled btn-primary pull-right' do
+        %span
+          %i.fas.fa-plus.font-size-11
+          Add checkin
 .row
   .col.col-md-6
     #mapbox.mapbox{ data: { country_geojson: @geojson, country_cca3: @country.cca3, country_lat: @country.latitude, country_lng: @country.longitude } }
