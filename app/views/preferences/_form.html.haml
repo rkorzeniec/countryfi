@@ -1,0 +1,16 @@
+- render 'shared/error_messages'
+.form-group-lg.m-t-1
+  = f.label :colour, class: 'form-label'
+.form-group
+  = f.text_field :color, placeholder: '#2E7060', id: 'minicolors-hue', class: 'form-control'
+.form-group-lg.m-t-1
+  = submit_tag 'Save', class: 'btn btn-primary btn-block'
+  = link_to 'Cancel', checkins_worlds_path, class: 'btn btn-block'
+
+:javascript
+  $(function() {
+    $('#minicolors-hue').minicolors({
+      control:  'hue',
+      position: 'bottom left',
+    });
+  });

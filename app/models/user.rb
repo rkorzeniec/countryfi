@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  store :preferences, accessors: :color, coder: JSON
+
   has_many :checkins, dependent: :destroy
   has_many :countries, through: :checkins
   has_many :visited_checkins, -> { visited }, class_name: 'Checkin'

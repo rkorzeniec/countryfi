@@ -29,5 +29,7 @@ Rails.application.routes.draw do
     resources :antarcticas, only: :index
   end
 
+  resource :preferences, only: %i[edit update]
+
   root 'hello', action: :index, controller: 'hello'
 end

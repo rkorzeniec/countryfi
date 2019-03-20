@@ -3,7 +3,8 @@ describe User do
   it { is_expected.to have_many(:countries).through(:checkins) }
   it { is_expected.to have_many(:visited_checkins).class_name('Checkin') }
   it do
-    is_expected.to have_many(:visited_countries).source(:country)
+    is_expected.to have_many(:visited_countries)
+      .source(:country)
       .through(:visited_checkins)
   end
 

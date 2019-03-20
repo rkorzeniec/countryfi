@@ -1,6 +1,12 @@
 = content_for :page_specific_css do
   = stylesheet_link_tag 'dashboard'
 
+= content_for :page_specific_js do
+  :javascript
+    $(function() {
+      $('.checked').css('fill', $('body').data('user-preferences-color'));
+    });
+
 .row
   .col-sm-12#dashboard-maps
     = render 'dashboard/index/map'
