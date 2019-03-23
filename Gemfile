@@ -19,6 +19,8 @@ gem 'better_errors', '~> 2.5.1'
 group :development, :test do
   gem 'byebug', '~> 11.0.1'
   gem 'rspec-rails', '~> 3.7.1'
+  gem 'simplecov'
+  gem 'simplecov-console'
 end
 
 group :development do
@@ -36,7 +38,6 @@ group :test do
   gem 'factory_girl_rails', '~> 4.7.0'
   gem 'rails-controller-testing', '~> 1.0.2'
   gem 'shoulda-matchers',   '~> 4.0.0.rc1'
-  gem 'simplecov', require: false
   gem 'stub_env'
   gem 'timecop', '~> 0.9.1'
 end
