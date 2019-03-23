@@ -6,6 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Raven.configure do |config|
+  config.dsn = "https://#{ENV['SENTRY_PUBLIC_KEY']}:#{ENV['SENTRY_PRIVATE_KEY']}@sentry.io/#{ENV['SENTRY_PROJECT_ID']}"
+end
+
 module CountryDiary
   class Application < Rails::Application
     config.autoload_paths += %W[
