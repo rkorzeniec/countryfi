@@ -28,6 +28,15 @@ describe Checkins::TimelineItemFacade do
     it { is_expected.to eq(2018) }
   end
 
+  describe '#country_cca2' do
+    let(:country) { double(:country, cca2: 'CH') }
+    let(:checkin) { double(:checkin, country: country) }
+
+    subject { facade.country_cca2 }
+
+    it { is_expected.to eq('CH') }
+  end
+
   describe '#country_common_name' do
     let(:country) { double(:country, name_common: 'Switzerland') }
     let(:checkin) { double(:checkin, country: country) }
