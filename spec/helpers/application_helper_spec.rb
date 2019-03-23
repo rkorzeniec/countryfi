@@ -3,7 +3,7 @@ describe ApplicationHelper do
     subject { helper.page_title }
 
     context 'when default title' do
-      it { expect(subject).to eq('Countrify') }
+      it { is_expected.to eq('Countrify') }
     end
 
     context 'when page title' do
@@ -11,7 +11,7 @@ describe ApplicationHelper do
 
       it do
         assign(:page_title, title)
-        expect(subject).to eq(title)
+        is_expected.to eq(title)
       end
     end
   end
@@ -22,13 +22,13 @@ describe ApplicationHelper do
     context 'when date is provided' do
       let(:date) { Time.zone.now }
 
-      it { expect(subject).to eq(date.strftime('%Y-%m-%d')) }
+      it { is_expected.to eq(date.strftime('%Y-%m-%d')) }
     end
 
     context 'when date is not provided' do
       let(:date) { nil }
 
-      it { expect(subject).to be_nil }
+      it { is_expected.to be_nil }
     end
   end
 
@@ -38,7 +38,33 @@ describe ApplicationHelper do
     context 'when path is provided' do
       let(:path) { '/mambo/jambo' }
 
-      it { expect(subject).to eq('mambo-jambo') }
+      it { is_expected.to eq('mambo-jambo') }
+    end
+  end
+
+  describe '#gravatar_url' do
+    subject { helper.gravatar_url(20) }
+
+    context 'when user signed in' do
+      let(:user) { double('user', email: 'jon@snow.com') }
+
+      before { allow(helper).to receive(:current_user).and_return(user) }
+
+      it do
+        is_expected.to eq(
+          'https://gravatar.com/avatar/0aa05c29c41531fa903aa5006389fa23.png?s=20&d=mp'
+        )
+      end
+    end
+
+    context 'when user not signed in' do
+      before { allow(helper).to receive(:current_user).and_return(nil) }
+
+      it do
+        is_expected.to eq(
+          'https://gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e.png?s=20&d=mp'
+        )
+      end
     end
   end
 end

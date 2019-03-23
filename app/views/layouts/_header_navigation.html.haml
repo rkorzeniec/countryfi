@@ -19,7 +19,8 @@
         %li= link_to 'Checkins', checkins_worlds_path
         %li.dropdown
           = link_to '#', class: 'dropdown-toggle', data: { 'toggle' => 'dropdown' }, role: 'button', aria: { 'haspopup' => 'true', 'expanded' => 'false' } do
-            Profile
+            = image_tag gravatar_url(48), class: 'px-navbar-image', title: 'Your gravatar. If you want to change it, go to gravatar.com'
+            %span.hidden-md Profile
           %ul.dropdown-menu
             %li= link_to 'Edit profile', edit_user_registration_path
             %li= link_to 'Settings', edit_preferences_path
