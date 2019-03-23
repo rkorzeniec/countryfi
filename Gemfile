@@ -33,7 +33,7 @@ group :development do
 end
 
 group :test do
-  gem 'database_cleaner',   '~> 1.6.2'
+  gem 'database_cleaner',   '~> 1.7.0'
   gem 'factory_girl_rails', '~> 4.7.0'
   gem 'rails-controller-testing', '~> 1.0.2'
   gem 'shoulda-matchers',   '~> 4.0.0.rc1'
