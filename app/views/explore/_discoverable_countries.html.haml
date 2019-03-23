@@ -10,7 +10,7 @@
         .row.country-content{ id: "country-#{category}", style: 'display: none;' }
           - explore_facade.discoverable_countries_by_category(category).each do |country|
             .col-md-4.col-xs-6.col-sm-6.country
-              = link_to country.name_common, country_path(country)
+              = link_to country.name_common, country_path(country.cca2)
 
 :javascript
   $(function() {
