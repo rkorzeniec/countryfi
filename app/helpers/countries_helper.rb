@@ -1,8 +1,8 @@
 module CountriesHelper
-  def visit_label(user, country)
-    return unless user&.countries.include?(country)
+  def visit_label(country)
+    return unless current_user&.countries&.include?(country)
 
-    visited_country = user.visited_countries.include?(country)
+    visited_country = current_user.visited_countries.include?(country)
     label_status = visited_country ? 'label-success' : 'label-info'
     label_content = visited_country ? 'visited' : 'upcoming'
 

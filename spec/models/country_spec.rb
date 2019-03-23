@@ -57,15 +57,13 @@ describe Country do
 
   describe '#european' do
     it do
-      expect { create(:country) }.to change {
-        Country.european.count
-      }.from(0).to(1)
+      expect { create(:country) }.to change { Country.european.count }
+        .from(0).to(1)
     end
 
     it do
-      expect { create(:country, :asian) }.not_to change {
-        Country.european.count
-      }
+      expect { create(:country, :asian) }
+        .not_to change { Country.european.count }
     end
   end
 
@@ -77,9 +75,7 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }.not_to change {
-        Country.asian.count
-      }
+      expect { create(:country) }.not_to change { Country.asian.count }
     end
   end
 
@@ -91,9 +87,7 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }.not_to change {
-        Country.african.count
-      }
+      expect { create(:country) }.not_to change { Country.african.count }
     end
   end
 
@@ -105,9 +99,7 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }.not_to change {
-        Country.antarctican.count
-      }
+      expect { create(:country) }.not_to change { Country.antarctican.count }
     end
   end
 
@@ -119,9 +111,7 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }.not_to change {
-        Country.oceanian.count
-      }
+      expect { create(:country) }.not_to change { Country.oceanian.count }
     end
   end
 
@@ -133,9 +123,7 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }.not_to change {
-        Country.north_american.count
-      }
+      expect { create(:country) }.not_to change { Country.north_american.count }
     end
   end
 
@@ -147,16 +135,14 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }.not_to change {
-        Country.south_american.count
-      }
+      expect { create(:country) }.not_to change { Country.south_american.count }
     end
   end
 
   describe '#flag_image_path' do
     subject { country.flag_image_path }
 
-    context 'when flag exist' do
+    context 'when flag does not exist' do
       let(:country) { build_stubbed(:country, cca2: 'mambo') }
 
       it do
@@ -166,60 +152,10 @@ describe Country do
       end
     end
 
-    context 'when flag does not exist' do
+    context 'when flag exist' do
       let(:country) { build_stubbed(:country, cca2: 'ch') }
 
       it { is_expected.to eq('/images/flags/ch.png') }
     end
   end
 end
-
-# describe '#image_path' do
-
-#     subject { vehicle.image_path('120') }
-
-#     context 'when vehicle has photos and not in development env' do
-#       let(:photo) { build_stubbed(:photo, vehicle: vehicle) }
-#       let(:photo_b) { build_stubbed(:photo, vehicle: vehicle) }
-
-#       before do
-#         allow(Rails).to receive(:env).and_return(
-#           double(:env, development?: false, to_s: 'ENV')
-#         )
-
-#         allow(vehicle).to receive(:photos).and_return([photo, photo_b])
-#       end
-
-#       it { is_expected.to eq(photo.image_path('120')) }
-#     end
-
-#     context 'when photos are empty' do
-#       it do
-#         is_expected.to eq(
-#           ActionController::Base.helpers.asset_path(
-#             'placeholders/car_image_placeholder_120.png'
-#           )
-#         )
-#       end
-#     end
-
-#     context 'when in development env' do
-#       let!(:photo) { build_stubbed(:photo, vehicle: vehicle) }
-
-#       before do
-#         allow(Rails).to receive(:env).and_return(
-#           double(:env, development?: true, to_s: 'ENV')
-#         )
-
-#         allow(vehicle).to receive(:photos).and_return([photo])
-#       end
-
-#       it do
-#         is_expected.to eq(
-#           ActionController::Base.helpers.asset_path(
-#             'placeholders/car_image_placeholder_120.png'
-#           )
-#         )
-#       end
-#     end
-#   end

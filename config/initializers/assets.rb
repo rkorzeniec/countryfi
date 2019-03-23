@@ -15,6 +15,7 @@ Rails.application.config.assets.precompile += %w[
   *.woff2
   *.ttf
   *.png
+  flags/*.png
   map.css
   dashboard.css
   explore.css

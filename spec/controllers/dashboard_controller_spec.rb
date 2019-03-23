@@ -11,11 +11,34 @@ describe DashboardController do
     before { sign_in(user) }
 
     describe 'GET index' do
-      let(:country) { create(:country) }
+      let(:country) { build_stubbed(:country) }
+      let(:counter) do
+        double(
+          'counter',
+          visited_world_countries_count: 1,
+          visited_european_countries_count: 1,
+          visited_north_american_countries_count: 1,
+          visited_south_american_countries_count: 1,
+          visited_asian_countries_count: 1,
+          visited_african_countries_count: 1,
+          visited_oceanian_countries_count: 1,
+          visited_antarctican_countries_count: 1,
+        )
+      end
       let(:facade) do
         double(
           'dashboard',
-          country_code_array: [country.cca2]
+          country: country,
+          european_countries: [country],
+          north_american_countries: [country],
+          south_american_countries: [country],
+          asian_countries: [country],
+          african_countries: [country],
+          oceanian_countries: [country],
+          antarctican_countries: [country],
+          country_code_array: [country.cca2],
+          countries: [country],
+          visited_countries_counter: counter
         )
       end
 

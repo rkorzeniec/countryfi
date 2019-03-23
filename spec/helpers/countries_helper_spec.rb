@@ -7,7 +7,9 @@ describe CountriesHelper do
       double(:user, countries: countries, visited_countries: visited_countries)
     end
 
-    subject { helper.visit_label(user, country) }
+    subject { helper.visit_label(country) }
+
+    before { allow(helper).to receive(:current_user).and_return(user) }
 
     context 'when country is not visited nor upcoming' do
       it { is_expected.to be_nil }
