@@ -42,6 +42,7 @@ group :test do
 end
 
 gem 'sentry-raven', '~> 2.9.0'
+gem 'skylight', '~> 3.1.5'
 gem 'haml', '~> 5.0.4'
 gem 'devise', '~> 4.5.0'
 gem 'dotenv-rails', '~> 0.9.0'
