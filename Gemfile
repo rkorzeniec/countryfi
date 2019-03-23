@@ -28,7 +28,6 @@ group :development do
   gem 'capistrano-rvm', require: false
   gem 'spring', '~> 2.0.2'
   gem 'web-console', '~> 3.6.2'
-  gem 'guard', '~> 2.15.0'
   gem 'rubocop', '~> 0.63.1'
 end
 
@@ -40,7 +39,6 @@ group :test do
   gem 'simplecov', require: false
   gem 'stub_env'
   gem 'timecop', '~> 0.9.1'
-  gem 'guard-rspec', '~> 4.7.3'
 end
 
 gem 'rollbar', '~> 2.15.4'
