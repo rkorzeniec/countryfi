@@ -41,7 +41,6 @@ group :test do
   gem 'timecop', '~> 0.9.1'
 end
 
-gem 'rollbar', '~> 2.15.4'
 gem 'sentry-raven', '~> 2.9.0'
 gem 'haml', '~> 5.0.4'
 gem 'devise', '~> 4.5.0'
