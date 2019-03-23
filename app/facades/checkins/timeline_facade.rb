@@ -1,5 +1,7 @@
 module Checkins
   class TimelineFacade
+    delegate :total_pages, :current_page, :next_page, to: :checkins
+
     def initialize(checkins)
       @checkins = checkins
     end

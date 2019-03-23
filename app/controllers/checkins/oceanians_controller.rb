@@ -7,10 +7,12 @@ module Checkins
     private
 
     def oceanian_checkins
-      user_checkins.oceanian
-                   .joins(:country)
-                   .includes(:country)
-                   .order(checkin_date: :desc)
+      user_checkins
+        .oceanian
+        .joins(:country)
+        .includes(:country)
+        .order(checkin_date: :desc)
+        .paginate(page: params[:page], per_page: 20)
     end
   end
 end

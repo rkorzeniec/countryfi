@@ -5,6 +5,17 @@ describe Checkins::TimelineFacade do
   before { Timecop.freeze(now) }
   after { Timecop.return }
 
+  describe 'delegations' do
+    let(:checkins) { [checkin] }
+    let(:checkin) { double(:checkin) }
+
+    subject { facade }
+
+    it { is_expected.to delegate_method(:total_pages).to(:checkins) }
+    it { is_expected.to delegate_method(:current_page).to(:checkins) }
+    it { is_expected.to delegate_method(:next_page).to(:checkins) }
+  end
+
   describe '#items' do
     let(:checkins) { [checkin, checkin_b] }
     let(:checkin) { double(:checkin) }
