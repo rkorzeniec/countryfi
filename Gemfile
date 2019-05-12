@@ -2,19 +2,23 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 gem 'rails', '5.2.2.1'
-gem 'mysql2'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '~> 4.1.20'
-gem 'execjs', '~> 2.7.0'
-gem 'therubyracer', '~> 0.12.3'
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'will_paginate', '~> 3.1.7'
-gem 'will_paginate-bootstrap', '~> 1.0.1'
+gem 'devise', '~> 4.5.0'
+gem 'dotenv-rails', '~> 0.9.0'
+gem 'mysql2'
+gem 'sentry-raven', '~> 2.9.0'
+gem 'skylight', '~> 3.1.5'
+gem 'therubyracer', '~> 0.12.3'
 
 gem 'better_errors', '~> 2.5.1'
+gem 'chartkick', '~> 2.2.4'
+gem 'execjs', '~> 2.7.0'
+gem 'haml', '~> 5.0.4'
+gem 'jquery-rails'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '~> 4.1.20'
+gem 'will_paginate', '~> 3.1.7'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.0.1'
@@ -28,9 +32,9 @@ group :development do
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rvm', require: false
+  gem 'rubocop', '~> 0.63.1'
   gem 'spring', '~> 2.0.2'
   gem 'web-console', '~> 3.6.2'
-  gem 'rubocop', '~> 0.63.1'
 end
 
 group :test do
@@ -42,10 +46,4 @@ group :test do
   gem 'timecop', '~> 0.9.1'
 end
 
-gem 'sentry-raven', '~> 2.9.0'
-gem 'skylight', '~> 3.1.5'
-gem 'haml', '~> 5.0.4'
-gem 'devise', '~> 4.5.0'
-gem 'dotenv-rails', '~> 0.9.0'
-
-gem 'chartkick', '~> 2.2.4'
+gem 'sdoc', '~> 0.4.0', group: :doc
