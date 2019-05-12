@@ -10,7 +10,7 @@ Raven.configure do |config|
   config.dsn = "https://#{ENV['SENTRY_PUBLIC_KEY']}:#{ENV['SENTRY_PRIVATE_KEY']}@sentry.io/#{ENV['SENTRY_PROJECT_ID']}"
 end
 
-module CountryDiary
+module Countryfier
   class Application < Rails::Application
     config.autoload_paths += %W[
       #{config.root}/lib
