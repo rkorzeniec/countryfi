@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard', action: :index, controller: 'dashboard'
+
   devise_for :users
 
   resources :countries, only: :show
@@ -15,8 +17,6 @@ Rails.application.routes.draw do
     resources :oceanians, only: :index
     resources :antarcticans, only: :index
   end
-
-  get 'dashboard', action: :index, controller: 'dashboard'
 
   namespace :explore do
     resources :worlds, only: :index
