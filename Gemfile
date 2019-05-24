@@ -48,4 +48,4 @@ gem 'haml', '~> 5.0.4'
 gem 'devise', '~> 4.5.0'
 gem 'dotenv-rails', '~> 0.9.0'
 
-gem 'chartkick', '~> 2.2.4'
+gem 'chartkick', '~> 3.0.2'
