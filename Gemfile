@@ -3,7 +3,7 @@ ruby '2.5.3'
 
 gem 'rails', '5.2.2.1'
 
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.6.0'
 gem 'dotenv-rails', '~> 2.7.2'
 gem 'mysql2'
 gem 'sentry-raven', '~> 2.9.0'
