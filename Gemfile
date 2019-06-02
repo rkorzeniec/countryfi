@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
-gem 'rails', '5.2.2.1'
+gem 'rails', '5.2.3'
 
 gem 'devise', '~> 4.6.0'
 gem 'dotenv-rails', '~> 2.7.2'
@@ -22,7 +22,7 @@ gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.0.1'
-  gem 'rspec-rails', '~> 3.7.1'
+  gem 'rspec-rails', '~> 3.8.2'
   gem 'simplecov'
   gem 'simplecov-console'
 end
@@ -33,8 +33,9 @@ group :development do
   gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rvm', require: false
   gem 'rubocop', '~> 0.71.0'
+  gem 'rubocop-rails', '~> 2.0.0'
   gem 'spring', '~> 2.0.2'
-  gem 'web-console', '~> 3.6.2'
+  gem 'web-console', '~> 3.7.0'
 end
 
 group :test do
