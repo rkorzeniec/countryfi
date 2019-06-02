@@ -11,7 +11,7 @@ gem 'skylight', '~> 3.1.5'
 gem 'therubyracer', '~> 0.12.3'
 
 gem 'better_errors', '~> 2.5.1'
-gem 'chartkick', '~> 2.2.4'
+gem 'chartkick', '~> 3.1.0'
 gem 'execjs', '~> 2.7.0'
 gem 'haml', '~> 5.0.4'
 gem 'jquery-rails'
