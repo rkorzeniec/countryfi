@@ -4,7 +4,7 @@ ruby '2.5.3'
 gem 'rails', '5.2.2.1'
 
 gem 'devise', '~> 4.5.0'
-gem 'dotenv-rails', '~> 0.9.0'
+gem 'dotenv-rails', '~> 2.7.2'
 gem 'mysql2'
 gem 'sentry-raven', '~> 2.9.0'
 gem 'skylight', '~> 3.1.5'
@@ -39,7 +39,7 @@ end
 
 group :test do
   gem 'database_cleaner',   '~> 1.7.0'
-  gem 'factory_girl_rails', '~> 4.7.0'
+  gem 'factory_girl_rails', '~> 4.9.0'
   gem 'rails-controller-testing', '~> 1.0.2'
   gem 'shoulda-matchers',   '~> 4.0.0.rc1'
   gem 'stub_env'
