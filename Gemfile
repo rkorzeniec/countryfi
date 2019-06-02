@@ -22,7 +22,7 @@ gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.0.1'
-  gem 'rspec-rails', '~> 3.7.1'
+  gem 'rspec-rails', '~> 3.8.2'
   gem 'simplecov'
   gem 'simplecov-console'
 end
