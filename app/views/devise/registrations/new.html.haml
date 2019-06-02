@@ -14,3 +14,5 @@
             = f.password_field :password_confirmation, autocomplete: 'off', placeholder: :password_confirmation, class: 'form-control input-lg'
           .form-group-lg.m-t-1
             = f.submit 'Sign up', class: 'btn btn-primary btn-lg btn-block'
+        Do you have an account already?
+        = link_to 'Log in', new_user_session_path, class: 'text-bg text-slim'
