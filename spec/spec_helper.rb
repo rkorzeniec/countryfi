@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'factory_girl'
+require 'factory_bot'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -22,7 +22,7 @@ RSpec.configure do |config|
 
   config.default_formatter = 'doc' if config.files_to_run.one?
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   config.order = :random
 

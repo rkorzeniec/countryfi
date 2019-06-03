@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :country do
     name_common 'Switzerland'
     name_official 'Swiss Confederation'

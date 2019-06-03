@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :checkin do
     user
     country
