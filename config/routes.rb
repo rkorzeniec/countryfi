@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post '/graphql', to: 'graphql#execute'
+
   get 'dashboard', action: :index, controller: 'dashboard'
 
   devise_for :users
@@ -32,4 +34,8 @@ Rails.application.routes.draw do
   resource :preferences, only: %i[edit update]
 
   root 'hello', action: :index, controller: 'hello'
+
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
+  end
 end
