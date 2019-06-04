@@ -58,7 +58,7 @@ module Countryfier
     #   Devise::SessionsController.layout('application_non_menu')
     # end
 
-    config.filter_parameters += %i[password password_confirmation]
+    config.filter_parameters += %i[password password_confirmation query]
 
     config.skylight.environments = ['production']
   end
