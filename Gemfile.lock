@@ -91,6 +91,9 @@ GEM
     execjs (2.7.0)
     factory_bot (5.0.2)
       activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.2)
+      factory_bot (~> 5.0.2)
+      railties (>= 4.2.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
@@ -293,7 +296,7 @@ DEPENDENCIES
   devise (~> 4.6.0)
   dotenv-rails (~> 2.7.2)
   execjs (~> 2.7.0)
-  factory_bot (~> 5.0.2)
+  factory_bot_rails (~> 5.0.2)
   haml (~> 5.1.1)
   jquery-rails
   mysql2

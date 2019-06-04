@@ -40,7 +40,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.7.0'
-  gem 'factory_bot', '~> 5.0.2'
+  gem 'factory_bot_rails', '~> 5.0.2'
   gem 'rails-controller-testing', '~> 1.0.2'
   gem 'shoulda-matchers', '~> 4.0.0.rc1'
   gem 'stub_env'
