@@ -36,6 +36,7 @@ group :development do
   gem 'rubocop-rails', '~> 2.0.0'
   gem 'spring', '~> 2.0.2'
   gem 'web-console', '~> 3.7.0'
+  gem 'binding_of_caller', '~> 0.8.0'
 end
 
 group :test do
