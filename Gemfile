@@ -7,7 +7,7 @@ gem 'devise', '~> 4.6.0'
 gem 'dotenv-rails', '~> 2.7.2'
 gem 'mysql2'
 gem 'sentry-raven', '~> 2.9.0'
-gem 'skylight', '~> 4.0.2'
+gem 'skylight', '~> 4.1.0'
 gem 'therubyracer', '~> 0.12.3'
 
 gem 'better_errors', '~> 2.5.1'
