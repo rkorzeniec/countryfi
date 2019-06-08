@@ -33,7 +33,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rvm', require: false
   gem 'rubocop', '~> 0.71.0'
-  gem 'rubocop-rails', '~> 2.0.0'
+  gem 'rubocop-rails', '~> 2.0.1'
   gem 'spring', '~> 2.0.2'
   gem 'web-console', '~> 3.7.0'
   gem 'binding_of_caller', '~> 0.8.0'
