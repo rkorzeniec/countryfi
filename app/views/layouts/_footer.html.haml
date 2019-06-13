@@ -1,0 +1,10 @@
+%footer.px-footer.px-footer-bottom#footer
+  %p.text-muted.text-xs-center.m-t-1
+    = "\u00A9 #{Date.today.year}"
+    Robert Korzeniec
+
+= content_for :page_specific_js do
+  :javascript
+    $(document).ready(function() {
+      $('#footer').pxFooter();
+    });
