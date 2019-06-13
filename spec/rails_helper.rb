@@ -7,16 +7,9 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'devise'
-
-# Add additional requires below this line. Rails is not loaded until this point!
+require 'factory_bot'
 
 rails_root = Rails.root
-
-[
-  rails_root.join('spec/support/**/*.rb')
-].each do |dir|
-  Dir[dir].each { |f| require f }
-end
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -63,7 +56,7 @@ RSpec.configure do |config|
 
   config.fixture_path = "#{rails_root}/spec/fixtures"
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include ApplicationHelper, type: :controller

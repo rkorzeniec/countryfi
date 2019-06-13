@@ -1,10 +1,11 @@
 require 'rubygems'
-require 'factory_girl'
 require 'simplecov'
 require 'simplecov-console'
 
 SimpleCov.formatter = SimpleCov::Formatter::Console
 SimpleCov.start 'rails'
+
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -21,8 +22,6 @@ RSpec.configure do |config|
   config.example_status_persistence_file_path = 'spec/examples.txt'
 
   config.default_formatter = 'doc' if config.files_to_run.one?
-
-  config.include FactoryGirl::Syntax::Methods
 
   config.order = :random
 

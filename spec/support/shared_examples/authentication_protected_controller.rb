@@ -1,5 +1,5 @@
 shared_examples 'authentication_protected_controller' do |requests|
-  context 'when user notsigned in user' do
+  context 'when user not signed in user' do
     requests.each do |request|
       it "has no access to #{request[0].upcase}##{request[1]}" do
         send(request[0], request[1], request[2])
