@@ -12,12 +12,6 @@ require 'devise'
 
 rails_root = Rails.root
 
-[
-  rails_root.join('spec/support/**/*.rb')
-].each do |dir|
-  Dir[dir].each { |f| require f }
-end
-
 ActiveRecord::Migration.maintain_test_schema!
 
 Shoulda::Matchers.configure do |config|
