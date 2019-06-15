@@ -33,6 +33,7 @@ group :development do
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rvm', require: false
+  gem 'letter_opener', '~> 1.7.0'
   gem 'rubocop', '~> 0.71.0'
   gem 'rubocop-rails', '~> 2.0.1'
   gem 'spring', '~> 2.0.2'
