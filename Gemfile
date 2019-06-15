@@ -12,6 +12,7 @@ gem 'therubyracer', '~> 0.12.3'
 
 gem 'better_errors', '~> 2.5.1'
 gem 'chartkick', '~> 3.2.0'
+gem 'delayed_job_active_record', '~> 4.1.3'
 gem 'execjs', '~> 2.7.0'
 gem 'haml', '~> 5.1.1'
 gem 'jquery-rails'
