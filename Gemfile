@@ -12,6 +12,7 @@ gem 'therubyracer', '~> 0.12.3'
 
 gem 'better_errors', '~> 2.5.1'
 gem 'chartkick', '~> 3.2.0'
+gem 'delayed_job_active_record', '~> 4.1.3'
 gem 'execjs', '~> 2.7.0'
 gem 'haml', '~> 5.1.1'
 gem 'jquery-rails'
@@ -33,6 +34,7 @@ group :development do
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rvm', require: false
+  gem 'capistrano3-delayed-job', '~> 1.7.6'
   gem 'letter_opener', '~> 1.7.0'
   gem 'rubocop', '~> 0.71.0'
   gem 'rubocop-rails', '~> 2.0.1'

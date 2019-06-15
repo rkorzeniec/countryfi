@@ -8,6 +8,7 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rails'
 require 'capistrano/rvm'
 require 'capistrano/passenger'
+require 'capistrano/delayed_job'
 
 # Include tasks from other gems included in your Gemfile
 #
