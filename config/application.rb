@@ -59,5 +59,7 @@ module Countryfier
     # end
 
     config.filter_parameters += %i[password password_confirmation]
+
+    config.skylight.environments = ['production']
   end
 end
