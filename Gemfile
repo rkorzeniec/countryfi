@@ -3,6 +3,7 @@ ruby '2.5.3'
 
 gem 'rails', '5.2.3'
 
+gem 'dalli', '~> 2.7.10'
 gem 'devise', '~> 4.6.0'
 gem 'devise-async', '~> 1.0.0'
 gem 'dotenv-rails', '~> 2.7.2'
