@@ -7,9 +7,15 @@ describe UniqVisitedCountriesQuery do
   after { Timecop.return }
 
   describe '#count_by_year' do
+    let(:cache) { double('cache') }
+
     subject { query.count_by_year }
 
     context 'with already visited countries' do
+      let(:cache_key) do
+        ['uniq_visited_countries_query', user.id, checkin_c.id].join('/')
+      end
+
       context 'when countries are uniq' do
         let!(:checkin) do
           create(:checkin, user: user, checkin_date: now - 1.year)
@@ -41,6 +47,11 @@ describe UniqVisitedCountriesQuery do
         end
 
         it { expect(subject).to eq(2016 => 1, 2017 => 1) }
+        it do
+          expect(Rails).to receive(:cache).and_return(cache)
+          expect(cache).to receive(:fetch).with(cache_key, expires_in: 1.week)
+          subject
+        end
       end
     end
 
@@ -54,11 +65,20 @@ describe UniqVisitedCountriesQuery do
     end
 
     context 'with not visited countries' do
+      let(:cache_key) do
+        ['uniq_visited_countries_query', user.id].compact.join('/')
+      end
       let!(:checkin) do
         create(:checkin, user: user, checkin_date: now + 1.day)
       end
 
       it { expect(subject).to be_empty }
+
+      it do
+        expect(Rails).to receive(:cache).and_return(cache)
+        expect(cache).to receive(:fetch).with(cache_key, expires_in: 1.week)
+        subject
+      end
     end
   end
 end
