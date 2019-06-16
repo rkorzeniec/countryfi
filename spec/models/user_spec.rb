@@ -1,7 +1,11 @@
-describe User do
+describe User, type: :model do
   it { is_expected.to have_many(:checkins).dependent(:destroy) }
   it { is_expected.to have_many(:countries).through(:checkins) }
-  it { is_expected.to have_many(:visited_checkins).class_name('Checkin') }
+  it do
+    is_expected.to have_many(:visited_checkins)
+      .class_name('Checkin')
+      .inverse_of(:user)
+  end
   it do
     is_expected.to have_many(:visited_countries)
       .source(:country)
