@@ -1,9 +1,4 @@
 require 'rubygems'
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::Console
-SimpleCov.start 'rails'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
