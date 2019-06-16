@@ -1,4 +1,22 @@
 - provide(:title, 'My checkins')
 .row
-  .col-lg-10.col-lg-offset-1
+  #timeline.col-lg-10.col-lg-offset-1
     = render 'checkins/shared/timeline', timeline: @timeline
+.row
+  .col-sm.12
+    = will_paginate @timeline
+
+= content_for :page_specific_js do
+  :javascript
+    $(document).ready(function() {
+      if ($('.pagination').length) {
+        $(window).scroll(function() {
+          var url = $('.pagination .next_page').attr('href');
+          if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+            $('.pagination').text("Please wait...");
+            return $.getScript(url);
+          }
+        });
+        return $(window).scroll();
+      }
+    });
