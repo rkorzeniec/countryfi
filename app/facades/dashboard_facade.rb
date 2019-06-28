@@ -1,4 +1,6 @@
 class DashboardFacade
+  CACHE_EXPIRY = 1.week
+
   attr_reader :countries
 
   def initialize(user)
@@ -11,43 +13,43 @@ class DashboardFacade
   end
 
   def european_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: 1.week) do
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
       countries.european
     end
   end
 
   def north_american_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: 1.week) do
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
       countries.north_american
     end
   end
 
   def south_american_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: 1.week) do
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
       countries.south_american
     end
   end
 
   def asian_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: 1.week) do
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
       countries.asian
     end
   end
 
   def african_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: 1.week) do
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
       countries.african
     end
   end
 
   def oceanian_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: 1.week) do
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
       countries.oceanian
     end
   end
 
   def antarctican_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: 1.week) do
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
       countries.antarctican
     end
   end
