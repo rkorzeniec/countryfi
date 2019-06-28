@@ -1,4 +1,6 @@
 class DashboardFacade
+  CACHE_EXPIRY = 1.week
+
   attr_reader :countries
 
   def initialize(user)
@@ -11,31 +13,45 @@ class DashboardFacade
   end
 
   def european_countries
-    @european_countries ||= countries.european
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
+      countries.european
+    end
   end
 
   def north_american_countries
-    @north_american_countries ||= countries.north_american
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
+      countries.north_american
+    end
   end
 
   def south_american_countries
-    @south_american_countries ||= countries.south_american
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
+      countries.south_american
+    end
   end
 
   def asian_countries
-    @asian_countries ||= countries.asian
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
+      countries.asian
+    end
   end
 
   def african_countries
-    @african_countries ||= countries.african
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
+      countries.african
+    end
   end
 
   def oceanian_countries
-    @oceanian_countries ||= countries.oceanian
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
+      countries.oceanian
+    end
   end
 
   def antarctican_countries
-    @antarctican_countries ||= countries.antarctican
+    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
+      countries.antarctican
+    end
   end
 
   def visited_countries_counter
@@ -48,5 +64,14 @@ class DashboardFacade
 
   def visited_countries
     @visited_countries ||= user.visited_countries.load
+  end
+
+  def cache_key(method_name)
+    [
+      self.class.to_s.underscore,
+      method_name,
+      user.id,
+      user.visited_checkins.last&.id
+    ].compact.join('/')
   end
 end

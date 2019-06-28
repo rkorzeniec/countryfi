@@ -7,6 +7,7 @@ describe VisitedCountriesQuery do
   after { Timecop.return }
 
   describe '#count_by_year' do
+    let(:cache) { double('cache') }
 
     subject { query.count_by_year }
 
@@ -19,7 +20,17 @@ describe VisitedCountriesQuery do
         create(:checkin, user: user, checkin_date: now - 1.year)
       end
 
+      let(:cache_key) do
+        ['visited_countries_query', user.id, checkin_c.id].join('/')
+      end
+
       it { expect(subject).to eq(2017 => 1, 2016 => 2) }
+
+      it do
+        expect(Rails).to receive(:cache).and_return(cache)
+        expect(cache).to receive(:fetch).with(cache_key, expires_in: 1.week)
+        subject
+      end
     end
 
     context 'with mixed countries' do
@@ -35,8 +46,17 @@ describe VisitedCountriesQuery do
       let!(:checkin) do
         create(:checkin, user: user, checkin_date: now + 1.day)
       end
+      let(:cache_key) do
+        ['visited_countries_query', user.id].compact.join('/')
+      end
 
       it { expect(subject).to be_empty }
+
+      it do
+        expect(Rails).to receive(:cache).and_return(cache)
+        expect(cache).to receive(:fetch).with(cache_key, expires_in: 1.week)
+        subject
+      end
     end
   end
 end
