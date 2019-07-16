@@ -13,7 +13,7 @@ gem 'skylight', '~> 4.1.2'
 gem 'therubyracer', '~> 0.12.3'
 
 gem 'better_errors', '~> 2.5.1'
-gem 'chartkick', '~> 3.2.0'
+gem 'chartkick', '~> 3.2.1'
 gem 'daemons', '~> 1.3.1'
 gem 'delayed_job_active_record', '~> 4.1.3'
 gem 'execjs', '~> 2.7.0'
