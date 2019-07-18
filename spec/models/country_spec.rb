@@ -1,11 +1,15 @@
 describe Country do
-  it { is_expected.to have_many(:checkins) }
-  it { is_expected.to have_many(:currencies) }
-  it { is_expected.to have_many(:top_level_domains) }
-  it { is_expected.to have_many(:country_languages) }
-  it { is_expected.to have_many(:country_calling_codes) }
-  it { is_expected.to have_many(:border_countries) }
-  it { is_expected.to have_many(:country_alternative_spellings) }
+  it { is_expected.to have_many(:checkins).dependent(:restrict_with_error) }
+  it { is_expected.to have_many(:currencies).dependent(:restrict_with_error) }
+  it do
+    is_expected.to have_many(:top_level_domains).dependent(:restrict_with_error)
+  end
+  it { is_expected.to have_many(:country_languages).dependent(:destroy) }
+  it { is_expected.to have_many(:country_calling_codes).dependent(:destroy) }
+  it { is_expected.to have_many(:border_countries).dependent(:destroy) }
+  it do
+    is_expected.to have_many(:country_alternative_spellings).dependent(:destroy)
+  end
 
   describe '.find_by_any' do
     let(:switzerland) { create(:country) }

@@ -1,4 +1,4 @@
-class TopLevelDomain < ActiveRecord::Base
+class TopLevelDomain < ApplicationRecord
   belongs_to :country
 
   validates :name, presence: true

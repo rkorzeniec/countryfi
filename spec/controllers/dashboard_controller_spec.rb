@@ -22,7 +22,7 @@ describe DashboardController do
           visited_asian_countries_count: 1,
           visited_african_countries_count: 1,
           visited_oceanian_countries_count: 1,
-          visited_antarctican_countries_count: 1,
+          visited_antarctican_countries_count: 1
         )
       end
       let(:facade) do

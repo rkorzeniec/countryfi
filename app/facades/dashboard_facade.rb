@@ -55,7 +55,8 @@ class DashboardFacade
   end
 
   def visited_countries_counter
-    @visited_countries_counter ||= ::Dashboard::VisitedCountriesCounter.new(user)
+    @visited_countries_counter ||=
+      ::Dashboard::VisitedCountriesCounter.new(user)
   end
 
   private

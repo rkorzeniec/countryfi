@@ -1,11 +1,11 @@
-class Country < ActiveRecord::Base
-  has_many :checkins
-  has_many :currencies
-  has_many :top_level_domains
-  has_many :country_languages
-  has_many :country_calling_codes
-  has_many :border_countries
-  has_many :country_alternative_spellings
+class Country < ApplicationRecord
+  has_many :checkins, dependent: :restrict_with_error
+  has_many :currencies, dependent: :restrict_with_error
+  has_many :top_level_domains, dependent: :restrict_with_error
+  has_many :country_languages, dependent: :destroy
+  has_many :country_calling_codes, dependent: :destroy
+  has_many :border_countries, dependent: :destroy
+  has_many :country_alternative_spellings, dependent: :destroy
 
   scope :european, -> { where(region: 'Europe') }
   scope :south_american, -> { where(subregion: 'South America') }
@@ -13,7 +13,7 @@ class Country < ActiveRecord::Base
   scope :oceanian, -> { where(region: 'Oceania') }
   scope :african, -> { where(region: 'Africa') }
   scope :antarctican, -> { where(region: 'Antarctica') }
-  scope :north_american, -> do
+  scope :north_american, lambda {
     where(
       [
         "region = 'Americas' AND "\
@@ -22,10 +22,10 @@ class Country < ActiveRecord::Base
         "subregion = 'Caribbean'"
       ]
     )
-  end
+  }
 
   def self.find_by_any(name)
-    where(
+    find_by(
       "name_common LIKE ?
       OR name_official LIKE ?
       OR cca2 LIKE ?
@@ -34,16 +34,12 @@ class Country < ActiveRecord::Base
       OR cioc LIKE ?",
       "%#{name}%", "%#{name}%", "%#{name}%",
       "%#{name}%", "%#{name}%", "%#{name}%"
-    ).first
+    )
   end
 
   def flag_image_path
-    flag_path =
-      if File.exist?("#{Rails.root.join('app', 'assets', 'images', 'flags')}/#{cca2}.png")
-        "flags/#{cca2}.png"
-      else
-        'flags/unknown.png'
-      end
+    file = Rails.root.join('app', 'assets', 'images', 'flags', "#{cca2}.png")
+    flag_path = File.exist?(file) ? "flags/#{cca2}.png" : 'flags/unknown.png'
 
     ActionController::Base.helpers.image_path(flag_path)
   end

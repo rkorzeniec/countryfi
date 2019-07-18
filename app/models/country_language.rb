@@ -1,4 +1,4 @@
-class CountryLanguage < ActiveRecord::Base
+class CountryLanguage < ApplicationRecord
   belongs_to :country
 
   validates :name, presence: true
