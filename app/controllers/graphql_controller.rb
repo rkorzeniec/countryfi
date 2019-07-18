@@ -21,7 +21,7 @@ class GraphqlController < ApplicationController
   def ensure_hash(ambiguous_param)
     case ambiguous_param
     when String
-      ambiguous_param.present? ? ensure_hash(JSON.parse(ambiguous_param)): {}
+      ambiguous_param.present? ? ensure_hash(JSON.parse(ambiguous_param)) : {}
     when Hash, ActionController::Parameters
       ambiguous_param
     when nil
@@ -32,6 +32,14 @@ class GraphqlController < ApplicationController
   end
 
   def context
+    { current_user: current_user }
+  end
+
+  def current_user
+    return if request.headers['Authorization'].blank?
+
+    token = request.headers['Authorization'].split(' ').last
+    Graphql::Authenticator.new(token).call
   end
 
   def handle_error_in_development(error)
