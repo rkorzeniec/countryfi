@@ -1,4 +1,6 @@
 describe User, type: :model do
+  it { is_expected.to have_secure_token(:jti_token) }
+
   it { is_expected.to have_many(:checkins).dependent(:destroy) }
   it { is_expected.to have_many(:countries).through(:checkins) }
   it do
@@ -51,11 +53,13 @@ describe User, type: :model do
       is_expected.to delegate_method(:european).to(:countries).with_prefix(true)
     end
     it do
-      is_expected.to delegate_method(:north_american).to(:countries)
+      is_expected.to delegate_method(:north_american)
+        .to(:countries)
         .with_prefix(true)
     end
     it do
-      is_expected.to delegate_method(:south_american).to(:countries)
+      is_expected.to delegate_method(:south_american)
+        .to(:countries)
         .with_prefix(true)
     end
     it do
@@ -68,7 +72,8 @@ describe User, type: :model do
       is_expected.to delegate_method(:african).to(:countries).with_prefix(true)
     end
     it do
-      is_expected.to delegate_method(:antarctican).to(:countries)
+      is_expected.to delegate_method(:antarctican)
+        .to(:countries)
         .with_prefix(true)
     end
   end

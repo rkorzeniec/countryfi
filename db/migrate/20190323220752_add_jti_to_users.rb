@@ -3,7 +3,6 @@ class AddJtiToUsers < ActiveRecord::Migration[5.2]
 
   def up
     add_column :users, :jti_token, :string, null: false, after: :email
-    add_index :users, :jti_token, unique: true
 
     User.find_each do |user|
       execute(%(
@@ -12,10 +11,14 @@ class AddJtiToUsers < ActiveRecord::Migration[5.2]
         WHERE users.id = #{user.id}
       ))
     end
+
+    add_index :users, :jti_token, unique: true
   end
 
   def down
-    remove_index :users, :jti_token
-    remove_column :users, :jti_token
+    change_table :users, bulk: true do |t|
+      t.remove :jti_token
+      t.remove_index :jti_token
+    end
   end
 end
