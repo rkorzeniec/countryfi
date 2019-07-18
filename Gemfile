@@ -7,7 +7,7 @@ gem 'dalli', '~> 2.7.10'
 gem 'devise', '~> 4.6.2'
 gem 'devise-async', '~> 1.0.0'
 gem 'dotenv-rails', '~> 2.7.4'
-gem 'graphql', '~> 1.9.4'
+gem 'graphql', '~> 1.9.7'
 gem 'jwt', '~> 2.1.0'
 gem 'mysql2'
 gem 'sentry-raven', '~> 2.9.0'
@@ -41,7 +41,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rvm', require: false
   gem 'capistrano3-delayed-job', '~> 1.7.6'
-  gem 'graphiql-rails'
+  gem 'graphiql-rails', '~> 1.7.0'
   gem 'letter_opener', '~> 1.7.0'
   gem 'rubocop', '~> 0.73.0'
   gem 'rubocop-rails', '~> 2.2.1'
