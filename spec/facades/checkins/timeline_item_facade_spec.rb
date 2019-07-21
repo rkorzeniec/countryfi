@@ -8,6 +8,10 @@ describe Checkins::TimelineItemFacade do
 
   describe 'delegations' do
     it { expect(facade).to delegate_method(:country).to(:checkin) }
+    it { expect(facade).to delegate_method(:flag_image_path).to(:country) }
+    it do
+      expect(facade).to delegate_method(:cca2).to(:country).with_prefix(true)
+    end
   end
 
   describe '#checkin_date' do

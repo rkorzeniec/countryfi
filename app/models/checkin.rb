@@ -1,4 +1,4 @@
-class Checkin < ActiveRecord::Base
+class Checkin < ApplicationRecord
   belongs_to :user
   belongs_to :country
 

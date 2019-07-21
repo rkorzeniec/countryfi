@@ -3,6 +3,8 @@ module Checkins
     attr_reader :checkin
 
     delegate :country, to: :checkin
+    delegate :flag_image_path, to: :country
+    delegate :cca2, to: :country, prefix: true
 
     def initialize(checkin)
       @checkin = checkin
@@ -18,14 +20,6 @@ module Checkins
 
     def country_common_name
       country.name_common
-    end
-
-    def country_cca2
-      country.cca2
-    end
-
-    def flag_image_path
-      country.flag_image_path
     end
   end
 end
