@@ -41,6 +41,7 @@ public/uploads/*
 public/exports/**
 exports/**
 public/exports/**
+public/assets/**/*
 
 #do not ignore
 !.ruby-version
