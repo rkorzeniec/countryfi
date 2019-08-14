@@ -41,7 +41,7 @@ group :development do
   gem 'capistrano3-delayed-job', '~> 1.7.6'
   gem 'letter_opener', '~> 1.7.0'
   gem 'rubocop', '~> 0.73.0'
-  gem 'rubocop-rails', '~> 2.2.1'
+  gem 'rubocop-rails', '~> 2.3.0'
   gem 'spring', '~> 2.1.0'
   gem 'web-console', '~> 3.7.0'
 end
