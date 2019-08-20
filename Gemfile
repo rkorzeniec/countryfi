@@ -21,7 +21,7 @@ gem 'haml', '~> 5.1.1'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 4.1.20'
-gem 'will_paginate', '~> 3.1.7'
+gem 'will_paginate', '~> 3.1.8'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 group :development, :test do
