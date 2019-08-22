@@ -33,7 +33,7 @@ end
 
 group :development do
   gem 'binding_of_caller', '~> 0.8.0'
-  gem 'bullet', '~> 6.0.1', group: 'development'
+  gem 'bullet', '~> 6.0.2', group: 'development'
   gem 'capistrano', '~> 3.11', require: false
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails', '~> 1.3', require: false
