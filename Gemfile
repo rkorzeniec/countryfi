@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
-gem 'rails', '5.2.3'
+gem 'rails', '6.0.0'
 
 gem 'dalli', '~> 2.7.10'
 gem 'devise', '~> 4.7.0'
