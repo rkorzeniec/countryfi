@@ -3,6 +3,7 @@ ruby '2.5.3'
 
 gem 'rails', '6.0.0'
 
+gem 'bootsnap', '~> 1.4.4', require: false
 gem 'dalli', '~> 2.7.10'
 gem 'devise', '~> 4.7.0'
 gem 'devise-async', '~> 1.0.0'
