@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
-gem 'rails', '5.2.3'
+gem 'rails', '6.0.0'
 
+gem 'bootsnap', '~> 1.4.4', require: false
 gem 'dalli', '~> 2.7.10'
 gem 'devise', '~> 4.7.0'
 gem 'devise-async', '~> 1.0.0'
@@ -40,6 +41,7 @@ group :development do
   gem 'capistrano-rvm', require: false
   gem 'capistrano3-delayed-job', '~> 1.7.6'
   gem 'letter_opener', '~> 1.7.0'
+  gem 'listen', '~> 3.0'
   gem 'rubocop', '~> 0.74.0'
   gem 'rubocop-rails', '~> 2.3.0'
   gem 'spring', '~> 2.1.0'
