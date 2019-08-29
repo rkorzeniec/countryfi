@@ -70,7 +70,7 @@ GEM
     bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.4.4)
+    bootsnap (1.4.5)
       msgpack (~> 1.0)
     builder (3.2.3)
     bullet (6.0.2)
@@ -334,7 +334,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors (~> 2.5.1)
   binding_of_caller (~> 0.8.0)
-  bootsnap (~> 1.4.4)
+  bootsnap (~> 1.4.5)
   bullet (~> 6.0.2)
   byebug (~> 11.0.1)
   capistrano (~> 3.11)
