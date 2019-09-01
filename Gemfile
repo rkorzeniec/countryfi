@@ -46,7 +46,7 @@ group :development do
   gem 'rubocop', '~> 0.74.0'
   gem 'rubocop-rails', '~> 2.3.1'
   gem 'spring', '~> 2.1.0'
-  gem 'web-console', '~> 3.7.0'
+  gem 'web-console', '~> 4.0.1'
 end
 
 group :test do
