@@ -7,14 +7,13 @@
       #world_pie_chart.easy-pie-chart{ 'data-percent': "#{visited_percent}" }
         %span= "#{visited_countries_count}/#{countries_count}"
 :javascript
-  $(function() {
-    $('#world_pie_chart').easyPieChart({
-      animate: 2000,
-      scaleColor: false,
-      lineWidth: 6,
-      lineCap: 'square',
-      size: 90,
-      trackColor: '#e5e5e5',
-      barColor: '#37BC9B'
-    });
+  var element = document.querySelector('#world_pie_chart');
+  new EasyPieChart(element, {
+    animate: 2000,
+    scaleColor: false,
+    lineWidth: 6,
+    lineCap: 'square',
+    size: 90,
+    trackColor: '#e5e5e5',
+    barColor: '#37BC9B'
   });

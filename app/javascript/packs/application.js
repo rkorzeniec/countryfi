@@ -15,5 +15,15 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import '../src/mapbox.js';
-import '../src/visited_countries_charts.js';
+require('chartkick');
+require('chart.js');
+
+import $ from 'jquery';
+import EasyPieChart from 'easy-pie-chart';
+import VisitedCountriesCharts from '../src/visited_countries_charts.js';
+import Rails from 'rails-ujs';
+
+Rails.start();
+window.VisitedCountriesCharts = VisitedCountriesCharts
+window.EasyPieChart = EasyPieChart
+window.$ = $
