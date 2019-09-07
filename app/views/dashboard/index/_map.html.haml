@@ -1,39 +1,39 @@
+-# .row
+-#   .col-sm-12
+-#     %ul.nav.nav-pills.nav-justified
+-#       %li.margin-b-10.active
+-#         = link_to 'World', '#world-pill', data: { toggle: 'tab' }
+-#       %li.margin-b-10
+-#         = link_to 'Europe', '#europe-pill', data: { toggle: 'tab' }
+-#       %li.margin-b-10
+-#         = link_to 'North America', '#north_america-pill', data: { toggle: 'tab' }
+-#       %li.margin-b-10
+-#         = link_to 'South America', '#south_america-pill', data: { toggle: 'tab' }
+-#       %li.margin-b-10
+-#         = link_to 'Asia', '#asia-pill', data: { toggle: 'tab' }
+-#       %li.margin-b-10
+-#         = link_to 'Africa', '#africa-pill', data: { toggle: 'tab' }
+-#       %li.margin-b-10
+-#         = link_to 'Australia', '#australia-pill', data: { toggle: 'tab' }
+-#       %li.margin-b-10
+-#         = link_to 'Antarctica', '#antarctica-pill', data: { toggle: 'tab' }
 .row
   .col-sm-12
-    %ul.nav.nav-pills.nav-justified
-      %li.margin-b-10.active
-        = link_to 'World', '#world-pill', data: { toggle: 'tab' }
-      %li.margin-b-10
-        = link_to 'Europe', '#europe-pill', data: { toggle: 'tab' }
-      %li.margin-b-10
-        = link_to 'North America', '#north_america-pill', data: { toggle: 'tab' }
-      %li.margin-b-10
-        = link_to 'South America', '#south_america-pill', data: { toggle: 'tab' }
-      %li.margin-b-10
-        = link_to 'Asia', '#asia-pill', data: { toggle: 'tab' }
-      %li.margin-b-10
-        = link_to 'Africa', '#africa-pill', data: { toggle: 'tab' }
-      %li.margin-b-10
-        = link_to 'Australia', '#australia-pill', data: { toggle: 'tab' }
-      %li.margin-b-10
-        = link_to 'Antarctica', '#antarctica-pill', data: { toggle: 'tab' }
-.row
-  .col-sm-12
-    .tab-content{ style: 'max-height: 650px;' }
+    .tab-content{ style: 'max-height: 650px; max-width: 800px; margin: auto;' }
       .tab-pane.active#world-pill
         = render 'dashboard/index/maps/world', dashboard: @dashboard
-      .tab-pane#europe-pill
-        = render 'dashboard/index/maps/europe', dashboard: @dashboard
-      .tab-pane#north_america-pill
-        = render 'dashboard/index/maps/north_america', dashboard: @dashboard
-      .tab-pane#south_america-pill
-        = render 'dashboard/index/maps/south_america', dashboard: @dashboard
-      .tab-pane#asia-pill
-        = render 'dashboard/index/maps/asia', dashboard: @dashboard
-      .tab-pane#africa-pill
-        = render 'dashboard/index/maps/africa', dashboard: @dashboard
-      .tab-pane#australia-pill
-        = render 'dashboard/index/maps/australia', dashboard: @dashboard
-      .tab-pane#antarctica-pill
-        = render 'dashboard/index/maps/antarctica', dashboard: @dashboard
+      -# .tab-pane#europe-pill
+      -#   = render 'dashboard/index/maps/europe', dashboard: @dashboard
+      -# .tab-pane#north_america-pill
+      -#   = render 'dashboard/index/maps/north_america', dashboard: @dashboard
+      -# .tab-pane#south_america-pill
+      -#   = render 'dashboard/index/maps/south_america', dashboard: @dashboard
+      -# .tab-pane#asia-pill
+      -#   = render 'dashboard/index/maps/asia', dashboard: @dashboard
+      -# .tab-pane#africa-pill
+      -#   = render 'dashboard/index/maps/africa', dashboard: @dashboard
+      -# .tab-pane#australia-pill
+      -#   = render 'dashboard/index/maps/australia', dashboard: @dashboard
+      -# .tab-pane#antarctica-pill
+      -#   = render 'dashboard/index/maps/antarctica', dashboard: @dashboard
     = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array
