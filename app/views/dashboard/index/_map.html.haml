@@ -50,3 +50,10 @@
     placement: 'right',
     trigger: 'hover',
   });
+
+  $(document).on('mousemove', function (e) {
+    if( $('div.tooltip').css('display') !== 'hidden' ) {
+        var toolHalfHeight = $('div.tooltip').outerHeight() / 2;
+        $('div.tooltip').css('left', e.pageX + 20).css('top', e.pageY - toolHalfHeight);
+    }
+  });
