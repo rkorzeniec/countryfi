@@ -37,3 +37,16 @@
       -# .tab-pane#antarctica-pill
       -#   = render 'dashboard/index/maps/antarctica', dashboard: @dashboard
     = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array
+
+:javascript
+  var worldMap = svgPanZoom('#world-svg', {
+    controlIconsEnabled: true,
+    beforePan: function() {}
+  });
+  worldMap.updateBBox();
+
+  $('#world-svg [data-toggle="tooltip"]').tooltip({
+    container: 'body',
+    placement: 'right',
+    trigger: 'hover',
+  });
