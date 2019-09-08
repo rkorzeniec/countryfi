@@ -6,6 +6,7 @@
     .box-cell.p-y-2
       #south_america_pie_chart.easy-pie-chart{ 'data-percent': "#{visited_percent}" }
         %span= "#{visited_countries_count}/#{countries_count}"
+        %span= link_to "#{visited_countries_count}/#{countries_count}", checkins_south_americans_path
 :javascript
   var element = document.querySelector('#south_america_pie_chart');
   new EasyPieChart(element, {
