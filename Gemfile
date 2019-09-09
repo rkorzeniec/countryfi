@@ -5,7 +5,7 @@ gem 'rails', '6.0.0'
 
 gem 'bootsnap', '~> 1.4.5', require: false
 gem 'dalli', '~> 2.7.10'
-gem 'devise', '~> 4.7.0'
+gem 'devise', '~> 4.7.1'
 gem 'devise-async', '~> 1.0.0'
 gem 'dotenv-rails', '~> 2.7.5'
 gem 'mysql2'
