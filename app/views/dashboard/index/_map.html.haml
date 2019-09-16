@@ -1,64 +1,57 @@
--# .row
--#   .col-sm-12
--#     %ul.nav.nav-pills.nav-justified
--#       %li.margin-b-10.active
--#         = link_to 'World', '#world-pill', data: { toggle: 'tab' }
--#       %li.margin-b-10
--#         = link_to 'Europe', '#europe-pill', data: { toggle: 'tab' }
--#       %li.margin-b-10
--#         = link_to 'North America', '#north_america-pill', data: { toggle: 'tab' }
--#       %li.margin-b-10
--#         = link_to 'South America', '#south_america-pill', data: { toggle: 'tab' }
--#       %li.margin-b-10
--#         = link_to 'Asia', '#asia-pill', data: { toggle: 'tab' }
--#       %li.margin-b-10
--#         = link_to 'Africa', '#africa-pill', data: { toggle: 'tab' }
--#       %li.margin-b-10
--#         = link_to 'Australia', '#australia-pill', data: { toggle: 'tab' }
--#       %li.margin-b-10
--#         = link_to 'Antarctica', '#antarctica-pill', data: { toggle: 'tab' }
 .row
   .col-sm-12
     .tab-content{ style: 'max-height: 700px; max-width: 800px; margin: auto; padding-top: 0;' }
       .tab-pane.active#world-pill
         = render 'dashboard/index/maps/world', dashboard: @dashboard
-      -# .tab-pane#europe-pill
-      -#   = render 'dashboard/index/maps/europe', dashboard: @dashboard
-      -# .tab-pane#north_america-pill
-      -#   = render 'dashboard/index/maps/north_america', dashboard: @dashboard
-      -# .tab-pane#south_america-pill
-      -#   = render 'dashboard/index/maps/south_america', dashboard: @dashboard
-      -# .tab-pane#asia-pill
-      -#   = render 'dashboard/index/maps/asia', dashboard: @dashboard
-      -# .tab-pane#africa-pill
-      -#   = render 'dashboard/index/maps/africa', dashboard: @dashboard
-      -# .tab-pane#australia-pill
-      -#   = render 'dashboard/index/maps/australia', dashboard: @dashboard
-      -# .tab-pane#antarctica-pill
-      -#   = render 'dashboard/index/maps/antarctica', dashboard: @dashboard
     = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array
 
 :javascript
-  var worldMap = svgPanZoom('#world-svg', {
-    controlIconsEnabled: true,
-    beforePan: function() {}
-  });
-  worldMap.updateBBox();
+  function cursorMove(e) {
+    if( $('div.tooltip').css('display') !== 'hidden' ) {
+      let toolHalfHeight = $('div.tooltip').outerHeight() / 2;
+      $('div.tooltip')
+        .css('left', e.pageX + 10)
+        .css('top', e.pageY - toolHalfHeight - 20);
+    }
+  }
 
-  $('#world-svg [data-toggle="tooltip"]').tooltip({
+  function flagged() { this.isScrolled = true; }
+
+  function preventClick(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }
+
+  const worldSvgCountries = $('#world-svg [data-toggle="tooltip"]');
+  const worldMap = svgPanZoom('#world-svg', { controlIconsEnabled: true });
+
+  worldMap.updateBBox();
+  worldSvgCountries.tooltip({
     container: 'body',
     placement: 'right',
     trigger: 'hover',
     template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'
   });
 
-  $('#world-svg').on('mousemove', function (e) {
-    if( $('div.tooltip').css('display') !== 'hidden' ) {
-      var toolHalfHeight = $('div.tooltip').outerHeight() / 2;
-      $('div.tooltip').css('left', e.pageX + 10).css('top', e.pageY - toolHalfHeight);
-    }
+  $('#world-svg').on('mousemove', function (e) { cursorMove(e); });
+
+  worldSvgCountries.on('mousedown', function() {
+    $(this).on('mousemove', flagged);
+    $(this).tooltip('hide');
   });
 
-  $('#world-svg').on('mousedown', function (e) {
-    $('#world-svg [data-toggle="tooltip"]').tooltip('hide');
+  worldSvgCountries.on('mouseup', function() {
+    $(this).off('mousemove', flagged);
+    $(this).tooltip('show');
+  });
+
+  worldSvgCountries.on('mouseup', function(e) {
+    if (this.isScrolled) {
+      $(this).on('click', preventClick);
+    } else {
+      $(this).off('click', preventClick);
+    }
+    this.isScrolled = false;
+    cursorMove(e);
+    $(this).off('mousemove', flagged);
   });
