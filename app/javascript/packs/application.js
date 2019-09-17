@@ -22,8 +22,10 @@ import $ from 'jquery';
 import EasyPieChart from 'easy-pie-chart';
 import VisitedCountriesCharts from '../src/visited_countries_charts.js';
 import Rails from 'rails-ujs';
+import svgPanZoom from 'svg-pan-zoom'
 
 Rails.start();
 window.VisitedCountriesCharts = VisitedCountriesCharts
 window.EasyPieChart = EasyPieChart
+window.svgPanZoom = svgPanZoom
 window.$ = $
