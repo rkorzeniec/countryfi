@@ -35,17 +35,17 @@
 
   $('#world-svg').on('mousemove', function (e) { cursorMove(e); });
 
-  worldSvgCountries.on('mousedown', function() {
-    $(this).on('mousemove', flagged);
+  worldSvgCountries.on('mousedown touchstart', function() {
+    $(this).on('mousemove touchmove', flagged);
     $(this).tooltip('hide');
   });
 
   worldSvgCountries.on('mouseup', function() {
-    $(this).off('mousemove', flagged);
+    $(this).off('mousemove touchmove', flagged);
     $(this).tooltip('show');
   });
 
-  worldSvgCountries.on('mouseup', function(e) {
+  worldSvgCountries.on('mouseup touchend', function(e) {
     if (this.isScrolled) {
       $(this).on('click', preventClick);
     } else {
@@ -53,5 +53,5 @@
     }
     this.isScrolled = false;
     cursorMove(e);
-    $(this).off('mousemove', flagged);
+    $(this).off('mousemove touchmove', flagged);
   });
