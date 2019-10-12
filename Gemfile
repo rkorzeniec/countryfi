@@ -23,7 +23,7 @@ gem 'jquery-rails'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'uglifier', '~> 4.1.20'
 gem 'webpacker', '~> 4.0.7'
-gem 'will_paginate', '~> 3.1.8'
+gem 'will_paginate', '~> 3.2.0'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 group :development, :test do
