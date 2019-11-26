@@ -22,7 +22,7 @@ gem 'haml', '~> 5.1.2'
 gem 'jquery-rails'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'uglifier', '~> 4.2.0'
-gem 'webpacker', '~> 4.0.7'
+gem 'webpacker', '~> 4.2.0'
 gem 'will_paginate', '~> 3.2.0'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 
