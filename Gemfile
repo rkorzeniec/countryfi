@@ -9,7 +9,7 @@ gem 'devise', '~> 4.7.1'
 gem 'devise-async', '~> 1.0.0'
 gem 'dotenv-rails', '~> 2.7.5'
 gem 'mysql2'
-gem 'sentry-raven', '~> 2.12.3'
+gem 'sentry-raven', '~> 2.13.0'
 gem 'skylight', '~> 4.2.1'
 gem 'therubyracer', '~> 0.12.3'
 
