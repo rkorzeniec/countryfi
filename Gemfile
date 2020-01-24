@@ -27,7 +27,7 @@ gem 'will_paginate', '~> 3.2.1'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 group :development, :test do
-  gem 'byebug', '~> 11.0.1'
+  gem 'byebug', '~> 11.1.1'
   gem 'rspec-rails', '~> 3.9.0'
   gem 'simplecov'
   gem 'simplecov-console'
