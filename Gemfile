@@ -27,7 +27,7 @@ gem 'webpacker', '~> 4.2.2'
 gem 'kaminari', '~> 1.2.0'
 
 group :development, :test do
-  gem 'byebug', '~> 11.0.1'
+  gem 'byebug', '~> 11.1.1'
   gem 'rspec-rails', '~> 3.9.0'
   gem 'simplecov'
   gem 'simplecov-console'
@@ -44,13 +44,13 @@ group :development do
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.2'
   gem 'rubocop', '~> 0.79.0'
-  gem 'rubocop-rails', '~> 2.4.1'
+  gem 'rubocop-rails', '~> 2.4.2'
   gem 'spring', '~> 2.1.0'
   gem 'web-console', '~> 4.0.1'
 end
 
 group :test do
-  gem 'database_cleaner', '~> 1.7.0'
+  gem 'database_cleaner', '~> 1.8.1'
   gem 'factory_bot_rails', '~> 5.1.1'
   gem 'rails-controller-testing', '~> 1.0.2'
   gem 'shoulda-matchers', '~> 4.2.0'
