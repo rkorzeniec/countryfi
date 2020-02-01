@@ -14,6 +14,7 @@ describe Checkins::TimelineFacade do
     it { is_expected.to delegate_method(:total_pages).to(:checkins) }
     it { is_expected.to delegate_method(:current_page).to(:checkins) }
     it { is_expected.to delegate_method(:next_page).to(:checkins) }
+    it { is_expected.to delegate_method(:limit_value).to(:checkins) }
   end
 
   describe '#items' do

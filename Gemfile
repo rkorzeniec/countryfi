@@ -13,6 +13,7 @@ gem 'sentry-raven', '~> 2.13.0'
 gem 'skylight', '~> 4.2.1'
 gem 'therubyracer', '~> 0.12.3'
 
+gem 'administrate', '~> 0.12.0'
 gem 'better_errors', '~> 2.5.1'
 gem 'chartkick', '~> 3.3.1'
 gem 'daemons', '~> 1.3.1'
@@ -23,8 +24,7 @@ gem 'jquery-rails'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'uglifier', '~> 4.2.0'
 gem 'webpacker', '~> 4.2.2'
-gem 'will_paginate', '~> 3.2.1'
-gem 'will_paginate-bootstrap', '~> 1.0.1'
+gem 'kaminari', '~> 1.2.0'
 
 group :development, :test do
   gem 'byebug', '~> 11.1.1'

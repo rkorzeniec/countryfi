@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :border_countries
+    resources :checkins
+    resources :countries
+    resources :country_alternative_spellings
+    resources :country_calling_codes
+    resources :country_languages
+    resources :currencies
+    resources :top_level_domains
+
+    root to: 'users#index'
+  end
+
   get 'dashboard', action: :index, controller: 'dashboard'
 
   devise_for :users
