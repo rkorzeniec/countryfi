@@ -24,8 +24,7 @@ gem 'jquery-rails'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'uglifier', '~> 4.2.0'
 gem 'webpacker', '~> 4.2.2'
-gem 'will_paginate', '~> 3.2.1'
-gem 'will_paginate-bootstrap', '~> 1.0.1'
+gem 'kaminari', '~> 1.2.0'
 
 group :development, :test do
   gem 'byebug', '~> 11.0.1'
