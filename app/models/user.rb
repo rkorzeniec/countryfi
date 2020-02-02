@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   store :preferences, accessors: :color, coder: JSON
 
+  has_secure_token :jti_token
+
   has_many :checkins, dependent: :destroy
   has_many :countries, through: :checkins
   has_many :visited_checkins,

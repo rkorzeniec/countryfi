@@ -40,6 +40,7 @@ module Countryfier
     config.assets.enabled = true
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.paths << Rails.root.join('app', 'graph', 'types')
 
     config.assets.precompile += [
       '*.json',
@@ -60,7 +61,7 @@ module Countryfier
     #   Devise::SessionsController.layout('application_non_menu')
     # end
 
-    config.filter_parameters += %i[password password_confirmation]
+    config.filter_parameters += %i[password password_confirmation query mutation]
 
     config.skylight.environments = ['production']
   end

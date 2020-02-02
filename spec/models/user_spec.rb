@@ -1,4 +1,6 @@
 describe User, type: :model do
+  it { is_expected.to have_secure_token(:jti_token) }
+
   it { is_expected.to have_many(:checkins).dependent(:destroy) }
   it { is_expected.to have_many(:countries).through(:checkins) }
   it do

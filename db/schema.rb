@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(version: 2020_02_01_160837) do
   create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "jti_token", null: false
-    t.string "encrypted_jti"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
