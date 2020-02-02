@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require 'rails/all'
 
@@ -12,6 +12,8 @@ end
 
 module Countryfier
   class Application < Rails::Application
+    config.load_defaults 5.0
+
     config.autoload_paths += %W[
       #{config.root}/lib
       #{config.root}/app/decorators

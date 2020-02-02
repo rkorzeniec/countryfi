@@ -112,7 +112,6 @@ describe CheckinsController do
       end
 
       context 'when unsuccessful' do
-
         before do
           expect_any_instance_of(Checkin).to receive(:destroy).and_return(false)
           subject

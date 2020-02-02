@@ -5,17 +5,16 @@
   .box-row
     .box-cell.p-y-2
       #africa_pie_chart.easy-pie-chart{ 'data-percent': "#{visited_percent}" }
-        %span= "#{visited_countries_count}/#{countries_count}"
+        %span= link_to "#{visited_countries_count}/#{countries_count}", checkins_africans_path
 :javascript
-  $(function() {
-    $('#africa_pie_chart').easyPieChart({
-      animate: 2000,
-      scaleColor: false,
-      lineWidth: 6,
-      lineCap: 'square',
-      size: 90,
-      trackColor: '#e5e5e5',
-      barColor: '#F6BB42'
-    });
+  var element = document.querySelector('#africa_pie_chart');
+  new EasyPieChart(element, {
+    animate: 2000,
+    scaleColor: false,
+    lineWidth: 6,
+    lineCap: 'square',
+    size: 90,
+    trackColor: '#e5e5e5',
+    barColor: '#F6BB42'
   });
 

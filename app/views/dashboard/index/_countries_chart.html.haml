@@ -10,10 +10,5 @@
     #unique_countries_chart
       = line_chart UniqVisitedCountriesQuery.new(current_user).count_by_year, curve: false
 
-= content_for :page_specific_js do
-  = javascript_include_tag 'visited_countries_charts'
-
 :javascript
-  $(function() {
-    VisitedCountriesCharts.init_charts();
-  });
+  new VisitedCountriesCharts();

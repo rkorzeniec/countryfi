@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   store :preferences, accessors: :color, coder: JSON
 
   has_secure_token :jti_token

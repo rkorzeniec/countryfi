@@ -1,10 +1,6 @@
 module ApplicationHelper
   def page_title
-    if @page_title.present?
-      @page_title
-    else
-      'Countrify'
-    end
+    @page_title.presence || 'Countrify'
   end
 
   def render_date(date)

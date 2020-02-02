@@ -1,4 +1,4 @@
-class BorderCountry < ActiveRecord::Base
+class BorderCountry < ApplicationRecord
   belongs_to :country
   belongs_to :border_country, class_name: 'Country'
 

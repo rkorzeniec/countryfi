@@ -17,7 +17,7 @@ class CheckinsController < ApplicationController
   def edit; end
 
   def update
-    if @checkin.update_attributes(checkin_params)
+    if @checkin.update(checkin_params)
       flash[:success] = 'Checkin updated successfully'
       redirect_to checkins_worlds_path
     else

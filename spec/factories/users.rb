@@ -4,5 +4,6 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
     jti_token { SecureRandom.base58(4) }
+    admin { false }
   end
 end

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "^4.2.2",
+    "chart.js": "^2.9.3",
+    "chartkick": "^3.2.0",
+    "easy-pie-chart": "^2.1.7",
+    "jquery": "^3.4.1",
+    "rails-ujs": "^5.2.4",
+    "svg-pan-zoom": "^3.6.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.1"
+  }
+}

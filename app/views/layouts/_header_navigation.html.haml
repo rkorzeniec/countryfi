@@ -19,10 +19,15 @@
         %li= link_to 'Checkins', checkins_worlds_path
         %li.dropdown
           = link_to '#', class: 'dropdown-toggle', data: { 'toggle' => 'dropdown' }, role: 'button', aria: { 'haspopup' => 'true', 'expanded' => 'false' } do
-            = image_tag gravatar_url(48), class: 'px-navbar-image', title: 'Your gravatar. If you want to change it, go to gravatar.com'
+            = image_tag gravatar_url(48), class: 'px-navbar-image', data: { toggle: 'tooltip', title: 'Want to change your avatar? Go to gravatar.com'}
             %span.hidden-md Profile
           %ul.dropdown-menu
             %li= link_to 'Edit profile', edit_user_registration_path
             %li= link_to 'Settings', edit_preferences_path
             %li.divider
             %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+:javascript
+  $('.px-navbar-image').tooltip({
+    placement: 'left',
+    container: 'body'
+  });

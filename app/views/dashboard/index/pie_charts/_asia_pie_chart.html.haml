@@ -5,17 +5,15 @@
   .box-row
     .box-cell.p-y-2
       #asia_pie_chart.easy-pie-chart{ 'data-percent': "#{visited_percent}" }
-        %span= "#{visited_countries_count}/#{countries_count}"
+        %span= link_to "#{visited_countries_count}/#{countries_count}", checkins_asians_path
 :javascript
-  $(function() {
-    $('#asia_pie_chart').easyPieChart({
-      animate: 2000,
-      scaleColor: false,
-      lineWidth: 6,
-      lineCap: 'square',
-      size: 90,
-      trackColor: '#e5e5e5',
-      barColor: '#8CC152'
-    });
+  var element = document.querySelector('#asia_pie_chart');
+  new EasyPieChart(element, {
+    animate: 2000,
+    scaleColor: false,
+    lineWidth: 6,
+    lineCap: 'square',
+    size: 90,
+    trackColor: '#e5e5e5',
+    barColor: '#8CC152'
   });
-
