@@ -56,7 +56,7 @@ group :test do
   gem 'database_cleaner', '~> 1.8.1'
   gem 'factory_bot_rails', '~> 5.1.1'
   gem 'rails-controller-testing', '~> 1.0.2'
-  gem 'shoulda-matchers', '~> 4.2.0'
+  gem 'shoulda-matchers', '~> 4.3.0'
   gem 'stub_env'
   gem 'timecop', '~> 0.9.1'
 end
