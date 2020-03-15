@@ -3,7 +3,7 @@ ruby '2.5.3'
 
 gem 'rails', '6.0.2.1'
 
-gem 'bootsnap', '~> 1.4.5', require: false
+gem 'bootsnap', '~> 1.4.6', require: false
 gem 'dalli', '~> 2.7.10'
 gem 'devise', '~> 4.7.1'
 gem 'devise-async', '~> 1.0.0'
@@ -12,11 +12,11 @@ gem 'graphql', '~> 1.9.7'
 gem 'jwt', '~> 2.1.0'
 gem 'mysql2'
 gem 'sentry-raven', '~> 2.13.0'
-gem 'skylight', '~> 4.2.1'
+gem 'skylight', '~> 4.2.3'
 gem 'therubyracer', '~> 0.12.3'
 
 gem 'administrate', '~> 0.12.0'
-gem 'better_errors', '~> 2.5.1'
+gem 'better_errors', '~> 2.6.0'
 gem 'chartkick', '~> 3.3.1'
 gem 'daemons', '~> 1.3.1'
 gem 'delayed_job_active_record', '~> 4.1.4'
@@ -46,17 +46,17 @@ group :development do
   gem 'graphiql-rails', '~> 1.7.0'
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.2'
-  gem 'rubocop', '~> 0.79.0'
+  gem 'rubocop', '~> 0.80.1'
   gem 'rubocop-rails', '~> 2.4.2'
   gem 'spring', '~> 2.1.0'
   gem 'web-console', '~> 4.0.1'
 end
 
 group :test do
-  gem 'database_cleaner', '~> 1.8.1'
+  gem 'database_cleaner', '~> 1.8.3'
   gem 'factory_bot_rails', '~> 5.1.1'
   gem 'rails-controller-testing', '~> 1.0.2'
-  gem 'shoulda-matchers', '~> 4.2.0'
+  gem 'shoulda-matchers', '~> 4.3.0'
   gem 'stub_env'
   gem 'timecop', '~> 0.9.1'
 end
