@@ -11,7 +11,7 @@ gem 'dotenv-rails', '~> 2.7.5'
 gem 'graphql', '~> 1.9.7'
 gem 'jwt', '~> 2.1.0'
 gem 'mysql2'
-gem 'sentry-raven', '~> 2.13.0'
+gem 'sentry-raven', '~> 3.0.0'
 gem 'skylight', '~> 4.2.3'
 gem 'therubyracer', '~> 0.12.3'
 
