@@ -47,7 +47,7 @@ group :development do
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.2'
   gem 'rubocop', '~> 0.80.1'
-  gem 'rubocop-rails', '~> 2.4.2'
+  gem 'rubocop-rails', '~> 2.5.0'
   gem 'spring', '~> 2.1.0'
   gem 'web-console', '~> 4.0.1'
 end
