@@ -1,63 +1,74 @@
 .row
   .col-sm-12
     .tab-content{ style: 'max-height: 700px; max-width: 800px; margin: auto; padding-top: 0;' }
-      .tab-pane.active#world-pill
-        = render 'dashboard/index/maps/world', dashboard: @dashboard
+      .hidden-xs
+        = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-desktop'
+      .visible-xs
+        = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-mobile'
+.row
+  .col-sm-12
     = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array
 
-:javascript
-  function cursorMove(e) {
-    if( $('div.tooltip').css('display') !== 'hidden' ) {
-      let toolHalfHeight = $('div.tooltip').outerHeight() / 2;
-      $('div.tooltip')
-        .css('left', e.pageX + 10)
-        .css('top', e.pageY - toolHalfHeight - 20);
+= content_for :page_specific_js do
+  :javascript
+    function cursorMove(e) {
+      if( $('div.tooltip').css('display') !== 'hidden' ) {
+        let toolHalfHeight = $('div.tooltip').outerHeight() / 2;
+        $('div.tooltip')
+          .css('left', e.pageX + 10)
+          .css('top', e.pageY - toolHalfHeight - 20);
+      }
     }
-  }
 
-  function flagged() { this.isScrolled = true; }
+    function flagged() { this.isScrolled = true; }
 
-  function preventClick(event) {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-  }
-
-  const worldSvgCountries = $('#world-svg [data-toggle="tooltip"]');
-  const worldMap = svgPanZoom('#world-svg', { controlIconsEnabled: true });
-
-  worldMap.updateBBox();
-  worldSvgCountries.tooltip({
-    container: 'body',
-    placement: 'right',
-    trigger: 'hover',
-    template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'
-  });
-
-  $(window).resize(function(){
-    worldMap.resize();
-    worldMap.fit();
-    worldMap.center();
-  })
-
-  $('#world-svg').on('mousemove', function (e) { cursorMove(e); });
-
-  worldSvgCountries.on('mousedown touchstart', function() {
-    $(this).on('mousemove touchmove', flagged);
-    $(this).tooltip('hide');
-  });
-
-  worldSvgCountries.on('mouseup', function() {
-    $(this).off('mousemove touchmove', flagged);
-    $(this).tooltip('show');
-  });
-
-  worldSvgCountries.on('mouseup touchend', function(e) {
-    if (this.isScrolled) {
-      $(this).on('click', preventClick);
-    } else {
-      $(this).off('click', preventClick);
+    function preventClick(event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
     }
-    this.isScrolled = false;
-    cursorMove(e);
-    $(this).off('mousemove touchmove', flagged);
-  });
+
+    const worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
+    const worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
+    const worldMapMobile = svgPanZoom('#world-svg-mobile', { controlIconsEnabled: true });
+
+    worldMap.updateBBox();
+    worldMapMobile.updateBBox();
+    worldSvgCountries.tooltip({
+      container: 'body',
+      placement: 'right',
+      trigger: 'hover',
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'
+    });
+
+    $(window).resize(function(){
+      worldMap.resize();
+      worldMap.fit();
+      worldMap.center();
+
+      worldMapMobile.resize();
+      worldMapMobile.fit();
+      worldMapMobile.center();
+    })
+
+    $('#world-svg-desktop').on('mousemove', function (e) { cursorMove(e); });
+
+    worldSvgCountries.on('mousedown touchstart', function() {
+      $(this).on('mousemove touchmove', flagged);
+      $(this).tooltip('hide');
+    });
+
+    worldSvgCountries.on('mouseup', function() {
+      $(this).off('mousemove touchmove', flagged);
+      $(this).tooltip('show');
+    });
+
+    worldSvgCountries.on('mouseup touchend', function(e) {
+      if (this.isScrolled) {
+        $(this).on('click', preventClick);
+      } else {
+        $(this).off('click', preventClick);
+      }
+      this.isScrolled = false;
+      cursorMove(e);
+      $(this).off('mousemove touchmove', flagged);
+    });
