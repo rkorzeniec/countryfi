@@ -30,7 +30,7 @@ gem 'kaminari', '~> 1.2.0'
 
 group :development, :test do
   gem 'byebug', '~> 11.1.1'
-  gem 'rspec-rails', '~> 3.9.1'
+  gem 'rspec-rails', '~> 4.0.0'
   gem 'simplecov'
   gem 'simplecov-console'
 end
