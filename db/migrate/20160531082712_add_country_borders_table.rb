@@ -1,4 +1,4 @@
-class AddCountryBordersTable < ActiveRecord::Migration
+class AddCountryBordersTable < ActiveRecord::Migration[4.2]
   def change
     create_table :country_borders do |t|
       t.belongs_to :country, foreign_key: true

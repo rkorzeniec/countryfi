@@ -1,4 +1,4 @@
-class AddCountryCallingCodesTable < ActiveRecord::Migration
+class AddCountryCallingCodesTable < ActiveRecord::Migration[4.2]
   def change
     create_table :country_calling_codes do |t|
       t.belongs_to :country, foreign_key: true

@@ -1,4 +1,4 @@
-class RemoveColumnsFromCountries < ActiveRecord::Migration
+class RemoveColumnsFromCountries < ActiveRecord::Migration[4.2]
   def change
     remove_column :countries, :name_native
     remove_column :countries, :tld

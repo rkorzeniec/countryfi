@@ -1,4 +1,4 @@
-class RenameCountryBordersToBorderCountries < ActiveRecord::Migration
+class RenameCountryBordersToBorderCountries < ActiveRecord::Migration[4.2]
   def change
     rename_table :country_borders, :border_countries
   end

@@ -1,4 +1,4 @@
-class AddCountryAlternativeSpellingsTable < ActiveRecord::Migration
+class AddCountryAlternativeSpellingsTable < ActiveRecord::Migration[4.2]
   def change
     create_table :country_alternative_spellings do |t|
       t.belongs_to :country, foreign_key: true
