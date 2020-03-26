@@ -19,10 +19,10 @@ RSpec.describe Mutations::AddCheckin do
   end
 
   it_behaves_like 'incorrect_params_api_request' do
-    let(:request) { 'signin' }
+    let(:request) { 'addCheckin' }
     let(:query) do
       %(mutation {
-        addCheckin(countryId: 1, checkinDate: 2019-01-01, mambo: "jambo") {
+        addCheckin(countryId: 1, checkinDate: "2019-01-01", mambo: "jambo") {
           checkin {
             country { nameCommon }
           }
@@ -56,7 +56,7 @@ RSpec.describe Mutations::AddCheckin do
           'errors' => [
             {
               'locations' => [{ 'column' => 7, 'line' => 2 }],
-              'message' => "Country can't be blank",
+              'message' => "Country must exist and Country can't be blank",
               'path' => ['addCheckin']
             }
           ]

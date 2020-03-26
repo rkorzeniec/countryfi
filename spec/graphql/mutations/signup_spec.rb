@@ -122,7 +122,6 @@ RSpec.describe Mutations::Signup do
 
     it do
       is_expected.to eq(
-        'data' => { 'signup' => nil },
         'errors' => [
           {
             'extensions' => {

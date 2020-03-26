@@ -10,7 +10,7 @@ shared_examples 'incorrect_params_api_request' do
               'name' => request,
               'typeName' => 'Field'
             },
-            'locations' => [{ 'column' => 61, 'line' => 2 }],
+            'locations' => [{ 'column' => 60, 'line' => 2 }],
             'message' => "Field '#{request}' doesn't accept argument 'mambo'",
             'path' => %W[mutation #{request} mambo]
           }
