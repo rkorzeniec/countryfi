@@ -153,7 +153,7 @@ GEM
     graphiql-rails (1.7.0)
       railties
       sprockets-rails
-    graphql (1.9.7)
+    graphql (1.10.5)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -393,7 +393,7 @@ DEPENDENCIES
   execjs (~> 2.7.0)
   factory_bot_rails (~> 5.1.1)
   graphiql-rails (~> 1.7.0)
-  graphql (~> 1.9.7)
+  graphql (~> 1.10.5)
   haml (~> 5.1.2)
   jquery-rails
   jwt (~> 2.2.1)
