@@ -2,8 +2,6 @@
   const worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
   const worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
 
-  worldMap.updateBBox();
-
   worldSvgCountries.tooltip({
     container: 'body',
     placement: 'right',
@@ -12,6 +10,12 @@
   });
 
   $('#world-svg-desktop').on('mousemove', function (e) { cursorMove(e); });
+
+  $(window).resize(function(){
+    worldMap.resize();
+    worldMap.fit();
+    worldMap.center();
+  })
 
   worldSvgCountries.on('mousedown', function() {
     $(this).on('mousemove', flagged);
@@ -33,12 +37,6 @@
     cursorMove(e);
     $(this).off('mousemove', flagged);
   });
-
-  $(window).resize(function(){
-    worldMap.resize();
-    worldMap.fit();
-    worldMap.center();
-  })
 
   function cursorMove(e) {
     if( $('div.tooltip').css('display') !== 'hidden' ) {
