@@ -1,0 +1,10 @@
+:javascript
+  const worldMapMobile = svgPanZoom('#world-svg-mobile', { controlIconsEnabled: true });
+
+  worldMapMobile.updateBBox();
+
+  $(window).resize(function(){
+    worldMapMobile.resize();
+    worldMapMobile.fit();
+    worldMapMobile.center();
+  })
