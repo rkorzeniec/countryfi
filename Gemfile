@@ -23,10 +23,10 @@ gem 'delayed_job_active_record', '~> 4.1.4'
 gem 'execjs', '~> 2.7.0'
 gem 'haml', '~> 5.1.2'
 gem 'jquery-rails'
+gem 'kaminari', '~> 1.2.0'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'uglifier', '~> 4.2.0'
 gem 'webpacker', '~> 5.0.1'
-gem 'kaminari', '~> 1.2.0'
 
 group :development, :test do
   gem 'byebug', '~> 11.1.1'
@@ -48,9 +48,9 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'rubocop', '~> 0.80.1', require: false
   gem 'rubocop-md', '~> 0.2.0', require: false
+  gem 'rubocop-performance', '~> 1.5.2', require: false
   gem 'rubocop-rails', '~> 2.5.0', require: false
   gem 'rubocop-rspec', '~> 1.38.1', require: false
-  gem 'rubocop-performance', '~> 1.5.2', require: false
   gem 'spring', '~> 2.1.0'
   gem 'web-console', '~> 4.0.1'
 end

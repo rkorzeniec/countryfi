@@ -1,8 +1,10 @@
 class AddJtiToUsers < ActiveRecord::Migration[5.2]
-  class User < ActiveRecord::Base; end
+  class User < ApplicationRecord; end
 
   def up
+    # rubocop:disable Rails/NotNullColumn
     add_column :users, :jti_token, :string, null: false, after: :email
+    # rubocop:enable Rails/NotNullColumn
 
     User.find_each do |user|
       execute(%(

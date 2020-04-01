@@ -3,7 +3,7 @@ class GraphqlController < ApplicationController
     query = params[:query]
     result = CountryfierSchema.execute(query, schema_hash)
     render json: result
-  rescue => e
+  rescue StandardError => e
     raise e unless Rails.env.development?
     handle_error_in_development e
   end

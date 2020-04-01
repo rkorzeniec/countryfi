@@ -31,7 +31,7 @@
 # 'f' after migrating old data.
 # Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
 
-# Use SHA-1 instead of MD5 to generate non-sensitive digests, such as the ETag header.
+# Use SHA-1 instead of MD5 to generate non-sensitive digests, such as the ETag header
 # Rails.application.config.active_support.use_sha1_digests = true
 
 # Make `form_with` generate id attributes for any generated HTML tags.

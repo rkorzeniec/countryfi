@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -27,7 +27,7 @@ class UserDashboard < Administrate::BaseDashboard
     last_sign_in_ip: Field::String,
     preferences: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -40,15 +40,15 @@ class UserDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  id
-  email
-  jti_token
-  sign_in_count
-  preferences
-  created_at
-  updated_at
-  countries
-  checkins
+    id
+    email
+    jti_token
+    sign_in_count
+    preferences
+    created_at
+    updated_at
+    countries
+    checkins
   ].freeze
 
   # FORM_ATTRIBUTES
