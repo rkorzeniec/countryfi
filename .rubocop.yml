@@ -1,5 +1,8 @@
 require: 
   - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance 
+  - rubocop-md 
 
 Style/Documentation:
   Enabled: false
