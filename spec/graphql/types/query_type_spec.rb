@@ -1,7 +1,7 @@
 RSpec.describe Types::QueryType do
-  let(:schema_hash) { {} }
-
   subject { CountryfierSchema.execute(query, schema_hash).as_json }
+
+  let(:schema_hash) { {} }
 
   describe '#checkins' do
     let(:query) do

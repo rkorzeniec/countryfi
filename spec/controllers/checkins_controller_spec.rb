@@ -26,16 +26,17 @@ describe CheckinsController do
     end
 
     describe 'POST create' do
+      subject { post(:create, params: params) }
+
       let!(:now) { Time.current }
       let(:params) do
         { checkin: { country_id: country.id, checkin_date: now } }
       end
 
-      subject { post(:create, params: params) }
-
       context 'when successful' do
         it { expect(subject).to redirect_to(checkins_worlds_path) }
-        it { expect { subject }.to change { Checkin.count }.from(1).to(2) }
+        it { expect { subject }.to change(Checkin, :count).from(1).to(2) }
+
         it do
           subject
           expect(flash[:success]).to be_present
@@ -48,7 +49,8 @@ describe CheckinsController do
         end
 
         it { expect(subject).to render_template(:new) }
-        it { expect { subject }.not_to change { Checkin.count } }
+        it { expect { subject }.not_to change(Checkin, :count) }
+
         it do
           subject
           expect(flash[:error]).to be_present
@@ -68,9 +70,9 @@ describe CheckinsController do
     end
 
     describe 'PUT update' do
-      let!(:now) { '2016-01-01' }
-
       subject { post(:update, params: params) }
+
+      let!(:now) { '2016-01-01' }
 
       context 'when successful' do
         let(:params) { { id: checkin.id, checkin: { checkin_date: now } } }
@@ -81,6 +83,7 @@ describe CheckinsController do
           expect(response).to redirect_to(checkins_worlds_path)
           expect(flash[:success]).to be_present
         end
+
         it do
           expect(checkin.reload.checkin_date.strftime('%Y-%m-%d')).to eq(now)
         end
@@ -104,7 +107,8 @@ describe CheckinsController do
 
       context 'when successful' do
         it { expect(subject).to redirect_to(checkins_worlds_path) }
-        it { expect { subject }.to change { Checkin.count }.from(1).to(0) }
+        it { expect { subject }.to change(Checkin, :count).from(1).to(0) }
+
         it do
           subject
           expect(flash[:success]).to be_present
@@ -121,7 +125,8 @@ describe CheckinsController do
           expect(subject).to redirect_to(checkins_worlds_path)
           expect(flash[:error]).to be_present
         end
-        it { expect { subject }.not_to change { Checkin.count } }
+
+        it { expect { subject }.not_to change(Checkin, :count) }
       end
     end
   end

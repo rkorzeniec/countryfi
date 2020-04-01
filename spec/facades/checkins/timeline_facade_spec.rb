@@ -3,13 +3,14 @@ describe Checkins::TimelineFacade do
   let(:facade) { described_class.new(checkins) }
 
   before { Timecop.freeze(now) }
+
   after { Timecop.return }
 
   describe 'delegations' do
+    subject { facade }
+
     let(:checkins) { [checkin] }
     let(:checkin) { double(:checkin) }
-
-    subject { facade }
 
     it { is_expected.to delegate_method(:total_pages).to(:checkins) }
     it { is_expected.to delegate_method(:current_page).to(:checkins) }
@@ -18,11 +19,11 @@ describe Checkins::TimelineFacade do
   end
 
   describe '#items' do
+    subject { facade.items }
+
     let(:checkins) { [checkin, checkin_b] }
     let(:checkin) { double(:checkin) }
     let(:checkin_b) { double(:checkin) }
-
-    subject { facade.items }
 
     it do
       expect(Checkins::TimelineItemFacade).to receive(:new).with(checkin)
@@ -126,10 +127,10 @@ describe Checkins::TimelineFacade do
   end
 
   describe '#future_checkin?' do
+    subject { facade.future_checkin?(0) }
+
     let(:checkins) { [checkin] }
     let(:checkin) { double(:checkin, checkin_date: date) }
-
-    subject { facade.future_checkin?(0) }
 
     context 'when in past' do
       let(:date) { Date.new(2017, 11, 11) }

@@ -4,7 +4,7 @@ module Mutations
 
     def authentication_required
       return if context[:current_user].present?
-      raise GraphQL::ExecutionError.new('Authentication required')
+      raise GraphQL::ExecutionError, 'Authentication required'
     end
   end
 end

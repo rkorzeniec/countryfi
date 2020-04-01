@@ -1,4 +1,6 @@
 RSpec.describe Mutations::Signup do
+  subject { CountryfierSchema.execute(query).as_json }
+
   let(:query) do
     %(mutation {
       signup(
@@ -14,15 +16,13 @@ RSpec.describe Mutations::Signup do
     })
   end
 
-  subject { CountryfierSchema.execute(query).as_json }
-
   context 'when successful' do
     let(:email) { 'john@email.com' }
     let(:password) { 'password' }
     let(:password_confirmation) { 'password' }
 
     it do
-      expect { subject }.to change { User.count }.from(0).to(1)
+      expect { subject }.to change(User, :count).from(0).to(1)
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe Mutations::Signup do
     let(:password_confirmation) { user.password }
 
     it do
-      is_expected.to include(
+      expect(subject).to include(
         'data' => { 'signup' => nil },
         'errors' => [
           {
@@ -52,7 +52,7 @@ RSpec.describe Mutations::Signup do
     let(:password_confirmation) { 'password' }
 
     it do
-      is_expected.to include(
+      expect(subject).to include(
         'data' => { 'signup' => nil },
         'errors' => [
           {
@@ -71,7 +71,7 @@ RSpec.describe Mutations::Signup do
     let(:password_confirmation) { 'password2' }
 
     it do
-      is_expected.to include(
+      expect(subject).to include(
         'data' => { 'signup' => nil },
         'errors' => [
           {
@@ -90,7 +90,7 @@ RSpec.describe Mutations::Signup do
     let(:password_confirmation) { 'pass' }
 
     it do
-      is_expected.to include(
+      expect(subject).to include(
         'data' => { 'signup' => nil },
         'errors' => [
           {
@@ -121,7 +121,7 @@ RSpec.describe Mutations::Signup do
     end
 
     it do
-      is_expected.to eq(
+      expect(subject).to eq(
         'errors' => [
           {
             'extensions' => {

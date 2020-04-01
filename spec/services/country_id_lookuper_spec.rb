@@ -1,8 +1,8 @@
 describe CountryIDLookuper do
   describe '.lookup' do
-    let!(:country) { create(:country) }
-
     subject { described_class.lookup(code) }
+
+    let!(:country) { create(:country) }
 
     context 'when country exists' do
       let(:code) { 'CH' }

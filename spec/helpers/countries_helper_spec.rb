@@ -1,13 +1,13 @@
 describe CountriesHelper do
   describe '#visit_label' do
+    subject { helper.visit_label(country) }
+
     let(:countries) { [] }
     let(:visited_countries) { [] }
     let(:country) { double(:country) }
     let(:user) do
       double(:user, countries: countries, visited_countries: visited_countries)
     end
-
-    subject { helper.visit_label(country) }
 
     before { allow(helper).to receive(:current_user).and_return(user) }
 
@@ -20,7 +20,7 @@ describe CountriesHelper do
       let(:visited_countries) { [country] }
 
       it do
-        is_expected.to eq('<span class="label label-success">visited</span>')
+        expect(subject).to eq('<span class="label label-success">visited</span>')
       end
     end
 
@@ -28,7 +28,7 @@ describe CountriesHelper do
       let(:countries) { [country] }
 
       it do
-        is_expected.to eq('<span class="label label-info">upcoming</span>')
+        expect(subject).to eq('<span class="label label-info">upcoming</span>')
       end
     end
   end

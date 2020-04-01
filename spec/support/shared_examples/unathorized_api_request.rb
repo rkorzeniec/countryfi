@@ -3,7 +3,7 @@ shared_examples 'unathorized_api_request' do
     let(:headers) { {} }
 
     it do
-      is_expected.to eq(
+      expect(subject).to eq(
         'data' => { request.to_s => nil },
         'errors' => [
           {

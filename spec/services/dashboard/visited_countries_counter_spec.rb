@@ -288,7 +288,7 @@ describe Dashboard::VisitedCountriesCounter do
     before { european_checkin }
 
     it do
-      is_expected.to eq(
+      expect(subject).to eq(
         'dashboard/visited_countries_counter/visited_european_countries_count/' \
         "#{user.id}/#{european_checkin.id}"
       )

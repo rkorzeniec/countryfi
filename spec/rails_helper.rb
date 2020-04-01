@@ -8,7 +8,9 @@ SimpleCov.start 'rails'
 require File.expand_path('../config/environment', __dir__)
 
 # Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+if Rails.env.production?
+  abort('The Rails environment is running in production mode!')
+end
 
 require 'spec_helper'
 require 'rspec/rails'
@@ -43,7 +45,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.before(:each) do
+  config.before do
     DatabaseCleaner.strategy = :transaction
   end
 
@@ -51,11 +53,11 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
-  config.before(:each) do
+  config.before do
     DatabaseCleaner.start
   end
 
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
     # FileUtils.rm_rf(Dir["#{rails_root}/spec/support/uploads"])
   end

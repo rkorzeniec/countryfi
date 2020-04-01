@@ -1,17 +1,22 @@
 describe Country do
   it { is_expected.to have_many(:checkins).dependent(:restrict_with_error) }
   it { is_expected.to have_many(:currencies).dependent(:restrict_with_error) }
+
   it do
-    is_expected.to have_many(:top_level_domains).dependent(:restrict_with_error)
+    expect(subject).to have_many(:top_level_domains).dependent(:restrict_with_error)
   end
+
   it { is_expected.to have_many(:country_languages).dependent(:destroy) }
   it { is_expected.to have_many(:country_calling_codes).dependent(:destroy) }
   it { is_expected.to have_many(:border_countries).dependent(:destroy) }
+
   it do
-    is_expected.to have_many(:country_alternative_spellings).dependent(:destroy)
+    expect(subject).to have_many(:country_alternative_spellings).dependent(:destroy)
   end
 
   describe '.find_by_any' do
+    subject { described_class.find_by_any(name) }
+
     let(:switzerland) { create(:country) }
     let(:united_states) do
       create(
@@ -25,8 +30,6 @@ describe Country do
       united_states
       switzerland
     end
-
-    subject { described_class.find_by_any(name) }
 
     context 'when name is cca2' do
       let(:name) { 'CH' }
@@ -55,91 +58,91 @@ describe Country do
     context 'when name is neither' do
       let(:name) { nil }
 
-      it { expect(subject).to eq(Country.first) }
+      it { expect(subject).to eq(described_class.first) }
     end
   end
 
   describe '#european' do
     it do
-      expect { create(:country) }.to change { Country.european.count }
+      expect { create(:country) }.to change { described_class.european.count }
         .from(0).to(1)
     end
 
     it do
       expect { create(:country, :asian) }
-        .not_to change { Country.european.count }
+        .not_to change { described_class.european.count }
     end
   end
 
   describe '#asian' do
     it do
       expect { create(:country, :asian) }.to change {
-        Country.asian.count
+        described_class.asian.count
       }.from(0).to(1)
     end
 
     it do
-      expect { create(:country) }.not_to change { Country.asian.count }
+      expect { create(:country) }.not_to change { described_class.asian.count }
     end
   end
 
   describe '#african' do
     it do
       expect { create(:country, :african) }.to change {
-        Country.african.count
+        described_class.african.count
       }.from(0).to(1)
     end
 
     it do
-      expect { create(:country) }.not_to change { Country.african.count }
+      expect { create(:country) }.not_to change { described_class.african.count }
     end
   end
 
   describe '#antarctican' do
     it do
       expect { create(:country, :antarctican) }.to change {
-        Country.antarctican.count
+        described_class.antarctican.count
       }.from(0).to(1)
     end
 
     it do
-      expect { create(:country) }.not_to change { Country.antarctican.count }
+      expect { create(:country) }.not_to change { described_class.antarctican.count }
     end
   end
 
   describe '#oceanian' do
     it do
       expect { create(:country, :oceanian) }.to change {
-        Country.oceanian.count
+        described_class.oceanian.count
       }.from(0).to(1)
     end
 
     it do
-      expect { create(:country) }.not_to change { Country.oceanian.count }
+      expect { create(:country) }.not_to change { described_class.oceanian.count }
     end
   end
 
   describe '#north_american' do
     it do
       expect { create(:country, :north_american) }.to change {
-        Country.north_american.count
+        described_class.north_american.count
       }.from(0).to(1)
     end
 
     it do
-      expect { create(:country) }.not_to change { Country.north_american.count }
+      expect { create(:country) }.not_to change { described_class.north_american.count }
     end
   end
 
   describe '#south_american' do
     it do
       expect { create(:country, :south_american) }.to change {
-        Country.south_american.count
+        described_class.south_american.count
       }.from(0).to(1)
     end
 
     it do
-      expect { create(:country) }.not_to change { Country.south_american.count }
+      expect { create(:country) }.not_to change { described_class.south_american.count }
     end
   end
 
@@ -150,7 +153,7 @@ describe Country do
       let(:country) { build_stubbed(:country, cca2: 'mambo') }
 
       it do
-        is_expected.to eq(
+        expect(subject).to eq(
           ActionController::Base.helpers.asset_path('flags/unknown.png')
         )
       end

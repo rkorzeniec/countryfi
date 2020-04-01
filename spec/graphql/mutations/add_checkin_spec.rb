@@ -1,4 +1,6 @@
 RSpec.describe Mutations::AddCheckin do
+  subject { CountryfierSchema.execute(query, schema_hash).as_json }
+
   let(:schema_hash) { {} }
   let(:country) { create(:country) }
   let(:checkin_date) { '2019-05-02' }
@@ -11,8 +13,6 @@ RSpec.describe Mutations::AddCheckin do
       }
     })
   end
-
-  subject { CountryfierSchema.execute(query, schema_hash).as_json }
 
   it_behaves_like 'unathorized_api_request' do
     let(:request) { 'addCheckin' }
@@ -36,7 +36,7 @@ RSpec.describe Mutations::AddCheckin do
     let(:schema_hash) { { context: { current_user: user } } }
 
     it do
-      is_expected.to eq(
+      expect(subject).to eq(
         'data' => {
           'addCheckin' => {
             'checkin' => { 'country' => { 'nameCommon' => 'Switzerland' } }
@@ -45,13 +45,13 @@ RSpec.describe Mutations::AddCheckin do
       )
     end
 
-    it { expect { subject }.to change { Checkin.count }.from(0).to(1) }
+    it { expect { subject }.to change(Checkin, :count).from(0).to(1) }
 
     context 'with non existent country' do
       let(:country) { double('country', id: 0) }
 
       it do
-        is_expected.to eq(
+        expect(subject).to eq(
           'data' => { 'addCheckin' => nil },
           'errors' => [
             {
@@ -68,7 +68,7 @@ RSpec.describe Mutations::AddCheckin do
       let(:checkin_date) { 'not-a-date' }
 
       it do
-        is_expected.to eq(
+        expect(subject).to eq(
           'data' => { 'addCheckin' => nil },
           'errors' => [
             {

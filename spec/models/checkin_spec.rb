@@ -12,13 +12,13 @@ describe Checkin do
 
     it do
       expect { create(:checkin, country: european_country) }.to change {
-        Checkin.world.count
+        described_class.world.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, country: asian_country) }.to change {
-        Checkin.world.count
+        described_class.world.count
       }.from(0).to(1)
     end
   end
@@ -29,13 +29,13 @@ describe Checkin do
 
     it do
       expect { create(:checkin, country: european_country) }.to change {
-        Checkin.european.count
+        described_class.european.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, country: asian_country) }.not_to change {
-        Checkin.european.count
+        described_class.european.count
       }
     end
   end
@@ -46,13 +46,13 @@ describe Checkin do
 
     it do
       expect { create(:checkin, country: asian_country) }.to change {
-        Checkin.asian.count
+        described_class.asian.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, country: european_country) }.not_to change {
-        Checkin.asian.count
+        described_class.asian.count
       }
     end
   end
@@ -63,13 +63,13 @@ describe Checkin do
 
     it do
       expect { create(:checkin, country: african_country) }.to change {
-        Checkin.african.count
+        described_class.african.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, country: european_country) }.not_to change {
-        Checkin.african.count
+        described_class.african.count
       }
     end
   end
@@ -80,13 +80,13 @@ describe Checkin do
 
     it do
       expect { create(:checkin, country: antarctican_country) }.to change {
-        Checkin.antarctican.count
+        described_class.antarctican.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, country: european_country) }.not_to change {
-        Checkin.antarctican.count
+        described_class.antarctican.count
       }
     end
   end
@@ -97,13 +97,13 @@ describe Checkin do
 
     it do
       expect { create(:checkin, country: oceanian_country) }.to change {
-        Checkin.oceanian.count
+        described_class.oceanian.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, country: european_country) }.not_to change {
-        Checkin.oceanian.count
+        described_class.oceanian.count
       }
     end
   end
@@ -114,13 +114,13 @@ describe Checkin do
 
     it do
       expect { create(:checkin, country: north_american_country) }.to change {
-        Checkin.north_american.count
+        described_class.north_american.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, country: european_country) }.not_to change {
-        Checkin.north_american.count
+        described_class.north_american.count
       }
     end
   end
@@ -131,13 +131,13 @@ describe Checkin do
 
     it do
       expect { create(:checkin, country: south_american_country) }.to change {
-        Checkin.south_american.count
+        described_class.south_american.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, country: european_country) }.not_to change {
-        Checkin.south_american.count
+        described_class.south_american.count
       }
     end
   end
@@ -145,13 +145,13 @@ describe Checkin do
   describe '#visited' do
     it do
       expect { create(:checkin, checkin_date: Time.current) }.to change {
-        Checkin.visited.count
+        described_class.visited.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, checkin_date: Time.current + 1.day) }.not_to change {
-        Checkin.visited.count
+        described_class.visited.count
       }
     end
   end

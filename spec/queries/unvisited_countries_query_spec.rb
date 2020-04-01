@@ -4,12 +4,12 @@ describe UnvisitedCountriesQuery do
 
   describe '#all' do
     context 'with prefix' do
+      subject { query.all }
+
       let!(:country) { create(:country) }
       let!(:country_b) { create(:country, :asian) }
       let!(:country_c) { create(:country, :south_american) }
       let!(:country_d) { create(:country, :caribbean) }
-
-      subject { query.all }
 
       context 'with visited' do
         let(:visited) { [country] }
