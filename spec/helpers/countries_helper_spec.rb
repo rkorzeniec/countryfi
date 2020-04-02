@@ -4,9 +4,13 @@ describe CountriesHelper do
 
     let(:countries) { [] }
     let(:visited_countries) { [] }
-    let(:country) { double(:country) }
+    let(:country) { instance_double('country') }
     let(:user) do
-      double(:user, countries: countries, visited_countries: visited_countries)
+      instance_double(
+        'user',
+        countries: countries,
+        visited_countries: visited_countries
+      )
     end
 
     before { allow(helper).to receive(:current_user).and_return(user) }

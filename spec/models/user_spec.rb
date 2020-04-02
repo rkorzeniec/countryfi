@@ -86,7 +86,7 @@ describe User, type: :model do
     end
   end
 
-  context 'destroys checkins' do
+  context 'when destroys checkins' do
     let!(:user) { create(:user) }
     let!(:country) { create(:country) }
     let!(:checkin) { create(:checkin, user: user, country: country) }

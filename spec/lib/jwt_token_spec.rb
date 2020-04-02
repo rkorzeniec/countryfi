@@ -9,7 +9,7 @@ describe JwtToken do
   describe '#token' do
     subject { described_class.token(payload) }
 
-    let(:user) { double('user', id: 99) }
+    let(:user) { instance_double('user', id: 99) }
     let(:payload) { { user_id: user.id } }
 
     it do
@@ -24,7 +24,7 @@ describe JwtToken do
   describe '#decode' do
     subject { described_class.decode(token) }
 
-    let(:user) { double('user', id: 99) }
+    let(:user) { instance_double('user', id: 99) }
     let(:token) { described_class.token(user_id: user.id) }
 
     it do

@@ -2,8 +2,8 @@ describe DashboardFacade do
   let(:user) { build_stubbed(:user) }
   let(:facade) { described_class.new(user) }
 
-  shared_context 'cached_method' do
-    let(:cache) { double('cache') }
+  shared_context 'with cached method' do
+    let(:cache) { instance_double('cache') }
     let(:cache_key) do
       [
         'dashboard_facade',
@@ -25,10 +25,10 @@ describe DashboardFacade do
     describe "##{region}_countries" do
       subject { facade.send("#{region}_countries".to_sym) }
 
-      let(:countries) { double('countries') }
-      let(:countries_relation) { double('relation', load: countries) }
+      let(:countries) { instance_double('countries') }
+      let(:countries_relation) { instance_double('relation', load: countries) }
 
-      it_behaves_like 'cached_method' do
+      it_behaves_like 'with cached method' do
         let(:method_name) { "#{region}_countries" }
       end
 
@@ -68,7 +68,7 @@ describe DashboardFacade do
   describe '#cache_key' do
     subject { facade.send(:cache_key, 'asian_countries') }
 
-    let(:country) { double('country', id: 99) }
+    let(:country) { instance_double('country', id: 99) }
 
     before { allow(user).to receive(:visited_checkins).and_return([country]) }
 

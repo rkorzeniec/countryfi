@@ -4,7 +4,7 @@ describe CountriesController do
   describe 'GET show' do
     before { get(:show, params: params) }
 
-    context 'html' do
+    context 'when html' do
       let(:params) { { id: country.cca2, format: :html } }
 
       it do

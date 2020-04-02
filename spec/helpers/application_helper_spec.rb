@@ -46,7 +46,7 @@ describe ApplicationHelper do
     subject { helper.gravatar_url(20) }
 
     context 'when user signed in' do
-      let(:user) { double('user', email: 'jon@snow.com') }
+      let(:user) { instance_double('user', email: 'jon@snow.com') }
 
       before { allow(helper).to receive(:current_user).and_return(user) }
 

@@ -48,7 +48,7 @@ RSpec.describe Mutations::AddCheckin do
     it { expect { subject }.to change(Checkin, :count).from(0).to(1) }
 
     context 'with non existent country' do
-      let(:country) { double('country', id: 0) }
+      let(:country) { instance_double('country', id: 0) }
 
       it do
         expect(subject).to eq(

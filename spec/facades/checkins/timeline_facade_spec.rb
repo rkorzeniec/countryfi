@@ -10,7 +10,7 @@ describe Checkins::TimelineFacade do
     subject { facade }
 
     let(:checkins) { [checkin] }
-    let(:checkin) { double(:checkin) }
+    let(:checkin) { instance_double('checkin') }
 
     it { is_expected.to delegate_method(:total_pages).to(:checkins) }
     it { is_expected.to delegate_method(:current_page).to(:checkins) }
@@ -22,8 +22,8 @@ describe Checkins::TimelineFacade do
     subject { facade.items }
 
     let(:checkins) { [checkin, checkin_b] }
-    let(:checkin) { double(:checkin) }
-    let(:checkin_b) { double(:checkin) }
+    let(:checkin) { instance_double('checkin') }
+    let(:checkin_b) { instance_double('checkin') }
 
     it do
       expect(Checkins::TimelineItemFacade).to receive(:new).with(checkin)
@@ -39,18 +39,18 @@ describe Checkins::TimelineFacade do
     context 'when single checkin' do
       let(:date) { Date.new(2018, 1, 11) }
       let(:checkins) { [checkin] }
-      let(:checkin) { double(:checkin, checkin_date: date) }
+      let(:checkin) { instance_double('checkin', checkin_date: date) }
 
       it { is_expected.to be_falsey }
     end
 
     context 'when multiple checkins' do
       let(:checkins) { [checkin, checkin_b] }
-      let(:checkin) { double(:checkin, checkin_date: date) }
+      let(:checkin) { instance_double('checkin', checkin_date: date) }
 
       context 'when checkin in future' do
         let(:date) { Date.new(2018, 2, 11) }
-        let(:checkin_b) { double(:checkin, checkin_date: date_b) }
+        let(:checkin_b) { instance_double('checkin', checkin_date: date_b) }
 
         context 'when next checkin in furute' do
           let(:date_b) { Date.new(2018, 1, 1) }
@@ -73,7 +73,7 @@ describe Checkins::TimelineFacade do
 
       context 'when checkin in past' do
         let(:date) { Date.new(2017, 10, 11) }
-        let(:checkin_b) { double(:checkin, checkin_date: date_b) }
+        let(:checkin_b) { instance_double('checkin', checkin_date: date_b) }
 
         context 'when next checkin in furute' do
           let(:date_b) { Date.new(2018, 1, 1) }
@@ -101,7 +101,7 @@ describe Checkins::TimelineFacade do
 
     context 'when single checkin' do
       let(:checkins) { [checkin] }
-      let(:checkin) { double(:checkin) }
+      let(:checkin) { instance_double('checkin') }
 
       it { is_expected.to be_falsey }
     end
@@ -109,17 +109,17 @@ describe Checkins::TimelineFacade do
     context 'when multiple checkins' do
       let(:date) { Date.new(2018, 11, 11) }
       let(:checkins) { [checkin, checkin_b] }
-      let(:checkin) { double(:checkin, checkin_date: date) }
+      let(:checkin) { instance_double('checkin', checkin_date: date) }
 
       context 'when different year' do
         let(:date_b) { Date.new(2017, 11, 11) }
-        let(:checkin_b) { double(:checkin, checkin_date: date_b) }
+        let(:checkin_b) { instance_double('checkin', checkin_date: date_b) }
 
         it { is_expected.to be_truthy }
       end
 
       context 'when same year' do
-        let(:checkin_b) { double(:checkin, checkin_date: date) }
+        let(:checkin_b) { instance_double('checkin', checkin_date: date) }
 
         it { is_expected.to be_falsey }
       end
@@ -130,7 +130,7 @@ describe Checkins::TimelineFacade do
     subject { facade.future_checkin?(0) }
 
     let(:checkins) { [checkin] }
-    let(:checkin) { double(:checkin, checkin_date: date) }
+    let(:checkin) { instance_double('checkin', checkin_date: date) }
 
     context 'when in past' do
       let(:date) { Date.new(2017, 11, 11) }

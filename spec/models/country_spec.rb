@@ -3,7 +3,8 @@ describe Country do
   it { is_expected.to have_many(:currencies).dependent(:restrict_with_error) }
 
   it do
-    expect(subject).to have_many(:top_level_domains).dependent(:restrict_with_error)
+    expect(subject).to have_many(:top_level_domains)
+      .dependent(:restrict_with_error)
   end
 
   it { is_expected.to have_many(:country_languages).dependent(:destroy) }
@@ -11,7 +12,8 @@ describe Country do
   it { is_expected.to have_many(:border_countries).dependent(:destroy) }
 
   it do
-    expect(subject).to have_many(:country_alternative_spellings).dependent(:destroy)
+    expect(subject).to have_many(:country_alternative_spellings)
+      .dependent(:destroy)
   end
 
   describe '.find_by_any' do
@@ -130,7 +132,8 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }.not_to change { described_class.north_american.count }
+      expect { create(:country) }
+        .not_to change { described_class.north_american.count }
     end
   end
 
@@ -142,7 +145,9 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }.not_to change { described_class.south_american.count }
+      expect { create(:country) }.not_to change {
+        described_class.south_american.count
+      }
     end
   end
 

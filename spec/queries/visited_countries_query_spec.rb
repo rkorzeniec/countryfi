@@ -10,7 +10,7 @@ describe VisitedCountriesQuery do
   describe '#count_by_year' do
     subject { query.count_by_year }
 
-    let(:cache) { double('cache') }
+    let(:cache) { instance_double('cache') }
 
     context 'with already visited countries' do
       let!(:checkin) { create(:checkin, user: user, checkin_date: now - 1.day) }
