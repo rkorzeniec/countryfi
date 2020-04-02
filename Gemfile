@@ -46,7 +46,7 @@ group :development do
   gem 'graphiql-rails', '~> 1.7.0'
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.2'
-  gem 'rubocop', '~> 0.80.1'
+  gem 'rubocop', '~> 0.81.0'
   gem 'rubocop-rails', '~> 2.5.0'
   gem 'spring', '~> 2.1.0'
   gem 'web-console', '~> 4.0.1'
