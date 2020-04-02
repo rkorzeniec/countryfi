@@ -51,6 +51,22 @@ Rails/HelperInstanceVariable:
 RSpec/ExampleLength:
   Enabled: false
 
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Exclude:
+    - 'spec/support/**/*.rb'
+
 Style/ClassVars:
   Exclude:
     - 'spec/support/*.rb'
