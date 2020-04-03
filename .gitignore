@@ -11,9 +11,6 @@
 # Ignore coverage results
 /coverage/*
 
-# Rubocop config
-.rubocop.yml
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /log
@@ -45,6 +42,7 @@ public/assets/**/*
 
 #do not ignore
 !.ruby-version
+!.rubocop.yml
 
 /public/packs
 /public/packs-test

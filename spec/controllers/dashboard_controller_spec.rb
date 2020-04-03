@@ -13,7 +13,7 @@ describe DashboardController do
     describe 'GET index' do
       let(:country) { build_stubbed(:country) }
       let(:counter) do
-        double(
+        instance_double(
           'counter',
           visited_world_countries_count: 1,
           visited_european_countries_count: 1,
@@ -26,7 +26,7 @@ describe DashboardController do
         )
       end
       let(:facade) do
-        double(
+        instance_double(
           'dashboard',
           country: country,
           european_countries: [country],

@@ -33,8 +33,8 @@ describe Dashboard::VisitedCountriesCounter do
     create(:checkin, user: user, country: antarctic_country)
   end
 
-  shared_context 'cached_method' do
-    let(:cache) { double('cache') }
+  shared_context 'with cached method' do
+    let(:cache) { instance_double('cache') }
     let(:cache_key) do
       [
         'dashboard/visited_countries_counter',
@@ -53,7 +53,7 @@ describe Dashboard::VisitedCountriesCounter do
   describe '#visited_world_countries_count' do
     subject { counter.visited_world_countries_count }
 
-    it_behaves_like 'cached_method' do
+    it_behaves_like 'with cached method' do
       let(:method_name) { 'visited_world_countries_count' }
     end
 
@@ -83,7 +83,7 @@ describe Dashboard::VisitedCountriesCounter do
   describe '#visited_european_countries_count' do
     subject { counter.visited_european_countries_count }
 
-    it_behaves_like 'cached_method' do
+    it_behaves_like 'with cached method' do
       let(:method_name) { 'visited_european_countries_count' }
     end
 
@@ -109,7 +109,7 @@ describe Dashboard::VisitedCountriesCounter do
   describe '#visited_north_american_countries_count' do
     subject { counter.visited_north_american_countries_count }
 
-    it_behaves_like 'cached_method' do
+    it_behaves_like 'with cached method' do
       let(:method_name) { 'visited_north_american_countries_count' }
     end
 
@@ -155,7 +155,7 @@ describe Dashboard::VisitedCountriesCounter do
   describe '#visited_south_american_countries_count' do
     subject { counter.visited_south_american_countries_count }
 
-    it_behaves_like 'cached_method' do
+    it_behaves_like 'with cached method' do
       let(:method_name) { 'visited_south_american_countries_count' }
     end
 
@@ -181,7 +181,7 @@ describe Dashboard::VisitedCountriesCounter do
   describe '#visited_asian_countries_count' do
     subject { counter.visited_asian_countries_count }
 
-    it_behaves_like 'cached_method' do
+    it_behaves_like 'with cached method' do
       let(:method_name) { 'visited_asian_countries_count' }
     end
 
@@ -207,7 +207,7 @@ describe Dashboard::VisitedCountriesCounter do
   describe '#visited_oceanian_countries_count' do
     subject { counter.visited_oceanian_countries_count }
 
-    it_behaves_like 'cached_method' do
+    it_behaves_like 'with cached method' do
       let(:method_name) { 'visited_oceanian_countries_count' }
     end
 
@@ -233,7 +233,7 @@ describe Dashboard::VisitedCountriesCounter do
   describe '#visited_african_countries_count' do
     subject { counter.visited_african_countries_count }
 
-    it_behaves_like 'cached_method' do
+    it_behaves_like 'with cached method' do
       let(:method_name) { 'visited_african_countries_count' }
     end
 
@@ -259,7 +259,7 @@ describe Dashboard::VisitedCountriesCounter do
   describe '#visited_antarctican_countries_count' do
     subject { counter.visited_antarctican_countries_count }
 
-    it_behaves_like 'cached_method' do
+    it_behaves_like 'with cached method' do
       let(:method_name) { 'visited_antarctican_countries_count' }
     end
 
@@ -283,12 +283,14 @@ describe Dashboard::VisitedCountriesCounter do
   end
 
   describe '#cache_key' do
-    subject { counter.send(:cache_key, 'visited_european_countries_count') }
+    subject(:cache_key) do
+      counter.send(:cache_key, 'visited_european_countries_count')
+    end
 
     before { european_checkin }
 
     it do
-      is_expected.to eq(
+      expect(cache_key).to eq(
         'dashboard/visited_countries_counter/visited_european_countries_count/' \
         "#{user.id}/#{european_checkin.id}"
       )

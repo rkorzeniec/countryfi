@@ -2,9 +2,9 @@ describe Graphql::Authenticator do
   let(:authenticator) { described_class.new(token) }
 
   describe '#call' do
-    let(:user) { create(:user) }
-
     subject { authenticator.call }
+
+    let(:user) { create(:user) }
 
     context 'without token' do
       let(:token) { '' }

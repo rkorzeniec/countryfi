@@ -4,12 +4,13 @@ describe VisitedCountriesQuery do
   let(:query) { described_class.new(user) }
 
   before { Timecop.freeze(now) }
+
   after { Timecop.return }
 
   describe '#count_by_year' do
-    let(:cache) { double('cache') }
-
     subject { query.count_by_year }
+
+    let(:cache) { instance_double('cache') }
 
     context 'with already visited countries' do
       let!(:checkin) { create(:checkin, user: user, checkin_date: now - 1.day) }

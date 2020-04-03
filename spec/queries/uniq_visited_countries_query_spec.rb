@@ -4,12 +4,13 @@ describe UniqVisitedCountriesQuery do
   let(:query) { described_class.new(user) }
 
   before { Timecop.freeze(now) }
+
   after { Timecop.return }
 
   describe '#count_by_year' do
-    let(:cache) { double('cache') }
-
     subject { query.count_by_year }
+
+    let(:cache) { instance_double('cache') }
 
     context 'with already visited countries' do
       let(:cache_key) do
@@ -47,6 +48,7 @@ describe UniqVisitedCountriesQuery do
         end
 
         it { expect(subject).to eq(2016 => 1, 2017 => 1) }
+
         it do
           expect(Rails).to receive(:cache).and_return(cache)
           expect(cache).to receive(:fetch).with(cache_key, expires_in: 1.week)

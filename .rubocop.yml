@@ -1,0 +1,94 @@
+require: 
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance 
+  - rubocop-md 
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/**/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*.rb'
+    - 'config/routes.rb'
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/**/*.rb'
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Layout/LineLength:
+  Max: 85
+  Exclude:
+    - 'bin/delayed_job'
+    - 'bin/spring'
+    - 'config/application.rb'
+    - 'config/initializers/devise.rb'
+    - 'db/**/*.rb'
+    - 'spec/rails_helper.rb'
+    - 'spec/support/**/*.rb'
+
+Rails/DynamicFindBy:
+  Exclude:
+    - 'spec/models/country_spec.rb'
+
+Rails/HelperInstanceVariable:
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Exclude:
+    - 'spec/support/**/*.rb'
+
+Style/ClassVars:
+  Exclude:
+    - 'spec/support/*.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Exclude:
+    - 'spec/support/*.rb'
+  
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true

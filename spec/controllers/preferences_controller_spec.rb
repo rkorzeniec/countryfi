@@ -16,22 +16,23 @@ describe PreferencesController do
 
       it do
         expect(response).to be_successful
-        is_expected.to render_template(:edit)
+        expect(subject).to render_template(:edit)
       end
     end
 
     describe 'PUT update' do
-      let!(:now) { '2016-01-01' }
-
       subject { post(:update, params: params) }
+
+      let!(:now) { '2016-01-01' }
 
       context 'when successful' do
         let(:params) { { user: { color: 'some_colour' } } }
 
         it do
-          is_expected.to redirect_to(edit_preferences_path)
+          expect(subject).to redirect_to(edit_preferences_path)
           expect(flash[:success]).to be_present
         end
+
         it do
           expect { subject }.to change { user.reload.color }
             .from(nil).to('some_colour')
@@ -40,6 +41,7 @@ describe PreferencesController do
 
       context 'when unsuccessful' do
         let(:params) { { user: { color: 'some_colour' } } }
+        let(:user) { instance_double(User) }
 
         before do
           allow_any_instance_of(User).to receive(:update)
@@ -47,7 +49,7 @@ describe PreferencesController do
         end
 
         it do
-          is_expected.to render_template(:edit)
+          expect(subject).to render_template(:edit)
           expect(flash[:error]).to be_present
         end
       end

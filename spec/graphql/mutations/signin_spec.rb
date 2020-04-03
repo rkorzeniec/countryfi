@@ -1,4 +1,6 @@
 RSpec.describe Mutations::Signin, type: :request do
+  subject { post '/graphql', params: { query: query } }
+
   let(:query) do
     %(mutation {
       signin(email: "#{email}", password: "#{password}") {
@@ -11,7 +13,6 @@ RSpec.describe Mutations::Signin, type: :request do
   end
 
   # subject { CountryfierSchema.execute(query).as_json }
-  subject { post '/graphql', params: { query: query } }
 
   it_behaves_like 'incorrect_params_api_request' do
     let(:request) { 'signin' }
@@ -36,7 +37,7 @@ RSpec.describe Mutations::Signin, type: :request do
       let(:token) { JwtToken.token(user_id: user.id, jti: user.jti_token) }
 
       it do
-        is_expected.to eq(
+        expect(subject).to eq(
           'data' => {
             'signin' => {
               'token' => token, 'user' => { 'email' => user.email }
@@ -50,7 +51,7 @@ RSpec.describe Mutations::Signin, type: :request do
       let(:password) { 'john' }
 
       it do
-        is_expected.to eq(
+        expect(subject).to eq(
           'data' => { 'signin' => nil },
           'errors' => [
             {
@@ -69,7 +70,7 @@ RSpec.describe Mutations::Signin, type: :request do
     let(:password) { 'john' }
 
     it do
-      is_expected.to eq(
+      expect(subject).to eq(
         'data' => { 'signin' => nil },
         'errors' => [
           {

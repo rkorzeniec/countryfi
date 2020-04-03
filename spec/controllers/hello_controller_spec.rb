@@ -1,6 +1,6 @@
 describe HelloController do
   describe 'GET index' do
-    let(:country) { double(:country, id: 1) }
+    let(:country) { instance_double(Country, id: 1) }
 
     before do
       allow(CountryIDLookuper).to receive(:lookup).and_return(country)

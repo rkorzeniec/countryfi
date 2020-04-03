@@ -13,10 +13,12 @@ describe ExploreFacade do
 
     context 'when no visited countries' do
       it { is_expected.to be_empty }
+
       it do
         expect(UnvisitedCountriesQuery).to receive(:new)
           .with(nil, regions: region, subregions: subregion)
           .and_call_original
+
         expect_any_instance_of(UnvisitedCountriesQuery)
           .to receive(:all)
           .and_call_original
@@ -41,10 +43,10 @@ describe ExploreFacade do
   end
 
   describe '#discoverable_countries_by_category' do
-    let(:country) { double('country', name_common: 'France') }
-    let(:country_b) { double('country', name_common: 'Germany') }
-
     subject { facade.discoverable_countries_by_category(category) }
+
+    let(:country) { instance_double(Country, name_common: 'France') }
+    let(:country_b) { instance_double(Country, name_common: 'Germany') }
 
     before do
       allow(facade).to receive(:discoverable_countries)
@@ -74,10 +76,10 @@ describe ExploreFacade do
   end
 
   describe '#country_categories' do
-    let(:country) { double('country', name_common: 'France') }
-    let(:country_b) { double('country', name_common: 'Germany') }
-
     subject { facade.country_categories }
+
+    let(:country) { instance_double(Country, name_common: 'France') }
+    let(:country_b) { instance_double(Country, name_common: 'Germany') }
 
     context 'with discoverable countries' do
       before do

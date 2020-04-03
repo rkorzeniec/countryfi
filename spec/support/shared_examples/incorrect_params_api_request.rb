@@ -1,7 +1,7 @@
 shared_examples 'incorrect_params_api_request' do
   context 'with incorrect params' do
     it do
-      is_expected.to eq(
+      expect(subject).to eq(
         'errors' => [
           {
             'extensions' => {

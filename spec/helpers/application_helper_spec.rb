@@ -11,7 +11,7 @@ describe ApplicationHelper do
 
       it do
         assign(:page_title, title)
-        is_expected.to eq(title)
+        expect(subject).to eq(title)
       end
     end
   end
@@ -46,12 +46,12 @@ describe ApplicationHelper do
     subject { helper.gravatar_url(20) }
 
     context 'when user signed in' do
-      let(:user) { double('user', email: 'jon@snow.com') }
+      let(:user) { instance_double(User, email: 'jon@snow.com') }
 
       before { allow(helper).to receive(:current_user).and_return(user) }
 
       it do
-        is_expected.to eq(
+        expect(subject).to eq(
           'https://gravatar.com/avatar/0aa05c29c41531fa903aa5006389fa23.png?s=20&d=mp'
         )
       end
@@ -61,7 +61,7 @@ describe ApplicationHelper do
       before { allow(helper).to receive(:current_user).and_return(nil) }
 
       it do
-        is_expected.to eq(
+        expect(subject).to eq(
           'https://gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e.png?s=20&d=mp'
         )
       end
