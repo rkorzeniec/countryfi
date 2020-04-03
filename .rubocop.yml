@@ -51,6 +51,9 @@ Rails/HelperInstanceVariable:
 RSpec/ExampleLength:
   Enabled: false
 
+RSpec/ExpectInHook:
+  Enabled: false
+
 RSpec/LetSetup:
   Enabled: false
 

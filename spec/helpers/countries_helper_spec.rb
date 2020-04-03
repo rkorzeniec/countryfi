@@ -4,10 +4,10 @@ describe CountriesHelper do
 
     let(:countries) { [] }
     let(:visited_countries) { [] }
-    let(:country) { instance_double('country') }
+    let(:country) { instance_double(Country) }
     let(:user) do
       instance_double(
-        'user',
+        User,
         countries: countries,
         visited_countries: visited_countries
       )

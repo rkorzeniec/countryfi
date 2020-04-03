@@ -18,7 +18,7 @@ describe ExploreFacade do
         expect(UnvisitedCountriesQuery).to receive(:new)
           .with(nil, regions: region, subregions: subregion)
           .and_call_original
-          
+
         expect_any_instance_of(UnvisitedCountriesQuery)
           .to receive(:all)
           .and_call_original
@@ -45,8 +45,8 @@ describe ExploreFacade do
   describe '#discoverable_countries_by_category' do
     subject { facade.discoverable_countries_by_category(category) }
 
-    let(:country) { instance_double('country', name_common: 'France') }
-    let(:country_b) { instance_double('country', name_common: 'Germany') }
+    let(:country) { instance_double(Country, name_common: 'France') }
+    let(:country_b) { instance_double(Country, name_common: 'Germany') }
 
     before do
       allow(facade).to receive(:discoverable_countries)
@@ -78,8 +78,8 @@ describe ExploreFacade do
   describe '#country_categories' do
     subject { facade.country_categories }
 
-    let(:country) { instance_double('country', name_common: 'France') }
-    let(:country_b) { instance_double('country', name_common: 'Germany') }
+    let(:country) { instance_double(Country, name_common: 'France') }
+    let(:country_b) { instance_double(Country, name_common: 'Germany') }
 
     context 'with discoverable countries' do
       before do

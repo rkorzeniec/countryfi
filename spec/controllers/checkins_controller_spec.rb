@@ -117,9 +117,13 @@ describe CheckinsController do
 
       context 'when unsuccessful' do
         before do
-          expect_any_instance_of(Checkin).to receive(:destroy).and_return(false)
+          expect(Chekin).to receive(:find).and_return(checkin)
+          expect(checkin).to receive(:destroy).and_return(false)
+
           subject
         end
+
+        let(:checkin) { instance_double(Chekin) }
 
         it do
           expect(subject).to redirect_to(checkins_worlds_path)

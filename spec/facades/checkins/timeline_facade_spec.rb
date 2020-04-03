@@ -10,7 +10,7 @@ describe Checkins::TimelineFacade do
     subject { facade }
 
     let(:checkins) { [checkin] }
-    let(:checkin) { instance_double('checkin') }
+    let(:checkin) { instance_double(Checkin) }
 
     it { is_expected.to delegate_method(:total_pages).to(:checkins) }
     it { is_expected.to delegate_method(:current_page).to(:checkins) }
@@ -22,8 +22,8 @@ describe Checkins::TimelineFacade do
     subject { facade.items }
 
     let(:checkins) { [checkin, checkin_b] }
-    let(:checkin) { instance_double('checkin') }
-    let(:checkin_b) { instance_double('checkin') }
+    let(:checkin) { instance_double(Checkin) }
+    let(:checkin_b) { instance_double(Checkin) }
 
     it do
       expect(Checkins::TimelineItemFacade).to receive(:new).with(checkin)
@@ -101,7 +101,7 @@ describe Checkins::TimelineFacade do
 
     context 'when single checkin' do
       let(:checkins) { [checkin] }
-      let(:checkin) { instance_double('checkin') }
+      let(:checkin) { instance_double(Checkin) }
 
       it { is_expected.to be_falsey }
     end

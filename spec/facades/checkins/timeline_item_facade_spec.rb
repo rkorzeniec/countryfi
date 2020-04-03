@@ -1,6 +1,6 @@
 describe Checkins::TimelineItemFacade do
   let(:now) { Time.zone.local(2017, 12, 16) }
-  let(:checkin) { instance_double('checkin') }
+  let(:checkin) { instance_double(Checkin) }
   let(:facade) { described_class.new(checkin) }
 
   before { Timecop.freeze(now) }
@@ -20,7 +20,7 @@ describe Checkins::TimelineItemFacade do
     subject { facade.checkin_date }
 
     let(:date) { Date.new(2018, 1, 11) }
-    let(:checkin) { instance_double('checkin', checkin_date: date) }
+    let(:checkin) { instance_double(Checkin, checkin_date: date) }
 
     it { is_expected.to eq('2018-01-11') }
   end
@@ -29,7 +29,7 @@ describe Checkins::TimelineItemFacade do
     subject { facade.checkin_year }
 
     let(:date) { Date.new(2018, 1, 11) }
-    let(:checkin) { instance_double('checkin', checkin_date: date) }
+    let(:checkin) { instance_double(Checkin, checkin_date: date) }
 
     it { is_expected.to eq(2018) }
   end
@@ -37,8 +37,8 @@ describe Checkins::TimelineItemFacade do
   describe '#country_cca2' do
     subject { facade.country_cca2 }
 
-    let(:country) { instance_double('country', cca2: 'CH') }
-    let(:checkin) { instance_double('checkin', country: country) }
+    let(:country) { instance_double(Country, cca2: 'CH') }
+    let(:checkin) { instance_double(Checkin, country: country) }
 
     it { is_expected.to eq('CH') }
   end
@@ -46,8 +46,8 @@ describe Checkins::TimelineItemFacade do
   describe '#country_common_name' do
     subject { facade.country_common_name }
 
-    let(:country) { instance_double('country', name_common: 'Switzerland') }
-    let(:checkin) { instance_double('checkin', country: country) }
+    let(:country) { instance_double(Country, name_common: 'Switzerland') }
+    let(:checkin) { instance_double(Checkin, country: country) }
 
     it { is_expected.to eq('Switzerland') }
   end
@@ -56,10 +56,10 @@ describe Checkins::TimelineItemFacade do
     subject { facade.flag_image_path }
 
     let(:country) do
-      instance_double('country', flag_image_path: 'images/flags/ch.png')
+      instance_double(Country, flag_image_path: 'images/flags/ch.png')
     end
 
-    let(:checkin) { instance_double('checkin', country: country) }
+    let(:checkin) { instance_double(Checkin, country: country) }
 
     it { is_expected.to eq('images/flags/ch.png') }
   end
