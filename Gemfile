@@ -47,7 +47,7 @@ group :development do
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.2'
   gem 'rubocop', '~> 0.81.0', require: false
-  gem 'rubocop-md', '~> 0.2.0', require: false
+  gem 'rubocop-md', '~> 0.3.2', require: false
   gem 'rubocop-performance', '~> 1.5.2', require: false
   gem 'rubocop-rails', '~> 2.5.1', require: false
   gem 'rubocop-rspec', '~> 1.38.1', require: false
