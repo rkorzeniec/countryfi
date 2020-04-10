@@ -1,4 +1,4 @@
-lock '~> 3.12.1'
+lock '~> 3.13.0'
 
 set :application, 'countryfier'
 set :repo_url, 'git@github.com:rkorzeniec/countryfier.git'
