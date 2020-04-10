@@ -292,7 +292,7 @@ GEM
       rubocop (~> 0.60)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
-    rubocop-rails (2.5.1)
+    rubocop-rails (2.5.2)
       activesupport
       rack (>= 1.1)
       rubocop (>= 0.72.0)
@@ -413,7 +413,7 @@ DEPENDENCIES
   rubocop (~> 0.81.0)
   rubocop-md (~> 0.3.2)
   rubocop-performance (~> 1.5.2)
-  rubocop-rails (~> 2.5.1)
+  rubocop-rails (~> 2.5.2)
   rubocop-rspec (~> 1.38.1)
   sassc-rails (~> 2.1.2)
   sdoc (~> 1.1.0)
