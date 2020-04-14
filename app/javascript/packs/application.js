@@ -14,20 +14,19 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import $ from 'jquery';
+import EasyPieChart from 'easy-pie-chart';
+import Rails from 'rails-ujs';
+import svgPanZoom from 'svg-pan-zoom';
+import Hammer from 'hammerjs';
+import VisitedCountriesCharts from '../src/visited_countries_charts';
 
 require('chartkick');
 require('chart.js');
 
-import $ from 'jquery';
-import EasyPieChart from 'easy-pie-chart';
-import VisitedCountriesCharts from '../src/visited_countries_charts.js';
-import Rails from 'rails-ujs';
-import svgPanZoom from 'svg-pan-zoom'
-import Hammer from 'hammerjs'
-
 Rails.start();
-window.VisitedCountriesCharts = VisitedCountriesCharts
-window.EasyPieChart = EasyPieChart
-window.svgPanZoom = svgPanZoom
-window.Hammer = Hammer
-window.$ = $
+window.VisitedCountriesCharts = VisitedCountriesCharts;
+window.EasyPieChart = EasyPieChart;
+window.svgPanZoom = svgPanZoom;
+window.Hammer = Hammer;
+window.$ = $;
