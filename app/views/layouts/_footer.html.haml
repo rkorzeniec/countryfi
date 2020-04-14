@@ -1,13 +1,34 @@
-%footer.px-footer.px-footer-bottom#footer
-  %p.text-xs-center.m-t-1 
-    %span.text-muted Any feature ideas or issues? 
-    = mail_to('r.korzeniec@gmail.com', 'contact me', subject: 'Countrify contact')
-    |
-    %span.text-muted Want to buy me a coffee? 
-    = link_to('donate', 'https://paypal.me/rkorzeniec', target: '_blank')
-  %p.text-muted.text-xs-center.m-t-1
-    = "\u00A9 #{Date.today.year}"
-    Robert Korzeniec
+%footer.px-footer.px-footer-bottom.text-xs-center#footer
+  .row
+    .col-xs-6
+      %p.text-justify
+        %span.text-muted Any feature ideas or issues? 
+        = mail_to('r.korzeniec@gmail.com', 'contact me', subject: 'Countrify contact')
+        %br
+        %span.text-muted You enjoy using the app and would like to suport it? 
+        = link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank')
+      %p.text-justify.text-muted
+        made with 
+        %i.fas.fa-heart
+        and
+        %i.fas.fa-terminal
+        by
+        = link_to('Robert Korzeniec', 'https://github.com/rkorzeniec', target: '_blank')
+        = "\u00A9 #{Date.today.year}"
+    .col-xs-6
+      %p.text-justify
+        about
+        %br
+        %span.text-muted.margin-t-1
+          This app is a purely my main pet poject, that I solely develop whenever 
+          I find some time.
+          %br
+          Track your travels, countries you have visited, explore new ones. 
+          New features will appear in due time,
+          %br
+          as soon as they are ready. Please enjoy.
+  .row
+    .col-xs-12
 
 = content_for :page_specific_js do
   :javascript
