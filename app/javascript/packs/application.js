@@ -25,8 +25,9 @@ require('chartkick');
 require('chart.js');
 
 Rails.start();
-window.VisitedCountriesCharts = VisitedCountriesCharts;
-window.EasyPieChart = EasyPieChart;
-window.svgPanZoom = svgPanZoom;
-window.Hammer = Hammer;
 window.$ = $;
+window.EasyPieChart = EasyPieChart;
+window.Hammer = Hammer;
+window.ssag = require('save-svg-as-png');
+window.svgPanZoom = svgPanZoom;
+window.VisitedCountriesCharts = VisitedCountriesCharts;
