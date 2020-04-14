@@ -1,6 +1,11 @@
+.row.hidden-xs
+  .col-sm-12
+    %a#link.pull-right{ href: '#', onclick: "saveSvg(document.getElementById('world-svg-desktop'), 'wold_map')" }
+      %span#download-text.hidden Download map
+      %i#download-icon.fas.fa-cloud-download-alt.font-size-24
 .row
   .col-sm-12
-    .tab-content{ style: 'max-height: 700px; max-width: 800px; margin: auto; padding-top: 0;' }
+    .tab-content{ style: 'max-height: 700px; max-width: 1000px; margin: auto; padding-top: 0;' }
       .hidden-xs
         = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-desktop'
       .visible-xs

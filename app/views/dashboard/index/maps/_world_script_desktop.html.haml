@@ -2,6 +2,14 @@
   const worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
   const worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
 
+  document.getElementById('download-icon').addEventListener('mouseover', function(e) {
+    document.getElementById('download-text').classList.remove('hidden');
+  });
+
+  document.getElementById('download-icon').addEventListener('mouseout', function(e) {
+    document.getElementById('download-text').classList.add('hidden');
+  });
+
   worldSvgCountries.tooltip({
     container: 'body',
     placement: 'right',
@@ -53,3 +61,42 @@
     event.preventDefault();
     event.stopImmediatePropagation();
   }
+
+  function saveSvg(svgEl, name) {
+      worldMap.disableControlIcons();
+
+      new Promise(function(resolve, reject) { 
+        resolve(
+          ssag.saveSvgAsPng(
+            svgEl, 
+            name, 
+            {scale: 2, encoderOptions: 1, backgroundColor: '#ffffff'}
+          )
+        ); 
+      }).then(
+          function(_success) { worldMap.enableControlIcons();}, 
+          function(_error) { worldMap.enableControlIcons();}
+        );
+
+      
+      //var svgData = new XMLSerializer().serializeToString( svgEl );
+
+      //var canvas = document.createElement("canvas");
+      //var svgSize = svgEl.getBoundingClientRect();
+      //canvas.width = svgSize.width;
+      //canvas.height = svgSize.height;
+      //var ctx = canvas.getContext("2d");
+
+      //var img = document.createElement( "img" );
+      //img.setAttribute("src", "data:image/svg+xml;base64," + btoa(svgData) );
+
+      //img.onload = function() {
+      //  ctx.drawImage(img, 0, 0);
+      //  var imgsrc = canvas.toDataURL("image/png");
+
+      //  var a = document.createElement("a");
+      //  a.download = name + ".png";
+      //  a.href = imgsrc;
+      //  a.click();
+      //};
+    }
