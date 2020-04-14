@@ -43,6 +43,7 @@ public/assets/**/*
 #do not ignore
 !.ruby-version
 !.rubocop.yml
+!.eslintrc.js
 
 /public/packs
 /public/packs-test
