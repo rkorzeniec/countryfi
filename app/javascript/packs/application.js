@@ -29,5 +29,6 @@ Rails.start();
 window.VisitedCountriesCharts = VisitedCountriesCharts
 window.EasyPieChart = EasyPieChart
 window.svgPanZoom = svgPanZoom
+window.ssag = require('save-svg-as-png')
 window.Hammer = Hammer
 window.$ = $
