@@ -1,4 +1,10 @@
 %footer.px-footer.px-footer-bottom#footer
+  %p.text-xs-center.m-t-1 
+    %span.text-muted Any feature ideas or issues? 
+    = mail_to('r.korzeniec@gmail.com', 'contact me', subject: 'Countrify contact')
+    |
+    %span.text-muted Want to buy me a coffee? 
+    = link_to('donate', 'https://paypal.me/rkorzeniec', target: '_blank')
   %p.text-muted.text-xs-center.m-t-1
     = "\u00A9 #{Date.today.year}"
     Robert Korzeniec
