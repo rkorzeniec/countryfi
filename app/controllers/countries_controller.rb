@@ -1,6 +1,8 @@
 class CountriesController < ApplicationController
   skip_before_action :authenticate_user!
 
+  layout 'country'
+
   def show
     @country = Country
                .preload(
