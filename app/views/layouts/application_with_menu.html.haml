@@ -6,8 +6,7 @@
 %html
   %head
     = render 'layouts/head'
-    = yield :page_specific_css
-    = render 'layouts/mapbox'
+    = yield :css
   %body{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{current_user&.color}" } }
     - if user_signed_in?
       = render 'layouts/sidebar_navigation'
@@ -16,8 +15,7 @@
       = render 'layouts/flash'
       = yield
     = render 'layouts/footer'
-    = yield :scripts
-    = yield :page_specific_js
+    = yield :js
     :javascript
       $(function () {
         var file =
