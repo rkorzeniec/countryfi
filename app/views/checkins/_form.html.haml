@@ -10,22 +10,23 @@
   = submit_tag 'Save', class: 'btn btn-primary btn-block'
   = link_to 'Cancel', checkins_worlds_path, class: 'btn btn-block'
 
-:javascript
-  $(function() {
-    var options = {
-      format: 'yyyy-mm-dd',
-      autoclose: true,
-      orientation: 'bottom auto',
-      weekStart: 1
-    };
+= content_for :js do
+  :javascript
+    $(function() {
+      var options = {
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        orientation: 'bottom auto',
+        weekStart: 1
+      };
 
-    $('#checkin_country_id').select2({
-      placeholder: 'Select country',
-    });
-
-    $('#checkin_checkin_date').datepicker(options)
-      .datepicker('setValue', new Date)
-      .on('changeDate', function() {
-        $('.datepicker').hide();
+      $('#checkin_country_id').select2({
+        placeholder: 'Select country',
       });
-  });
+
+      $('#checkin_checkin_date').datepicker(options)
+        .datepicker('setValue', new Date)
+        .on('changeDate', function() {
+          $('.datepicker').hide();
+        });
+    });
