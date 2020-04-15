@@ -4,7 +4,7 @@
 .form-group
   = f.text_field :color, placeholder: '#2E7060', id: 'minicolors-hue', class: 'form-control'
 .form-group-lg.m-t-1
-  = submit_tag 'Save', class: 'btn btn-primary btn-block'
+  = submit_tag 'Save', data: { "disable-with": "Saving..." }, class: 'btn btn-primary btn-block'
 
 :javascript
   $(function() {

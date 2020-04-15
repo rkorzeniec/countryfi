@@ -19,4 +19,4 @@
       .form-group-lg.m-t-1
         = f.password_field :current_password, autocomplete: 'off', placeholder: :current_password, class: 'form-control input-lg'
       .form-group.m-t-1
-        = f.submit 'Update', class: 'btn btn-primary btn-lg btn-block'
+        = f.submit 'Update', data: { "disable-with": "Updating..." }, class: 'btn btn-primary btn-lg btn-block'
