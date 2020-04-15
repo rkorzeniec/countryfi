@@ -8,7 +8,6 @@
     = render 'layouts/head'
     = javascript_pack_tag 'dashboard', 'data-turbolinks-track': 'reload'
     = yield :page_specific_css
-    = render 'layouts/mapbox'
   %body{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{current_user&.color}" } }
     = render 'layouts/header_navigation', hide_toggle_button: true
     .px-content

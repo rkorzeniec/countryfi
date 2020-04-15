@@ -23,7 +23,7 @@
     worldMap.resize();
     worldMap.fit();
     worldMap.center();
-  })
+  });
 
   worldSvgCountries.on('mousedown', function() {
     $(this).on('mousemove', flagged);
@@ -63,18 +63,18 @@
   }
 
   function saveSvg(svgEl, name) {
-      worldMap.disableControlIcons();
+    worldMap.disableControlIcons();
 
-      new Promise(function(resolve, reject) { 
-        resolve(
-          ssag.saveSvgAsPng(
-            svgEl, 
-            name, 
-            {scale: 2, encoderOptions: 1, backgroundColor: '#ffffff'}
-          )
-        ); 
-      }).then(
-          function(_success) { worldMap.enableControlIcons();}, 
-          function(_error) { worldMap.enableControlIcons();}
-        );
-    }
+    new Promise(function(resolve, reject) { 
+      resolve(
+        ssag.saveSvgAsPng(
+          svgEl, 
+          name, 
+          {scale: 2, encoderOptions: 1, backgroundColor: '#ffffff'}
+        )
+      ); 
+    }).then(
+        function(_success) { worldMap.enableControlIcons();}, 
+        function(_error) { worldMap.enableControlIcons();}
+      );
+  }
