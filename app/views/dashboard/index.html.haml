@@ -1,7 +1,7 @@
-= content_for :page_specific_css do
+= content_for :css do
   = stylesheet_link_tag 'dashboard'
 
-= content_for :page_specific_js do
+= content_for :js do
   :javascript
     $(function() {
       $('.checked').css('fill', $('body').data('user-preferences-color'));

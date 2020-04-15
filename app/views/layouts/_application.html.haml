@@ -1,0 +1,16 @@
+!!! 5
+
+<!--[if IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9 gt-ie8"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="gt-ie8 gt-ie9 not-ie"> <!--<![endif]-->
+%html
+  %head
+    = render 'layouts/head'
+    = yield :css
+  %body{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{current_user&.color}" } }
+    = render 'layouts/header_navigation', hide_toggle_button: true
+    .px-content
+      = render 'layouts/flash'
+      = yield
+    = render 'layouts/footer'
+    = yield :js
