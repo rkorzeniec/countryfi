@@ -1,6 +1,6 @@
 :javascript
-  const worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
-  const worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
+  var worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
+  var worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
 
   document.getElementById('download-icon').addEventListener('mouseover', function(e) {
     document.getElementById('download-text').classList.remove('hidden');
