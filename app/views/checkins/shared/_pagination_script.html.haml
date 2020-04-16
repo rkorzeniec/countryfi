@@ -1,6 +1,6 @@
 = content_for :js do
   :javascript
-    $(document).ready(function() {
+    $(document).on('turbolinks:load', function() {
       if ($('.pagination').length) {
         $(window).scroll(function() {
           var url = $('.pagination .next a').attr('href');

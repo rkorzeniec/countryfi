@@ -12,5 +12,5 @@
           .form-group-lg.signin-password.m-t-1
             = f.password_field :password_confirmation, autocomplete: 'off', placeholder: :password_confirmation, class: 'form-control input-lg'
           .form-group.m-t-1
-            = f.submit 'Change my password', class: 'btn btn-primary btn-lg btn-block'
+            = f.submit 'Change my password', data: { "disable-with": "Changing..." }, class: 'btn btn-primary btn-lg btn-block'
             = link_to 'Cancel', new_session_path(resource_name), class: 'btn btn-default btn-lg btn-block'

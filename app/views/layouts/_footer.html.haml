@@ -32,6 +32,6 @@
 
 = content_for :js do
   :javascript
-    $(document).ready(function() {
+    $(document).on('turbolinks:load', function() {
       $('#footer').pxFooter();
     });

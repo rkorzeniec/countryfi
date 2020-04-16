@@ -9,7 +9,8 @@
     "jquery": "^3.5.0",
     "rails-ujs": "^5.2.4",
     "save-svg-as-png": "^1.4.17",
-    "svg-pan-zoom": "^3.6.1"
+    "svg-pan-zoom": "^3.6.1",
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"
