@@ -1,6 +1,18 @@
-%footer.px-footer.px-footer-bottom.text-xs-center#footer
+%footer.footer.mt-auto.py-3#footer
   .row
-    .col-xs-6
+    .col-sm-6
+      %p.text-justify
+        about
+        %br
+        %span.text-muted.margin-t-1
+          This app is a purely my main pet poject, that I solely develop whenever 
+          I find some time.
+          %br
+          Track your travels, countries you have visited, explore new ones. 
+          New features will appear in due time,
+          %br
+          as soon as they are ready. Please enjoy.
+    .col-sm-6
       %p.text-justify
         %span.text-muted Any feature ideas or issues? 
         = mail_to('hello@countrify.net', 'contact me', subject: 'Countrify contact')
@@ -15,23 +27,3 @@
         by
         = link_to('Robert Korzeniec', 'https://github.com/rkorzeniec', target: '_blank')
         = "\u00A9 #{Date.today.year}"
-    .col-xs-6
-      %p.text-justify
-        about
-        %br
-        %span.text-muted.margin-t-1
-          This app is a purely my main pet poject, that I solely develop whenever 
-          I find some time.
-          %br
-          Track your travels, countries you have visited, explore new ones. 
-          New features will appear in due time,
-          %br
-          as soon as they are ready. Please enjoy.
-  .row
-    .col-xs-12
-
-= content_for :js do
-  :javascript
-    $(document).on('turbolinks:load', function() {
-      $('#footer').pxFooter();
-    });
