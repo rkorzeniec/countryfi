@@ -9,9 +9,7 @@
     = yield :css
   %body{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{current_user&.color}" } }
     - if user_signed_in?
-      = render 'layouts/sidebar_navigation'
-    = render 'layouts/header_navigation'
-    .px-content
+    = render 'layouts/top_navigation'
       = render 'layouts/flash'
       = yield
     = render 'layouts/footer'
