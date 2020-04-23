@@ -26,7 +26,7 @@ gem 'jquery-rails'
 gem 'kaminari', '~> 1.2.0'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'uglifier', '~> 4.2.0'
-gem 'webpacker', '~> 5.0.1'
+gem 'webpacker', '~> 5.1.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.1.1'
