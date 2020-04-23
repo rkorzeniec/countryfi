@@ -29,7 +29,7 @@ gem 'uglifier', '~> 4.2.0'
 gem 'webpacker', '~> 5.1.1'
 
 group :development, :test do
-  gem 'byebug', '~> 11.1.1'
+  gem 'byebug', '~> 11.1.2'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'simplecov'
   gem 'simplecov-console'
