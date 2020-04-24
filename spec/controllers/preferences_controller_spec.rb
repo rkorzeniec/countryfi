@@ -41,7 +41,6 @@ describe PreferencesController do
 
       context 'when unsuccessful' do
         let(:params) { { user: { color: 'some_colour' } } }
-        let(:user) { instance_double(User) }
 
         before do
           allow_any_instance_of(User).to receive(:update)
