@@ -20,7 +20,7 @@ RSpec.describe Mutations::AddCheckin do
 
   it_behaves_like 'incorrect_params_api_request' do
     let(:request) { 'addCheckin' }
-    let(:location) { 60 }
+    let(:location) { 61 }
     let(:query) do
       %(mutation {
         addCheckin(countryId: 1, checkinDate: "2019-01-01", mambo: "jambo") {
