@@ -1,4 +1,6 @@
 class GraphqlController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def execute
     query = params[:query]
     result = CountryfierSchema.execute(query, schema_hash)
