@@ -48,6 +48,10 @@ Rails/HelperInstanceVariable:
   Exclude:
     - 'app/helpers/application_helper.rb'
 
+RSpec/AnyInstance:
+  Exclude:
+    - 'spec/controllers/preferences_controller_spec.rb'
+    - 'spec/facades/explore_facade_spec.rb'
 RSpec/ExampleLength:
   Enabled: false
 
