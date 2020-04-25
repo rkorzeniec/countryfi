@@ -1,5 +1,11 @@
 name: Ruby
 
+env:
+  RUBY_VERSION: 2.7
+  DB_USER: db
+  DB_PASSWORD: ""
+  DB_DB: db
+
 on:
   push:
     branches: [ master ]
@@ -7,28 +13,44 @@ on:
     branches: [ master ]
 
 jobs:
-  lint:
+  # lint:
+    # runs-on: ubuntu-latest
+    # steps:
+    # - uses: actions/checkout@v2
+    #   with:
+    #     fetch-depth: '0'
+    # - name: gitleaks-action # https://github.com/marketplace/actions/gitleaks
+      # uses: zricethezav/gitleaks-action@master
+    # - name: rubocop # https://github.com/andrewmcodes/rubocop-linter-action
+    #   uses: gimenete/rubocop-action@1.0
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  rubocop:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: '0'
-    - name: gitleaks-action # https://github.com/marketplace/actions/gitleaks
-      uses: zricethezav/gitleaks-action@master
-    - name: rubocop # https://github.com/andrewmcodes/rubocop-linter-action
-      uses: gimenete/rubocop-action@1.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby 2.5 # https://github.com/actions/setup-ruby
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: 2.5.x
-    - name: build and test with rspec
-      run: |
-        gem install --no-rdoc --no-ri bundler
-        bundle install --jobs 4 --retry 3
-        bundle exec rspec
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Install Rubocop
+        run: |
+          gem install --no-doc rubocop
+          gem install --no-doc rubocop-rails
+          gem install --no-doc rubocop-rspec
+          gem install --no-doc rubocop-performance
+          gem install --no-doc rubocop-md
+      - name: Check code
+        run: rubocop
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Set up Ruby 2.7 # https://github.com/actions/setup-ruby
+  #     uses: actions/setup-ruby@v1
+  #     with:
+  #       ruby-version: 2.7.x
+  #   - name: build and test with rspec
+  #     run: |
+  #       gem install --no-doc bundler
+  #       bundle install --jobs 4 --retry 3
+  #       bundle exec rspec
