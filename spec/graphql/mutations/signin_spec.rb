@@ -14,7 +14,7 @@ RSpec.describe Mutations::Signin, type: :request do
 
   it_behaves_like 'incorrect_params_api_request' do
     let(:request) { 'signin' }
-    let(:location) { 61 }
+    let(:location) { 63 }
     let(:query) do
       %(mutation {
         signin(email: "john@email.com", password: "password", mambo: "jambo") {
