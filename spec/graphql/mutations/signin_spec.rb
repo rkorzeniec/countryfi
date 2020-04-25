@@ -1,5 +1,5 @@
 RSpec.describe Mutations::Signin, type: :request do
-  subject { post '/graphql', params: { query: query } }
+  subject { CountryfierSchema.execute(query).as_json }
 
   let(:query) do
     %(mutation {
@@ -12,10 +12,9 @@ RSpec.describe Mutations::Signin, type: :request do
     })
   end
 
-  # subject { CountryfierSchema.execute(query).as_json }
-
   it_behaves_like 'incorrect_params_api_request' do
     let(:request) { 'signin' }
+    let(:location) { 61 }
     let(:query) do
       %(mutation {
         signin(email: "john@email.com", password: "password", mambo: "jambo") {
@@ -51,6 +50,7 @@ RSpec.describe Mutations::Signin, type: :request do
       let(:password) { 'john' }
 
       it do
+        subject
         expect(subject).to eq(
           'data' => { 'signin' => nil },
           'errors' => [
@@ -70,6 +70,7 @@ RSpec.describe Mutations::Signin, type: :request do
     let(:password) { 'john' }
 
     it do
+      subject
       expect(subject).to eq(
         'data' => { 'signin' => nil },
         'errors' => [
