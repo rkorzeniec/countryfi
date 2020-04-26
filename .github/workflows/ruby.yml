@@ -81,12 +81,12 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: prepare environment
+      - name: Prepare environment
         run: |
           cp config/database.yml.ci config/database.yml
           cp .env.ci .env
       
-      - name: create database
+      - name: Create database
         env:
           RAILS_ENV: test
           DB_USER: root
@@ -94,16 +94,16 @@ jobs:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
         run: bin/rails db:prepare
       
-      - name: run tests
+      - name: Run tests
         run: COVERAGE=true bundle exec rspec  --require rails_helper
         env:
           DB_USER: root
           DB_PASSWORD: root
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
       
-      # - name: Upload coverage results    
-      #   uses: actions/upload-artifact@master
-      #   if: always()
-      #   with:
-      #     name: coverage-report
-      #     path: coverage
+      - name: Upload coverage results    
+        uses: actions/upload-artifact@master
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage
