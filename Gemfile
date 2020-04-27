@@ -16,7 +16,7 @@ gem 'skylight', '~> 4.3.0'
 gem 'therubyracer', '~> 0.12.3'
 
 gem 'administrate', '~> 0.13.0'
-gem 'better_errors', '~> 2.6.0'
+gem 'better_errors', '~> 2.7.0'
 gem 'chartkick', '~> 3.3.1'
 gem 'daemons', '~> 1.3.1'
 gem 'delayed_job_active_record', '~> 4.1.4'
