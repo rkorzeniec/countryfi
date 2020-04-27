@@ -43,6 +43,8 @@ public/assets/**/*
 #do not ignore
 !.ruby-version
 !.rubocop.yml
+!.env.sample
+!.env.ci
 
 /public/packs
 /public/packs-test

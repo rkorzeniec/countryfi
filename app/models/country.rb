@@ -38,8 +38,8 @@ class Country < ApplicationRecord
   end
 
   def flag_image_path
-    file = Rails.root.join('app', 'assets', 'images', 'flags', "#{cca2}.png")
-    flag_path = File.exist?(file) ? "flags/#{cca2}.png" : 'flags/unknown.png'
+    file = Rails.root.join('app/assets/images/flags', "#{cca2.upcase}.png")
+    flag_path = File.exist?(file) ? "flags/#{cca2.upcase}.png" : 'flags/unknown.png'
 
     ActionController::Base.helpers.image_path(flag_path)
   end

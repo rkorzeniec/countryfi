@@ -12,7 +12,11 @@ describe CountriesController do
         expect(subject).to render_template(:show)
         expect(assigns(:country)).to eq(country)
         expect(assigns(:geojson)).to eq(
-          File.read("app/assets/geojsons/#{country.cca3}.geo.json")
+          File.read(
+            Rails.root.join(
+              "app/assets/geojsons/#{country.cca3.downcase}.geo.json"
+            )
+          )
         )
         expect(response.body).to include(country.name_common)
       end
