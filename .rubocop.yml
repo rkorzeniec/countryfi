@@ -25,10 +25,6 @@ Metrics/MethodLength:
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - 'spec/**/*.rb'
-
 Layout/LineLength:
   Max: 85
   Exclude:
@@ -39,6 +35,19 @@ Layout/LineLength:
     - 'db/**/*.rb'
     - 'spec/rails_helper.rb'
     - 'spec/support/**/*.rb'
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
 
 Rails/DynamicFindBy:
   Exclude:
@@ -80,6 +89,9 @@ RSpec/VerifiedDoubles:
 Style/ClassVars:
   Exclude:
     - 'spec/support/*.rb'
+
+Style/ExponentialNotation:
+  Enabled: true
 
 Style/FrozenStringLiteralComment:
   Enabled: false
