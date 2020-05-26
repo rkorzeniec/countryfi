@@ -52,7 +52,7 @@ group :development do
   gem 'rubocop-rails', '~> 2.5.2', require: false
   gem 'rubocop-rspec', '~> 1.39.0', require: false
   gem 'spring', '~> 2.1.0'
-  gem 'web-console', '~> 4.0.1'
+  gem 'web-console', '~> 4.0.2'
 end
 
 group :test do
