@@ -30,7 +30,7 @@ gem 'webpacker', '~> 5.1.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.1.3'
-  gem 'rspec-rails', '~> 4.0.0'
+  gem 'rspec-rails', '~> 4.0.1'
   gem 'simplecov'
   gem 'simplecov-console'
 end
