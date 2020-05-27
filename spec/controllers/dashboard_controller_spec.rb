@@ -38,7 +38,8 @@ describe DashboardController do
           antarctican_countries: [country],
           country_code_array: [country.cca2],
           countries: [country],
-          visited_countries_counter: counter
+          visited_countries_counter: counter,
+          countries_chart_data: {}
         )
       end
 
