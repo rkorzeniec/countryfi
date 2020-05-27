@@ -297,8 +297,6 @@ GEM
       activesupport
       rack (>= 1.1)
       rubocop (>= 0.72.0)
-    rubocop-rspec (1.39.0)
-      rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
     sassc (2.2.1)
       ffi (~> 1.9)
@@ -415,7 +413,6 @@ DEPENDENCIES
   rubocop-md (~> 0.3.2)
   rubocop-performance (~> 1.6.0)
   rubocop-rails (~> 2.5.2)
-  rubocop-rspec (~> 1.39.0)
   sassc-rails (~> 2.1.2)
   sdoc (~> 1.1.0)
   sentry-raven (~> 3.0.0)
