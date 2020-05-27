@@ -1,14 +1,8 @@
 .panel.no-border.no-bg
   .panel-heading.no-border.text-center{ style: 'background: #FFF;' }
     %span.p-t-1.font-size-12.font-weight-semibold Countries per Year
-    .panel-heading-controls
-      %a#all_countries.btn.btn-flat.btn-rounded.font-size-11 all
-      %a#unique_countries.btn.btn-flat.btn-rounded.font-size-11 unique
   .panel-body{ style: 'background: #FFF;' }
-    #all_countries_chart
-      = line_chart VisitedCountriesQuery.new(current_user).count_by_year, curve: false
-    #unique_countries_chart
-      = line_chart UniqVisitedCountriesQuery.new(current_user).count_by_year, curve: false
-
-:javascript
-  new VisitedCountriesCharts();
+    #countries_chart
+      = line_chart @dashboard.countries_chart_data.map { |graph|  |
+        { name: graph[:name], data: graph[:query] }               |
+      }, defer: true                                              |

@@ -59,6 +59,13 @@ class DashboardFacade
       ::Dashboard::VisitedCountriesCounter.new(user)
   end
 
+  def countries_chart_data
+    [
+      { name: 'all', query: VisitedCountriesQuery.new(user).count_by_year },
+      { name: 'unique', query: UniqVisitedCountriesQuery.new(user).count_by_year }
+    ]
+  end
+
   private
 
   attr_reader :user

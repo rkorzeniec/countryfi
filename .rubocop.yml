@@ -1,6 +1,5 @@
 require: 
   - rubocop-rails
-  - rubocop-rspec
   - rubocop-performance 
   - rubocop-md 
 
@@ -56,35 +55,6 @@ Rails/DynamicFindBy:
 Rails/HelperInstanceVariable:
   Exclude:
     - 'app/helpers/application_helper.rb'
-
-RSpec/AnyInstance:
-  Exclude:
-    - 'spec/controllers/preferences_controller_spec.rb'
-    - 'spec/facades/explore_facade_spec.rb'
-RSpec/ExampleLength:
-  Enabled: false
-
-RSpec/ExpectInHook:
-  Enabled: false
-
-RSpec/LetSetup:
-  Enabled: false
-
-RSpec/MessageSpies:
-  EnforcedStyle: receive
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/NamedSubject:
-  Enabled: false
-
-RSpec/NestedGroups:
-  Enabled: false
-
-RSpec/VerifiedDoubles:
-  Exclude:
-    - 'spec/support/**/*.rb'
 
 Style/ClassVars:
   Exclude:
