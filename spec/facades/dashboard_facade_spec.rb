@@ -65,6 +65,33 @@ describe DashboardFacade do
     end
   end
 
+  describe '#countries_chart_data' do
+    subject { facade.countries_chart_data }
+
+    let(:unique_query) do
+      instance_double(UniqVisitedCountriesQuery, count_by_year: [1, 2, 3])
+    end
+    let(:all_query) do
+      instance_double(VisitedCountriesQuery, count_by_year: [4, 5, 6])
+    end
+
+    before do
+      expect(VisitedCountriesQuery).to receive(:new)
+        .with(user).and_return(all_query)
+      expect(UniqVisitedCountriesQuery).to receive(:new)
+        .with(user).and_return(unique_query)
+    end
+
+    it do
+      is_expected.to eq(
+        [
+          { name: 'all', query: [4, 5, 6] },
+          { name: 'unique', query: [1, 2, 3] }
+        ]
+      )
+    end
+  end
+
   describe '#cache_key' do
     subject { facade.send(:cache_key, 'asian_countries') }
 
