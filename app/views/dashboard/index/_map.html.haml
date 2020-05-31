@@ -6,9 +6,9 @@
 .row
   .col-sm-12
     .tab-content{ style: 'max-height: 700px; max-width: 1000px; margin: auto; padding-top: 0;' }
-      .hidden-xs
+      .d-none.d-xs-block
         = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-desktop'
-      .visible-xs
+      .d-block.d-xs-none
         = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-mobile'
 .row
   .col-sm-12
