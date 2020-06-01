@@ -406,7 +406,6 @@ DEPENDENCIES
   graphiql-rails (~> 1.7.0)
   graphql (~> 1.10.8)
   haml (~> 5.1.2)
-  jquery-rails
   jwt (~> 2.2.1)
   kaminari (~> 1.2.1)
   letter_opener (~> 1.7.0)
