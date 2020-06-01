@@ -1,7 +1,7 @@
-require: 
+require:
   - rubocop-rails
-  - rubocop-performance 
-  - rubocop-md 
+  - rubocop-performance
+  - rubocop-md
 
 Style/Documentation:
   Enabled: false
@@ -24,6 +24,9 @@ Metrics/MethodLength:
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
 Layout/LineLength:
   Max: 85
   Exclude:
@@ -41,6 +44,9 @@ Layout/SpaceAroundMethodCallOperator:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*.rb'
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
 
 Lint/RaiseException:
   Enabled: true
@@ -69,7 +75,7 @@ Style/FrozenStringLiteralComment:
 Style/GuardClause:
   Exclude:
     - 'spec/support/*.rb'
-  
+
 Style/HashEachMethods:
   Enabled: true
 
@@ -77,4 +83,7 @@ Style/HashTransformKeys:
   Enabled: true
 
 Style/HashTransformValues:
+  Enabled: true
+
+Style/SlicingWithRange:
   Enabled: true

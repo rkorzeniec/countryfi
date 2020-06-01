@@ -20,6 +20,16 @@ describe CountriesController do
         )
         expect(response.body).to include(country.name_common)
       end
+
+      context 'when cca3 is unsanitized' do
+        let!(:country) { create(:country, cca3: '<script>CHE</script>') }
+
+        it 'sanitizes cca3' do
+          expect(assigns(:geojson)).to eq(
+            File.read(Rails.root.join('app/assets/geojsons/che.geo.json'))
+          )
+        end
+      end
     end
   end
 end
