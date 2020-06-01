@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 namespace :memcached do
   %w[start stop restart].each do |command|
     desc "#{command} Memcached"

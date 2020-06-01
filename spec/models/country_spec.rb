@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe Country do
   it { is_expected.to have_many(:checkins).dependent(:restrict_with_error) }
   it { is_expected.to have_many(:currencies).dependent(:restrict_with_error) }

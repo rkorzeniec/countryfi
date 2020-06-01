@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class PreferencesController < ApplicationController
   def edit; end
 

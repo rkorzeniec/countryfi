@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 lock '~> 3.13.0'
 
 set :application, 'countryfier'

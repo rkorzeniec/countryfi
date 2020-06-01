@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe UniqVisitedCountriesQuery do
   let(:user) { create(:user) }
   let(:now) { Time.zone.local(2017, 10, 9) }

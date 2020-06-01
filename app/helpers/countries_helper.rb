@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module CountriesHelper
   def visit_label(country)
     return unless current_user&.countries&.include?(country)

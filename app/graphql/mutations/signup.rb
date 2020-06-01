@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Mutations
   class Signup < BaseMutation
     argument :email, String, required: true

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CountryAlternativeSpelling < ApplicationRecord
   belongs_to :country
 

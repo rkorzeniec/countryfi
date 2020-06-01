@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CountriesCounter
   class << self
     def world_countries_count

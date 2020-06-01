@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe Checkins::OceaniansController do
   let(:user) { create(:user) }
 

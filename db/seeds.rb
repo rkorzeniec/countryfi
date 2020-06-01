@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 robert = User.new
 robert.email = 'r.korzeniec@gmail.com'
 robert.password = 'password'

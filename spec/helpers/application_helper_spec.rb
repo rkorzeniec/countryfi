@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe ApplicationHelper do
   describe '#page_title' do
     subject { helper.page_title }

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe CountryLanguageDashboard do
   it do
     expect(described_class::ATTRIBUTE_TYPES).to eq(

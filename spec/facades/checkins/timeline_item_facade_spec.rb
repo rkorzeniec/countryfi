@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe Checkins::TimelineItemFacade do
   let(:now) { Time.zone.local(2017, 12, 16) }
   let(:checkin) { instance_double(Checkin) }

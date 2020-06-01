@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe CheckinsHelper do
   describe '#selected_country' do
     subject { helper.selected_country(checkin) }

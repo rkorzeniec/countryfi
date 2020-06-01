@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe Explore::NorthAmericasController do
   let(:user) { create(:user) }
 

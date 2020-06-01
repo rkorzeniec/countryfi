@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe UserDashboard do
   it do
     expect(described_class::ATTRIBUTE_TYPES).to eq(

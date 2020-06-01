@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe CountriesCounter do
   let(:european_country) { create(:country, region: 'Europe') }
   let(:asian_country) { create(:country, region: 'Asia') }

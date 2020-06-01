@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class JwtToken
   SECRET = Rails.application.secrets.jwt_secret_key_base.to_s.freeze
   private_constant :SECRET

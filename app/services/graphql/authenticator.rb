@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Graphql
   class Authenticator
     def initialize(token)

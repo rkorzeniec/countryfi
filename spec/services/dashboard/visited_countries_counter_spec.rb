@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe Dashboard::VisitedCountriesCounter do
   let(:counter) { described_class.new(user) }
   let(:user) { create(:user) }

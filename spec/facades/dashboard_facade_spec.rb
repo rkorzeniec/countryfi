@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe DashboardFacade do
   let(:user) { build_stubbed(:user) }
   let(:facade) { described_class.new(user) }

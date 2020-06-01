@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 shared_examples 'incorrect_params_api_request' do
   context 'with incorrect params' do
     it do
