@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 shared_examples 'unathorized_api_request' do
   context 'when no user credentials are given' do
     let(:headers) { {} }

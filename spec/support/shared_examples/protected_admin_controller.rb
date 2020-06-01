@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 shared_examples 'protected_admin_controller' do |requests|
   context 'when user signed in' do
     let(:user) { create(:user) }

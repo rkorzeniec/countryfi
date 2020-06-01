@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe VisitedCountriesQuery do
   let(:user) { create(:user) }
   let(:now) { Time.zone.local(2017, 10, 9) }

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CheckinsController < ApplicationController
   before_action :find_checkin, only: %i[edit update destroy]
   before_action :build_checkin, only: %i[new create]

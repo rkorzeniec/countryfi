@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe CountryIDLookuper do
   describe '.lookup' do
     subject { described_class.lookup(code) }

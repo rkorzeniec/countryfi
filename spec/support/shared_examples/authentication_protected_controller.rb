@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 shared_examples 'authentication_protected_controller' do |requests|
   context 'when user not signed in user' do
     requests.each do |request|

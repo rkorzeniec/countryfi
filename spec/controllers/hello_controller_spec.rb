@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe HelloController do
   describe 'GET index' do
     let(:country) { instance_double(Country, id: 1) }

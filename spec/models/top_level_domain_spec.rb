@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe TopLevelDomain do
   it { is_expected.to belong_to(:country) }
 

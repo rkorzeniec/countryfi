@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UnvisitedCountriesQuery
   def initialize(visited_countries, regions: nil, subregions: nil)
     @visited_countries = visited_countries

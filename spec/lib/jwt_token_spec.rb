@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe JwtToken do
   let(:now) { Time.current }
   let(:secret) { Rails.application.secrets.jwt_secret_key_base.to_s }

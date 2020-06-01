@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe Mutations::Signin, type: :request do
   subject { CountryfierSchema.execute(query).as_json }
 

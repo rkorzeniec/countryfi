@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe PreferencesController do
   context 'when user not authenticated' do
     it_behaves_like 'authentication_protected_controller', [

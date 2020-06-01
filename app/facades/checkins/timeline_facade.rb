@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Checkins
   class TimelineFacade
     delegate :total_pages, :current_page, :next_page, :limit_value, to: :checkins

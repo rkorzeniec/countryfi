@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddJtiToUsers < ActiveRecord::Migration[5.2]
   class User < ApplicationRecord; end
 

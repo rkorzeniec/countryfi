@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module CustomMatchers
   class ReturnsAStatus
     def initialize(http_method, action, params, expected_status, cause)

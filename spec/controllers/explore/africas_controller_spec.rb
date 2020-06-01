@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe Explore::AfricasController do
   let(:user) { create(:user) }
 

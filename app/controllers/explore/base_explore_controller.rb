@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Explore
   class BaseExploreController < ApplicationController
     layout 'application_with_menu'

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RemoveColumnsFromCountries < ActiveRecord::Migration[4.2]
   def change
     # rubocop:disable Rails/BulkChangeTable

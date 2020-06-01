@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe TopLevelDomainDashboard do
   it do
     expect(described_class::ATTRIBUTE_TYPES).to eq(

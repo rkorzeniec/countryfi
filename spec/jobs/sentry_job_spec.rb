@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SentryJob, type: :job do
   before { ActiveJob::Base.queue_adapter = :test }
 

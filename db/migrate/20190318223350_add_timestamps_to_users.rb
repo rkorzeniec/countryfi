@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddTimestampsToUsers < ActiveRecord::Migration[5.2]
   def change
     # rubocop:disable Rails/ReversibleMigration

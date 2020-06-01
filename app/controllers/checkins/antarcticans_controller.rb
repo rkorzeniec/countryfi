@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Checkins
   class AntarcticansController < BaseCheckinsController
     def index
