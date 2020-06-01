@@ -11,6 +11,12 @@ class CountriesController < ApplicationController
                  border_countries: :border_country
                ).find_by(cca2: params[:id])
     @geojson =
-      File.read("app/assets/geojsons/#{@country.cca3.downcase}.geo.json")
+      File.read("app/assets/geojsons/#{country_cca3}.geo.json")
+  end
+
+  private
+
+  def country_cca3
+    ActionController::Base.helpers.sanitize(@country.cca3.downcase)
   end
 end
