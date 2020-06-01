@@ -3,14 +3,17 @@
 <!--[if IE 8]>         <html class="ie8"> <![endif]-->
 <!--[if IE 9]>         <html class="ie9 gt-ie8"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="gt-ie8 gt-ie9 not-ie"> <!--<![endif]-->
-%html
+%html{ lang: 'en' }
   %head
     = render 'layouts/head'
     = yield :css
-  %body{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{current_user&.color}" } }
-    .px-content
-    = render 'layouts/top_navigation', hide_toggle_button: true
-    = render 'layouts/flash'
-    = yield
-    = render 'layouts/footer'
+  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{current_user&.color}" } }
+    %header
+      = render 'layouts/top_navigation', hide_toggle_button: true
+    %main.flex-shrink-0.mt-4.flex-fill{ role: 'main'}
+      .container.mt-5
+        = render 'layouts/flash'
+        = yield
+    %footer.footer.mt-auto.py-3
+      = render 'layouts/footer'
     = yield :js

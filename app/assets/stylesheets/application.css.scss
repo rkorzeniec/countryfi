@@ -7,3 +7,6 @@
  *= require ./footer
  *= require ./fontawesome/all
  */
+body, .sticky-footer-wrapper {
+   min-height:100vh;
+}
