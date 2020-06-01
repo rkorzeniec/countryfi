@@ -35,7 +35,7 @@ jobs:
         run: brakeman
 
   test:
-    needs: rubocop
+    needs: lint
     runs-on: ubuntu-latest
 
     services:
