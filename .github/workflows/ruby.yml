@@ -10,30 +10,30 @@ on:
     branches: [ master ]
 
 jobs:
-  rubocop:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      
+
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
-      
-      - name: Install Rubocop
+
+      - name: Install dependencies
         run: |
-          gem install --no-doc rubocop
-          gem install --no-doc rubocop-rails
-          gem install --no-doc rubocop-rspec
-          gem install --no-doc rubocop-performance
-          gem install --no-doc rubocop-md
-      
-      - name: Check code
+          gem install rubocop --no-doc
+          gem install rubocop-rails --no-doc
+          gem install rubocop-rspec --no-doc
+          gem install rubocop-performance --no-doc
+          gem install rubocop-md --no-doc
+
+      - name: Check code with rubocop
         run: rubocop
-  
-  rspec:
+
+  test:
     needs: rubocop
     runs-on: ubuntu-latest
-    
+
     services:
       mysql:
         image: mysql:5.7
@@ -42,18 +42,18 @@ jobs:
         ports:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-    
+
     steps:
       - uses: actions/checkout@v1
-      
+
       - name: Setup ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
-      
+
       - name: Install mysql client
         run: sudo apt-get install mysql-server
-      
+
       - name: Check mysql installation
         run: |
           sudo apt-get install -y mysql-client libmysqlclient-dev
@@ -67,7 +67,7 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-      
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -80,7 +80,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
-      
+
       - name: Install dependent libraries
         run: |
           sudo apt-get install libpq-dev
@@ -97,7 +97,7 @@ jobs:
         run: |
           cp config/database.yml.ci config/database.yml
           cp .env.ci .env
-      
+
       - name: Create database
         env:
           RAILS_ENV: test
@@ -105,15 +105,15 @@ jobs:
           DB_PASSWORD: root
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
         run: bin/rails db:prepare
-      
+
       - name: Run tests
         run: COVERAGE=true bundle exec rspec  --require rails_helper
         env:
           DB_USER: root
           DB_PASSWORD: root
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
-      
-      - name: Upload coverage results    
+
+      - name: Upload coverage results
         uses: actions/upload-artifact@master
         if: always()
         with:
