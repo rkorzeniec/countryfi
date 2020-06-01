@@ -95,4 +95,12 @@ describe User, type: :model do
 
     it { expect { user.destroy }.to change(Checkin, :count).from(1).to(0) }
   end
+
+  describe '#remember_me' do
+    subject { user.remember_me }
+
+    let(:user) { build_stubbed(:user) }
+
+    it { is_expected.to be true }
+  end
 end
