@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe CountriesHelper do
   describe '#visit_label' do
     subject { helper.visit_label(country) }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe User, type: :model do
   it { is_expected.to have_secure_token(:jti_token) }
 
@@ -92,5 +94,13 @@ describe User, type: :model do
     let!(:checkin) { create(:checkin, user: user, country: country) }
 
     it { expect { user.destroy }.to change(Checkin, :count).from(1).to(0) }
+  end
+
+  describe '#remember_me' do
+    subject { user.remember_me }
+
+    let(:user) { build_stubbed(:user) }
+
+    it { is_expected.to be true }
   end
 end

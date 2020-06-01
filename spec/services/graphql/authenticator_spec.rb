@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Graphql::Authenticator do
   let(:authenticator) { described_class.new(token) }
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExploreFacade
   def initialize(visited_countries, region: nil, subregions: nil)
     @visited_countries = visited_countries

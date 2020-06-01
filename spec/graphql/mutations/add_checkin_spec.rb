@@ -1,4 +1,6 @@
-RSpec.describe Mutations::AddCheckin do
+# frozen_string_literal: true
+
+describe Mutations::AddCheckin do
   subject { CountryfierSchema.execute(query, schema_hash).as_json }
 
   let(:schema_hash) { {} }

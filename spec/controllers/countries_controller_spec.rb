@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe CountriesController do
   let!(:country) { create(:country) }
 

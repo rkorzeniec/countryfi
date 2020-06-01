@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Country < ApplicationRecord
   has_many :checkins, dependent: :restrict_with_error
   has_many :currencies, dependent: :restrict_with_error

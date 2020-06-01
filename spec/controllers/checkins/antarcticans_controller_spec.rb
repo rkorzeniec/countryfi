@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Checkins::AntarcticansController do
   let(:user) { create(:user) }
 

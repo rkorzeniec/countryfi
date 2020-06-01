@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # GIST FROM https://gist.github.com/txus/807456
 # RSpec matcher to spec delegations.
 #

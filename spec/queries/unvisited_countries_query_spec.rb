@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe UnvisitedCountriesQuery do
   let(:params) { {} }
   let(:query) { described_class.new(visited, params) }

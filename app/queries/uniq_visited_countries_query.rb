@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UniqVisitedCountriesQuery
   def initialize(user)
     @user = user

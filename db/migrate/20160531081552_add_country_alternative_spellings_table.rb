@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddCountryAlternativeSpellingsTable < ActiveRecord::Migration[4.2]
   def change
     create_table :country_alternative_spellings do |t|

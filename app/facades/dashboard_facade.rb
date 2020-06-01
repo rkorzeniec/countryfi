@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DashboardFacade
   CACHE_EXPIRY = 1.week
 

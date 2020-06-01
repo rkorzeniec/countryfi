@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Types
   class CountryType < Types::BaseObject
     field :name_common, String, null: false

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class AddCheckin < BaseMutation
     argument :country_id, Integer, required: true

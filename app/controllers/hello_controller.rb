@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HelloController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :redirect_authenticated

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Checkins::TimelineFacade do
   let(:now) { Time.zone.local(2017, 12, 16) }
   let(:facade) { described_class.new(checkins) }

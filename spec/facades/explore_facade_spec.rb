@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ExploreFacade do
   let(:visited_countries) { nil }
   let(:region) { 'north_america' }

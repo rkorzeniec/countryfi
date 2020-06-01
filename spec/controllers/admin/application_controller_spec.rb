@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Admin::ApplicationController do
   controller do
     def index

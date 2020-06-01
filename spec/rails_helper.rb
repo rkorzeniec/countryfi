@@ -1,9 +1,15 @@
+# frozen_string_literal: true
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
 require 'simplecov-console'
-SimpleCov.formatter = SimpleCov::Formatter::Console
-SimpleCov.start 'rails'
+
+SimpleCov.start 'rails' do
+  formatter SimpleCov::Formatter::Console
+  enable_coverage :branch
+  add_filter %r{^/app/graphql/types/base}
+end
 
 require File.expand_path('../config/environment', __dir__)
 

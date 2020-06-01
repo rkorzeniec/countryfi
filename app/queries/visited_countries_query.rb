@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VisitedCountriesQuery
   def initialize(user)
     @user = user

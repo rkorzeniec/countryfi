@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Checkins
   class EuropeansController < BaseCheckinsController
     def index

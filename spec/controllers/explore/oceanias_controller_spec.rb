@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Explore::OceaniasController do
   let(:user) { create(:user) }
 

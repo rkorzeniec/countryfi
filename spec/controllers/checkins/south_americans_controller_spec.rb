@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Checkins::SouthAmericansController do
   let(:user) { create(:user) }
 

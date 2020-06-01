@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CountryCallingCode < ApplicationRecord
   belongs_to :country
 

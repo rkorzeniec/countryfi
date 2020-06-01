@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Checkins
   class TimelineItemFacade
     attr_reader :checkin
