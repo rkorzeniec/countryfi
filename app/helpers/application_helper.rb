@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def nav_item_id(path)
-    path.split('/').join('-')[1..-1]
+    path.split('/').join('-')[1..]
   end
 
   def gravatar_url(size)
