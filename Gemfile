@@ -43,7 +43,7 @@ group :development do
   gem 'bullet', '~> 6.1.0', group: 'development'
   gem 'capistrano', '~> 3.14', require: false
   gem 'capistrano-passenger', require: false
-  gem 'capistrano-rails', '~> 1.3', require: false
+  gem 'capistrano-rails', '~> 1.5', require: false
   gem 'capistrano-rvm', require: false
   gem 'capistrano3-delayed-job', '~> 1.7.6'
   gem 'graphiql-rails', '~> 1.7.0'
