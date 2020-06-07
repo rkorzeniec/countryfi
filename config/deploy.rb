@@ -2,7 +2,7 @@
 
 lock '~> 3.13.0'
 
-set :application, 'countryfier'
+set :application, 'countrify'
 set :repo_url, 'git@github.com:rkorzeniec/countryfier.git'
 
 set :deploy_to, "/var/www/html/apps/#{fetch(:application)}"
