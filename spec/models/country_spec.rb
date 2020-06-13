@@ -169,7 +169,7 @@ describe Country do
     context 'when flag exist' do
       let(:country) { build_stubbed(:country, cca2: 'CH') }
 
-      it { is_expected.to match(%r{\/assets\/flags\/CH-.*\.png}) }
+      it { is_expected.to match(%r{/assets/flags/CH-.*\.png}) }
     end
   end
 end

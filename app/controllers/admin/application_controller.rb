@@ -6,6 +6,7 @@ module Admin
 
     def authenticate_admin
       return if current_user&.admin?
+
       redirect_to dashboard_path
     end
 

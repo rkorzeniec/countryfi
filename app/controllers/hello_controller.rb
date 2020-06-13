@@ -10,6 +10,7 @@ class HelloController < ApplicationController
 
   def redirect_authenticated
     return unless current_user
+
     redirect_to dashboard_path
   end
 end
