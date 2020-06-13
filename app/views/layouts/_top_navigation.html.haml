@@ -4,9 +4,6 @@
     %i.fas.fa-check.text-md
     %span.text-bg
       countrify
-  %button.navbar-toggler.position-absolute.d-md-none.collapsed{ 'type' => 'button', data: { 'toggle' => 'collapse', 'target' => '#sidebarMenu' }, 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation' }
-    %i.navbar-toggle-icon
-
   #sidebarMenu.collapse.navbar-collapse
     %ul.navbar-nav.ml-auto
       - if user_signed_in?
@@ -27,3 +24,5 @@
             .dropdown-item.text-md= link_to 'Settings', edit_preferences_path, class: 'nav-link'
             .dropdown-divider
             .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+  %button.navbar-toggler.d-md-none.collapsed{ 'type' => 'button', data: { 'toggle' => 'collapse', 'target' => '#sidebarMenu' }, 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation' }
+    %i.fas.fa-bars
