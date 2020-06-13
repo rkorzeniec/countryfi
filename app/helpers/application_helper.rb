@@ -20,4 +20,8 @@ module ApplicationHelper
     gravatar_id = Digest::MD5.hexdigest(gravatar_user).downcase
     "https://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=mp"
   end
+
+  def flash_message_type(message_type)
+    message_type == 'error' ? 'danger' : message_type
+  end
 end
