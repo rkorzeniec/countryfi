@@ -3,6 +3,10 @@ require:
   - rubocop-performance
   - rubocop-md
 
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: enable
+
 Style/Documentation:
   Enabled: false
 
@@ -21,10 +25,7 @@ Metrics/MethodLength:
   Exclude:
     - 'db/**/*.rb'
 
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
-
-Layout/EmptyLinesAroundAttributeAccessor:
+Layout/ClassStructure:
   Enabled: true
 
 Layout/LineLength:
@@ -38,21 +39,9 @@ Layout/LineLength:
     - 'spec/rails_helper.rb'
     - 'spec/support/**/*.rb'
 
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*.rb'
-
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
 
 Rails/DynamicFindBy:
   Exclude:
@@ -66,21 +55,6 @@ Style/ClassVars:
   Exclude:
     - 'spec/support/*.rb'
 
-Style/ExponentialNotation:
-  Enabled: true
-
 Style/GuardClause:
   Exclude:
     - 'spec/support/*.rb'
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
-Style/SlicingWithRange:
-  Enabled: true
