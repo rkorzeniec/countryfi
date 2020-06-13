@@ -23,11 +23,13 @@ class UnvisitedCountriesQuery
 
   def region_condition
     return '' unless regions
+
     ' region IN (:regions)'
   end
 
   def subregion_condition
     return '' unless subregions
+
     ' AND subregion IN (:subregions)'
   end
 end

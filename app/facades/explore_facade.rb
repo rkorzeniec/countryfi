@@ -13,6 +13,7 @@ class ExploreFacade
 
   def discoverable_countries_by_category(category = 'All')
     return discoverable_countries if category == 'All'
+
     discoverable_countries.select do |country|
       country.name_common.first == category
     end

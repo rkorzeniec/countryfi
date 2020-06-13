@@ -8,6 +8,6 @@ module CountriesHelper
     label_status = visited_country ? 'label-success' : 'label-info'
     label_content = visited_country ? 'visited' : 'upcoming'
 
-    content_tag(:span, label_content, class: ['label', label_status])
+    tag.span(label_content, class: ['label', label_status])
   end
 end

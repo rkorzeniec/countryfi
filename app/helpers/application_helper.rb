@@ -7,6 +7,7 @@ module ApplicationHelper
 
   def render_date(date)
     return unless date
+
     date.strftime('%Y-%m-%d')
   end
 

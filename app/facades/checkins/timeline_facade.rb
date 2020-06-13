@@ -16,12 +16,14 @@ module Checkins
 
     def today_marker?(index)
       return if items[index + 1].nil?
+
       items[index].checkin_date > current_time &&
         items[index + 1].checkin_date <= current_time
     end
 
     def year_marker?(index)
       return if items[index + 1].nil?
+
       items[index].checkin_year != items[index + 1].checkin_year
     end
 
