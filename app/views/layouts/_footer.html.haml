@@ -1,28 +1,28 @@
-%footer.footer.mt-auto.py-3#footer
-  .row
-    .col-sm-6
-      %p.text-justify
-        about
+.d-flex.flex-row.justify-content-between.p-2.text-sm.text-body
+  .p-2
+    %p.text-justify
+      about
+      %br
+      %span.text-black-50.margin-t-1
+        This app is a purely my main pet poject, that I solely develop whenever
+        I find some time.
         %br
-        %span.text-muted.margin-t-1
-          This app is a purely my main pet poject, that I solely develop whenever 
-          I find some time.
-          %br
-          Track your travels, countries you have visited, explore new ones. 
-          New features will appear in due time,
-          %br
-          as soon as they are ready. Please enjoy.
-      .visible-xs
-        %hr
-    .col-sm-6
-      %p.text-justify
-        %span.text-muted Any feature ideas or issues? 
-        = mail_to('hello@countrify.net', 'contact me', subject: 'Countrify contact')
-      %p.text-justify
-        %span.text-muted You enjoy using the app and would like to suport it? 
-        = link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank')
-      %p.text-justify.text-muted
-        made with 
+        Track your travels, countries you have visited, explore new ones.
+        New features will appear in due time,
+        %br
+        as soon as they are ready. Please enjoy.
+    .d-none.d-block-xs
+      %hr
+  .p-2
+    %p.text-justify
+      %span.text-black-50 Any feature ideas or issues?
+      = mail_to('hello@countrify.net', 'contact me', subject: 'Countrify contact')
+      %br
+      %span.text-black-50 You enjoy using the app and would like to suport it?
+      = link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank')
+      %br
+      %span.text-justify.text-black-50
+        made with
         %i.fas.fa-heart
         and
         %i.fas.fa-terminal
