@@ -1,31 +1,32 @@
-.d-flex.flex-row.justify-content-between.p-2.text-sm.text-body
-  .p-2
-    %p.text-justify
-      about
-      %br
-      %span.text-black-50.margin-t-1
-        This app is a purely my main pet poject, that I solely develop whenever
-        I find some time.
+.d-flex.justify-content-between.p-2.text-sm.text-body
+  .row
+    .col-md-6.px-5
+      %p.text-justify
+        about
         %br
-        Track your travels, countries you have visited, explore new ones.
-        New features will appear in due time,
+        %span.text-black-50.margin-t-1
+          This app is a purely my main pet poject, that I solely develop whenever
+          I find some time.
+          %br
+          Track your travels, countries you have visited, explore new ones.
+          New features will appear in due time,
+          %br
+          as soon as they are ready. Please enjoy.
+      .d-none.d-block-xs
+        %hr
+    .col-md-6.px-5
+      %p.text-justify
+        %span.text-black-50 Any feature ideas or issues?
+        = mail_to('hello@countrify.net', 'contact me', subject: 'Countrify contact')
         %br
-        as soon as they are ready. Please enjoy.
-    .d-none.d-block-xs
-      %hr
-  .p-2
-    %p.text-justify
-      %span.text-black-50 Any feature ideas or issues?
-      = mail_to('hello@countrify.net', 'contact me', subject: 'Countrify contact')
-      %br
-      %span.text-black-50 You enjoy using the app and would like to suport it?
-      = link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank')
-      %br
-      %span.text-justify.text-black-50
-        made with
-        %i.fas.fa-heart
-        and
-        %i.fas.fa-terminal
-        by
-        = link_to('Robert Korzeniec', 'https://github.com/rkorzeniec', target: '_blank')
-        = "\u00A9 #{Date.today.year}"
+        %span.text-black-50 You enjoy using the app and would like to suport it?
+        = link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank')
+        %br
+        %span.text-justify.text-black-50
+          made with
+          %i.fas.fa-heart
+          and
+          %i.fas.fa-terminal
+          by
+          = link_to('Robert Korzeniec', 'https://github.com/rkorzeniec', target: '_blank')
+          = "\u00A9 #{Date.today.year}"
