@@ -26,3 +26,13 @@
     - if timeline.year_marker?(index)
       .widget-timeline-section
         .widget-timeline-marker= checkin.checkin_year
+  .widget-timeline-item.left
+    .widget-timeline-info
+      .widget-timeline-bullet
+    .card
+      .card-footer.text-md.text-muted
+        That's it.
+        %br
+        Discover somewhere new
+        = link_to 'and add it', new_checkin_path
+        to your timeline
