@@ -20,14 +20,8 @@
       color: #205f82;
     }
 
-    .country-letter-active {
-      a {
-        display: block;
-        color: #205f82;
-        padding-bottom: 5px;
-        border-bottom: 3px solid #205f82;
-        display: inline-block;
-      }
+  a[aria-expanded="true"] {
+      color: #205f82;
     }
 
     .country-category {

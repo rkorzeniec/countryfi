@@ -1,27 +1,15 @@
-.row
+.d-flex.flex-row.justify-content-center
   .col-md-12
-    Countries still to discover
-    .country-categories-nav
+    .text-md Countries you still haven't explored...
+    #countriesAccodion.country-categories-nav.accordion
       %ul.country-categories
         - explore_facade.country_categories.each do |category|
-          %li.country-category{ id: "#{category}", content: "country-#{category}" }
-            = link_to category, "##{category}"
+          - category_expanded = category == 'All' ? true : false
+          %li.country-category
+            = link_to category, '#', id: "#{category}", data: { toggle: 'collapse', target: "#country-#{category}" }, aria: { controls: "country-#{category}", expanded: "#{category_expanded}" }, role: 'button'
       - explore_facade.country_categories.each do |category|
-        .row.country-content{ id: "country-#{category}", style: 'display: none;' }
+        - category_expanded = category == 'All' ? true : false
+        .row{ id: "country-#{category}", class: "country-content collapse #{'show' if category_expanded}", data: { parent: "#countriesAccodion" }, aria: { labelledby: "#{category}" } }
           - explore_facade.discoverable_countries_by_category(category).each do |country|
             .col-md-4.col-xs-6.col-sm-6.country
               = link_to country.name_common, country_path(country.cca2)
-
-:javascript
-  $(function() {
-    $('#country-All').show();
-    $('.country-categories li').click(function(){
-       $('.country-letter-active').removeClass('country-letter-active');
-       $(this).addClass('country-letter-active');
-
-       var country_content_id = $(this).attr('content');
-       $('.country-content').hide();
-       $('#' + country_content_id).show();
-    });
-  });
-
