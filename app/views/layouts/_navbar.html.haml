@@ -8,7 +8,7 @@
   %ul.navbar-nav.ml-md-auto
     - if sidebar
       %li.nav-item.text-nowrap
-        %button.d-md-none.nav-link#sidebarToggle{ type: 'button', data: { toggle: 'collapse', target: '#sidebar' }, aria: { expanded: 'false', controls: 'sidebar' } }
+        %button.btn.btn-sm.d-md-none.nav-link#sidebarToggle{ type: 'button', data: { toggle: 'collapse', target: '#sidebar' }, aria: { expanded: 'false', controls: 'sidebar' } }
           %span
             %i.fas.fa-bars.text-muted
     - if user_signed_in?
