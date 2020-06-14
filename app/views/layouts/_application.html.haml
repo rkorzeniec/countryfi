@@ -7,10 +7,9 @@
   %head
     = render 'layouts/head'
   %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{current_user&.color}" } }
-    %header
-      = render 'layouts/navbar', hide_toggle_button: true
-    %main.mt-4.flex-fill{ role: 'main'}
-      .mt-5.mx-4.flex-fill
+    = render 'layouts/navbar'
+    %main.flex-shrink-0{ role: 'main'}
+      .container
         = render 'layouts/flash'
         = yield
     %footer.footer.mt-auto.py-3

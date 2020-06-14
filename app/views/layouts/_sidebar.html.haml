@@ -1,4 +1,4 @@
-.sidebar-sticky.pt-3.accordion#sidebar
+%nav.pt-3.accordion.collapse.d-md-block#sidebar{ data: { parent: '#sidebarToggle' }, aria: { labelledby: 'sidebarToggle', expanded: 'false' } }
   %ul.nav.flex-column
     = render 'layouts/sidebar/checkins'
     = render 'layouts/sidebar/explore'
@@ -12,7 +12,7 @@
           .split('/')
           .slice(-2)
           .join('/')
-          .replace('#', '');
+          .replace(/#.*$/, '');
       const sidebarItem = $('a[href*="' + path + '"]');
       const sidebarSection = sidebarItem.closest('.sidebar-section')
 

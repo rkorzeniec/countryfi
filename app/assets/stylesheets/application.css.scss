@@ -9,6 +9,32 @@
  *= require ./map
  *= require ./fontawesome/all
  */
+
+body {
+  font-size: .875rem;
+}
+
 body, .sticky-footer-wrapper {
    min-height:100vh;
+}
+
+main {
+  .container {
+    padding-top: 100px;
+  }
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar .dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
 }

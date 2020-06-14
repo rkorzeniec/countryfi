@@ -1,14 +1,22 @@
+- sidebar ||= false
 %nav.navbar.navbar-expand.navbar-light.flex-column.flex-md-row.fixed-top.bg-white.border-bottom.shadow-sm.text-md.font-weight-light
   - logo_path = user_signed_in? ? dashboard_path : root_path
   = link_to logo_path, class: 'navbar-brand p-0' do
     %i.fas.fa-check.text-md
     %span.text-bg
       countrify
-  %ul.navbar-nav.ml-sm-auto
+  %ul.navbar-nav.ml-md-auto
+    - if sidebar
+      %li.nav-item.text-nowrap
+        %button.d-md-none.nav-link#sidebarToggle{ type: 'button', data: { toggle: 'collapse', target: '#sidebar' }, aria: { expanded: 'false', controls: 'sidebar' } }
+          %span
+            %i.fas.fa-bars.text-muted
     - if user_signed_in?
       %li.nav-item.text-nowrap
         = link_to new_checkin_path, class: 'nav-link my-auto' do
-          %span
+          %span.d-block.d-sm-none
+            %i.fas.fa-plus
+          %span.d-none.d-sm-block
             %i.fas.fa-plus
             Add checkin
       %li.nav-item.text-nowrap= link_to 'Explore', explore_worlds_path, class: 'nav-link '
