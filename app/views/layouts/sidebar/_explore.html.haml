@@ -1,0 +1,31 @@
+%li.nav-item.sidebar-section
+  = link_to '#', id: 'sidebarExploresHeading', class: 'nav-link', data: { toggle: 'collapse', target: '#sidebarExplores', expanded: 'false', controls: 'sidebarExplores' }, role: 'button' do
+    %i.fas.fa-space-shuttle
+    %span.nav-label
+      Explore
+  #sidebarExplores.sidebar-collapsable.collapse{ data: { parent: '#sidebar' }, aria: { expanded: 'false' } }
+    %ul.flex-column.pl-2.nav
+      .nav-item.text-md
+        = link_to explore_worlds_path, class: 'nav-link', id: nav_item_id(explore_worlds_path) do
+          %span World
+      .nav-item.text-md
+        = link_to explore_europes_path, class: 'nav-link', id: nav_item_id(explore_europes_path) do
+          %span Europe
+      .nav-item.text-md
+        = link_to explore_north_americas_path, class: 'nav-link', id: nav_item_id(explore_north_americas_path) do
+          %span Noth America
+      .nav-item.text-md
+        = link_to explore_south_americas_path, class: 'nav-link', id: nav_item_id(explore_south_americas_path) do
+          %span South America
+      .nav-item.text-md
+        = link_to explore_asias_path, class: 'nav-link', id: nav_item_id(explore_asias_path) do
+          %span Asia
+      .nav-item.text-md
+        = link_to explore_africas_path, class: 'nav-link', id: nav_item_id(explore_africas_path) do
+          %span Africa
+      .nav-item.text-md
+        = link_to explore_oceanias_path, class: 'nav-link', id: nav_item_id(explore_oceanias_path) do
+          %span Oceania
+      .nav-item.text-md
+        = link_to explore_antarcticas_path, class: 'nav-link', id: nav_item_id(explore_antarcticas_path) do
+          %span Antrctica

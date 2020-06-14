@@ -2,7 +2,7 @@
 
 module Explore
   class BaseExploreController < ApplicationController
-    layout 'application_with_menu'
+    layout 'application_with_sidebar'
 
     private
 

@@ -1,11 +1,12 @@
 /*
  *= require_self
  *= require ./text
- *= require ./map
+ *= require ./sidebar
+ *= require ./timeline
  *= require ./devise
  *= require ./explore
  *= require ./footer
- *= require ./timeline
+ *= require ./map
  *= require ./fontawesome/all
  */
 body, .sticky-footer-wrapper {

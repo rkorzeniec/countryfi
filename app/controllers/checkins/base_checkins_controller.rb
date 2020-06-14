@@ -2,7 +2,7 @@
 
 module Checkins
   class BaseCheckinsController < ApplicationController
-    layout 'application_with_menu'
+    layout 'application_with_sidebar'
 
     private
 

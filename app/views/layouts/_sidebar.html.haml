@@ -1,0 +1,23 @@
+.sidebar-sticky.pt-3.accordion#sidebar
+  %ul.nav.flex-column
+    = render 'layouts/sidebar/checkins'
+    = render 'layouts/sidebar/explore'
+
+- content_for :js do
+  :javascript
+    $(document).on('turbolinks:load', function() {
+      const path =
+        '/' +
+        String(document.location)
+          .split('/')
+          .slice(-2)
+          .join('/')
+          .replace('#', '');
+      const sidebarItem = $('a[href*="' + path + '"]');
+      const sidebarSection = sidebarItem.closest('.sidebar-section')
+
+      sidebarItem.addClass('active');
+      sidebarItem.closest('.nav-heading > a').addClass('acive');
+      sidebarSection.children('a').addClass('active');
+      sidebarSection.children('.sidebar-collapsable').addClass('show');
+    });
