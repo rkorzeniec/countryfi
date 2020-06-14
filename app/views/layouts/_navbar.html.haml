@@ -1,28 +1,25 @@
-%nav.navbar.navbar-expand-md.navbar-light.fixed-top.bg-white.border-bottom.shadow-sm.text-md.font-weight-light.mb-5
+%nav.navbar.navbar-expand.navbar-light.flex-column.flex-md-row.fixed-top.bg-white.border-bottom.shadow-sm.text-md.font-weight-light
   - logo_path = user_signed_in? ? dashboard_path : root_path
   = link_to logo_path, class: 'navbar-brand p-0' do
     %i.fas.fa-check.text-md
     %span.text-bg
       countrify
-  %button.navbar-toggler.d-md-none.collapsed{ 'type' => 'button', data: { 'toggle' => 'collapse', 'target' => '#sidebarMenu' }, 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation' }
-    %i.fas.fa-bars
-  #sidebarMenu.collapse.navbar-collapse
-    %ul.navbar-nav.ml-auto
-      - if user_signed_in?
-        %li.nav-item.text-nowrap
-          = link_to new_checkin_path, class: 'nav-link my-auto' do
-            %span
-              %i.fas.fa-plus
-              Add checkin
-        %li.nav-item.text-nowrap= link_to 'Explore', explore_worlds_path, class: 'nav-link '
-        %li.nav-item.text-nowrap= link_to 'Checkins', checkins_worlds_path, class: 'nav-link'
-        %li.nav-item.dropdown
-          = link_to '#', id: 'navbarDropdown', class: 'dropdown-toggle nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
-            -# = image_tag gravatar_url(36), class: 'rounded-circle', data: { toggle: 'tooltip', title: 'Want to change your avatar? Go to gravatar.com'}
-            %i.far.fa-user
-            %span.hidden-md Profile
-          .dropdown-menu{ aria: { labelledby: 'navbarDropdown' } }
-            .dropdown-item.text-md= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link'
-            .dropdown-item.text-md= link_to 'Settings', edit_preferences_path, class: 'nav-link'
-            .dropdown-divider
-            .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+  %ul.navbar-nav.ml-sm-auto
+    - if user_signed_in?
+      %li.nav-item.text-nowrap
+        = link_to new_checkin_path, class: 'nav-link my-auto' do
+          %span
+            %i.fas.fa-plus
+            Add checkin
+      %li.nav-item.text-nowrap= link_to 'Explore', explore_worlds_path, class: 'nav-link '
+      %li.nav-item.text-nowrap= link_to 'Checkins', checkins_worlds_path, class: 'nav-link'
+      %li.nav-item.dropdown
+        = link_to '#', id: 'navbarDropdown', class: 'dropdown-toggle nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
+          -# = image_tag gravatar_url(36), class: 'rounded-circle', data: { toggle: 'tooltip', title: 'Want to change your avatar? Go to gravatar.com'}
+          %i.far.fa-user
+          %span.hidden-md Profile
+        .dropdown-menu{ aria: { labelledby: 'navbarDropdown' } }
+          .dropdown-item.text-md= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link'
+          .dropdown-item.text-md= link_to 'Settings', edit_preferences_path, class: 'nav-link'
+          .dropdown-divider
+          .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
