@@ -1,15 +1,15 @@
 .row
-  .col-lg-12
+  .col-xs-12
     %h2.text-center Change your password
 
-    .row.center-block
-      .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.m-t-1
+    .d-flex.flex-row.justify-content-center
+      .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.mt-1
         = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
           = devise_error_messages!
           = f.hidden_field :reset_password_token
-          .form-group-lg.signin-password.m-t-1
+          .form-group-lg.signin-password.mt-1
             = f.password_field :password, autofocus: true, autocomplete: 'off', placeholder: :password, class: 'form-control input-lg'
-          .form-group-lg.signin-password.m-t-1
+          .form-group-lg.signin-password.mt-1
             = f.password_field :password_confirmation, autocomplete: 'off', placeholder: :password_confirmation, class: 'form-control input-lg'
           .form-group.m-t-1
             = f.submit 'Change my password', data: { "disable-with": "Changing..." }, class: 'btn btn-primary btn-lg btn-block'
