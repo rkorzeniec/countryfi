@@ -1,6 +1,7 @@
 .d-flex.flex-row.justify-content-end.d-block.d-xs-none
-  %a#link.btn.btn-sm.btn-outline-secondary{ href: '#', onclick: "saveSvg(document.getElementById('world-svg-desktop'), 'wold_map')" }
-    %span#download-text.hidden Download map
+  %button#download-button.btn.btn-sm.btn-outline-secondary{ href: '#', onclick: "saveSvg(document.getElementById('world-svg-desktop'), 'wold_map')" }
+    %span Download map
+    %i#download-spinner.spinner-border.spinner-border-sm.d-none{ role: 'status', aria: { hidden: 'true' } }
     %i#download-icon.fas.fa-cloud-download-alt.font-size-24
 .d-flex.flex-row
   .flex-fill{ style: 'max-height: 700px; max-width: 1000px; margin: auto; padding-top: 0;' }

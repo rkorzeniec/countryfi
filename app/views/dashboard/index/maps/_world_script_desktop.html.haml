@@ -1,16 +1,8 @@
 :javascript
+  var worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
+  var worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
+
   document.addEventListener("turbolinks:load", () => {
-    var worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
-    var worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
-
-    document.getElementById('download-icon').addEventListener('mouseover', function(e) {
-      document.getElementById('download-text').classList.remove('hidden');
-    });
-
-    document.getElementById('download-icon').addEventListener('mouseout', function(e) {
-      document.getElementById('download-text').classList.add('hidden');
-    });
-
     worldSvgCountries.tooltip({
       container: 'body',
       placement: 'right',
@@ -53,7 +45,7 @@
   }
 
   function saveSvg(svgEl, name) {
-    worldMap.disableControlIcons();
+    handleButtonPreDownload();
 
     new Promise(function(resolve, reject) {
       resolve(
@@ -64,7 +56,31 @@
         )
       );
     }).then(
-        function(_success) { worldMap.enableControlIcons();},
-        function(_error) { worldMap.enableControlIcons();}
+        function(_success) { handleButtonPostDownload(); },
+        function(_error) { handleButtonPostDownload(); }
       );
+  }
+
+  function handleButtonPreDownload() {
+    const downloadMapButton = document.getElementById('download-button')
+    const downloadMapIcon = document.getElementById('download-icon')
+    const downloadMapSpinner = document.getElementById('download-spinner')
+
+    downloadMapButton.disabled = true;
+    downloadMapIcon.classList.add('d-none');
+    downloadMapSpinner.classList.remove('d-none');
+
+    worldMap.disableControlIcons();
+  }
+
+  function handleButtonPostDownload() {
+    const downloadMapButton = document.getElementById('download-button')
+    const downloadMapIcon = document.getElementById('download-icon')
+    const downloadMapSpinner = document.getElementById('download-spinner')
+
+    downloadMapSpinner.classList.add('d-none');
+    downloadMapIcon.classList.remove('d-none');
+    downloadMapButton.disabled = false;
+
+    worldMap.enableControlIcons();
   }
