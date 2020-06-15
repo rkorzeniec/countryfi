@@ -3,6 +3,12 @@
  *= require ./pie-chart
  */
 
+main {
+  .container {
+    padding-top: 70px;
+  }
+}
+
  #dashboard-maps {
   ul {
     margin-bottom: 10px;

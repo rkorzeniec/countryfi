@@ -1,20 +1,11 @@
-= content_for :css do
-  = stylesheet_link_tag 'dashboard'
-
-= content_for :js do
-  :javascript
-    $(function() {
-      $('.checked').css('fill', $('body').data('user-preferences-color'));
-    });
-
 .row
-  .col-sm-12#dashboard-maps
+  #dashboard-maps.col-sm-12
     = render 'dashboard/index/map'
-.row
-  .col-sm-5#dashboard-pie-charts
+.row.py-4
+  #dashboard-pie-charts.col-md-12.col-xl-6
     = render 'dashboard/index/continent_progress_charts'
-  .col-sm-7
+  .col-md-12.col-xl-6
     = render 'dashboard/index/countries_chart'
-.row
-  .col-sm-4
+-# .row
+  -# .col-sm-4
     -# Top countries

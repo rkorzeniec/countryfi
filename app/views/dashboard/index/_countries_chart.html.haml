@@ -1,7 +1,7 @@
-.panel.no-border.no-bg
-  .panel-heading.no-border.text-center{ style: 'background: #FFF;' }
-    %span.p-t-1.font-size-12.font-weight-semibold Countries per Year
-  .panel-body{ style: 'background: #FFF;' }
+.card.no-border.no-bg
+  .card-heading.no-border.text-center{ style: 'background: #FFF;' }
+    %span.pt-1.text-sm.text-semibold Countries per Year
+  .card-body{ style: 'background: #FFF;' }
     #countries_chart
       = line_chart @dashboard.countries_chart_data.map { |graph|  |
         { name: graph[:name], data: graph[:query] }               |

@@ -1,12 +1,10 @@
 - visited_percent = (visited_countries_count / countries_count.to_f) * 100
-.panel.box.text-center
-  .box-row
-    .box-cell.p-t-1.font-size-12.font-weight-semibold South America
-  .box-row
-    .box-cell.p-y-2
-      #south_america_pie_chart.easy-pie-chart{ 'data-percent': "#{visited_percent}" }
-        %span= "#{visited_countries_count}/#{countries_count}"
-        %span= link_to "#{visited_countries_count}/#{countries_count}", checkins_south_americans_path
+.card
+  .card-body.text-center
+    .text-sm.text-semibold South America
+    .py-2
+      #south_america_pie_chart.pie-chart{ 'data-percent': "#{visited_percent}" }
+        %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_south_americans_path
 :javascript
   var element = document.querySelector('#south_america_pie_chart');
   new EasyPieChart(element, {
@@ -18,4 +16,3 @@
     trackColor: '#e5e5e5',
     barColor: '#E9573F'
   });
-
