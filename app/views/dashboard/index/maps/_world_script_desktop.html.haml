@@ -1,59 +1,49 @@
 :javascript
-  var worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
-  var worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
+  document.addEventListener("turbolinks:load", () => {
+    var worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
+    var worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
 
-  document.getElementById('download-icon').addEventListener('mouseover', function(e) {
-    document.getElementById('download-text').classList.remove('hidden');
+    document.getElementById('download-icon').addEventListener('mouseover', function(e) {
+      document.getElementById('download-text').classList.remove('hidden');
+    });
+
+    document.getElementById('download-icon').addEventListener('mouseout', function(e) {
+      document.getElementById('download-text').classList.add('hidden');
+    });
+
+    worldSvgCountries.tooltip({
+      container: 'body',
+      placement: 'right',
+      trigger: 'hover',
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'
+    });
+
+    $(window).resize(function(){
+      worldMap.resize();
+      worldMap.fit();
+      worldMap.center();
+    });
+
+    worldSvgCountries.on('mousedown', function() {
+      $(this).on('mousemove', flagged);
+      $(this).tooltip('hide');
+    });
+
+    worldSvgCountries.on('mouseup', function() {
+      $(this).off('mousemove', flagged);
+      $(this).tooltip('show');
+    });
+
+    worldSvgCountries.on('mouseup', function(e) {
+      if (this.isScrolled) {
+        $(this).on('click', preventClick);
+      } else {
+        $(this).off('click', preventClick);
+      }
+      this.isScrolled = false;
+      $(this).off('mousemove', flagged);
+    });
   });
-
-  document.getElementById('download-icon').addEventListener('mouseout', function(e) {
-    document.getElementById('download-text').classList.add('hidden');
-  });
-
-  worldSvgCountries.tooltip({
-    container: 'body',
-    placement: 'right',
-    trigger: 'hover',
-    template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'
-  });
-
-  $('#world-svg-desktop').on('mousemove', function (e) { cursorMove(e); });
-
-  $(window).resize(function(){
-    worldMap.resize();
-    worldMap.fit();
-    worldMap.center();
-  });
-
-  worldSvgCountries.on('mousedown', function() {
-    $(this).on('mousemove', flagged);
-    $(this).tooltip('hide');
-  });
-
-  worldSvgCountries.on('mouseup', function() {
-    $(this).off('mousemove', flagged);
-    $(this).tooltip('show');
-  });
-
-  worldSvgCountries.on('mouseup', function(e) {
-    if (this.isScrolled) {
-      $(this).on('click', preventClick);
-    } else {
-      $(this).off('click', preventClick);
-    }
-    this.isScrolled = false;
-    cursorMove(e);
-    $(this).off('mousemove', flagged);
-  });
-
-  function cursorMove(e) {
-    if( $('div.tooltip').css('display') !== 'hidden' ) {
-      let toolHalfHeight = $('div.tooltip').outerHeight() / 2;
-      $('div.tooltip')
-        .css('left', e.pageX + 10)
-        .css('top', e.pageY - toolHalfHeight - 20);
-    }
-  }
 
   function flagged() { this.isScrolled = true; }
 
@@ -65,16 +55,16 @@
   function saveSvg(svgEl, name) {
     worldMap.disableControlIcons();
 
-    new Promise(function(resolve, reject) { 
+    new Promise(function(resolve, reject) {
       resolve(
         ssag.saveSvgAsPng(
-          svgEl, 
-          name, 
+          svgEl,
+          name,
           {scale: 2, encoderOptions: 1, backgroundColor: '#ffffff'}
         )
-      ); 
+      );
     }).then(
-        function(_success) { worldMap.enableControlIcons();}, 
+        function(_success) { worldMap.enableControlIcons();},
         function(_error) { worldMap.enableControlIcons();}
       );
   }

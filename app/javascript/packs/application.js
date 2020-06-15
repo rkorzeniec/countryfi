@@ -1,8 +1,9 @@
 // js
 import Rails from 'rails-ujs';
 import Turbolinks from 'turbolinks';
-
-import('src/plugins');
+import 'jquery';
+import 'popper.js';
+import 'bootstrap';
 
 // css
 import 'css/site';
