@@ -5,14 +5,15 @@
     .py-2
       #antarctica_pie_chart.pie-chart{ 'data-percent': "#{visited_percent}" }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_antarcticans_path
-:javascript
-  var element = document.querySelector('#antarctica_pie_chart');
-  new EasyPieChart(element, {
-    animate: 2000,
-    scaleColor: false,
-    lineWidth: 6,
-    lineCap: 'square',
-    size: 90,
-    trackColor: '#e5e5e5',
-    barColor: '#AAB2BD'
-  });
+- content_for :js do
+  :javascript
+    var element = document.querySelector('#antarctica_pie_chart');
+    new EasyPieChart(element, {
+      animate: 2000,
+      scaleColor: false,
+      lineWidth: 6,
+      lineCap: 'square',
+      size: 90,
+      trackColor: '#e5e5e5',
+      barColor: '#AAB2BD'
+    });
