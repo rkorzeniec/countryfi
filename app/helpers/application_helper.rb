@@ -22,6 +22,10 @@ module ApplicationHelper
   end
 
   def flash_message_type(message_type)
-    message_type == 'error' ? 'danger' : message_type
+    case message_type
+    when 'error' then 'danger'
+    when 'notice' then 'info'
+    else message_type
+    end
   end
 end

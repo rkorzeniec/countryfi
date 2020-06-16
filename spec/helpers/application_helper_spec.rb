@@ -85,6 +85,12 @@ describe ApplicationHelper do
       it { is_expected.to eq('success') }
     end
 
+    context 'when notice' do
+      let(:message_type) { 'notice' }
+
+      it { is_expected.to eq('info') }
+    end
+
     context 'when info' do
       let(:message_type) { 'info' }
 
