@@ -1,5 +1,5 @@
 - provide(:title, 'Preferences')
 .row
-  .col-xs-12.mx-auto
+  .col-xs-12.mx-auto.w-25.px-lg-5.mt-3
     = form_for current_user, url: preferences_path, method: :patch do |f|
       = render 'form', f: f
