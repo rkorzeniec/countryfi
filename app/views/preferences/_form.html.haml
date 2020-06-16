@@ -1,9 +1,9 @@
 - render 'shared/error_messages'
-.form-group-lg.m-t-1
+.form-group
   = f.label :colour, class: 'form-label'
 .form-group
   = f.text_field :color, placeholder: '#2E7060', id: 'minicolors-hue', class: 'form-control'
-.form-group-lg.m-t-1
+.form-group
   = submit_tag 'Save', data: { "disable-with": "Saving..." }, class: 'btn btn-primary btn-block'
 
 :javascript
