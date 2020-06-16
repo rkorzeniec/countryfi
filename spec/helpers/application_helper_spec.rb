@@ -13,7 +13,7 @@ describe ApplicationHelper do
 
       it do
         assign(:page_title, title)
-        expect(subject).to eq(title)
+        is_expected.to eq(title)
       end
     end
   end
@@ -53,7 +53,7 @@ describe ApplicationHelper do
       before { allow(helper).to receive(:current_user).and_return(user) }
 
       it do
-        expect(subject).to eq(
+        is_expected.to eq(
           'https://gravatar.com/avatar/0aa05c29c41531fa903aa5006389fa23.png?s=20&d=mp'
         )
       end
@@ -63,10 +63,36 @@ describe ApplicationHelper do
       before { allow(helper).to receive(:current_user).and_return(nil) }
 
       it do
-        expect(subject).to eq(
+        is_expected.to eq(
           'https://gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e.png?s=20&d=mp'
         )
       end
+    end
+  end
+
+  describe '#user_preferences_colour' do
+    subject { helper.user_preferences_colour }
+
+    context 'when colour preference exists' do
+      let(:user) { instance_double(User, color: '#123456') }
+
+      before { allow(helper).to receive(:current_user).and_return(user) }
+
+      it { is_expected.to eq('#123456') }
+    end
+
+    context 'when no colour preference exists' do
+      let(:user) { instance_double(User, color: nil) }
+
+      before { allow(helper).to receive(:current_user).and_return(user) }
+
+      it { is_expected.to eq('#2E7060') }
+    end
+
+    context 'when no current user' do
+      before { allow(helper).to receive(:current_user).and_return(nil) }
+
+      it { is_expected.to eq('#2E7060') }
     end
   end
 

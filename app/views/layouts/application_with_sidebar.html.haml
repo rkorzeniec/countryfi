@@ -6,7 +6,7 @@
 %html{ lang: 'en' }
   %head
     = render 'layouts/head'
-  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{current_user&.color}" } }
+  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{user_preferences_colour}" } }
     = render 'layouts/navbar', sidebar: true
     %main.flex-shrink-0{ role: 'main'}
       .container-fluid
