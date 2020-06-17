@@ -1,7 +1,4 @@
 .row
-  .col-xs-12.mx-auto
-    %h2.text-center Sign up
-.row
   .col-xs-12.mx-auto.w-50.px-lg-5.mt-3
     = form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'panel') do |f|
       = devise_error_messages!
@@ -13,5 +10,6 @@
         = f.password_field :password_confirmation, autocomplete: 'off', placeholder: :password_confirmation, class: 'form-control'
       .form-group
         = f.submit 'Sign up', data: { "disable-with": "Signing up..." }, class: 'btn btn-primary btn-block'
-    Do you have an account already?
-    = link_to 'Log in', new_user_session_path, class: 'text-slim'
+    %span.text-md
+      Do you have an account already?
+      = link_to 'Log in', new_user_session_path, class: 'text-slim'

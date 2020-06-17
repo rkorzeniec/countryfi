@@ -1,8 +1,4 @@
 .row
-  .col-xs-12.mx-auto
-    %h2.text-center Log in
-
-.row
   .col-xs-12.mx-auto.w-50.px-lg-5.mt-3
     = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'panel') do |f|
       = devise_error_messages!
@@ -13,5 +9,6 @@
         = link_to 'Forgot password?', new_password_path(:user), class: 'forgot'
       .form-group
         = f.submit 'Log in', data: { "disable-with": "Logging in..." }, class: 'btn btn-primary btn-block'
-    Don't have an account yet?
-    = link_to 'Sign up', new_user_registration_path, class: 'text-slim'
+    %span.text-md
+      Don't have an account yet?
+      = link_to 'Sign up', new_user_registration_path, class: 'text-slim'
