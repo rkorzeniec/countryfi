@@ -32,6 +32,13 @@ body, .sticky-footer-wrapper {
   margin-top: 70px !important;
 }
 
+
+@media (max-width: 767.98px) {
+  .nav-spacer{
+    margin-top: 100px !important;
+  }
+}
+
 .navbar .dropdown-menu {
   right: 0 !important;
   left: auto !important;
