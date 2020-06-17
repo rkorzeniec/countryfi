@@ -11,7 +11,7 @@
       = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-mobile'
 
 
-- content_for :js do
+= content_for :js do
   = render 'dashboard/index/maps/world_script_desktop'
   = render 'dashboard/index/maps/world_script_mobile'
   = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array

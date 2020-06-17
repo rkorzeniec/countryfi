@@ -7,7 +7,7 @@
 .form-group
   = submit_tag 'Save', data: { "disable-with": "Saving..." }, class: 'btn btn-primary btn-block'
 
-- content_for :js do
+= content_for :js do
   :javascript
     $(document).on('turbolinks:load', function() {
       document.getElementById('user_color').addEventListener('change', function(e) {

@@ -5,7 +5,7 @@
     .py-2
       #oceania_pie_chart.pie-chart{ 'data-percent': "#{visited_percent}" }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_oceanians_path
-- content_for :js do
+= content_for :js do
   :javascript
     var element = document.querySelector('#oceania_pie_chart');
     new EasyPieChart(element, {

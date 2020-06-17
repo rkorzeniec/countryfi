@@ -3,7 +3,7 @@
     = render 'layouts/sidebar/checkins'
     = render 'layouts/sidebar/explore'
 
-- content_for :js do
+= content_for :js do
   :javascript
     $(document).on('turbolinks:load', function() {
       const path =
