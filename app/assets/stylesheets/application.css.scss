@@ -18,12 +18,6 @@ body, .sticky-footer-wrapper {
    min-height:100vh;
 }
 
-main {
-  .container {
-    padding-top: 100px;
-  }
-}
-
 .feather {
   width: 16px;
   height: 16px;
@@ -33,6 +27,10 @@ main {
 /*
  * Navbar
  */
+
+.nav-spacer{
+  margin-top: 70px !important;
+}
 
 .navbar .dropdown-menu {
   right: 0 !important;
