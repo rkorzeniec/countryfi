@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module CountriesHelper
-  def visit_label(country)
+  def visit_badge(country)
     return unless current_user&.countries&.include?(country)
 
     visited_country = current_user.visited_countries.include?(country)
-    label_status = visited_country ? 'label-success' : 'label-info'
-    label_content = visited_country ? 'visited' : 'upcoming'
+    badge_status = visited_country ? 'badge-success' : 'badge-info'
+    badge_content = visited_country ? 'visited' : 'upcoming'
 
-    tag.span(label_content, class: ['label', label_status])
+    tag.span(badge_content, class: ['badge', 'badge-sm', 'text-sm', badge_status])
   end
 end

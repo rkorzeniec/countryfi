@@ -1,25 +1,25 @@
 - provide(:title, @country.name_common)
 
-.page-header
-  .row
-    .col-sm-6
-      %h1= @country.name_common
-      = image_tag(@country.flag_image_path, style: 'height: 32px;')
-      = visit_label(@country)
-    .col-sm-6
-      .visible-xs
-        %hr
-      = link_to new_checkin_path(country: @country.cca2), class: 'btn btn-labeled btn-primary pull-right' do
-        %span
-          %i.fas.fa-plus.font-size-11
-          Add checkin
-.row
-  .col.col-md-6
-    #mapbox.mapbox{ data: { country_geojson: @geojson, country_cca3: @country.cca3, country_lat: @country.latitude, country_lng: @country.longitude } }
-    .visible-xs.padding-sm
-  .col.col-md-6
+.row.row-cols-2
+  .col-xs-6.mr-auto
+    %span.text-lg
+      = @country.name_common
+      = image_tag(@country.flag_image_path, style: 'height: 27px;')
+    = visit_badge(@country)
+  .col-xs-6.text-right
+    = link_to new_checkin_path(country: @country.cca2), class: 'btn btn-sm btn-labeled btn-primary pull-right' do
+      %span
+        %i.fas.fa-plus.text-sm
+        Add checkin
+.row.row-cols-1.justify-content
+  #mapbox.mapbox{ data: { country_geojson: @geojson, country_cca3: @country.cca3, country_lat: @country.latitude, country_lng: @country.longitude } }
+  %hr
+.row.row-cols-xs-1.row-cols-md-2.row-cols-lg-3
+  .col
     = render 'countries/show/country_details', country: @country
+  .col
     = render 'countries/show/geographical_details', country: @country
+  .col
     = render 'countries/show/miscellaneous_details', country: @country
 
 = content_for :js do
