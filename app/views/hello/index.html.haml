@@ -6,49 +6,35 @@
     %h1.display-5.font-weight-normal Explore.
     %p.font-weight-normal.text-left.text-muted.text-bg.px-5
       Track the countries you have visited.
-      Keep up to date with your travels and cross them of your bucket list.
+      Keep up to date with your travels and cross them of your bucket list...
     = link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-secondary'
 
--# .d-md-flex.flex-md-equal.w-100.my-md-3.pl-md-3
--#   .bg-dark.mr-md-3.pt-3.px-3.pt-md-5.px-md-5.text-center.text-white.overflow-hidden
--#     .my-3.py-3
--#       %h2.display-5 Log your travels.
--#       %p.lead And an even wittier subheading
+.row.my-md-3.pl-md-3
+  .col.bg-dark.mr-md-3.pt-3.px-3.pt-md-5.px-md-5.text-center.text-white.overflow-hidden
+    .my-3.py-3
+      %h2.display-6 Keep track.
+      %p.font-weight-normal.text-bg Past trips or future exploration, add it to your travel timeline, cross them off your bucket list...
+    .mx-auto.mb-5
+      %i.fas.fa-tasks.text-light{ style: 'font-size: 94px;' }
 
--#     .bg-light.shadow-sm.mx-auto{ style: 'width: 80%; height: 300px; border-radius: 21px 21px 0 0;' }
+  .col.bg-light.mr-md-3.pt-3.px-3.pt-md-5.px-md-5.text-center.overflow-hidden
+    .my-3.p-3
+      %h2.display-6 Go further.
+      %p.font-weight-normal.text-bg Easily see countries yet to visit, effortlessly pick your next destination...
+    .mx-auto.mb-5
+      %i.fas.fa-passport.text-dark{ style: 'font-size: 94px;' }
 
--#   .bg-light.mr-md-3.pt-3.px-3.pt-md-5.px-md-5.text-center.overflow-hidden
--#     .my-3.p-3
--#       %h2.display-5 Keep track.
--#       %p.lead And an even wittier subheading
+.row.my-md-3.pl-md-3
+  .col.bg-light.mr-md-3.pt-3.px-3.pt-md-5.px-md-5.text-center.overflow-hidden
+    .my-3.p-3
+      %h2.display-5 Quantify.
+      %p.lead With dashboard statistics helping you to quantify and measure your progress...
+    .mx-auto.mb-5
+      %i.fas.fa-chart-line.text-dark{ style: 'font-size: 94px;' }
 
--#     .bg-dark.shadow-sm.mx-auto{ style: "width: 80%; height: 300px; border-radius: 21px 21px 0 0;" }
-
--# .d-md-flex.flex-md-equal.w-100.my-md-3.pl-md-3
--#   .bg-light.mr-md-3.pt-3.px-3.pt-md-5.px-md-5.text-center.overflow-hidden
--#     .my-3.p-3
--#       %h2.display-5 Another headline
--#       %p.lead And an even wittier subheading
-
--#     .bg-dark.shadow-sm.mx-auto{ style: "width: 80%; height: 300px; border-radius: 21px 21px 0 0" }
-
--#   .bg-primary.mr-md-3.pt-3.px-3.pt-md-5.px-md-5.text-center.text-white.overflow-hidden
--#     .my-3.py-3
--#       %h2.display-5 Another headline
--#       %p.lead And an even wittier subheading
-
--#     .bg-light.shadow-sm.mx-auto{ style: "width: 80%; height: 300px; border-radius: 21px 21px 0 0;" }
-
--# .row
--#   .col-md-7
--#     = render 'map'
--#   .col-md-5
--#     %h1.m-t-9.m-b-2.font-size-28 Hello there, fellow traveller!
--#     %h4.m-y-1 Your personal country visits logbook
--#     %p.m-t-2.font-size-14
--#       Track the countries you have visited and statistics associated with that.
--#       Keep up to date with your travels and cross those countries of your bucket list.
--#     %p.m-t-4
--#       = link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-success btn-flat'
--#       or
--#       = link_to 'Log in', new_user_session_path, class: 'text-bg text-slim'
+  .col.bg-dark.mr-md-3.pt-3.px-3.pt-md-5.px-md-5.text-center.text-white.overflow-hidden
+    .my-3.py-3
+      %h2.display-5 Share.
+      %p.lead Download, share and compare your progress with friends, even compete a little...
+    .mx-auto.mb-5
+      %i.fas.fa-share-alt-square.text-light{ style: 'font-size: 94px;' }
