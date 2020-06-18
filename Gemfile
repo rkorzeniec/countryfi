@@ -7,7 +7,7 @@ gem 'rails', '6.0.3.2'
 
 gem 'bootsnap', '~> 1.4.6', require: false
 gem 'dalli', '~> 2.7.10'
-gem 'devise', '~> 4.7.1'
+gem 'devise', '~> 4.7.2'
 gem 'devise-async', '~> 1.0.0'
 gem 'dotenv-rails', '~> 2.7.5'
 gem 'graphql', '~> 1.10.11'
