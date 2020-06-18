@@ -7,11 +7,15 @@
   %head
     = render 'layouts/head'
   %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{user_preferences_colour}" } }
-    = render 'layouts/navbar'
-    %main.nav-spacer{ role: 'main'}
-      .container-fluid.px-4
-        = render 'layouts/flash'
-        = yield
+    = render 'layouts/navbar', sidebar: true
+    %main{ role: 'main'}
+      .container-fluid
+        .row
+          .col-md-3.col-lg-2.mt-md-5.pb-auto.sidebar
+            = render 'layouts/sidebar'
+          .col-md-9.col-lg-10.ml-xs-auto.mt-md-5.py-md-4.px-4.content
+            = render 'layouts/flash'
+            = yield
     %footer.footer.mt-auto.py-3
       = render 'layouts/footer'
     = yield :js

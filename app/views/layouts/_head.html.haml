@@ -1,17 +1,18 @@
-%title= page_title
 %meta{name: 'charset', content: 'utf-8' }
 %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' }
 %meta{name: 'title', content: page_title }
 %meta{name: 'description', content: 'Your personal digital country scratch map. Keep track the countries you have visited. Keep up to date with your travels and cross those countries of your bucket list.' }
+%meta{name: 'theme-color', content: '#ffffff' }
+
 = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', async: ''
-= javascript_include_tag 'application', 'data-turbolinks-track' => true, async: ''
+= yield :layout_custom_head
+= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
 %link{ href: '/favicon.ico', rel: 'icon', type: 'image/x-icon' }
 %link{ rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
 %link{ rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }
 %link{ rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
 %link{ rel: 'manifest', href: '/site.webmanifest' }
-%meta{ name: 'theme-color', content:' #ffffff' }
+
+%title= page_title
 = csrf_meta_tags
--# = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-= yield :layout_custom_head

@@ -1,0 +1,55 @@
+//**   Text sizes    *****************************************************************************//
+
+// Extra small text
+.text-xs {
+  font-size: 11px;
+}
+
+// Small text
+.text-sm {
+  font-size: 12px;
+}
+
+// Medium text
+.text-md {
+  font-size: 13px;
+}
+
+// Big text
+.text-bg {
+  font-size: 17px;
+}
+
+// Large text
+.text-lg {
+  font-size: 23px;
+}
+
+// Extra large text
+.text-xlg {
+  font-size: 30px;
+}
+
+// Super large text
+.text-slg {
+  font-size: 50px;
+}
+
+
+//**   Text weights    ***************************************************************************//
+
+.text-slim {
+  font-weight: 300 !important;
+}
+
+.text-normal {
+  font-weight: 400 !important;
+}
+
+.text-semibold {
+  font-weight: 600 !important;
+}
+
+.text-bold {
+  font-weight: 700 !important;
+}

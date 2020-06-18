@@ -1,15 +1,16 @@
 - render 'shared/error_messages'
-.form-group-lg.m-t-1
-  = f.label :colour, class: 'form-label'
+.form-group.row
+  = f.label :colour, class: 'col-sm-6 col-form-label'
+  = f.label :color_value, user_preferences_colour, id: 'userPreferencesColorLabel', class: 'col-sm-6 col-form-label text-muted'
 .form-group
-  = f.text_field :color, placeholder: '#2E7060', id: 'minicolors-hue', class: 'form-control'
-.form-group-lg.m-t-1
+  = f.text_field :color, type: 'color', value: user_preferences_colour, class: 'form-control'
+.form-group
   = submit_tag 'Save', data: { "disable-with": "Saving..." }, class: 'btn btn-primary btn-block'
 
-:javascript
-  $(function() {
-    $('#minicolors-hue').minicolors({
-      control:  'hue',
-      position: 'bottom left',
+= content_for :js do
+  :javascript
+    $(document).on('turbolinks:load', function() {
+      document.getElementById('user_color').addEventListener('change', function(e) {
+        document.getElementById('userPreferencesColorLabel').innerHTML = this.value
+      });
     });
-  });

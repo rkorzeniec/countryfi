@@ -1,16 +1,15 @@
 .row
-  .col-lg-12
-    %h2.text-center Change your password
-
-    .row.center-block
-      .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.m-t-1
-        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-          = devise_error_messages!
-          = f.hidden_field :reset_password_token
-          .form-group-lg.signin-password.m-t-1
-            = f.password_field :password, autofocus: true, autocomplete: 'off', placeholder: :password, class: 'form-control input-lg'
-          .form-group-lg.signin-password.m-t-1
-            = f.password_field :password_confirmation, autocomplete: 'off', placeholder: :password_confirmation, class: 'form-control input-lg'
-          .form-group.m-t-1
-            = f.submit 'Change my password', data: { "disable-with": "Changing..." }, class: 'btn btn-primary btn-lg btn-block'
-            = link_to 'Cancel', new_session_path(resource_name), class: 'btn btn-default btn-lg btn-block'
+  .col-xs-12.mx-auto
+    %h2.text-center.text-lg Change your password
+.row
+  .col-xs-12.mx-auto.w-50.px-lg-5.mt-3
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = devise_error_messages!
+      = f.hidden_field :reset_password_token
+      .form-group.signin-password
+        = f.password_field :password, autofocus: true, autocomplete: 'off', placeholder: :password, class: 'form-control'
+      .form-group.signin-password
+        = f.password_field :password_confirmation, autocomplete: 'off', placeholder: :password_confirmation, class: 'form-control'
+      .form-group
+        = f.submit 'Change my password', data: { "disable-with": "Changing..." }, class: 'btn btn-primary btn-block'
+        = link_to 'Cancel', new_session_path(resource_name), class: 'btn btn-secondary btn-block'

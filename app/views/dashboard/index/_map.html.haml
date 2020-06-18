@@ -1,19 +1,22 @@
-.row.hidden-xs
-  .col-sm-12
-    %a#link.pull-right{ href: '#', onclick: "saveSvg(document.getElementById('world-svg-desktop'), 'wold_map')" }
-      %span#download-text.hidden Download map
-      %i#download-icon.fas.fa-cloud-download-alt.font-size-24
-.row
-  .col-sm-12
-    .tab-content{ style: 'max-height: 700px; max-width: 1000px; margin: auto; padding-top: 0;' }
-      .hidden-xs
-        = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-desktop'
-      .visible-xs
-        = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-mobile'
-.row
-  .col-sm-12
-    = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array
+.d-flex.flex-row.justify-content-end.d-block.d-xs-none
+  %button#download-button.btn.btn-sm.btn-outline-secondary{ href: '#', onclick: "saveSvg(document.getElementById('world-svg-desktop'), 'wold_map')" }
+    %span Download map
+    %i#download-spinner.spinner-border.spinner-border-sm.d-none{ role: 'status', aria: { hidden: 'true' } }
+    %i#download-icon.fas.fa-cloud-download-alt.font-size-24
+.d-flex.flex-row
+  .flex-fill{ style: 'max-height: 700px; max-width: 1000px; margin: auto; padding-top: 0;' }
+    .d-block.d-xs-none
+      = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-desktop'
+    .d-none.d-xs-block
+      = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-mobile'
+
 
 = content_for :js do
   = render 'dashboard/index/maps/world_script_desktop'
   = render 'dashboard/index/maps/world_script_mobile'
+  = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array
+
+  :javascript
+    $(document).on('turbolinks:load', function() {
+      $('.checked').css('fill', $('body').data('user-preferences-color'));
+    });
