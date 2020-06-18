@@ -26,7 +26,9 @@ describe CountriesHelper do
       let(:visited_countries) { [country] }
 
       it do
-        expect(subject).to eq('<span class="badge badge-success">visited</span>')
+        expect(subject).to eq(
+          '<span class="badge badge-sm text-sm badge-success">visited</span>'
+        )
       end
     end
 
@@ -34,7 +36,9 @@ describe CountriesHelper do
       let(:countries) { [country] }
 
       it do
-        expect(subject).to eq('<span class="badge badge-info">upcoming</span>')
+        expect(subject).to eq(
+          '<span class="badge badge-sm text-sm badge-info">upcoming</span>'
+        )
       end
     end
   end
