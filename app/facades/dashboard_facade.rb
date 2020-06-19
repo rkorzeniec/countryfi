@@ -47,11 +47,14 @@ class DashboardFacade
       ::Dashboard::VisitedCountriesCounter.new(user)
   end
 
-  def countries_chart_data
-    [
-      { name: 'all', query: VisitedCountriesQuery.new(user).count_by_year },
-      { name: 'unique', query: UniqVisitedCountriesQuery.new(user).count_by_year }
-    ]
+  def countries_yearly_chart_data
+    cache_fetch(__method__) do
+      [
+        { name: 'all', query: VisitedCountriesQuery.new(user).count_by_year },
+        { name: 'unique', query: UniqVisitedCountriesQuery.new(user).count_by_year }
+      ]
+    end
+  end
   end
 
   private

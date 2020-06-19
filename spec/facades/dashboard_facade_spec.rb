@@ -71,8 +71,8 @@ describe DashboardFacade do
     end
   end
 
-  describe '#countries_chart_data' do
-    subject { facade.countries_chart_data }
+  describe '#countries_yearly_chart_data' do
+    subject { facade.countries_yearly_chart_data }
 
     let(:unique_query) do
       instance_double(UniqVisitedCountriesQuery, count_by_year: [1, 2, 3])
@@ -81,14 +81,12 @@ describe DashboardFacade do
       instance_double(VisitedCountriesQuery, count_by_year: [4, 5, 6])
     end
 
-    before do
+    it do
       expect(VisitedCountriesQuery).to receive(:new)
         .with(user).and_return(all_query)
       expect(UniqVisitedCountriesQuery).to receive(:new)
         .with(user).and_return(unique_query)
-    end
 
-    it do
       is_expected.to eq(
         [
           { name: 'all', query: [4, 5, 6] },
@@ -96,6 +94,11 @@ describe DashboardFacade do
         ]
       )
     end
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'countries_yearly_chart_data' }
+    end
+  end
   end
 
   describe '#cache_key' do
