@@ -15,45 +15,31 @@ class DashboardFacade
   end
 
   def european_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-      countries.european
-    end
+    cache_fetch(__method__) { countries.european }
   end
 
   def north_american_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-      countries.north_american
-    end
+    cache_fetch(__method__) { countries.north_american }
   end
 
   def south_american_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-      countries.south_american
-    end
+    cache_fetch(__method__) { countries.south_american }
   end
 
   def asian_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-      countries.asian
-    end
+    cache_fetch(__method__) { countries.asian }
   end
 
   def african_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-      countries.african
-    end
+    cache_fetch(__method__) { countries.african }
   end
 
   def oceanian_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-      countries.oceanian
-    end
+    cache_fetch(__method__) { countries.oceanian }
   end
 
   def antarctican_countries
-    Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-      countries.antarctican
-    end
+    cache_fetch(__method__) { countries.antarctican }
   end
 
   def visited_countries_counter
@@ -74,6 +60,13 @@ class DashboardFacade
 
   def visited_countries
     @visited_countries ||= user.visited_countries.load
+  end
+
+  def cache_fetch(method_name)
+    Rails.cache.fetch(cache_key(method_name), expires_in: CACHE_EXPIRY) do
+      Rails.logger.info(cache_key(method_name))
+      yield
+    end
   end
 
   def cache_key(method_name)
