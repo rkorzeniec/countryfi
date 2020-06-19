@@ -11,7 +11,7 @@ class DashboardFacade
   end
 
   def country_code_array
-    visited_countries.pluck(:cca2)
+    cache_fetch(__method__) { visited_countries.pluck(:cca2) }
   end
 
   def european_countries

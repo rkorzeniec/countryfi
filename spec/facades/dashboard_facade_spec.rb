@@ -54,6 +54,10 @@ describe DashboardFacade do
     end
 
     it { expect(subject).to eq(%w[AA BB]) }
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'country_code_array' }
+    end
   end
 
   describe '#visited_countries_counter' do
