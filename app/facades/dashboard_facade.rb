@@ -55,6 +55,17 @@ class DashboardFacade
       ]
     end
   end
+
+  def top_countries_chart_data
+    cache_fetch(__method__) do
+      TopCountriesQuery.new(visited_countries).query
+    end
+  end
+
+  def top_regions_chart_data
+    cache_fetch(__method__) do
+      TopRegionsQuery.new(visited_countries).query
+    end
   end
 
   private

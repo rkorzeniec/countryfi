@@ -99,6 +99,42 @@ describe DashboardFacade do
       let(:method_name) { 'countries_yearly_chart_data' }
     end
   end
+
+  describe '#top_countries_chart_data' do
+    subject { facade.top_countries_chart_data }
+
+    let(:query) do
+      instance_double(TopCountriesQuery, query: { 'CH' => 2, 'CN' => 4 })
+    end
+
+    it do
+      expect(TopCountriesQuery).to receive(:new).and_return(query)
+      is_expected.to eq({ 'CH' => 2, 'CN' => 4 })
+    end
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'top_countries_chart_data' }
+    end
+  end
+
+  describe '#top_regions_chart_data' do
+    subject { facade.top_regions_chart_data }
+
+    let(:query) do
+      instance_double(
+        TopRegionsQuery,
+        query: { 'Caribbean' => 2, 'Northern America' => 4 }
+      )
+    end
+
+    it do
+      expect(TopRegionsQuery).to receive(:new).and_return(query)
+      is_expected.to eq({ 'Caribbean' => 2, 'Northern America' => 4 })
+    end
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'top_regions_chart_data' }
+    end
   end
 
   describe '#cache_key' do

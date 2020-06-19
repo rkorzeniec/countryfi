@@ -44,7 +44,7 @@ FactoryBot.define do
     cioc { '' }
     capital { '' }
     region { 'Antarctica' }
-    subregion { '' }
+    subregion { 'Antarctica' }
     demonym { 'Antarctican' }
     landlocked { false }
     area { 14_000_000 }
