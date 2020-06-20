@@ -18,6 +18,18 @@ describe Country do
       .dependent(:destroy)
   end
 
+  describe '.arranged_by_name' do
+    subject { described_class.arranged_by_name }
+
+    let!(:switzerland) { create(:country) }
+    let!(:australia) { create(:country, :oceanian) }
+    let!(:united_states) { create(:country, name_common: 'United States') }
+
+    it do
+      is_expected.to eq([australia, switzerland, united_states])
+    end
+  end
+
   describe '.find_by_any' do
     subject { described_class.find_by_any(name) }
 
