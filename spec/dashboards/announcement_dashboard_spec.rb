@@ -6,7 +6,8 @@ describe AnnouncementDashboard do
       id: Administrate::BaseDashboard::Field::Number,
       message: Administrate::BaseDashboard::Field::String,
       created_at: Administrate::BaseDashboard::Field::DateTime,
-      updated_at: Administrate::BaseDashboard::Field::DateTime
+      updated_at: Administrate::BaseDashboard::Field::DateTime,
+      notifications: Administrate::BaseDashboard::Field::HasMany
     )
   end
 
@@ -18,7 +19,7 @@ describe AnnouncementDashboard do
 
   it do
     expect(described_class::SHOW_PAGE_ATTRIBUTES).to eq(
-      %i[id message created_at updated_at].freeze
+      %i[id message created_at updated_at notifications].freeze
     )
   end
 

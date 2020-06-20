@@ -13,7 +13,8 @@ class AnnouncementDashboard < Administrate::BaseDashboard
     id: Field::Number,
     message: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    notifications: Field::HasMany
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -34,6 +35,7 @@ class AnnouncementDashboard < Administrate::BaseDashboard
     message
     created_at
     updated_at
+    notifications
   ].freeze
 
   # FORM_ATTRIBUTES

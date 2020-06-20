@@ -30,12 +30,12 @@ describe Admin::AnnouncementsController do
     end
 
     it 'edit' do
-      get(:edit, params: { id: anouncement.id })
+      get(:edit, params: { id: announcement.id })
       expect(response.status).to eq(200)
     end
 
     it 'delete' do
-      post(:destroy, params: { id: anouncement.id })
+      post(:destroy, params: { id: announcement.id })
       expect(response.status).to eq(302)
     end
   end
