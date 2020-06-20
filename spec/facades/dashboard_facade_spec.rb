@@ -54,6 +54,10 @@ describe DashboardFacade do
     end
 
     it { expect(subject).to eq(%w[AA BB]) }
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'country_code_array' }
+    end
   end
 
   describe '#visited_countries_counter' do
@@ -67,8 +71,8 @@ describe DashboardFacade do
     end
   end
 
-  describe '#countries_chart_data' do
-    subject { facade.countries_chart_data }
+  describe '#countries_yearly_chart_data' do
+    subject { facade.countries_yearly_chart_data }
 
     let(:unique_query) do
       instance_double(UniqVisitedCountriesQuery, count_by_year: [1, 2, 3])
@@ -77,20 +81,59 @@ describe DashboardFacade do
       instance_double(VisitedCountriesQuery, count_by_year: [4, 5, 6])
     end
 
-    before do
+    it do
       expect(VisitedCountriesQuery).to receive(:new)
         .with(user).and_return(all_query)
       expect(UniqVisitedCountriesQuery).to receive(:new)
         .with(user).and_return(unique_query)
-    end
 
-    it do
       is_expected.to eq(
         [
           { name: 'all', query: [4, 5, 6] },
           { name: 'unique', query: [1, 2, 3] }
         ]
       )
+    end
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'countries_yearly_chart_data' }
+    end
+  end
+
+  describe '#top_countries_chart_data' do
+    subject { facade.top_countries_chart_data }
+
+    let(:query) do
+      instance_double(TopCountriesQuery, query: { 'CH' => 2, 'CN' => 4 })
+    end
+
+    it do
+      expect(TopCountriesQuery).to receive(:new).and_return(query)
+      is_expected.to eq({ 'CH' => 2, 'CN' => 4 })
+    end
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'top_countries_chart_data' }
+    end
+  end
+
+  describe '#top_regions_chart_data' do
+    subject { facade.top_regions_chart_data }
+
+    let(:query) do
+      instance_double(
+        TopRegionsQuery,
+        query: { 'Caribbean' => 2, 'Northern America' => 4 }
+      )
+    end
+
+    it do
+      expect(TopRegionsQuery).to receive(:new).and_return(query)
+      is_expected.to eq({ 'Caribbean' => 2, 'Northern America' => 4 })
+    end
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'top_regions_chart_data' }
     end
   end
 

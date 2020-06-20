@@ -41,7 +41,9 @@ describe DashboardController do
           country_code_array: [country.cca2],
           countries: [country],
           visited_countries_counter: counter,
-          countries_chart_data: {}
+          countries_yearly_chart_data: {},
+          top_countries_chart_data: {},
+          top_regions_chart_data: {}
         )
       end
 

@@ -1,0 +1,8 @@
+.card.no-border.no-bg
+  .card-heading.no-border.text-center{ style: 'background: #FFF;' }
+    %span.pt-1.text-sm.text-semibold Countries per Year
+  .card-body{ style: 'background: #FFF;' }
+    #countries_chart
+      = line_chart @dashboard.countries_yearly_chart_data.map { |graph|  |
+        { name: graph[:name], data: graph[:query] }                      |
+      }, colors: ['#4A89DC', '#DA4453'], defer: true                     |

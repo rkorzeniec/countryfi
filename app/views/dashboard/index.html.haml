@@ -4,8 +4,13 @@
 .row.py-4
   #dashboard-pie-charts.col-md-12.col-xl-6
     = render 'dashboard/index/continent_progress_charts'
-  .col-md-12.col-xl-6
-    = render 'dashboard/index/countries_chart'
+  .col-sm-12.col-md-6.col-xl-3
+    = render 'dashboard/index/top_countries_chart'
+  .col-sm-12.col-md-6.col-xl-3
+    = render 'dashboard/index/top_regions_chart'
+.row
+  .col
+    = render 'dashboard/index/countries_line_chart'
 -# .row
   -# .col-sm-4
     -# Top countries

@@ -1,0 +1,9 @@
+.card.no-border.no-bg
+  .card-heading.no-border.text-center{ style: 'background: #FFF;' }
+    %span.pt-1.text-sm.text-semibold Top Countries
+  .card-body{ style: 'background: #FFF;' }
+    = bar_chart                                                                           |
+      @dashboard.top_countries_chart_data,                                                |
+      library: { tooltips: { titleFontSize: 0, titleSpacing: 0, titleMarginBottom: 0 } }, |
+      dataset: { borderWidth: 0, barThickness: 14, backgroundColor: '#4A89DC' },          |
+      defer: true                                                                         |
