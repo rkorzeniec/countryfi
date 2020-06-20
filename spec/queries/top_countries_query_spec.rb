@@ -23,41 +23,41 @@ describe TopCountriesQuery do
       create_list(:checkin, 4, user: user, country: asian_country)
     end
 
+    let!(:oceanian_country) { create(:country, :oceanian) }
+    let!(:oceanian_checkins) do
+      create_list(:checkin, 2, user: user, country: oceanian_country)
+    end
+
+    let!(:north_american_country) { create(:country, :north_american) }
+    let!(:north_american_checkins) do
+      create_list(:checkin, 2, user: user, country: north_american_country)
+    end
+
+    let!(:caribbean_country) { create(:country, :caribbean) }
+    let!(:caribbean_checkins) do
+      create_list(:checkin, 2, user: user, country: caribbean_country)
+    end
+
+    let!(:south_american_country) { create(:country, :south_american) }
+    let!(:south_american_checkins) do
+      create_list(:checkin, 2, user: user, country: south_american_country)
+    end
+
     let!(:antarctican_country) { create(:country, :antarctican) }
     let!(:antarctican_checkins) do
       create(:checkin, user: user, country: antarctican_country)
     end
 
-    let!(:oceanian_country) { create(:country, :oceanian) }
-    let!(:oceanian_checkins) do
-      create(:checkin, user: user, country: oceanian_country)
-    end
-
-    let!(:north_american_country) { create(:country, :north_american) }
-    let!(:north_american_checkins) do
-      create(:checkin, user: user, country: north_american_country)
-    end
-
-    let!(:caribbean_country) { create(:country, :caribbean) }
-    let!(:caribbean_checkins) do
-      create(:checkin, user: user, country: caribbean_country)
-    end
-
-    let!(:south_american_country) { create(:country, :south_american) }
-    let!(:south_american_checkins) do
-      create(:checkin, user: user, country: south_american_country)
-    end
-
     it do
       is_expected.to eq(
         {
-          'AQ' => 1,
-          'AU' => 1,
-          'CA' => 1,
+          'AU' => 2,
+          'CA' => 2,
           'CH' => 2,
           'CN' => 4,
-          'CU' => 1,
-          'MG' => 3
+          'CU' => 2,
+          'MG' => 3,
+          'PE' => 2
         }
       )
     end
