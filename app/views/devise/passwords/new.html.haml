@@ -3,7 +3,7 @@
     %h2.text-center.text-lg Forgot your password?
 
 .row
-  .col-xs-12.mx-auto.w-50.px-lg-5.mt-3
+  .col-xs-12.mx-auto.px-lg-5.mt-3
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
       = devise_error_messages!
       .form-group
