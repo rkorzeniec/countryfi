@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :border_countries
     resources :checkins
     resources :countries
+    resources :announcements
+    resources :notifications
     resources :country_alternative_spellings
     resources :country_calling_codes
     resources :country_languages
