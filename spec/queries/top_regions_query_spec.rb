@@ -57,7 +57,7 @@ describe TopRegionsQuery do
           'Eastern Asia' => 4,
           'Northern America' => 2,
           'South America' => 2,
-          'Western Europe' => 2,
+          'Western Europe' => 2
         }
       )
     end
