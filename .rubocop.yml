@@ -28,6 +28,9 @@ Metrics/MethodLength:
 Layout/ClassStructure:
   Enabled: true
 
+Layout/LeadingCommentSpace:
+  Enabled: false
+
 Layout/LineLength:
   Max: 85
   Exclude:
@@ -38,6 +41,9 @@ Layout/LineLength:
     - 'db/**/*.rb'
     - 'spec/rails_helper.rb'
     - 'spec/support/**/*.rb'
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
 
 Lint/AmbiguousBlockAssociation:
   Exclude:

@@ -22,15 +22,24 @@
       %li.nav-item.text-nowrap= link_to 'Explore', explore_worlds_path, class: 'nav-link '
       %li.nav-item.text-nowrap= link_to 'Checkins', checkins_worlds_path, class: 'nav-link'
       %li.nav-item.dropdown
-        = link_to '#', id: 'navbarDropdown', class: 'dropdown-toggle nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
+        = link_to '#', id: 'navbarProfile', class: 'dropdown-toggle nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
           -# = image_tag gravatar_url(36), class: 'rounded-circle', data: { toggle: 'tooltip', title: 'Want to change your avatar? Go to gravatar.com'}
           %i.far.fa-user
           %span.hidden-md Profile
-        .dropdown-menu{ aria: { labelledby: 'navbarDropdown' } }
+        .dropdown-menu{ aria: { labelledby: 'navbarProfile' } }
           .dropdown-item.text-md= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link'
           .dropdown-item.text-md= link_to 'Settings', edit_preferences_path, class: 'nav-link'
           .dropdown-divider
           .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+      %li#navbarNotifications.nav-item.dropdown.d-none
+        = link_to '#', id: 'navbarNotificationsLink', class: 'nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
+          %i.fas.fa-bell.text-danger
+        #navbarNotificationsDropdown.dropdown-menu{ aria: { labelledby: 'navbarNotificationsLink' } }
+          .dropdown-divider
+          .dropdown-item.text-xs.text-muted
+            = link_to mark_as_read_notifications_path, method: :post, remote: true, class: 'nav-link' do
+              %i.fas.fa-check.text-xs
+              Mark all as read
     - else
       %li.nav-item.text-nowrap= link_to 'Log in', new_user_session_path, class: 'nav-link '
       %li.nav-item.text-nowrap= link_to 'Sign up', new_user_registration_path, class: 'nav-link'

@@ -12,6 +12,10 @@ class User < ApplicationRecord
            class_name: 'Checkin',
            inverse_of: :user
   has_many :visited_countries, source: :country, through: :visited_checkins
+  has_many :notifications,
+           foreign_key: :recipient_id,
+           dependent: :destroy,
+           inverse_of: :recipient
 
   delegate :european, :north_american, :south_american, :asian, :oceanian,
            :african, :antarctican, to: :countries, prefix: true

@@ -43,3 +43,7 @@ body, .sticky-footer-wrapper {
   right: 0 !important;
   left: auto !important;
 }
+
+.notification-item:hover .d-none {
+  display: inline-block !important;
+}

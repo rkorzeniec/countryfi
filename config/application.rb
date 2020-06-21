@@ -66,5 +66,7 @@ module Countryfier
     config.filter_parameters += %i[email password password_confirmation query mutation]
 
     config.skylight.environments = ['production']
+
+    config.active_job.queue_adapter = :delayed_job
   end
 end

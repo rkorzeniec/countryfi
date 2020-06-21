@@ -1,0 +1,5 @@
+.dropdown-item-text.notification-item.text-sm.text-muted{ id: "notification-#{notification.id}" }
+  .d-flex.justify-content-between
+    = notification.message
+    = link_to '#', { data: { behavior: 'notification-link' } }, id: notification.id do
+      %i.fas.fa-times.text-xs.d-block.d-sm-none

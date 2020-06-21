@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :border_countries
     resources :checkins
     resources :countries
+    resources :announcements
+    resources :notifications
     resources :country_alternative_spellings
     resources :country_calling_codes
     resources :country_languages
@@ -48,6 +50,11 @@ Rails.application.routes.draw do
   end
 
   resource :preferences, only: %i[edit update]
+
+  resources :notifications, only: :index do
+    post :mark_as_read, on: :collection
+    post :mark_as_read, on: :member
+  end
 
   root 'hello', action: :index, controller: 'hello'
 
