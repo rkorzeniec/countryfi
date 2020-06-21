@@ -51,10 +51,11 @@ Rails.application.routes.draw do
 
   resource :preferences, only: %i[edit update]
 
-  resources :notifications,
-            only: :index,
-            constraints: { format: :json },
-            defaults: { format: :json }
+  resources :notifications, only: :index do
+    post :mark_as_read, on: :collection
+    post :mark_as_read, on: :member
+  end
+
   root 'hello', action: :index, controller: 'hello'
 
   if Rails.env.development?
