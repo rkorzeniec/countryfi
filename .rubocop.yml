@@ -28,6 +28,9 @@ Metrics/MethodLength:
 Layout/ClassStructure:
   Enabled: true
 
+Layout/LeadingCommentSpace:
+  Enabled: false
+
 Layout/LineLength:
   Max: 85
   Exclude:
