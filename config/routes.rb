@@ -51,6 +51,10 @@ Rails.application.routes.draw do
 
   resource :preferences, only: %i[edit update]
 
+  resources :notifications,
+            only: :index,
+            constraints: { format: :json },
+            defaults: { format: :json }
   root 'hello', action: :index, controller: 'hello'
 
   if Rails.env.development?
