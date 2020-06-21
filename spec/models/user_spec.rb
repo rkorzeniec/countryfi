@@ -18,6 +18,13 @@ describe User, type: :model do
       .through(:visited_checkins)
   end
 
+  it do
+    is_expected.to have_many(:notifications)
+      .with_foreign_key(:recipient_id)
+      .dependent(:destroy)
+      .inverse_of(:recipient)
+  end
+
   describe 'countries extended associations' do
     subject { user.visited_countries }
 
