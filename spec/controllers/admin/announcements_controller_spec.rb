@@ -38,5 +38,37 @@ describe Admin::AnnouncementsController do
       post(:destroy, params: { id: announcement.id })
       expect(response.status).to eq(302)
     end
+
+    describe '#create' do
+      subject { post(:create, params: params) }
+
+      context 'when successful' do
+        let(:params) { { announcement: { message: 'Super mambo test' } } }
+
+        it do
+          expect(Admin::AnnouncementNotificationsCreator).to receive(:new)
+            .with(a_kind_of(Announcement)).and_call_original
+
+          expect { subject }.to change { Announcement.count }
+            .from(0).to(1)
+            .and change { Delayed::Job.count }
+            .from(0).to(1)
+
+          new_announcement = Announcement.last
+          expect(response).to redirect_to(
+            admin_announcement_path(new_announcement)
+          )
+        end
+      end
+
+      context 'when successful' do
+        let(:params) { { announcement: { message: nil } } }
+
+        it do
+          expect { subject }.not_to change { Announcement.count }
+          expect(response).to render_template(:new)
+        end
+      end
+    end
   end
 end
