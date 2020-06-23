@@ -1,28 +1,28 @@
-== README
+# Countify
+Track and hack your travel experiences, quantify your travels and keep on top of the countries yet to see.
+https://countrify.net
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## App
+Rails app, handling BE and FE.
 
-Things you may want to cover:
+## DB
+The database used is MySQL 8, running on localhost, default port 3306.
 
-* Ruby version
+## Caching
+The app uses memcached as its caching mechanism, running on localhost as the app, on the default port.
 
-* System dependencies
+## CI
+Some github actions are implemented in the taste of CI.
+Github actions run i.e. linting, testing.
 
-* Configuration
+## Deployment
+App is deployed using capistrano.
 
-* Database creation
+## Server
+App is hosted on a small Virtual Private Server provided by Hetzner.
 
-* Database initialization
+## DevOps
+Ansible script is used to provision servers.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Countries
+Country data is seeded from https://github.com/mledoze/countries
