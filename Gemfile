@@ -60,7 +60,7 @@ end
 group :test do
   gem 'database_cleaner', '~> 1.8.5'
   gem 'factory_bot_rails', '~> 6.0.0'
-  gem 'rails-controller-testing', '~> 1.0.2'
+  gem 'rails-controller-testing', '~> 1.0.5'
   gem 'rspec-graphql_matchers', '~> 1.3.0'
   gem 'shoulda-matchers', '~> 4.3.0'
   gem 'stub_env'
