@@ -14,7 +14,7 @@ gem 'graphql', '~> 1.10.11'
 gem 'jwt', '~> 2.2.1'
 gem 'mysql2'
 gem 'sentry-raven', '~> 3.0.0'
-gem 'skylight', '~> 4.3.0'
+gem 'skylight', '~> 4.3.1'
 gem 'therubyracer', '~> 0.12.3'
 
 gem 'administrate', '~> 0.13.0'
