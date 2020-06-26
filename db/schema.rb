@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_101804) do
+ActiveRecord::Schema.define(version: 2020_06_26_200503) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "message"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2020_06_20_101804) do
   create_table "currencies", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "code"
+    t.string "name", limit: 100
+    t.string "symbol", limit: 15
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["country_id"], name: "fk_rails_47700155d2"
