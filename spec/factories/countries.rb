@@ -11,7 +11,6 @@ FactoryBot.define do
     capital { 'Bern' }
     region { 'Europe' }
     subregion { 'Western Europe' }
-    demonym { 'Swiss' }
     landlocked { true }
     area { 41_284 }
     latitude { 47 }
@@ -28,7 +27,6 @@ FactoryBot.define do
     capital { 'Antananarivo' }
     region { 'Africa' }
     subregion { 'Eastern Africa' }
-    demonym { 'Malagasy' }
     landlocked { false }
     area { 587_041 }
     latitude { -20 }
@@ -45,7 +43,6 @@ FactoryBot.define do
     capital { '' }
     region { 'Antarctica' }
     subregion { 'Antarctica' }
-    demonym { 'Antarctican' }
     landlocked { false }
     area { 14_000_000 }
     latitude { -90 }
@@ -62,7 +59,6 @@ FactoryBot.define do
     capital { 'Beijing' }
     region { 'Asia' }
     subregion { 'Eastern Asia' }
-    demonym { 'Chinese' }
     landlocked { false }
     area { 9_706_960 }
     latitude { 35 }
@@ -79,7 +75,6 @@ FactoryBot.define do
     capital { 'Canberra' }
     region { 'Oceania' }
     subregion { 'Australia and New Zealand' }
-    demonym { 'Australian' }
     landlocked { false }
     area { 7_692_020 }
     latitude { -27 }
@@ -96,7 +91,6 @@ FactoryBot.define do
     capital { 'Ottawa' }
     region { 'Americas' }
     subregion { 'Northern America' }
-    demonym { 'Canadian' }
     landlocked { false }
     area { 9_984_670 }
     latitude { 60 }
@@ -113,7 +107,6 @@ FactoryBot.define do
     capital { 'Mexico City' }
     region { 'Americas' }
     subregion { 'Central America' }
-    demonym { 'Mexican' }
     landlocked { false }
     area { 1_964_380 }
     latitude { 23 }
@@ -130,7 +123,6 @@ FactoryBot.define do
     capital { 'Havana' }
     region { 'Americas' }
     subregion { 'Caribbean' }
-    demonym { 'Cuban' }
     landlocked { false }
     area { 109_884 }
     latitude { 21 }
@@ -147,7 +139,6 @@ FactoryBot.define do
     capital { 'Lima' }
     region { 'Americas' }
     subregion { 'South America' }
-    demonym { 'Peruvian' }
     landlocked { false }
     area { 1_285_220 }
     latitude { -10 }
