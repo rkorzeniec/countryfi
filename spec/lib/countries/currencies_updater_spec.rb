@@ -20,6 +20,7 @@ describe Countries::CurrenciesUpdater do
     let!(:currency) { create(:currency, country: country, code: 'CHF') }
 
     it 'updates records' do
+      expect(Rails.logger).to receive(:info).twice.with(/Currency/)
       expect(Currency).to receive(:find_or_create_by)
         .twice
         .and_call_original

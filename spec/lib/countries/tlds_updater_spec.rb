@@ -13,6 +13,7 @@ describe Countries::TldsUpdater do
     let!(:language) { create(:top_level_domain, country: country, name: '.ch') }
 
     it 'updates records' do
+      expect(Rails.logger).to receive(:info).twice.with(/TopLevelDomain/)
       expect(TopLevelDomain).to receive(:find_or_create_by)
         .twice
         .and_call_original

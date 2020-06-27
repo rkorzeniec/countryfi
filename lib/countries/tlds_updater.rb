@@ -2,6 +2,8 @@
 
 module Countries
   class TldsUpdater
+    include UpdaterLogger
+
     LOG_COLUMNS = %w[country_id name].freeze
 
     def initialize(country:, data:)

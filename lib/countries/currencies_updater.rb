@@ -2,6 +2,8 @@
 
 module Countries
   class CurrenciesUpdater
+    include UpdaterLogger
+
     LOG_COLUMNS = %w[country_id code name symbol].freeze
 
     def initialize(country:, data:)

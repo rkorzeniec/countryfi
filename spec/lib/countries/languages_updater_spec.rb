@@ -13,6 +13,7 @@ describe Countries::LanguagesUpdater do
     let!(:language) { create(:country_language, country: country, code: 'eng') }
 
     it 'updates records' do
+      expect(Rails.logger).to receive(:info).twice.with(/CountryLanguage/)
       expect(CountryLanguage).to receive(:find_or_create_by)
         .twice
         .and_call_original

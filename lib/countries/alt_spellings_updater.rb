@@ -2,6 +2,7 @@
 
 module Countries
   class AltSpellingsUpdater
+    include UpdaterLogger
 
     LOG_COLUMNS = %w[country_id name].freeze
 

@@ -2,6 +2,8 @@
 
 module Countries
   class CallingCodesUpdater
+    include UpdaterLogger
+
     LOG_COLUMNS = %w[country_id code].freeze
 
     def initialize(country:, data:)

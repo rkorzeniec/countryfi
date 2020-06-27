@@ -19,6 +19,10 @@ describe Countries::AltSpellingsUpdater do
     end
 
     it 'updates records' do
+      expect(Rails.logger).to receive(:info)
+        .exactly(6)
+        .with(/CountryAlternativeSpelling/)
+
       expect(CountryAlternativeSpelling).to receive(:find_or_create_by)
         .exactly(6).times
         .and_call_original

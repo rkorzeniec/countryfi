@@ -17,6 +17,7 @@ describe Countries::CallingCodesUpdater do
     end
 
     it 'updates records' do
+      expect(Rails.logger).to receive(:info).twice.with(/CountryCallingCode/)
       expect(CountryCallingCode).to receive(:find_or_create_by)
         .twice
         .and_call_original
