@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2020_06_27_075918) do
     t.string "capital"
     t.string "region"
     t.string "subregion"
-    t.string "demonym"
     t.boolean "landlocked"
     t.float "area"
     t.datetime "created_at", null: false
