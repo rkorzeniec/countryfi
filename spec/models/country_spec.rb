@@ -18,6 +18,8 @@ describe Country do
       .dependent(:destroy)
   end
 
+  it { is_expected.to have_many(:demonyms).dependent(:destroy) }
+
   describe '.arranged_by_name' do
     subject { described_class.arranged_by_name }
 

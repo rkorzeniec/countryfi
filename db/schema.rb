@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_200503) do
+ActiveRecord::Schema.define(version: 2020_06_27_075918) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "message"
@@ -105,6 +105,16 @@ ActiveRecord::Schema.define(version: 2020_06_26_200503) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "demonyms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "country_id"
+    t.string "locale", limit: 5
+    t.string "gender", limit: 5
+    t.string "name"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.index ["country_id"], name: "index_demonyms_on_country_id"
+  end
+
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "recipient_id", null: false
     t.string "notifiable_type", null: false
@@ -151,5 +161,6 @@ ActiveRecord::Schema.define(version: 2020_06_26_200503) do
   add_foreign_key "country_calling_codes", "countries"
   add_foreign_key "country_languages", "countries"
   add_foreign_key "currencies", "countries"
+  add_foreign_key "demonyms", "countries"
   add_foreign_key "top_level_domains", "countries"
 end
