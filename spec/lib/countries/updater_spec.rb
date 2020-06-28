@@ -32,7 +32,7 @@ describe Countries::Updater do
       end
 
       it 'updates records' do
-        expect(Country).to receive(:find_or_create_by)
+        expect(Country).to receive(:find_or_create_by).exactly(6).times
           .and_call_original
 
         expect(Countries::TldsUpdater).to receive(:new)
@@ -95,7 +95,7 @@ describe Countries::Updater do
 
     context 'with new country' do
       it 'creates records' do
-        expect(Country).to receive(:find_or_create_by)
+        expect(Country).to receive(:find_or_create_by).exactly(6).times
           .and_call_original
 
         expect(Countries::TldsUpdater).to receive(:new)
@@ -147,7 +147,7 @@ describe Countries::Updater do
             data: %w[AUT FRA ITA LIE DEU]
           ).and_call_original
 
-        expect { subject }.to change { Country.count }.from(0).to(1)
+        expect { subject }.to change { Country.count }.from(0).to(6)
       end
     end
   end

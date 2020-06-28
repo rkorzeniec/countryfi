@@ -8,11 +8,11 @@ describe Countries::DataUpdater do
     subject { updater.call }
 
     it do
-      expect { subject }.to change { Country.count }.from(0).to(2)
+      expect { subject }.to change { Country.count }.from(0).to(10)
     end
 
     it do
-      expect { subject }.to change { BorderCountry.count }.from(0).to(2)
+      expect { subject }.to change { BorderCountry.count }.from(0).to(13)
     end
   end
 end

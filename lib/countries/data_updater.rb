@@ -7,8 +7,7 @@ module Countries
     end
 
     def call
-      update_counries
-      update_borders
+      update_countries
     end
 
     private
