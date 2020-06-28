@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddExtraColumnsToCurrencies < ActiveRecord::Migration[6.0]
   def change
     change_table :currencies, bulk: true do |t|
