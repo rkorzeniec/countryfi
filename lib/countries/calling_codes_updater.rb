@@ -13,6 +13,8 @@ module Countries
 
     def call
       data.each do |code_data|
+        next if code_data.blank?
+
         calling_code = find_or_create_by(code_data)
         update_calling_code(calling_code, code_data)
         log_update(calling_code, LOG_COLUMNS)

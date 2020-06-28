@@ -14,6 +14,8 @@ module Countries
     def call
       data.each do |demonym_data|
         demonym_data[1].each do |gender, name|
+          next if gender.blank? || name.blank?
+
           locale = demonym_data[0]
           handle_demonym_per_gender(locale, gender, name)
         end

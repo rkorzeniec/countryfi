@@ -50,5 +50,34 @@ describe Countries::DemonymsUpdater do
       expect(demonym.gender).to eq('m')
       expect(demonym.name).to eq('Suisse')
     end
+
+    context 'without name' do
+      let(:data) do
+        {
+          eng: { f: 'Swiss', m: '' },
+          fra: { f: '', m: 'Suisse' }
+        }
+      end
+
+      it 'updates records' do
+        expect(Rails.logger).to receive(:info).exactly(2).times.with(/Demonym/)
+        expect(Demonym).to receive(:find_or_create_by)
+          .exactly(2).times
+          .and_call_original
+
+        expect { subject }.to change { country.demonyms.count }
+          .from(1).to(2)
+
+        demonym = Demonym.first
+        expect(demonym.locale).to eq('eng')
+        expect(demonym.gender).to eq('f')
+        expect(demonym.name).to eq('Swiss')
+
+        demonym = Demonym.second
+        expect(demonym.locale).to eq('fra')
+        expect(demonym.gender).to eq('m')
+        expect(demonym.name).to eq('Suisse')
+      end
+    end
   end
 end
