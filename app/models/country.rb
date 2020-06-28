@@ -21,7 +21,7 @@ class Country < ApplicationRecord
     where(
       [
         "region = 'Americas' AND "\
-        "subregion = 'Northern America' OR "\
+        "subregion = 'North America' OR "\
         "subregion = 'Central America' OR "\
         "subregion = 'Caribbean'"
       ]

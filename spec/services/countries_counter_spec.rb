@@ -7,7 +7,7 @@ describe CountriesCounter do
   let(:african_country) { create(:country, region: 'Africa') }
   let(:antarctic_country) { create(:country, region: 'Antarctic') }
   let(:north_american_country) do
-    create(:country, region: 'Americas', subregion: 'Northern America')
+    create(:country, region: 'Americas', subregion: 'North America')
   end
   let(:central_american_country) do
     create(:country, region: 'Americas', subregion: 'Central America')

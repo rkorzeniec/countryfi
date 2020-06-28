@@ -55,7 +55,7 @@ describe TopRegionsQuery do
           'Caribbean' => 2,
           'Eastern Africa' => 3,
           'Eastern Asia' => 4,
-          'Northern America' => 2,
+          'North America' => 2,
           'South America' => 2,
           'Western Europe' => 2
         }

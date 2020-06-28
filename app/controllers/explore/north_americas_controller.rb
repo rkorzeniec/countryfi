@@ -6,7 +6,7 @@ module Explore
       @explore_facade = ExploreFacade.new(
         visited_countries.north_american,
         region: 'Americas',
-        subregions: ['Northern America', 'Central America', 'Caribbean']
+        subregions: ['North America', 'Central America', 'Caribbean']
       )
     end
   end

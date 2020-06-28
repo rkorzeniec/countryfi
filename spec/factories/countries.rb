@@ -90,7 +90,7 @@ FactoryBot.define do
     cioc { 'CAN' }
     capital { 'Ottawa' }
     region { 'Americas' }
-    subregion { 'Northern America' }
+    subregion { 'North America' }
     landlocked { false }
     area { 9_984_670 }
     latitude { 60 }

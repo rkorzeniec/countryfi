@@ -123,13 +123,13 @@ describe DashboardFacade do
     let(:query) do
       instance_double(
         TopRegionsQuery,
-        query: { 'Caribbean' => 2, 'Northern America' => 4 }
+        query: { 'Caribbean' => 2, 'North America' => 4 }
       )
     end
 
     it do
       expect(TopRegionsQuery).to receive(:new).and_return(query)
-      is_expected.to eq({ 'Caribbean' => 2, 'Northern America' => 4 })
+      is_expected.to eq({ 'Caribbean' => 2, 'North America' => 4 })
     end
 
     it_behaves_like 'with cached method' do
