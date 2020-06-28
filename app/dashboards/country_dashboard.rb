@@ -25,11 +25,14 @@ class CountryDashboard < Administrate::BaseDashboard
     cca3: Field::String,
     cioc: Field::String,
     capital: Field::String,
+    independent: Field::Boolean,
+    status: Field::String,
     region: Field::String,
     subregion: Field::String,
-    demonym: Field::String,
+    demonyms: Field::HasMany,
     landlocked: Field::Boolean,
     area: Field::Number.with_options(decimals: 2),
+    flag: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     latitude: Field::String.with_options(searchable: false),
@@ -54,9 +57,10 @@ class CountryDashboard < Administrate::BaseDashboard
     cca3
     cioc
     capital
+    independent
+    status
     region
     subregion
-    demonym
     landlocked
     area
     created_at
@@ -65,6 +69,7 @@ class CountryDashboard < Administrate::BaseDashboard
     longitude
     checkins
     currencies
+    demonyms
     top_level_domains
     country_languages
     country_calling_codes
@@ -90,9 +95,10 @@ class CountryDashboard < Administrate::BaseDashboard
     cca3
     cioc
     capital
+    independent
+    status
     region
     subregion
-    demonym
     landlocked
     area
     latitude
