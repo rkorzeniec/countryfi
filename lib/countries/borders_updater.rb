@@ -2,7 +2,7 @@
 
 module Countries
   class BordersUpdater
-    include UpdaterLogger
+    include ::Countries::UpdaterLogger
 
     LOG_COLUMNS = %w[country_id border_country_id].freeze
 

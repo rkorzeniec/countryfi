@@ -2,7 +2,7 @@
 
 module Countries
   class CallingCodesUpdater
-    include UpdaterLogger
+    include ::Countries::UpdaterLogger
 
     LOG_COLUMNS = %w[country_id calling_code].freeze
 

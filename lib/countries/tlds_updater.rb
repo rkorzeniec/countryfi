@@ -2,7 +2,7 @@
 
 module Countries
   class TldsUpdater
-    include UpdaterLogger
+    include ::Countries::UpdaterLogger
 
     LOG_COLUMNS = %w[country_id name].freeze
 

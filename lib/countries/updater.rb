@@ -2,7 +2,7 @@
 
 module Countries
   class Updater
-    include UpdaterLogger
+    include ::Countries::UpdaterLogger
 
     LOG_COLUMNS = %w[
       name_common name_official cca2 ccn3 cca3 cioc independent status

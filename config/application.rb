@@ -23,6 +23,8 @@ module Countryfier
       #{config.root}/app/queries
       #{config.root}/app/facades
     ]
+    config.eager_load_paths << Rails.root.join('lib')
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -68,5 +70,7 @@ module Countryfier
     config.skylight.environments = ['production']
 
     config.active_job.queue_adapter = :delayed_job
+
+    config.eager_load = true
   end
 end

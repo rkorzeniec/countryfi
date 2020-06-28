@@ -2,7 +2,7 @@
 
 module Countries
   class CurrenciesUpdater
-    include UpdaterLogger
+    include ::Countries::UpdaterLogger
 
     LOG_COLUMNS = %w[country_id code name symbol].freeze
 

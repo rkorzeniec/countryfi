@@ -2,7 +2,7 @@
 
 module Countries
   class DemonymsUpdater
-    include UpdaterLogger
+    include ::Countries::UpdaterLogger
 
     LOG_COLUMNS = %w[country_id locale gender name].freeze
 
