@@ -17,7 +17,7 @@ module Countries
       find_or_create
       update_country
       update_associations
-      log_update(country)
+      log_update(country, LOG_COLUMNS)
     end
 
     private
@@ -32,6 +32,8 @@ module Countries
       country.update!(country_attributes)
     end
 
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def country_attributes
       {
         name_common: data['name']['common'],
@@ -47,10 +49,12 @@ module Countries
         subregion: data['subregion'],
         latitude: data['latlng'].first,
         longitude: data['latlng'].second,
-        area: data['area'],
+        area: data['area']
         # flag: data['flag']
       }
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
     def update_associations
       update_tlds
