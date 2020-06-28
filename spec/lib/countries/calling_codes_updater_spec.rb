@@ -6,7 +6,7 @@ describe Countries::CallingCodesUpdater do
   let(:data) { %w[+41 +297] }
 
   it do
-    expect(described_class::LOG_COLUMNS).to eq(%w[country_id code])
+    expect(described_class::LOG_COLUMNS).to eq(%w[country_id calling_code])
   end
 
   describe '#call' do

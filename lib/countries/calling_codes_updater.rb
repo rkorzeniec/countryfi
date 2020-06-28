@@ -4,7 +4,7 @@ module Countries
   class CallingCodesUpdater
     include UpdaterLogger
 
-    LOG_COLUMNS = %w[country_id code].freeze
+    LOG_COLUMNS = %w[country_id calling_code].freeze
 
     def initialize(country:, data:)
       @country = country
