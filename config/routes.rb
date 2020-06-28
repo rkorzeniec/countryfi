@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :country_alternative_spellings
     resources :country_calling_codes
     resources :country_languages
+    resources :demonyms
     resources :currencies
     resources :top_level_domains
 

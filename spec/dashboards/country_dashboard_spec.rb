@@ -18,11 +18,14 @@ describe CountryDashboard do
       cca3: Administrate::BaseDashboard::Field::String,
       cioc: Administrate::BaseDashboard::Field::String,
       capital: Administrate::BaseDashboard::Field::String,
+      independent: Administrate::BaseDashboard::Field::Boolean,
+      status: Administrate::BaseDashboard::Field::String,
       region: Administrate::BaseDashboard::Field::String,
       subregion: Administrate::BaseDashboard::Field::String,
-      demonym: Administrate::BaseDashboard::Field::String,
+      demonyms: Administrate::BaseDashboard::Field::HasMany,
       landlocked: Administrate::BaseDashboard::Field::Boolean,
       area: Administrate::BaseDashboard::Field::Number.with_options(decimals: 2),
+      flag: Administrate::BaseDashboard::Field::String,
       created_at: Administrate::BaseDashboard::Field::DateTime,
       updated_at: Administrate::BaseDashboard::Field::DateTime,
       latitude: Administrate::BaseDashboard::Field::String.with_options(
@@ -51,9 +54,10 @@ describe CountryDashboard do
         cca3
         cioc
         capital
+        independent
+        status
         region
         subregion
-        demonym
         landlocked
         area
         created_at
@@ -62,6 +66,7 @@ describe CountryDashboard do
         longitude
         checkins
         currencies
+        demonyms
         top_level_domains
         country_languages
         country_calling_codes
@@ -88,9 +93,10 @@ describe CountryDashboard do
         cca3
         cioc
         capital
+        independent
+        status
         region
         subregion
-        demonym
         landlocked
         area
         latitude

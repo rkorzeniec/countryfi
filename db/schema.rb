@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_101804) do
+ActiveRecord::Schema.define(version: 2020_06_27_110118) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "message"
@@ -46,9 +46,11 @@ ActiveRecord::Schema.define(version: 2020_06_20_101804) do
     t.string "capital"
     t.string "region"
     t.string "subregion"
-    t.string "demonym"
     t.boolean "landlocked"
     t.float "area"
+    t.boolean "independent"
+    t.string "status", limit: 50
+    t.string "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "latitude", precision: 10, default: "0"
@@ -83,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_06_20_101804) do
   create_table "currencies", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "code"
+    t.string "name", limit: 100
+    t.string "symbol", limit: 15
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["country_id"], name: "fk_rails_47700155d2"
@@ -101,6 +105,16 @@ ActiveRecord::Schema.define(version: 2020_06_20_101804) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "demonyms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "country_id"
+    t.string "locale", limit: 5
+    t.string "gender", limit: 5
+    t.string "name"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.index ["country_id"], name: "index_demonyms_on_country_id"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -149,5 +163,6 @@ ActiveRecord::Schema.define(version: 2020_06_20_101804) do
   add_foreign_key "country_calling_codes", "countries"
   add_foreign_key "country_languages", "countries"
   add_foreign_key "currencies", "countries"
+  add_foreign_key "demonyms", "countries"
   add_foreign_key "top_level_domains", "countries"
 end

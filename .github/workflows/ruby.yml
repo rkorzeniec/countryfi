@@ -108,7 +108,10 @@ jobs:
           DB_USER: root
           DB_PASSWORD: root
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
-        run: bin/rails db:prepare
+        run: |
+          bin/rails db:create
+          bin/rails db:schema:load
+          bin/rails db:migrate
 
       - name: Run tests
         run: COVERAGE=true bundle exec rspec  --require rails_helper

@@ -1,0 +1,112 @@
+[
+  {
+    name: {
+      common: Switzerlnad,
+      official: 'Swiss Confederation',
+      native: {
+        fra: { official: 'Confédération suisse', common: Suisse },
+        gsw: { official: 'Schweizerische Eidgenossenschaft', common: Schweiz },
+        ita: { official: 'Confederazione Svizzera', common: Svizzera },
+        roh: { official: 'Confederaziun svizra', common: Svizra }
+      }
+    },
+    tld: [.ch],
+    cca2: CH,
+    ccn3: '756',
+    cca3: CHE,
+    cioc: SUI,
+    independent: true,
+    status: officially-assigned,
+    currencies: { CHF: { name: 'Swiss franc', symbol: Fr. } },
+    idd: { root: '+4', suffixes: ['1'] },
+    capital: [Bern],
+    altSpellings: [CH, 'Swiss Confederation', Schweiz, Suisse, Svizzera, Svizra],
+    region: Europe,
+    subregion: 'Western Europe',
+    languages: {
+      fra: French, gsw: 'Swiss German', ita: Italian, roh: Romansh
+    },
+    translations: {
+      ces: { official: 'Švýcarská konfederace', common: Švýcarsko },
+      deu: { official: 'Schweizerische Eidgenossenschaft', common: Schweiz },
+      est: { official: 'Šveitsi Konföderatsioon', common: Šveits },
+      fin: { official: 'Sveitsin valaliitto', common: Sveitsi },
+      fra: { official: 'Confédération suisse', common: Suisse },
+      hrv: { official: 'švicarska Konfederacija', common: Švicarska },
+      hun: { official: Svájc, common: Svájc },
+      ita: { official: 'Confederazione svizzera', common: Svizzera },
+      jpn: { official: スイス連邦, common: スイス },
+      kor: { official: '스위스 연방', common: 스위스 },
+      nld: { official: 'Zwitserse Confederatie', common: Zwitserland },
+      per: { official: 'کنفدراسیون سوئیس', common: سوئیس },
+      pol: { official: 'Konfederacja Szwajcarska', common: Szwajcaria },
+      por: { official: 'Confederação Suíça', common: Suíça },
+      rus: { official: 'Швейцарская Конфедерация', common: Швейцария },
+      slk: { official: 'Švajčiarska konfederácia', common: Švajčiarsko },
+      spa: { official: 'Confederación Suiza', common: Suiza },
+      urd: { official: 'سوئیس  متحدہ', common: سویٹذرلینڈ },
+      zho: { official: 瑞士联邦, common: 瑞士 }
+    },
+    latlng: [47, 8],
+    landlocked: true,
+    borders: [AUT, FRA, ITA, LIE, DEU],
+    area: 41284, flag: 🇨🇭,
+    demonyms: {
+      eng: { f: Swiss, m: Swiss },
+      fra: { f: Suisse, m: Suisse }
+    },
+    callingCodes: ['+41']
+  },
+  {
+    name: {
+      common: Austria,
+      official: 'Republic of Austria',
+      native: { bar: { official: 'Republik Österreich', common: Österreich } }
+    },
+    tld: [.at],
+    cca2: AT,
+    ccn3: '040',
+    cca3: AUT,
+    cioc: AUT,
+    independent: true,
+    status: officially-assigned,
+    currencies: { EUR: { name: Euro, symbol: € } },
+    idd: { root: '+4', suffixes: ['3'] },
+    capital: [Vienna],
+    altSpellings: [AT, Osterreich, Oesterreich],
+    region: Europe,
+    subregion: 'Western Europe',
+    languages: { bar: 'Austro-Bavarian German' },
+    translations: {
+      ces: { official: 'Rakouská republika', common: Rakousko },
+      cym: { official: 'Gweriniaeth Awstria', common: Awstria },
+      deu: { official: 'Republik Österreich', common: Österreich },
+      est: { official: 'Austria Vabariik', common: Austria },
+      fin: { official: 'Itävallan tasavalta', common: Itävalta },
+      fra: { official: 'République d''Autriche', common: Autriche },
+      hrv: { official: 'Republika Austrija', common: Austrija },
+      hun: { official: Ausztria, common: Ausztria },
+      ita: { official: 'Repubblica d''Austria', common: Austria },
+      jpn: { official: オーストリア共和国, common: オーストリア },
+      kor: { official: '오스트리아 공화국', common: 오스트리아 },
+      nld: { official: 'Republiek Oostenrijk', common: Oostenrijk },
+      per: { official: 'جمهوری اتریش', common: اتریش },
+      pol: { official: 'Republika Austrii', common: Austria },
+      por: { official: 'República da Áustria', common: Áustria },
+      rus: { official: 'Австрийская Республика', common: Австрия },
+      slk: { official: 'Rakúska republika', common: Rakúsko },
+      spa: { official: 'República de Austria', common: Austria },
+      urd: { official: 'جمہوریہ آسٹریا', common: آسٹریا },
+      zho: { official: 奥地利共和国, common: 奥地利 } },
+      latlng: [47.33333333, 13.33333333],
+      landlocked: true,
+      borders: [CZE, DEU, HUN, ITA, LIE, SVK, SVN, CHE],
+      area: 83871,
+      flag: 🇦🇹,
+      demonyms: {
+        eng: { f: Austrian, m: Austrian },
+        fra: { f: Autrichienne, m: Autrichien }
+      },
+      callingCodes: ['+43']
+  }
+]

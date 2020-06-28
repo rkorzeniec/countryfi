@@ -8,6 +8,7 @@ class Country < ApplicationRecord
   has_many :country_calling_codes, dependent: :destroy
   has_many :border_countries, dependent: :destroy
   has_many :country_alternative_spellings, dependent: :destroy
+  has_many :demonyms, dependent: :destroy
 
   scope :arranged_by_name, -> { order('name_common') }
   scope :european, -> { where(region: 'Europe') }
@@ -15,7 +16,7 @@ class Country < ApplicationRecord
   scope :asian, -> { where(region: 'Asia') }
   scope :oceanian, -> { where(region: 'Oceania') }
   scope :african, -> { where(region: 'Africa') }
-  scope :antarctican, -> { where(region: 'Antarctica') }
+  scope :antarctican, -> { where(region: 'Antarctic') }
   scope :north_american, lambda {
     where(
       [
