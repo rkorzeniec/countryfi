@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_27_075918) do
+ActiveRecord::Schema.define(version: 2020_06_27_110118) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "message"
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 2020_06_27_075918) do
     t.string "subregion"
     t.boolean "landlocked"
     t.float "area"
+    t.boolean "independent"
+    t.string "status", limit: 50
+    t.string "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "latitude", precision: 10, default: "0"
