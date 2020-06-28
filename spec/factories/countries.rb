@@ -41,8 +41,8 @@ FactoryBot.define do
     cca3 { 'ATA' }
     cioc { '' }
     capital { '' }
-    region { 'Antarctica' }
-    subregion { 'Antarctica' }
+    region { 'Antarctic' }
+    subregion { 'Antarctic' }
     landlocked { false }
     area { 14_000_000 }
     latitude { -90 }

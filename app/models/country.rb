@@ -16,7 +16,7 @@ class Country < ApplicationRecord
   scope :asian, -> { where(region: 'Asia') }
   scope :oceanian, -> { where(region: 'Oceania') }
   scope :african, -> { where(region: 'Africa') }
-  scope :antarctican, -> { where(region: 'Antarctica') }
+  scope :antarctican, -> { where(region: 'Antarctic') }
   scope :north_american, lambda {
     where(
       [

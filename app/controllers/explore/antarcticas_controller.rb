@@ -4,7 +4,7 @@ module Explore
   class AntarcticasController < BaseExploreController
     def index
       @explore_facade = ExploreFacade.new(
-        visited_countries.antarctican, region: 'Antarctica'
+        visited_countries.antarctican, region: 'Antarctic'
       )
     end
   end
