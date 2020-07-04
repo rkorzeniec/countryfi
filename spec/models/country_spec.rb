@@ -5,7 +5,7 @@ describe Country do
   it { is_expected.to have_many(:currencies).dependent(:restrict_with_error) }
 
   it do
-    expect(subject).to have_many(:top_level_domains)
+    is_expected.to have_many(:top_level_domains)
       .dependent(:restrict_with_error)
   end
 
@@ -14,7 +14,7 @@ describe Country do
   it { is_expected.to have_many(:border_countries).dependent(:destroy) }
 
   it do
-    expect(subject).to have_many(:country_alternative_spellings)
+    is_expected.to have_many(:country_alternative_spellings)
       .dependent(:destroy)
   end
 
@@ -50,31 +50,31 @@ describe Country do
     context 'when name is cca2' do
       let(:name) { 'CH' }
 
-      it { expect(subject).to eq(switzerland) }
+      it { is_expected.to eq(switzerland) }
     end
 
     context 'when name is ccn3' do
       let(:name) { 756 }
 
-      it { expect(subject).to eq(switzerland) }
+      it { is_expected.to eq(switzerland) }
     end
 
     context 'when name is cca3' do
       let(:name) { 'CHE' }
 
-      it { expect(subject).to eq(switzerland) }
+      it { is_expected.to eq(switzerland) }
     end
 
     context 'when name is cioc' do
       let(:name) { 'SUI' }
 
-      it { expect(subject).to eq(switzerland) }
+      it { is_expected.to eq(switzerland) }
     end
 
     context 'when name is neither' do
       let(:name) { nil }
 
-      it { expect(subject).to eq(described_class.first) }
+      it { is_expected.to eq(described_class.first) }
     end
   end
 
@@ -172,7 +172,7 @@ describe Country do
       let(:country) { build_stubbed(:country, cca2: 'mambo') }
 
       it do
-        expect(subject).to eq(
+        is_expected.to eq(
           ActionController::Base.helpers.asset_path('flags/unknown.png')
         )
       end

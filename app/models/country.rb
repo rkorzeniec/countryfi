@@ -29,14 +29,13 @@ class Country < ApplicationRecord
 
   def self.find_by_any(name)
     find_by(
-      "name_common LIKE ?
-      OR name_official LIKE ?
-      OR cca2 LIKE ?
-      OR ccn3 LIKE ?
-      OR cca3 LIKE ?
-      OR cioc LIKE ?",
-      "%#{name}%", "%#{name}%", "%#{name}%",
-      "%#{name}%", "%#{name}%", "%#{name}%"
+      "name_common LIKE :name
+      OR name_official LIKE :name
+      OR cca2 LIKE :name
+      OR ccn3 LIKE :name
+      OR cca3 LIKE :name
+      OR cioc LIKE :name",
+      name: "%#{name}%"
     )
   end
 
