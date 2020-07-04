@@ -33,8 +33,8 @@ describe Country do
   describe '.find_by_any' do
     subject { described_class.find_by_any(name) }
 
-    let(:switzerland) { create(:country) }
-    let(:united_states) do
+    let!(:switzerland) { create(:country) }
+    let!(:united_states) do
       create(
         :country,
         name_common: 'United States', name_official: 'United States of America',
@@ -42,33 +42,76 @@ describe Country do
       )
     end
 
-    before do
-      united_states
-      switzerland
-    end
-
     context 'when name is cca2' do
       let(:name) { 'CH' }
 
       it { is_expected.to eq(switzerland) }
+
+      context 'with prefix' do
+        let(:name) { 'C' }
+
+        it { is_expected.to eq(switzerland) }
+      end
+
+      context 'with suffix' do
+        let(:name) { 'H' }
+
+        it { is_expected.to eq(switzerland) }
+      end
     end
 
     context 'when name is ccn3' do
       let(:name) { 756 }
 
       it { is_expected.to eq(switzerland) }
+
+      context 'with prefix' do
+        let(:name) { 7 }
+
+        it { is_expected.to eq(switzerland) }
+      end
+
+      context 'with suffix' do
+        let(:name) { 56 }
+
+        it { is_expected.to eq(switzerland) }
+      end
     end
 
     context 'when name is cca3' do
       let(:name) { 'CHE' }
 
       it { is_expected.to eq(switzerland) }
+
+      context 'with prefix' do
+        let(:name) { 'CH' }
+
+        it { is_expected.to eq(switzerland) }
+      end
+
+      context 'with suffix' do
+        let(:name) { 'E' }
+
+        it { is_expected.to eq(switzerland) }
+      end
     end
 
     context 'when name is cioc' do
       let(:name) { 'SUI' }
 
       it { is_expected.to eq(switzerland) }
+
+      context 'with prefix' do
+        let(:name) { 'SU' }
+
+        it { is_expected.to eq(switzerland) }
+      end
+
+      context 'with suffix' do
+        let(:name) { 'I' }
+
+        it { is_expected.to eq(switzerland) }
+      end
     end
 
     context 'when name is neither' do
