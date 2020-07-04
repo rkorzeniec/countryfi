@@ -9,41 +9,35 @@ module Dashboard
     end
 
     def visited_world_countries_count
-      cache_fetch(__method__) { uniq_visited_count(calculable_checkins) }
+      cache_fetch(__method__) { countries.size }
     end
 
     def visited_european_countries_count
-      cache_fetch(__method__) { uniq_visited_count(calculable_checkins) }
+      cache_fetch(__method__) { countries.european.size }
     end
 
     def visited_north_american_countries_count
-      cache_fetch(__method__) do
-        uniq_visited_count(calculable_checkins.north_american)
-      end
+      cache_fetch(__method__) { countries.north_american.size }
     end
 
     def visited_south_american_countries_count
-      cache_fetch(__method__) do
-        uniq_visited_count(calculable_checkins.south_american)
-      end
+      cache_fetch(__method__) { countries.south_american.size }
     end
 
     def visited_asian_countries_count
-      cache_fetch(__method__) { uniq_visited_count(calculable_checkins.asian) }
+      cache_fetch(__method__) { countries.asian.size }
     end
 
     def visited_oceanian_countries_count
-      cache_fetch(__method__) { uniq_visited_count(calculable_checkins.oceanian) }
+      cache_fetch(__method__) { countries.oceanian.size }
     end
 
     def visited_african_countries_count
-      cache_fetch(__method__) { uniq_visited_count(calculable_checkins.african) }
+      cache_fetch(__method__) { countries.african.size }
     end
 
     def visited_antarctican_countries_count
-      cache_fetch(__method__) do
-        uniq_visited_count(calculable_checkins.antarctican)
-      end
+      cache_fetch(__method__) { countries.antarctican.size }
     end
 
     private
@@ -59,10 +53,6 @@ module Dashboard
         Rails.logger.info(cache_key(method_name))
         yield
       end
-    end
-
-    def uniq_visited_count(countries)
-      Set.new(countries).size
     end
 
     def cache_key(method_name)
