@@ -146,7 +146,19 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }
+      expect { create(:country, :caribbean) }.to change {
+        described_class.north_american.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country, :central_american) }.to change {
+        described_class.north_american.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country, :south_american) }
         .not_to change { described_class.north_american.count }
     end
   end

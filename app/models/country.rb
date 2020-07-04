@@ -17,14 +17,7 @@ class Country < ApplicationRecord
   scope :african, -> { where(region: 'Africa') }
   scope :antarctican, -> { where(region: 'Antarctic') }
   scope :north_american, lambda {
-    where(
-      [
-        "region = 'Americas' AND "\
-        "subregion = 'North America' OR "\
-        "subregion = 'Central America' OR "\
-        "subregion = 'Caribbean'"
-      ]
-    )
+    where("region = 'Americas' AND subregion <> 'South America'")
   }
 
   def self.find_by_any(name)
