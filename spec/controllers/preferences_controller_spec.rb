@@ -3,8 +3,8 @@
 describe PreferencesController do
   context 'when user not authenticated' do
     it_behaves_like 'authentication_protected_controller', [
-      [:get, :edit, params: { id: 1 }],
-      [:put, :update, params: { id: 1 }]
+      [:get, :edit, { params: { id: 1 } }],
+      [:put, :update, { params: { id: 1 } }]
     ]
   end
 

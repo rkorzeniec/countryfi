@@ -5,7 +5,7 @@ describe Checkins::AsiansController do
 
   context 'when user not authenticated' do
     it_behaves_like 'authentication_protected_controller', [
-      [:get, :index, params: {}]
+      [:get, :index, { params: {} }]
     ]
   end
 

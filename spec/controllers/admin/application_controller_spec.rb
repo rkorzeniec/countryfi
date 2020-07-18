@@ -8,7 +8,7 @@ describe Admin::ApplicationController do
   end
 
   context 'when user not authenticated' do
-    it_behaves_like 'protected_admin_controller', [[:get, :index, params: {}]]
+    it_behaves_like 'protected_admin_controller', [[:get, :index, { params: {} }]]
   end
 
   context 'when signed in admin' do

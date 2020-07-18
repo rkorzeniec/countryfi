@@ -7,11 +7,11 @@ describe CheckinsController do
 
   context 'when user not authenticated' do
     it_behaves_like 'authentication_protected_controller', [
-      [:get, :new, params: {}],
-      [:get, :edit, params: { id: 1 }],
-      [:put, :update, params: { id: 1 }],
-      [:post, :create, params: {}],
-      [:delete, :destroy, params: { id: 1 }]
+      [:get, :new, { params: {} }],
+      [:get, :edit, { params: { id: 1 } }],
+      [:put, :update, { params: { id: 1 } }],
+      [:post, :create, { params: {} }],
+      [:delete, :destroy, { params: { id: 1 } }]
     ]
   end
 
