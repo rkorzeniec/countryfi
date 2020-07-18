@@ -6,7 +6,7 @@ module Countries
 
     LOG_COLUMNS = %w[
       name_common name_official cca2 ccn3 cca3 cioc independent status
-      capital region subregion latitude longitude area flag
+      capital region subregion latitude longitude area demonym flag
     ].freeze
 
     def initialize(data)
@@ -49,12 +49,17 @@ module Countries
         subregion: data['subregion'],
         latitude: data['latlng'].first,
         longitude: data['latlng'].second,
-        area: data['area']
+        area: data['area'],
+        demonym: retrieve_demonym(data['demonyms'])
         # flag: data['flag']
       }
     end
     # rubocop:enable Metrics/AbcSize
     # rubocop:enable Metrics/MethodLength
+
+    def retrieve_demonym(demonyms)
+      demonyms['eng']['m'] || demonyms['eng']['f']
+    end
 
     def update_associations
       update_tlds
@@ -62,7 +67,6 @@ module Countries
       update_country_calling_codes
       update_country_alternative_spellings
       update_country_languages
-      update_country_demonyms
       update_borders
     end
 
@@ -84,10 +88,6 @@ module Countries
 
     def update_country_languages
       LanguagesUpdater.new(country: country, data: data['languages']).call
-    end
-
-    def update_country_demonyms
-      DemonymsUpdater.new(country: country, data: data['demonyms']).call
     end
 
     def update_borders

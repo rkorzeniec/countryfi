@@ -12,7 +12,7 @@ describe Countries::Updater do
     expect(described_class::LOG_COLUMNS).to eq(
       %w[
         name_common name_official cca2 ccn3 cca3 cioc independent status
-        capital region subregion latitude longitude area flag
+        capital region subregion latitude longitude area demonym flag
       ]
     )
   end
@@ -27,6 +27,7 @@ describe Countries::Updater do
           ccn3: '123',
           cioc: nil,
           independent: false,
+          demonym: '',
           subregion: 'Southern Europe'
         )
       end
@@ -69,15 +70,6 @@ describe Countries::Updater do
             }
           ).and_call_original
 
-        expect(Countries::DemonymsUpdater).to receive(:new)
-          .with(
-            country: country,
-            data: {
-              'eng' => { 'f' => 'Swiss', 'm' => 'Swiss' },
-              'fra' => { 'f' => 'Suisse', 'm' => 'Suisse' }
-            }
-          ).and_call_original
-
         expect(Countries::BordersUpdater).to receive(:new)
           .with(
             country: country,
@@ -90,6 +82,8 @@ describe Countries::Updater do
           .and change { country.cioc }.from(nil).to('SUI')
           .and change { country.subregion }
           .from('Southern Europe').to('Western Europe')
+          .and change { country.demonym }
+          .from('').to('Swiss')
       end
     end
 
@@ -129,15 +123,6 @@ describe Countries::Updater do
               'gsw' => 'Swiss German',
               'ita' => 'Italian',
               'roh' => 'Romansh'
-            }
-          ).and_call_original
-
-        expect(Countries::DemonymsUpdater).to receive(:new)
-          .with(
-            country: a_kind_of(Country),
-            data: {
-              'eng' => { 'f' => 'Swiss', 'm' => 'Swiss' },
-              'fra' => { 'f' => 'Suisse', 'm' => 'Suisse' }
             }
           ).and_call_original
 
