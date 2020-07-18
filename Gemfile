@@ -9,7 +9,7 @@ gem 'bootsnap', '~> 1.4.6', require: false
 gem 'dalli', '~> 2.7.10'
 gem 'devise', '~> 4.7.2'
 gem 'devise-async', '~> 1.0.0'
-gem 'dotenv-rails', '~> 2.7.5'
+gem 'dotenv-rails', '~> 2.7.6'
 gem 'graphql', '~> 1.10.11'
 gem 'jwt', '~> 2.2.1'
 gem 'mysql2'
