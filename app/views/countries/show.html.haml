@@ -14,7 +14,7 @@
 .row.row-cols-1.justify-content
   #mapbox.mapbox{ data: { country_geojson: @geojson, country_cca3: @country.cca3, country_lat: @country.latitude, country_lng: @country.longitude } }
   %hr
-.row.row-cols-xs-1.row-cols-md-2.row-cols-lg-3
+.row.row-cols-1.row-cols-md-2.row-cols-lg-3
   .col
     = render 'countries/show/country_details', country: @country
   .col

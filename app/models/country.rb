@@ -8,7 +8,6 @@ class Country < ApplicationRecord
   has_many :country_calling_codes, dependent: :destroy
   has_many :border_countries, dependent: :destroy
   has_many :country_alternative_spellings, dependent: :destroy
-  has_many :demonyms, dependent: :destroy
 
   scope :arranged_by_name, -> { order('name_common') }
   scope :european, -> { where(region: 'Europe') }

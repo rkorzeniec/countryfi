@@ -29,9 +29,9 @@ class CountryDashboard < Administrate::BaseDashboard
     status: Field::String,
     region: Field::String,
     subregion: Field::String,
-    demonyms: Field::HasMany,
     landlocked: Field::Boolean,
     area: Field::Number.with_options(decimals: 2),
+    demonym: Field::String,
     flag: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -63,13 +63,13 @@ class CountryDashboard < Administrate::BaseDashboard
     subregion
     landlocked
     area
+    demonym
     created_at
     updated_at
     latitude
     longitude
     checkins
     currencies
-    demonyms
     top_level_domains
     country_languages
     country_calling_codes
@@ -101,6 +101,7 @@ class CountryDashboard < Administrate::BaseDashboard
     subregion
     landlocked
     area
+    demonym
     latitude
     longitude
   ].freeze

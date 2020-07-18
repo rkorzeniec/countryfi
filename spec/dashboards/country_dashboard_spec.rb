@@ -22,9 +22,9 @@ describe CountryDashboard do
       status: Administrate::BaseDashboard::Field::String,
       region: Administrate::BaseDashboard::Field::String,
       subregion: Administrate::BaseDashboard::Field::String,
-      demonyms: Administrate::BaseDashboard::Field::HasMany,
       landlocked: Administrate::BaseDashboard::Field::Boolean,
       area: Administrate::BaseDashboard::Field::Number.with_options(decimals: 2),
+      demonym: Administrate::BaseDashboard::Field::String,
       flag: Administrate::BaseDashboard::Field::String,
       created_at: Administrate::BaseDashboard::Field::DateTime,
       updated_at: Administrate::BaseDashboard::Field::DateTime,
@@ -60,13 +60,13 @@ describe CountryDashboard do
         subregion
         landlocked
         area
+        demonym
         created_at
         updated_at
         latitude
         longitude
         checkins
         currencies
-        demonyms
         top_level_domains
         country_languages
         country_calling_codes
@@ -99,6 +99,7 @@ describe CountryDashboard do
         subregion
         landlocked
         area
+        demonym
         latitude
         longitude
       ].freeze
