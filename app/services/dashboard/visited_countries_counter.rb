@@ -9,63 +9,54 @@ module Dashboard
     end
 
     def visited_world_countries_count
-      Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-        uniq_visited_count(visited_checkins)
-      end
+      cache_fetch(__method__) { uniq_countries_count(countries) }
     end
 
     def visited_european_countries_count
-      Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-        uniq_visited_count(visited_checkins.european)
-      end
+      cache_fetch(__method__) { uniq_countries_count(countries.european) }
     end
 
     def visited_north_american_countries_count
-      Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-        uniq_visited_count(visited_checkins.north_american)
-      end
+      cache_fetch(__method__) { uniq_countries_count(countries.north_american) }
     end
 
     def visited_south_american_countries_count
-      Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-        uniq_visited_count(visited_checkins.south_american)
-      end
+      cache_fetch(__method__) { uniq_countries_count(countries.south_american) }
     end
 
     def visited_asian_countries_count
-      Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-        uniq_visited_count(visited_checkins.asian)
-      end
+      cache_fetch(__method__) { uniq_countries_count(countries.asian) }
     end
 
     def visited_oceanian_countries_count
-      Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-        uniq_visited_count(visited_checkins.oceanian)
-      end
+      cache_fetch(__method__) { uniq_countries_count(countries.oceanian) }
     end
 
     def visited_african_countries_count
-      Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-        uniq_visited_count(visited_checkins.african)
-      end
+      cache_fetch(__method__) { uniq_countries_count(countries.african) }
     end
 
     def visited_antarctican_countries_count
-      Rails.cache.fetch(cache_key(__method__), expires_in: CACHE_EXPIRY) do
-        uniq_visited_count(visited_checkins.antarctican)
-      end
+      cache_fetch(__method__) { uniq_countries_count(countries.antarctican) }
     end
 
     private
 
     attr_reader :user
 
-    def visited_checkins
-      @visited_checkins ||= user.visited_countries
+    def countries
+      @countries ||= user.visited_countries
     end
 
-    def uniq_visited_count(countries)
+    def uniq_countries_count(countries)
       Set.new(countries).size
+    end
+
+    def cache_fetch(method_name)
+      Rails.cache.fetch(cache_key(method_name), expires_in: CACHE_EXPIRY) do
+        Rails.logger.info(cache_key(method_name))
+        yield
+      end
     end
 
     def cache_key(method_name)
@@ -73,8 +64,12 @@ module Dashboard
         self.class.to_s.underscore,
         method_name,
         user.id,
-        user.visited_checkins.last&.id
+        last_checkin_id
       ].compact.join('/')
+    end
+
+    def last_checkin_id
+      @last_checkin_id ||= user.checkins.last&.id
     end
   end
 end

@@ -5,7 +5,7 @@ describe Country do
   it { is_expected.to have_many(:currencies).dependent(:restrict_with_error) }
 
   it do
-    expect(subject).to have_many(:top_level_domains)
+    is_expected.to have_many(:top_level_domains)
       .dependent(:restrict_with_error)
   end
 
@@ -14,7 +14,7 @@ describe Country do
   it { is_expected.to have_many(:border_countries).dependent(:destroy) }
 
   it do
-    expect(subject).to have_many(:country_alternative_spellings)
+    is_expected.to have_many(:country_alternative_spellings)
       .dependent(:destroy)
   end
 
@@ -33,8 +33,8 @@ describe Country do
   describe '.find_by_any' do
     subject { described_class.find_by_any(name) }
 
-    let(:switzerland) { create(:country) }
-    let(:united_states) do
+    let!(:switzerland) { create(:country) }
+    let!(:united_states) do
       create(
         :country,
         name_common: 'United States', name_official: 'United States of America',
@@ -42,39 +42,82 @@ describe Country do
       )
     end
 
-    before do
-      united_states
-      switzerland
-    end
-
     context 'when name is cca2' do
       let(:name) { 'CH' }
 
-      it { expect(subject).to eq(switzerland) }
+      it { is_expected.to eq(switzerland) }
+
+      context 'with prefix' do
+        let(:name) { 'C' }
+
+        it { is_expected.to eq(switzerland) }
+      end
+
+      context 'with suffix' do
+        let(:name) { 'H' }
+
+        it { is_expected.to eq(switzerland) }
+      end
     end
 
     context 'when name is ccn3' do
       let(:name) { 756 }
 
-      it { expect(subject).to eq(switzerland) }
+      it { is_expected.to eq(switzerland) }
+
+      context 'with prefix' do
+        let(:name) { 7 }
+
+        it { is_expected.to eq(switzerland) }
+      end
+
+      context 'with suffix' do
+        let(:name) { 56 }
+
+        it { is_expected.to eq(switzerland) }
+      end
     end
 
     context 'when name is cca3' do
       let(:name) { 'CHE' }
 
-      it { expect(subject).to eq(switzerland) }
+      it { is_expected.to eq(switzerland) }
+
+      context 'with prefix' do
+        let(:name) { 'CH' }
+
+        it { is_expected.to eq(switzerland) }
+      end
+
+      context 'with suffix' do
+        let(:name) { 'E' }
+
+        it { is_expected.to eq(switzerland) }
+      end
     end
 
     context 'when name is cioc' do
       let(:name) { 'SUI' }
 
-      it { expect(subject).to eq(switzerland) }
+      it { is_expected.to eq(switzerland) }
+
+      context 'with prefix' do
+        let(:name) { 'SU' }
+
+        it { is_expected.to eq(switzerland) }
+      end
+
+      context 'with suffix' do
+        let(:name) { 'I' }
+
+        it { is_expected.to eq(switzerland) }
+      end
     end
 
     context 'when name is neither' do
       let(:name) { nil }
 
-      it { expect(subject).to eq(described_class.first) }
+      it { is_expected.to eq(described_class.first) }
     end
   end
 
@@ -146,7 +189,19 @@ describe Country do
     end
 
     it do
-      expect { create(:country) }
+      expect { create(:country, :caribbean) }.to change {
+        described_class.north_american.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country, :central_american) }.to change {
+        described_class.north_american.count
+      }.from(0).to(1)
+    end
+
+    it do
+      expect { create(:country, :south_american) }
         .not_to change { described_class.north_american.count }
     end
   end
@@ -172,7 +227,7 @@ describe Country do
       let(:country) { build_stubbed(:country, cca2: 'mambo') }
 
       it do
-        expect(subject).to eq(
+        is_expected.to eq(
           ActionController::Base.helpers.asset_path('flags/unknown.png')
         )
       end
