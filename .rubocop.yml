@@ -53,6 +53,10 @@ Rails/DynamicFindBy:
   Exclude:
     - 'spec/models/country_spec.rb'
 
+Rails/SkipsModelValidations:
+  Exclude:
+  - 'app/services/admin/announcement_notifications_creator.rb'
+
 Rails/HelperInstanceVariable:
   Exclude:
     - 'app/helpers/application_helper.rb'
