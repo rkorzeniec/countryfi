@@ -88,7 +88,11 @@ class DashboardFacade
       self.class.to_s.underscore,
       method_name,
       user.id,
-      user.visited_checkins.last&.id
+      last_visited_checkin_id
     ].compact.join('/')
+  end
+
+  def last_visited_checkin_id
+    @last_visited_checkin_id ||= user.visited_checkins.last&.id
   end
 end
