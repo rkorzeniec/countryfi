@@ -9,43 +9,47 @@ module Dashboard
     end
 
     def visited_world_countries_count
-      cache_fetch(__method__) { countries.size }
+      cache_fetch(__method__) { uniq_countries_count(countries) }
     end
 
     def visited_european_countries_count
-      cache_fetch(__method__) { countries.european.size }
+      cache_fetch(__method__) { uniq_countries_count(countries.european) }
     end
 
     def visited_north_american_countries_count
-      cache_fetch(__method__) { countries.north_american.size }
+      cache_fetch(__method__) { uniq_countries_count(countries.north_american) }
     end
 
     def visited_south_american_countries_count
-      cache_fetch(__method__) { countries.south_american.size }
+      cache_fetch(__method__) { uniq_countries_count(countries.south_american) }
     end
 
     def visited_asian_countries_count
-      cache_fetch(__method__) { countries.asian.size }
+      cache_fetch(__method__) { uniq_countries_count(countries.asian) }
     end
 
     def visited_oceanian_countries_count
-      cache_fetch(__method__) { countries.oceanian.size }
+      cache_fetch(__method__) { uniq_countries_count(countries.oceanian) }
     end
 
     def visited_african_countries_count
-      cache_fetch(__method__) { countries.african.size }
+      cache_fetch(__method__) { uniq_countries_count(countries.african) }
     end
 
     def visited_antarctican_countries_count
-      cache_fetch(__method__) { countries.antarctican.size }
+      cache_fetch(__method__) { uniq_countries_count(countries.antarctican) }
     end
 
     private
 
     attr_reader :user
 
-    def calculable_checkins
-      @calculable_checkins ||= user.visited_countries
+    def countries
+      @countries ||= user.visited_countries
+    end
+
+    def uniq_countries_count(countries)
+      Set.new(countries).size
     end
 
     def cache_fetch(method_name)
@@ -65,7 +69,7 @@ module Dashboard
     end
 
     def last_checkin_id
-      @last_checkin_id ||= user.calculable_checkins.last&.id
+      @last_checkin_id ||= user.checkins.last&.id
     end
   end
 end
