@@ -66,7 +66,7 @@ Style/ClassVars:
     - 'spec/support/*.rb'
 
 Style/CombinableLoops:
-  Exlude:
+  Exclude:
     - 'db/seeds.rb'
 
 Style/GuardClause:
