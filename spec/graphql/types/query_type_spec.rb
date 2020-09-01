@@ -19,7 +19,7 @@ describe Types::QueryType do
 
     context 'when unauthenticated user' do
       it do
-        result = subject.dig('errors')
+        result = subject['errors']
         expect(result).to eq(
           [
             {
@@ -68,7 +68,7 @@ describe Types::QueryType do
 
     context 'when unauthenticated user' do
       it do
-        result = subject.dig('errors')
+        result = subject['errors']
         expect(result).to eq(
           [
             {
