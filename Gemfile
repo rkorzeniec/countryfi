@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'kaminari', '~> 1.2.1'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'uglifier', '~> 4.2.0'
-gem 'webpacker', '~> 5.1.1'
+gem 'webpacker', '~> 5.2.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.1.3'
