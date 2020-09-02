@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_145605) do
+ActiveRecord::Schema.define(version: 2020_09_02_201241) do
 
-  create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "message"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_145605) do
     t.boolean "landlocked"
     t.float "area"
     t.string "demonym"
+    t.boolean "un_member"
     t.boolean "independent"
     t.string "status", limit: 50
     t.string "flag"
@@ -108,7 +109,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_145605) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "recipient_id", null: false
     t.string "notifiable_type", null: false
     t.bigint "notifiable_id", null: false
