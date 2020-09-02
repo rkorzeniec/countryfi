@@ -30,6 +30,24 @@ describe Country do
     end
   end
 
+  describe '.un_member' do
+    subject { described_class.un_member }
+
+    let!(:switzerland) { create(:country, un_member: true) }
+    let!(:madagascar) { create(:country, :african, un_member: false) }
+
+    it { is_expected.to eq([switzerland]) }
+  end
+
+  describe '.independent' do
+    subject { described_class.independent }
+
+    let!(:switzerland) { create(:country, independent: true) }
+    let!(:madagascar) { create(:country, :african, independent: false) }
+
+    it { is_expected.to eq([switzerland]) }
+  end
+
   describe '.find_by_any' do
     subject { described_class.find_by_any(name) }
 
