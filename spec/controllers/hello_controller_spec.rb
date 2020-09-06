@@ -5,7 +5,7 @@ describe HelloController do
     let(:country) { instance_double(Country, id: 1) }
 
     before do
-      allow(CountryIDLookuper).to receive(:lookup).and_return(country)
+      allow(CountryIdFinder).to receive(:lookup).and_return(country)
       get(:index)
     end
 
