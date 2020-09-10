@@ -11,7 +11,7 @@ describe Countries::Updater do
   it do
     expect(described_class::LOG_COLUMNS).to eq(
       %w[
-        name_common name_official cca2 ccn3 cca3 cioc independent status
+        name_common name_official cca2 ccn3 cca3 cioc un_member independent status
         capital region subregion latitude longitude area demonym flag
       ]
     )
@@ -26,6 +26,7 @@ describe Countries::Updater do
           :country,
           ccn3: '123',
           cioc: nil,
+          un_member: false,
           independent: true,
           demonym: '',
           subregion: 'Southern Europe'
@@ -78,8 +79,8 @@ describe Countries::Updater do
 
         expect { subject }.to change { country.reload.ccn3 }
           .from('123').to('756')
-          .and change { country.independent }.from(false).to(true)
           .and change { country.un_member }.from(false).to(true)
+          .and change { country.independent }.from(true).to(false)
           .and change { country.cioc }.from(nil).to('SUI')
           .and change { country.subregion }
           .from('Southern Europe').to('Western Europe')
