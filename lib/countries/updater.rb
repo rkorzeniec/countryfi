@@ -42,7 +42,7 @@ module Countries
         ccn3: data['ccn3'],
         cca3: data['cca3'],
         cioc: data['cioc'],
-        independent: data['independent'],
+        independent: retrieve_independent(data['independent']),
         status: data['status'],
         capital: data['capital'].first,
         region: data['region'],
@@ -56,6 +56,10 @@ module Countries
     end
     # rubocop:enable Metrics/AbcSize
     # rubocop:enable Metrics/MethodLength
+
+    def retrieve_independent(independent)
+      independent || false
+    end
 
     def retrieve_demonym(demonyms)
       demonyms['eng']['m'] || demonyms['eng']['f']

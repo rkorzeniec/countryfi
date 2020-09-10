@@ -26,7 +26,7 @@ describe Countries::Updater do
           :country,
           ccn3: '123',
           cioc: nil,
-          independent: false,
+          independent: true,
           demonym: '',
           subregion: 'Southern Europe'
         )
@@ -79,6 +79,7 @@ describe Countries::Updater do
         expect { subject }.to change { country.reload.ccn3 }
           .from('123').to('756')
           .and change { country.independent }.from(false).to(true)
+          .and change { country.un_member }.from(false).to(true)
           .and change { country.cioc }.from(nil).to('SUI')
           .and change { country.subregion }
           .from('Southern Europe').to('Western Europe')
