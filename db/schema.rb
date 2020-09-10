@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_02_201241) do
+ActiveRecord::Schema.define(version: 2020_09_10_055053) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "message"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_201241) do
     t.float "area"
     t.string "demonym"
     t.boolean "un_member"
-    t.boolean "independent"
+    t.boolean "independent", default: false
     t.string "status", limit: 50
     t.string "flag"
     t.datetime "created_at", null: false
