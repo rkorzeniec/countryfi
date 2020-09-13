@@ -17,7 +17,7 @@ class DashboardFacade
   end
 
   def country_code_array
-    cache_fetch(__method__) { user_countries.pluck(:cca2) }
+    cache_fetch(__method__) { user_countries.pluck(:cca2).uniq }
   end
 
   def countries_yearly_chart_data
@@ -46,7 +46,7 @@ class DashboardFacade
   attr_reader :user
 
   def user_countries
-    @user_countries ||= user.countries.distinct.load
+    @user_countries ||= user.countries.load
   end
 
   def countries_counter

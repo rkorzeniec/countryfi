@@ -39,6 +39,7 @@ describe DashboardFacade do
 
     let(:country_a) { build_stubbed(:country, cca2: 'AA') }
     let(:country_b) { build_stubbed(:country, cca2: 'BB') }
+    let(:country_c) { build_stubbed(:country, cca2: 'AA') }
     let(:countries) { [country_a, country_b] }
 
     before do
