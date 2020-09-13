@@ -4,7 +4,7 @@ module Countries
   module UpdaterLogger
     def log_update(object, columns = [])
       Rails.logger.info(
-        "#{object.class}: #{object.previous_changes.slice(*columns)}"
+        "#{object.class}##{object.id}: #{object.previous_changes.slice(*columns)}"
       )
     end
   end

@@ -2,12 +2,10 @@
 
 module CountriesHelper
   def visit_badge(country)
-    return unless current_user&.countries&.include?(country)
+    visit = current_user&.checkins&.find_by(country: country)
+    return unless visit
 
-    visited_country = current_user.visited_countries.include?(country)
-    badge_status = visited_country ? 'badge-success' : 'badge-info'
-    badge_content = visited_country ? 'visited' : 'upcoming'
-
-    tag.span(badge_content, class: ['badge', 'badge-sm', 'text-sm', badge_status])
+    status, content = visit.in_past? ? %w[success visited] : %w[info upcoming]
+    tag.span(content, class: ['badge', 'badge-sm', 'text-sm', "badge-#{status}"])
   end
 end

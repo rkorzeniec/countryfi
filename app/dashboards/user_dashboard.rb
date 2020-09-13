@@ -11,9 +11,9 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     checkins: Field::HasMany,
-    countries: Field::HasMany,
-    # visited_checkins: Field::HasMany.with_options(class_name: "Checkin"),
-    # visited_countries: Field::HasMany.with_options(class_name: "Country"),
+    # countries: Field::HasMany,
+    # past_checkins: Field::HasMany.with_options(class_name: "Checkin"),
+    visited_countries: Field::HasMany.with_options(class_name: 'Country'),
     id: Field::Number,
     email: Field::String,
     jti_token: Field::String,
@@ -37,7 +37,7 @@ class UserDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[id email countries].freeze
+  COLLECTION_ATTRIBUTES = %i[id email visited_countries].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
@@ -49,7 +49,7 @@ class UserDashboard < Administrate::BaseDashboard
     preferences
     created_at
     updated_at
-    countries
+    visited_countries
     checkins
   ].freeze
 

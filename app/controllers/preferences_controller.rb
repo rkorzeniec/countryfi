@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class PreferencesController < ApplicationController
+  before_action :preferences_form, only: %i[update]
+
   def edit; end
 
   def update
-    if current_user.update(user_params)
+    if @preferences.save
       flash[:success] = 'Your new preferences have been saved.'
       redirect_to edit_preferences_path
     else
@@ -15,7 +17,11 @@ class PreferencesController < ApplicationController
 
   private
 
+  def preferences_form
+    @preferences = Users::PreferencesForm.new(current_user, user_params)
+  end
+
   def user_params
-    params.require(:user).permit(:color)
+    params.require(:user).permit(:color, :countries)
   end
 end

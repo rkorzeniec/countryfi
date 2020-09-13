@@ -4,10 +4,9 @@ describe User, type: :model do
   it { is_expected.to have_secure_token(:jti_token) }
 
   it { is_expected.to have_many(:checkins).dependent(:destroy) }
-  it { is_expected.to have_many(:countries).through(:checkins) }
 
   it do
-    expect(subject).to have_many(:visited_checkins)
+    expect(subject).to have_many(:past_checkins)
       .class_name('Checkin')
       .inverse_of(:user)
   end
@@ -15,7 +14,7 @@ describe User, type: :model do
   it do
     expect(subject).to have_many(:visited_countries)
       .source(:country)
-      .through(:visited_checkins)
+      .through(:past_checkins)
   end
 
   it do
@@ -109,5 +108,119 @@ describe User, type: :model do
     let(:user) { build_stubbed(:user) }
 
     it { is_expected.to be true }
+  end
+
+  describe '#countries' do
+    subject { user.countries }
+
+    let(:user) { create(:user) }
+
+    let!(:checkin_a) { create(:checkin, user: user, country: country_a) }
+    let!(:checkin_b) { create(:checkin, user: user, country: country_b) }
+    let!(:checkin_c) { create(:checkin, user: user, country: country_c) }
+
+    let(:country_a) { create(:country, independent: true, un_member: false) }
+    let(:country_b) { create(:country, independent: false, un_member: true) }
+    let(:country_c) { create(:country, independent: false, un_member: false) }
+
+    context 'when all' do
+      it { is_expected.to eq([country_a, country_b, country_c]) }
+    end
+
+    context 'when independent' do
+      let(:user) { create(:user, countries_cluster: 'independent') }
+
+      it { is_expected.to eq([country_a]) }
+    end
+
+    context 'when un member' do
+      let(:user) { create(:user, countries_cluster: 'un_member') }
+
+      it { is_expected.to eq([country_b]) }
+    end
+  end
+
+  describe '#countries_preference' do
+    subject { user.countries_preference }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user) }
+
+      it { is_expected.to eq('all') }
+    end
+
+    context 'when all' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'all') }
+
+      it { is_expected.to eq('all') }
+    end
+
+    context 'when independent' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'independent') }
+
+      it { is_expected.to eq('independent') }
+    end
+
+    context 'when un_member' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'un_member') }
+
+      it { is_expected.to eq('un_member') }
+    end
+  end
+
+  describe '#independent_countries_preference?' do
+    subject { user.independent_countries_preference? }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user) }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when all' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'all') }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when independent' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'independent') }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when un_member' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'un_member') }
+
+      it { is_expected.to be false }
+    end
+  end
+
+  describe '#un_countries_preference?' do
+    subject { user.un_countries_preference? }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user) }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when all' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'all') }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when independent' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'independent') }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when un_member' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'un_member') }
+
+      it { is_expected.to be true }
+    end
   end
 end

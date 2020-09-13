@@ -9,12 +9,12 @@ describe PreferencesController do
   end
 
   context 'when user signed in' do
-    let!(:user) { create(:user) }
+    let!(:user) { create(:user, countries_cluster: 'all') }
 
     before { sign_in(user) }
 
     describe 'GET edit' do
-      before { get(:edit, params: { user: { color: 'some_color' } }) }
+      before { get(:edit) }
 
       it do
         expect(response).to be_successful
@@ -28,16 +28,18 @@ describe PreferencesController do
       let!(:now) { '2016-01-01' }
 
       context 'when successful' do
-        let(:params) { { user: { color: 'some_colour' } } }
+        let(:params) { { user: { countries: 'independent', color: '#FFF' } } }
 
         it do
           expect(subject).to redirect_to(edit_preferences_path)
-          expect(flash[:success]).to be_present
+          expect(flash[:success]).to eq('Your new preferences have been saved.')
         end
 
         it do
           expect { subject }.to change { user.reload.color }
-            .from(nil).to('some_colour')
+            .from(nil).to('#FFF')
+            .and change { user.countries_cluster }
+            .from('all').to('independent')
         end
       end
 
@@ -51,7 +53,7 @@ describe PreferencesController do
 
         it do
           expect(subject).to render_template(:edit)
-          expect(flash[:error]).to be_present
+          expect(flash[:error]).to eq('Sorry, something went wrong.')
         end
       end
     end

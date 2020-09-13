@@ -15,6 +15,8 @@ FactoryBot.define do
     area { 41_284 }
     latitude { 47 }
     longitude { 8 }
+    un_member { true }
+    independent { true }
   end
 
   trait :african do
@@ -31,6 +33,8 @@ FactoryBot.define do
     area { 587_041 }
     latitude { -20 }
     longitude { 47 }
+    un_member { false }
+    independent { true }
   end
 
   trait :antarctican do
@@ -47,6 +51,8 @@ FactoryBot.define do
     area { 14_000_000 }
     latitude { -90 }
     longitude { 0 }
+    un_member { false }
+    independent { false }
   end
 
   trait :asian do

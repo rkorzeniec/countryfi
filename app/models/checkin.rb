@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class Checkin < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, touch: true
   belongs_to :country
 
   validates :user, presence: true
   validates :country, presence: true
   validates :checkin_date, presence: true
 
+  scope :in_past, -> { where('checkin_date <= ?', Time.current) }
   scope :world, -> { joins(:country).merge(Country.all) }
   scope :asian, -> { joins(:country).merge(Country.asian) }
   scope :african, -> { joins(:country).merge(Country.african) }
@@ -16,5 +17,8 @@ class Checkin < ApplicationRecord
   scope :oceanian, -> { joins(:country).merge(Country.oceanian) }
   scope :north_american, -> { joins(:country).merge(Country.north_american) }
   scope :south_american, -> { joins(:country).merge(Country.south_american) }
-  scope :visited, -> { where('checkin_date <= ?', Time.current) }
+
+  def in_past?
+    checkin_date <= Time.zone.today
+  end
 end

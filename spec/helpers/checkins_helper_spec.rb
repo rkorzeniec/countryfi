@@ -18,7 +18,7 @@ describe CheckinsHelper do
       let(:params) { { country: 'CH' } }
 
       it do
-        expect(CountryIDLookuper).to receive(:lookup).with('CH')
+        expect(CountryIdFinder).to receive(:lookup).with('CH')
         subject
       end
     end

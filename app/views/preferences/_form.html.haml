@@ -1,16 +1,23 @@
 - render 'shared/error_messages'
-.form-group.row
-  = f.label :colour, class: 'col-sm-6 col-form-label'
-  = f.label :color_value, user_preferences_colour, id: 'userPreferencesColorLabel', class: 'col-sm-6 col-form-label text-muted'
 .form-group
-  = f.text_field :color, type: 'color', value: user_preferences_colour, class: 'form-control'
+  = f.label :countries, class: 'col-form-label pb-0'
+  %small.form-text.text-muted Choose your country selection for dashboard statistics
+.form-group
+  .form-check
+    = f.radio_button :countries, :all, checked: countries_all?(current_user), class: 'form-check-input'
+    = f.label :countries, 'all', class: 'form-check-label'
+  .form-check
+    = f.radio_button :countries, :un_member, checked: countries_un_member?(current_user), class: 'form-check-input'
+    = f.label :countries, 'UN members only', class: 'form-check-label'
+  .form-check
+    = f.radio_button :countries, :independent, checked: countries_independent?(current_user), class: 'form-check-input'
+    = f.label :countries, 'independent only', class: 'form-check-label'
+%hr
+.form-row.mb-3
+  .col-md-8.mb-3
+    = f.label :colour, class: 'col-form-label pb-0'
+    %small.form-text.text-muted Choose your map colour
+  .col-md-4
+    = f.text_field :color, type: 'color', value: user_preferences_colour, class: 'form-control p-1'
 .form-group
   = submit_tag 'Save', data: { "disable-with": "Saving..." }, class: 'btn btn-primary btn-block'
-
-= content_for :js do
-  :javascript
-    $(document).on('turbolinks:load', function() {
-      document.getElementById('user_color').addEventListener('change', function(e) {
-        document.getElementById('userPreferencesColorLabel').innerHTML = this.value
-      });
-    });

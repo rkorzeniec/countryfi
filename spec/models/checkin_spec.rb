@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 describe Checkin do
-  it { is_expected.to belong_to(:user) }
+  it { is_expected.to belong_to(:user).touch(true) }
   it { is_expected.to belong_to(:country) }
 
   it { is_expected.to validate_presence_of(:user) }
   it { is_expected.to validate_presence_of(:country) }
   it { is_expected.to validate_presence_of(:checkin_date) }
 
-  describe '#world' do
+  describe '.world' do
     let(:european_country) { create(:country) }
     let(:asian_country) { create(:country, :asian) }
 
@@ -25,7 +25,7 @@ describe Checkin do
     end
   end
 
-  describe '#european' do
+  describe '.european' do
     let(:european_country) { create(:country) }
     let(:asian_country) { create(:country, :asian) }
 
@@ -42,7 +42,7 @@ describe Checkin do
     end
   end
 
-  describe '#asian' do
+  describe '.asian' do
     let(:european_country) { create(:country) }
     let(:asian_country) { create(:country, :asian) }
 
@@ -59,7 +59,7 @@ describe Checkin do
     end
   end
 
-  describe '#african' do
+  describe '.african' do
     let(:european_country) { create(:country) }
     let(:african_country) { create(:country, :african) }
 
@@ -76,7 +76,7 @@ describe Checkin do
     end
   end
 
-  describe '#antarctican' do
+  describe '.antarctican' do
     let(:european_country) { create(:country) }
     let(:antarctican_country) { create(:country, :antarctican) }
 
@@ -93,7 +93,7 @@ describe Checkin do
     end
   end
 
-  describe '#oceanian' do
+  describe '.oceanian' do
     let(:european_country) { create(:country) }
     let(:oceanian_country) { create(:country, :oceanian) }
 
@@ -110,7 +110,7 @@ describe Checkin do
     end
   end
 
-  describe '#north_american' do
+  describe '.north_american' do
     let(:european_country) { create(:country) }
     let(:north_american_country) { create(:country, :north_american) }
 
@@ -127,7 +127,7 @@ describe Checkin do
     end
   end
 
-  describe '#south_american' do
+  describe '.south_american' do
     let(:european_country) { create(:country) }
     let(:south_american_country) { create(:country, :south_american) }
 
@@ -144,17 +144,51 @@ describe Checkin do
     end
   end
 
-  describe '#visited' do
+  describe '.in_past' do
     it do
       expect { create(:checkin, checkin_date: Time.current) }.to change {
-        described_class.visited.count
+        described_class.in_past.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, checkin_date: Time.current + 1.day) }.not_to change {
-        described_class.visited.count
+        described_class.in_past.count
       }
+    end
+  end
+
+  describe '#in_past?' do
+    subject { checkin.in_past? }
+
+    let(:now) { Time.current }
+
+    before { Timecop.freeze(now) }
+
+    after { Timecop.return }
+
+    context 'when future' do
+      let(:checkin) do
+        build_stubbed(:checkin, checkin_date: now + 1.day)
+      end
+
+      it { is_expected.to be false }
+    end
+
+    context 'when today' do
+      let(:checkin) do
+        build_stubbed(:checkin, checkin_date: now)
+      end
+
+      it { is_expected.to be true }
+    end
+
+    context 'when past' do
+      let(:checkin) do
+        build_stubbed(:checkin, checkin_date: now - 1.day)
+      end
+
+      it { is_expected.to be true }
     end
   end
 end

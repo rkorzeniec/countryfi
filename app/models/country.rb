@@ -10,6 +10,9 @@ class Country < ApplicationRecord
   has_many :country_alternative_spellings, dependent: :destroy
 
   scope :arranged_by_name, -> { order('name_common') }
+  scope :un_member, -> { where(un_member: true) }
+  scope :independent, -> { where(independent: true) }
+
   scope :european, -> { where(region: 'Europe') }
   scope :south_american, -> { where(subregion: 'South America') }
   scope :asian, -> { where(region: 'Asia') }

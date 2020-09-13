@@ -6,13 +6,7 @@ describe DashboardFacade do
 
   shared_context 'with cached method' do
     let(:cache) { instance_double('cache') }
-    let(:cache_key) do
-      [
-        'dashboard_facade',
-        method_name,
-        user.id
-      ].join('/')
-    end
+    let(:cache_key) { ['dashboard_facade', method_name, user.cache_key].join('/') }
 
     it do
       expect(Rails).to receive(:cache).and_return(cache)
@@ -21,23 +15,21 @@ describe DashboardFacade do
     end
   end
 
-  %i[
-    european north_american south_american asian african oceanian antarctican
-  ].each do |region|
-    describe "##{region}_countries" do
-      subject { facade.send("#{region}_countries".to_sym) }
-
-      let(:countries) { instance_double('countries') }
-      let(:countries_relation) { instance_double('relation', load: countries) }
-
-      it_behaves_like 'with cached method' do
-        let(:method_name) { "#{region}_countries" }
+  describe 'delegations' do
+    subject { facade }
+    %i[
+      countries european_countries north_american_countries south_american_countries
+      asian_countries african_countries oceanian_countries antarctican_countries
+    ].each do |region|
+      it do
+        is_expected.to delegate_method("#{region}_count".to_sym)
+          .to(:countries_counter)
       end
 
       it do
-        expect(Country).to receive(:all).and_return(countries_relation)
-        expect(countries).to receive(region)
-        subject
+        is_expected.to delegate_method("#{region}_count".to_sym)
+          .to(:visited_countries_counter)
+          .with_prefix(:visited)
       end
     end
   end
@@ -50,24 +42,13 @@ describe DashboardFacade do
     let(:countries) { [country_a, country_b] }
 
     before do
-      allow(facade).to receive(:visited_countries).and_return(countries)
+      allow(facade).to receive(:user_countries).and_return(countries)
     end
 
     it { expect(subject).to eq(%w[AA BB]) }
 
     it_behaves_like 'with cached method' do
       let(:method_name) { 'country_code_array' }
-    end
-  end
-
-  describe '#visited_countries_counter' do
-    subject { facade.visited_countries_counter }
-
-    it do
-      expect(Dashboard::VisitedCountriesCounter).to receive(:new)
-        .with(user)
-        .and_call_original
-      expect(subject).to be_a(Dashboard::VisitedCountriesCounter)
     end
   end
 
@@ -140,10 +121,6 @@ describe DashboardFacade do
   describe '#cache_key' do
     subject { facade.send(:cache_key, 'asian_countries') }
 
-    let(:country) { instance_double('country', id: 99) }
-
-    before { allow(user).to receive(:visited_checkins).and_return([country]) }
-
-    it { is_expected.to eq("dashboard_facade/asian_countries/#{user.id}/99") }
+    it { is_expected.to eq("dashboard_facade/asian_countries/#{user.cache_key}") }
   end
 end

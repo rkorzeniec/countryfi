@@ -5,7 +5,7 @@ module Countries
     include ::Countries::UpdaterLogger
 
     LOG_COLUMNS = %w[
-      name_common name_official cca2 ccn3 cca3 cioc independent status
+      name_common name_official cca2 ccn3 cca3 cioc un_member independent status
       capital region subregion latitude longitude area demonym flag
     ].freeze
 
@@ -42,7 +42,8 @@ module Countries
         ccn3: data['ccn3'],
         cca3: data['cca3'],
         cioc: data['cioc'],
-        independent: data['independent'],
+        un_member: data['unMember'],
+        independent: retrieve_independent(data['independent']),
         status: data['status'],
         capital: data['capital'].first,
         region: data['region'],
@@ -56,6 +57,10 @@ module Countries
     end
     # rubocop:enable Metrics/AbcSize
     # rubocop:enable Metrics/MethodLength
+
+    def retrieve_independent(independent)
+      independent || false
+    end
 
     def retrieve_demonym(demonyms)
       demonyms['eng']['m'] || demonyms['eng']['f']

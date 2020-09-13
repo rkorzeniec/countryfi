@@ -15,6 +15,7 @@ describe Countries::UpdaterLogger do
     let(:object) do
       instance_double(
         Country,
+        id: 1,
         previous_changes: {
           'foo' => [nil, 1],
           'bar' => %w[baz bax],
@@ -25,7 +26,7 @@ describe Countries::UpdaterLogger do
 
     it do
       expect(Rails.logger).to receive(:info)
-        .with('RSpec::Mocks::InstanceVerifyingDouble: {}')
+        .with('RSpec::Mocks::InstanceVerifyingDouble#1: {}')
       subject
     end
 
@@ -35,7 +36,7 @@ describe Countries::UpdaterLogger do
       it do
         expect(Rails.logger).to receive(:info)
           .with(
-            'RSpec::Mocks::InstanceVerifyingDouble: ' \
+            'RSpec::Mocks::InstanceVerifyingDouble#1: ' \
             '{"bar"=>["baz", "bax"], "mambo"=>["jambo", nil]}'
           )
         subject

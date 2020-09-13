@@ -35,7 +35,7 @@ Shoulda::Matchers.configure do |config|
 end
 
 RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{rails_root}/spec/fixtures"
   config.filter_run_excluding migrations: true
   config.filter_run_excluding broken: true
 
@@ -65,22 +65,18 @@ RSpec.configure do |config|
 
   config.after do
     DatabaseCleaner.clean
-    # FileUtils.rm_rf(Dir["#{rails_root}/spec/support/uploads"])
   end
-
-  config.fixture_path = "#{rails_root}/spec/fixtures"
 
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include ApplicationHelper, type: :controller
   config.include FactoryBot::Syntax::Methods
+  config.include Shoulda::Matchers::ActiveModel, type: :form
 
   config.around(:each, :migration) do |example|
     ActiveRecord::Migration.verbose = false
     example.run
     ActiveRecord::Migration.verbose = true
   end
-
-  # config.around(:each) { |example| I18n.with_locale(:de) { example.run } }
 end

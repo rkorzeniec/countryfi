@@ -1,19 +1,18 @@
-- visited_countries = @dashboard.visited_countries_counter
 .row.row-cols-2.row-cols-md-4.mb-2
   .col.p-1
-    = render 'dashboard/index/pie_charts/world_pie_chart', countries_count: @dashboard.countries.size, visited_countries_count: visited_countries.visited_world_countries_count
+    = render 'dashboard/index/pie_charts/world_pie_chart', countries_count: @dashboard.countries_count, visited_countries_count: @dashboard.visited_countries_count
   .col.p-1
-    = render 'dashboard/index/pie_charts/europe_pie_chart', countries_count: @dashboard.european_countries.size, visited_countries_count: visited_countries.visited_european_countries_count
+    = render 'dashboard/index/pie_charts/europe_pie_chart', countries_count: @dashboard.european_countries_count, visited_countries_count: @dashboard.visited_european_countries_count
   .col.p-1
-    = render 'dashboard/index/pie_charts/north_america_pie_chart', countries_count: @dashboard.north_american_countries.size, visited_countries_count: visited_countries.visited_north_american_countries_count
+    = render 'dashboard/index/pie_charts/north_america_pie_chart', countries_count: @dashboard.north_american_countries_count, visited_countries_count: @dashboard.visited_north_american_countries_count
   .col.p-1
-    = render 'dashboard/index/pie_charts/south_america_pie_chart', countries_count: @dashboard.south_american_countries.size, visited_countries_count: visited_countries.visited_south_american_countries_count
+    = render 'dashboard/index/pie_charts/south_america_pie_chart', countries_count: @dashboard.south_american_countries_count, visited_countries_count: @dashboard.visited_south_american_countries_count
 .row.row-cols-2.row-cols-md-4.mb-2
   .col.p-1
-    = render 'dashboard/index/pie_charts/asia_pie_chart', countries_count: @dashboard.asian_countries.size, visited_countries_count: visited_countries.visited_asian_countries_count
+    = render 'dashboard/index/pie_charts/asia_pie_chart', countries_count: @dashboard.asian_countries_count, visited_countries_count: @dashboard.visited_asian_countries_count
   .col.p-1
-    = render 'dashboard/index/pie_charts/africa_pie_chart', countries_count: @dashboard.african_countries.size, visited_countries_count: visited_countries.visited_african_countries_count
+    = render 'dashboard/index/pie_charts/africa_pie_chart', countries_count: @dashboard.african_countries_count, visited_countries_count: @dashboard.visited_african_countries_count
   .col.p-1
-    = render 'dashboard/index/pie_charts/australia_pie_chart', countries_count: @dashboard.oceanian_countries.size, visited_countries_count: visited_countries.visited_oceanian_countries_count
+    = render 'dashboard/index/pie_charts/australia_pie_chart', countries_count: @dashboard.oceanian_countries_count, visited_countries_count: @dashboard.visited_oceanian_countries_count
   .col.p-1
-    = render 'dashboard/index/pie_charts/antarctica_pie_chart', countries_count: @dashboard.antarctican_countries.size, visited_countries_count: visited_countries.visited_antarctican_countries_count
+    = render 'dashboard/index/pie_charts/antarctica_pie_chart', countries_count: @dashboard.antarctican_countries_count, visited_countries_count: @dashboard.visited_antarctican_countries_count

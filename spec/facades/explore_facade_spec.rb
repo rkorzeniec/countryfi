@@ -1,12 +1,20 @@
 # frozen_string_literal: true
 
 describe ExploreFacade do
-  let(:visited_countries) { nil }
   let(:region) { 'north_america' }
   let(:subregion) { 'carribean' }
+  let(:countries) { nil }
+  let(:user) do
+    instance_double(
+      User,
+      countries: countries,
+      independent_countries_preference?: nil,
+      un_countries_preference?: nil
+    )
+  end
   let(:facade) do
     described_class.new(
-      visited_countries, region: region, subregions: subregion
+      user: user, region: region, subregions: subregion
     )
   end
 
@@ -18,7 +26,7 @@ describe ExploreFacade do
 
       it do
         expect(UnvisitedCountriesQuery).to receive(:new)
-          .with(nil, regions: region, subregions: subregion)
+          .with(user: user, regions: region, subregions: subregion)
           .and_call_original
 
         expect_any_instance_of(UnvisitedCountriesQuery)
@@ -30,11 +38,11 @@ describe ExploreFacade do
 
     context 'when visited countries' do
       let!(:country) { build_stubbed(:country) }
-      let(:visited_countries) { [country] }
+      let(:countries) { [country] }
 
       it do
         expect(UnvisitedCountriesQuery).to receive(:new)
-          .with([country], regions: region, subregions: subregion)
+          .with(user: user, regions: region, subregions: subregion)
           .and_call_original
         expect_any_instance_of(UnvisitedCountriesQuery)
           .to receive(:all)

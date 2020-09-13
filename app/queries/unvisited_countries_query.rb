@@ -1,35 +1,50 @@
 # frozen_string_literal: true
 
 class UnvisitedCountriesQuery
-  def initialize(visited_countries, regions: nil, subregions: nil)
-    @visited_countries = visited_countries
+  def initialize(user:, regions: nil, subregions: nil)
+    @user = user
     @regions = regions
     @subregions = subregions
   end
 
   def all
-    Country
-      .where.not(id: visited_countries)
-      .where(
-        %(#{region_condition} #{subregion_condition}),
-        regions: regions,
-        subregions: subregions
-      ).order('name_common')
+    scope = Country.where.not(id: visited_countries)
+    scope = region_condition(scope)
+    scope = subregion_condition(scope)
+    scope = independent_condition(scope)
+    scope = un_condition(scope)
+    scope.order('name_common')
   end
 
   private
 
-  attr_reader :visited_countries, :regions, :subregions
+  attr_reader :user, :regions, :subregions
 
-  def region_condition
-    return '' unless regions
-
-    ' region IN (:regions)'
+  def visited_countries
+    user.countries
   end
 
-  def subregion_condition
-    return '' unless subregions
+  def region_condition(scope)
+    return scope if regions.blank?
 
-    ' AND subregion IN (:subregions)'
+    scope.where('region IN (?)', regions)
+  end
+
+  def subregion_condition(scope)
+    return scope if subregions.blank?
+
+    scope.where('subregion IN (?)', subregions) if subregions.present?
+  end
+
+  def independent_condition(scope)
+    return scope unless user.independent_countries_preference?
+
+    scope.where(independent: true)
+  end
+
+  def un_condition(scope)
+    return scope unless user.un_countries_preference?
+
+    scope.where(un_member: true)
   end
 end
