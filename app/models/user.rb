@@ -25,6 +25,14 @@ class User < ApplicationRecord
   def remember_me
     true
   end
+
+  def countries
+    return visited_countries.independent if independent_countries_preference?
+    return visited_countries.un_member if un_countries_preference?
+
+    visited_countries
+  end
+
   def countries_preference
     countries_cluster || 'all'
   end

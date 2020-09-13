@@ -4,7 +4,6 @@ describe User, type: :model do
   it { is_expected.to have_secure_token(:jti_token) }
 
   it { is_expected.to have_many(:checkins).dependent(:destroy) }
-  it { is_expected.to have_many(:countries).through(:checkins) }
 
   it do
     expect(subject).to have_many(:past_checkins)
@@ -109,6 +108,36 @@ describe User, type: :model do
     let(:user) { build_stubbed(:user) }
 
     it { is_expected.to be true }
+  end
+
+  describe '#countries' do
+    subject { user.countries }
+
+    let(:user) { create(:user) }
+
+    let!(:checkin_a) { create(:checkin, user: user, country: country_a) }
+    let!(:checkin_b) { create(:checkin, user: user, country: country_b) }
+    let!(:checkin_c) { create(:checkin, user: user, country: country_c) }
+
+    let(:country_a) { create(:country, independent: true, un_member: false) }
+    let(:country_b) { create(:country, independent: false, un_member: true) }
+    let(:country_c) { create(:country, independent: false, un_member: false) }
+
+    context 'when all' do
+      it { is_expected.to eq([country_a, country_b, country_c]) }
+    end
+
+    context 'when independent' do
+      let(:user) { create(:user, countries_cluster: 'independent') }
+
+      it { is_expected.to eq([country_a]) }
+    end
+
+    context 'when un member' do
+      let(:user) { create(:user, countries_cluster: 'un_member') }
+
+      it { is_expected.to eq([country_b]) }
+    end
   end
 
   describe '#countries_preference' do
