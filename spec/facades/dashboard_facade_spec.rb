@@ -24,20 +24,41 @@ describe DashboardFacade do
   %i[
     european north_american south_american asian african oceanian antarctican
   ].each do |region|
-    describe "##{region}_countries" do
-      subject { facade.send("#{region}_countries".to_sym) }
+    describe "##{region}_countries_count" do
+      subject { facade.send("#{region}_countries_count".to_sym) }
 
-      let(:countries) { instance_double('countries') }
-      let(:countries_relation) { instance_double('relation', load: countries) }
+      let(:countries_relation) { instance_double('relation') }
+      let(:countries) { [double(:country)] }
 
       it_behaves_like 'with cached method' do
-        let(:method_name) { "#{region}_countries" }
+        let(:method_name) { "#{region}_countries_count" }
       end
 
-      it do
-        expect(Country).to receive(:all).and_return(countries_relation)
-        expect(countries).to receive(region)
-        subject
+      context 'with all countries' do
+        it do
+          expect(Country).to receive(:all).and_return(countries_relation)
+          allow(countries_relation).to receive(region).and_return(countries)
+          is_expected.to eq(1)
+        end
+      end
+
+      context 'with independent countries' do
+        let(:user) { build_stubbed(:user, countries_cluster: 'independent') }
+
+        it do
+          expect(Country).to receive(:independent).and_return(countries_relation)
+          allow(countries_relation).to receive(region).and_return(countries)
+          is_expected.to eq(1)
+        end
+      end
+
+      context 'with un countries' do
+        let(:user) { build_stubbed(:user, countries_cluster: 'un_member') }
+        it do
+          expect(Country).to receive(:un_member).and_return(countries_relation)
+          allow(countries_relation).to receive(region).and_return(countries)
+          is_expected.to eq(1)
+        end
       end
     end
   end
@@ -50,7 +71,7 @@ describe DashboardFacade do
     let(:countries) { [country_a, country_b] }
 
     before do
-      allow(facade).to receive(:visited_countries).and_return(countries)
+      allow(facade).to receive(:user_countries).and_return(countries)
     end
 
     it { expect(subject).to eq(%w[AA BB]) }
@@ -142,7 +163,7 @@ describe DashboardFacade do
 
     let(:country) { instance_double('country', id: 99) }
 
-    before { allow(user).to receive(:visited_checkins).and_return([country]) }
+    before { allow(user).to receive(:past_checkins).and_return([country]) }
 
     it { is_expected.to eq("dashboard_facade/asian_countries/#{user.cache_key}/99") }
   end

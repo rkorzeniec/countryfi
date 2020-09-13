@@ -3,43 +3,44 @@
 class DashboardFacade
   include CacheFetch
 
-  attr_reader :countries
-
   def initialize(user)
     @user = user
-    @countries = Country.all.load
   end
 
   def country_code_array
-    cache_fetch(__method__) { visited_countries.pluck(:cca2) }
+    cache_fetch(__method__) { user_countries.pluck(:cca2) }
   end
 
-  def european_countries
-    cache_fetch(__method__) { countries.european }
+  def countries_count
+    cache_fetch(__method__) { countries.size }
   end
 
-  def north_american_countries
-    cache_fetch(__method__) { countries.north_american }
+  def european_countries_count
+    cache_fetch(__method__) { countries.european.size }
   end
 
-  def south_american_countries
-    cache_fetch(__method__) { countries.south_american }
+  def north_american_countries_count
+    cache_fetch(__method__) { countries.north_american.size }
   end
 
-  def asian_countries
-    cache_fetch(__method__) { countries.asian }
+  def south_american_countries_count
+    cache_fetch(__method__) { countries.south_american.size }
   end
 
-  def african_countries
-    cache_fetch(__method__) { countries.african }
+  def asian_countries_count
+    cache_fetch(__method__) { countries.asian.size }
   end
 
-  def oceanian_countries
-    cache_fetch(__method__) { countries.oceanian }
+  def african_countries_count
+    cache_fetch(__method__) { countries.african.size }
   end
 
-  def antarctican_countries
-    cache_fetch(__method__) { countries.antarctican }
+  def oceanian_countries_count
+    cache_fetch(__method__) { countries.oceanian.size }
+  end
+
+  def antarctican_countries_count
+    cache_fetch(__method__) { countries.antarctican.size }
   end
 
   def visited_countries_counter
@@ -58,13 +59,13 @@ class DashboardFacade
 
   def top_countries_chart_data
     cache_fetch(__method__) do
-      TopCountriesQuery.new(visited_countries).query
+      TopCountriesQuery.new(user_countries).query
     end
   end
 
   def top_regions_chart_data
     cache_fetch(__method__) do
-      TopRegionsQuery.new(visited_countries).query
+      TopRegionsQuery.new(user_countries).query
     end
   end
 
@@ -72,12 +73,12 @@ class DashboardFacade
 
   attr_reader :user
 
-  def visited_countries
-    @visited_countries ||= user.visited_countries.load
+  def user_countries
+    @user_countries ||= user.countries.distinct
   end
 
-  end
-
+  def countries
+    @countries ||= Country.send(user.countries_preference).load
   end
 
   def last_checkin_id
