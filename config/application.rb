@@ -22,6 +22,7 @@ module Countryfier
       #{config.root}/app/formatters
       #{config.root}/app/queries
       #{config.root}/app/facades
+      #{config.root}/app/forms
     ]
     config.eager_load_paths << Rails.root.join('lib')
 
