@@ -97,7 +97,9 @@ describe UnvisitedCountriesQuery do
           )
         end
 
-        it { is_expected.to eq([country_e, country_b, country_d, country_c, country]) }
+        it do
+          is_expected.to eq([country_e, country_b, country_d, country_c, country])
+        end
 
         context 'with region' do
           let(:params) { { user: user, regions: 'Asia' } }

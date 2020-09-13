@@ -30,9 +30,13 @@ class UniqVisitedCountriesQuery
     Checkin
       .joins(:country)
       .merge(Country.send(user.countries_preference))
-      .select("checkins.country_id, ANY_VALUE(year(checkins.checkin_date)) AS 'year'")
+      .select(checkins_select)
       .in_past
       .where(user: user)
+  end
+
+  def checkins_select
+    "checkins.country_id, ANY_VALUE(year(checkins.checkin_date)) AS 'year'"
   end
 
   def cache_key
