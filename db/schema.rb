@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_055053) do
     t.boolean "landlocked"
     t.float "area"
     t.string "demonym"
-    t.boolean "un_member"
+    t.boolean "un_member", default: false
     t.boolean "independent", default: false
     t.string "status", limit: 50
     t.string "flag"
