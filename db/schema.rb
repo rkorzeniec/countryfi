@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_09_10_055053) do
 
-  create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "message"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_055053) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "recipient_id", null: false
     t.string "notifiable_type", null: false
     t.bigint "notifiable_id", null: false
