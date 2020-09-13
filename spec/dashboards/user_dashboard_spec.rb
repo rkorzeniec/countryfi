@@ -4,7 +4,9 @@ describe UserDashboard do
   it do
     expect(described_class::ATTRIBUTE_TYPES).to eq(
       checkins: Administrate::BaseDashboard::Field::HasMany,
-      countries: Administrate::BaseDashboard::Field::HasMany,
+      visited_countries: Administrate::BaseDashboard::Field::HasMany.with_options(
+        class_name: 'Country'
+      ),
       id: Administrate::BaseDashboard::Field::Number,
       email: Administrate::BaseDashboard::Field::String,
       jti_token: Administrate::BaseDashboard::Field::String,
@@ -28,7 +30,7 @@ describe UserDashboard do
 
   it do
     expect(described_class::COLLECTION_ATTRIBUTES).to eq(
-      %i[id email countries].freeze
+      %i[id email visited_countries].freeze
     )
   end
 
@@ -42,7 +44,7 @@ describe UserDashboard do
         preferences
         created_at
         updated_at
-        countries
+        visited_countries
         checkins
       ].freeze
     )
