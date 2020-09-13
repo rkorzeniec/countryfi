@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_secure_token :jti_token
 
   has_many :checkins, dependent: :destroy
-  has_many :countries, through: :checkins
   has_many :past_checkins,
            -> { in_past },
            class_name: 'Checkin',
