@@ -20,4 +20,8 @@ class Checkin < ApplicationRecord
   scope :in_past, -> { where('checkin_date <= ?', Time.current) }
   # scope :un_member, -> { joins(:country).merge(Country.un_member) }
   # scope :independent, -> { joins(:country).merge(Country.independent) }
+
+  def in_past?
+    checkin_date <= Time.zone.today
+  end
 end

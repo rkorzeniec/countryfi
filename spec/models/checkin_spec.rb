@@ -157,4 +157,38 @@ describe Checkin do
       }
     end
   end
+
+  describe '#in_past?' do
+    subject { checkin.in_past? }
+
+    let(:now) { Time.current }
+
+    before { Timecop.freeze(now) }
+
+    after { Timecop.return }
+
+    context 'when future' do
+      let(:checkin) do
+        build_stubbed(:checkin, checkin_date: now + 1.day)
+      end
+
+      it { is_expected.to be false }
+    end
+
+    context 'when today' do
+      let(:checkin) do
+        build_stubbed(:checkin, checkin_date: now)
+      end
+
+      it { is_expected.to be true }
+    end
+
+    context 'when past' do
+      let(:checkin) do
+        build_stubbed(:checkin, checkin_date: now - 1.day)
+      end
+
+      it { is_expected.to be true }
+    end
+  end
 end
