@@ -1,67 +1,154 @@
 # frozen_string_literal: true
 
 describe UnvisitedCountriesQuery do
-  let(:params) { {} }
-  let(:query) { described_class.new(visited, params) }
+  let(:params) { { user: user } }
+  let(:query) { described_class.new(params) }
 
   describe '#all' do
     context 'with prefix' do
       subject { query.all }
 
-      let!(:country) { create(:country) }
-      let!(:country_b) { create(:country, :asian) }
-      let!(:country_c) { create(:country, :south_american) }
-      let!(:country_d) { create(:country, :caribbean) }
+      let!(:country) { create(:country, independent: true, un_member: true) }
+      let!(:country_b) do
+        create(:country, :asian, independent: false, un_member: false)
+      end
+      let!(:country_c) do
+        create(:country, :south_american, independent: true, un_member: false)
+      end
+      let!(:country_d) do
+        create(:country, :caribbean, independent: false, un_member: true)
+      end
+      let!(:country_e) do
+        create(:country, :oceanian, independent: true, un_member: true)
+      end
 
       context 'with visited' do
-        let(:visited) { [country] }
+        let(:user) do
+          instance_double(
+            User,
+            countries: [country],
+            independent_countries_preference?: false,
+            un_countries_preference?: false
+          )
+        end
 
-        it { is_expected.to eq([country_b, country_d, country_c]) }
+        it { is_expected.to eq([country_e, country_b, country_d, country_c]) }
 
         context 'with region' do
-          let(:params) { { regions: 'Asia' } }
+          let(:params) { { user: user, regions: 'Asia' } }
 
           it { is_expected.to eq([country_b]) }
 
           context 'with subregion' do
-            let(:params) { { regions: 'Americas', subregions: 'Caribbean' } }
+            let(:params) do
+              { user: user, regions: 'Americas', subregions: 'Caribbean' }
+            end
 
             it { is_expected.to eq([country_d]) }
           end
 
           context 'with subregions' do
             let(:params) do
-              { regions: 'Americas', subregions: ['Caribbean', 'South America'] }
+              {
+                user: user,
+                regions: 'Americas',
+                subregions: ['Caribbean', 'South America']
+              }
             end
 
             it { is_expected.to eq([country_d, country_c]) }
           end
         end
+
+        context 'with independent countries' do
+          let(:user) do
+            instance_double(
+              User,
+              countries: [country],
+              independent_countries_preference?: true,
+              un_countries_preference?: false
+            )
+          end
+
+          it { is_expected.to eq([country_e, country_c]) }
+        end
+
+        context 'with un countries' do
+          let(:user) do
+            instance_double(
+              User,
+              countries: [country],
+              independent_countries_preference?: false,
+              un_countries_preference?: true
+            )
+          end
+
+          it { is_expected.to eq([country_e, country_d]) }
+        end
       end
 
       context 'without visited' do
-        let(:visited) { [] }
+        let(:user) do
+          instance_double(
+            User,
+            countries: [],
+            independent_countries_preference?: false,
+            un_countries_preference?: false
+          )
+        end
 
-        it { is_expected.to eq([country_b, country_d, country_c, country]) }
+        it { is_expected.to eq([country_e, country_b, country_d, country_c, country]) }
 
         context 'with region' do
-          let(:params) { { regions: 'Asia' } }
+          let(:params) { { user: user, regions: 'Asia' } }
 
           it { is_expected.to eq([country_b]) }
 
           context 'with subregion' do
-            let(:params) { { regions: 'Americas', subregions: 'Caribbean' } }
+            let(:params) do
+              { user: user, regions: 'Americas', subregions: 'Caribbean' }
+            end
 
             it { is_expected.to eq([country_d]) }
           end
 
           context 'with subregions' do
             let(:params) do
-              { regions: 'Americas', subregions: ['Caribbean', 'South America'] }
+              {
+                user: user,
+                regions: 'Americas',
+                subregions: ['Caribbean', 'South America']
+              }
             end
 
             it { is_expected.to eq([country_d, country_c]) }
           end
+        end
+
+        context 'with independent countries' do
+          let(:user) do
+            instance_double(
+              User,
+              countries: [],
+              independent_countries_preference?: true,
+              un_countries_preference?: false
+            )
+          end
+
+          it { is_expected.to eq([country_e, country_c, country]) }
+        end
+
+        context 'with un countries' do
+          let(:user) do
+            instance_double(
+              User,
+              countries: [],
+              independent_countries_preference?: false,
+              un_countries_preference?: true
+            )
+          end
+
+          it { is_expected.to eq([country_e, country_d, country]) }
         end
       end
     end
