@@ -144,16 +144,16 @@ describe Checkin do
     end
   end
 
-  describe '.visited' do
+  describe '.in_past' do
     it do
       expect { create(:checkin, checkin_date: Time.current) }.to change {
-        described_class.visited.count
+        described_class.in_past.count
       }.from(0).to(1)
     end
 
     it do
       expect { create(:checkin, checkin_date: Time.current + 1.day) }.not_to change {
-        described_class.visited.count
+        described_class.in_past.count
       }
     end
   end
