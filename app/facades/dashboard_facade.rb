@@ -92,7 +92,7 @@ class DashboardFacade
     ].compact.join('/')
   end
 
-  def last_visited_checkin_id
-    @last_visited_checkin_id ||= user.visited_checkins.last&.id
+  def last_checkin_id
+    @last_checkin_id ||= user.past_checkins.last&.id
   end
 end

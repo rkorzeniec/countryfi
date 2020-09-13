@@ -20,7 +20,7 @@ class VisitedCountriesQuery
   end
 
   def visited_country_checkins
-    @visited_country_checkins ||= user.visited_checkins
+    @selected_country_checkins ||= user.past_checkins
   end
 
   def cache_key

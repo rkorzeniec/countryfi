@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
   has_many :checkins, dependent: :destroy
   has_many :countries, through: :checkins
-  has_many :visited_checkins,
+  has_many :past_checkins,
            -> { visited },
            class_name: 'Checkin',
            inverse_of: :user
-  has_many :visited_countries, source: :country, through: :visited_checkins
+  has_many :visited_countries, source: :country, through: :past_checkins
   has_many :notifications,
            foreign_key: :recipient_id,
            dependent: :destroy,

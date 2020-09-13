@@ -12,7 +12,7 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     checkins: Field::HasMany,
     countries: Field::HasMany,
-    # visited_checkins: Field::HasMany.with_options(class_name: "Checkin"),
+    # past_checkins: Field::HasMany.with_options(class_name: "Checkin"),
     # visited_countries: Field::HasMany.with_options(class_name: "Country"),
     id: Field::Number,
     email: Field::String,
