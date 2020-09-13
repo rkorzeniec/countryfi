@@ -157,38 +157,4 @@ describe Checkin do
       }
     end
   end
-
-  describe '.un_member' do
-    let(:switzerland) { create(:country, un_member: true) }
-    let(:madagascar) { create(:country, :african, un_member: false) }
-
-    it do
-      expect { create(:checkin, country: switzerland) }.to change {
-        described_class.un_member.count
-      }.from(0).to(1)
-    end
-
-    it do
-      expect { create(:checkin, country: madagascar) }.not_to change {
-        described_class.un_member.count
-      }
-    end
-  end
-
-  describe '.independent' do
-    let(:switzerland) { create(:country, independent: true) }
-    let(:madagascar) { create(:country, :african, independent: false) }
-
-    it do
-      expect { create(:checkin, country: switzerland) }.to change {
-        described_class.independent.count
-      }.from(0).to(1)
-    end
-
-    it do
-      expect { create(:checkin, country: madagascar) }.not_to change {
-        described_class.independent.count
-      }
-    end
-  end
 end

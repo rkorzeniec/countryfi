@@ -17,7 +17,7 @@ class Checkin < ApplicationRecord
   scope :north_american, -> { joins(:country).merge(Country.north_american) }
   scope :south_american, -> { joins(:country).merge(Country.south_american) }
 
-  scope :un_member, -> { joins(:country).merge(Country.un_member) }
-  scope :independent, -> { joins(:country).merge(Country.independent) }
   scope :in_past, -> { where('checkin_date <= ?', Time.current) }
+  # scope :un_member, -> { joins(:country).merge(Country.un_member) }
+  # scope :independent, -> { joins(:country).merge(Country.independent) }
 end
