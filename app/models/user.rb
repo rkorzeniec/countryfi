@@ -28,4 +28,12 @@ class User < ApplicationRecord
   def countries_preference
     countries_cluster || 'all'
   end
+
+  def independent_countries_preference?
+    countries_cluster == 'independent'
+  end
+
+  def un_countries_preference?
+    countries_cluster == 'un_member'
+  end
 end

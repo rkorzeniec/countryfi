@@ -138,4 +138,60 @@ describe User, type: :model do
       it { is_expected.to eq('un_member') }
     end
   end
+
+  describe '#independent_countries_preference?' do
+    subject { user.independent_countries_preference? }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user) }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when all' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'all') }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when independent' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'independent') }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when un_member' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'un_member') }
+
+      it { is_expected.to be false }
+    end
+  end
+
+  describe '#un_countries_preference?' do
+    subject { user.un_countries_preference? }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user) }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when all' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'all') }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when independent' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'independent') }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when un_member' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'un_member') }
+
+      it { is_expected.to be true }
+    end
+  end
 end
