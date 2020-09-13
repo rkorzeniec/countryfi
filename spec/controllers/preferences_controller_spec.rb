@@ -32,7 +32,7 @@ describe PreferencesController do
 
         it do
           expect(subject).to redirect_to(edit_preferences_path)
-          expect(flash[:success]).to be_present
+          expect(flash[:success]).to eq('Your new preferences have been saved.')
         end
 
         it do
@@ -53,7 +53,7 @@ describe PreferencesController do
 
         it do
           expect(subject).to render_template(:edit)
-          expect(flash[:error]).to be_present
+          expect(flash[:error]).to eq('Sorry, something went wrong.')
         end
       end
     end
