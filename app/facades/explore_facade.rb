@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ExploreFacade
-  def initialize(visited_countries, region: nil, subregions: nil)
-    @visited_countries = visited_countries
+  def initialize(user:, region: nil, subregions: nil)
+    @user = user
     @region = region
     @subregions = subregions
   end
@@ -25,11 +25,11 @@ class ExploreFacade
 
   private
 
-  attr_reader :visited_countries, :region, :subregions
+  attr_reader :user, :region, :subregions
 
   def unvisited_countries
     UnvisitedCountriesQuery.new(
-      visited_countries,
+      user: user,
       regions: region,
       subregions: subregions
     )

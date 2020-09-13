@@ -7,9 +7,9 @@ describe ExploreFacade do
   let(:user) do
     instance_double(
       User,
-      selected_countries: countries,
-      independent_countries_preference: nil,
-      un_countries_preference: nil
+      countries: countries,
+      independent_countries_preference?: nil,
+      un_countries_preference?: nil
     )
   end
   let(:facade) do
