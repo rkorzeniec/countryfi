@@ -6,13 +6,7 @@ describe DashboardFacade do
 
   shared_context 'with cached method' do
     let(:cache) { instance_double('cache') }
-    let(:cache_key) do
-      [
-        'dashboard_facade',
-        method_name,
-        user.cache_key
-      ].join('/')
-    end
+    let(:cache_key) { ['dashboard_facade', method_name, user.cache_key].join('/') }
 
     it do
       expect(Rails).to receive(:cache).and_return(cache)
@@ -21,44 +15,21 @@ describe DashboardFacade do
     end
   end
 
-  %i[
-    european north_american south_american asian african oceanian antarctican
-  ].each do |region|
-    describe "##{region}_countries_count" do
-      subject { facade.send("#{region}_countries_count".to_sym) }
-
-      let(:countries_relation) { instance_double('relation') }
-      let(:countries) { [double(:country)] }
-
-      it_behaves_like 'with cached method' do
-        let(:method_name) { "#{region}_countries_count" }
+  describe 'delegations' do
+    subject { facade }
+    %i[
+      countries european_countries north_american_countries south_american_countries
+      asian_countries african_countries oceanian_countries antarctican_countries
+    ].each do |region|
+      it do
+        is_expected.to delegate_method("#{region}_count".to_sym)
+          .to(:countries_counter)
       end
 
-      context 'with all countries' do
-        it do
-          expect(Country).to receive(:all).and_return(countries_relation)
-          allow(countries_relation).to receive(region).and_return(countries)
-          is_expected.to eq(1)
-        end
-      end
-
-      context 'with independent countries' do
-        let(:user) { build_stubbed(:user, countries_cluster: 'independent') }
-
-        it do
-          expect(Country).to receive(:independent).and_return(countries_relation)
-          allow(countries_relation).to receive(region).and_return(countries)
-          is_expected.to eq(1)
-        end
-      end
-
-      context 'with un countries' do
-        let(:user) { build_stubbed(:user, countries_cluster: 'un_member') }
-        it do
-          expect(Country).to receive(:un_member).and_return(countries_relation)
-          allow(countries_relation).to receive(region).and_return(countries)
-          is_expected.to eq(1)
-        end
+      it do
+        is_expected.to delegate_method("#{region}_count".to_sym)
+          .to(:visited_countries_counter)
+          .with_prefix(:visited)
       end
     end
   end
@@ -78,17 +49,6 @@ describe DashboardFacade do
 
     it_behaves_like 'with cached method' do
       let(:method_name) { 'country_code_array' }
-    end
-  end
-
-  describe '#visited_countries_counter' do
-    subject { facade.visited_countries_counter }
-
-    it do
-      expect(Dashboard::VisitedCountriesCounter).to receive(:new)
-        .with(user)
-        .and_call_original
-      expect(subject).to be_a(Dashboard::VisitedCountriesCounter)
     end
   end
 
@@ -161,10 +121,6 @@ describe DashboardFacade do
   describe '#cache_key' do
     subject { facade.send(:cache_key, 'asian_countries') }
 
-    let(:country) { instance_double('country', id: 99) }
-
-    before { allow(user).to receive(:past_checkins).and_return([country]) }
-
-    it { is_expected.to eq("dashboard_facade/asian_countries/#{user.cache_key}/99") }
+    it { is_expected.to eq("dashboard_facade/asian_countries/#{user.cache_key}") }
   end
 end

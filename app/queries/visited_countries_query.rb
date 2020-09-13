@@ -15,10 +15,6 @@ class VisitedCountriesQuery
 
   attr_reader :user
 
-  def calculate_countries_by_year
-    user_checkins.group('year(checkins.checkin_date)').count
-  end
-
   def user_checkins
     @user_checkins ||= user.past_checkins
   end

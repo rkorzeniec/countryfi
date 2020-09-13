@@ -3,49 +3,21 @@
 class DashboardFacade
   include CacheFetch
 
+  DELEGATION_METHODS = %i[
+    countries_count european_countries_count north_american_countries_count
+    south_american_countries_count asian_countries_count african_countries_count
+    oceanian_countries_count antarctican_countries_count
+  ].freeze
+
+  delegate(*DELEGATION_METHODS, to: :countries_counter)
+  delegate(*DELEGATION_METHODS, prefix: :visited, to: :visited_countries_counter)
+
   def initialize(user)
     @user = user
   end
 
   def country_code_array
     cache_fetch(__method__) { user_countries.pluck(:cca2) }
-  end
-
-  def countries_count
-    cache_fetch(__method__) { countries.size }
-  end
-
-  def european_countries_count
-    cache_fetch(__method__) { countries.european.size }
-  end
-
-  def north_american_countries_count
-    cache_fetch(__method__) { countries.north_american.size }
-  end
-
-  def south_american_countries_count
-    cache_fetch(__method__) { countries.south_american.size }
-  end
-
-  def asian_countries_count
-    cache_fetch(__method__) { countries.asian.size }
-  end
-
-  def african_countries_count
-    cache_fetch(__method__) { countries.african.size }
-  end
-
-  def oceanian_countries_count
-    cache_fetch(__method__) { countries.oceanian.size }
-  end
-
-  def antarctican_countries_count
-    cache_fetch(__method__) { countries.antarctican.size }
-  end
-
-  def visited_countries_counter
-    @visited_countries_counter ||=
-      ::Dashboard::VisitedCountriesCounter.new(user)
   end
 
   def countries_yearly_chart_data
@@ -74,14 +46,16 @@ class DashboardFacade
   attr_reader :user
 
   def user_countries
-    @user_countries ||= user.countries.distinct
+    @user_countries ||= user.countries.distinct.load
   end
 
-  def countries
-    @countries ||= Country.send(user.countries_preference).load
+  def countries_counter
+    @countries_counter ||=
+      ::Dashboard::CountriesCounter.new(user)
   end
 
-  def last_checkin_id
-    @last_checkin_id ||= user.past_checkins.last&.id
+  def visited_countries_counter
+    @visited_countries_counter ||=
+      ::Dashboard::VisitedCountriesCounter.new(user)
   end
 end

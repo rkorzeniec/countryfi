@@ -52,11 +52,11 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
-  describe '#visited_world_countries_count' do
-    subject { counter.visited_world_countries_count }
+  describe '#countries_count' do
+    subject { counter.countries_count }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'visited_world_countries_count' }
+      let(:method_name) { 'countries_count' }
     end
 
     context 'when world checkin exist' do
@@ -82,11 +82,11 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
-  describe '#visited_european_countries_count' do
-    subject { counter.visited_european_countries_count }
+  describe '#european_countries_count' do
+    subject { counter.european_countries_count }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'visited_european_countries_count' }
+      let(:method_name) { 'european_countries_count' }
     end
 
     context 'when european checkin exist' do
@@ -108,11 +108,11 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
-  describe '#visited_north_american_countries_count' do
-    subject { counter.visited_north_american_countries_count }
+  describe '#north_american_countries_count' do
+    subject { counter.north_american_countries_count }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'visited_north_american_countries_count' }
+      let(:method_name) { 'north_american_countries_count' }
     end
 
     context 'when north american checkin exist' do
@@ -154,11 +154,11 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
-  describe '#visited_south_american_countries_count' do
-    subject { counter.visited_south_american_countries_count }
+  describe '#south_american_countries_count' do
+    subject { counter.south_american_countries_count }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'visited_south_american_countries_count' }
+      let(:method_name) { 'south_american_countries_count' }
     end
 
     context 'when south american checkin exist' do
@@ -180,11 +180,11 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
-  describe '#visited_asian_countries_count' do
-    subject { counter.visited_asian_countries_count }
+  describe '#asian_countries_count' do
+    subject { counter.asian_countries_count }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'visited_asian_countries_count' }
+      let(:method_name) { 'asian_countries_count' }
     end
 
     context 'when asian checkin exist' do
@@ -206,11 +206,11 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
-  describe '#visited_oceanian_countries_count' do
-    subject { counter.visited_oceanian_countries_count }
+  describe '#oceanian_countries_count' do
+    subject { counter.oceanian_countries_count }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'visited_oceanian_countries_count' }
+      let(:method_name) { 'oceanian_countries_count' }
     end
 
     context 'when oceanian checkin exist' do
@@ -232,11 +232,11 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
-  describe '#visited_african_countries_count' do
-    subject { counter.visited_african_countries_count }
+  describe '#african_countries_count' do
+    subject { counter.african_countries_count }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'visited_african_countries_count' }
+      let(:method_name) { 'african_countries_count' }
     end
 
     context 'when african checkin exist' do
@@ -258,11 +258,11 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
-  describe '#visited_antarctican_countries_count' do
-    subject { counter.visited_antarctican_countries_count }
+  describe '#antarctican_countries_count' do
+    subject { counter.antarctican_countries_count }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'visited_antarctican_countries_count' }
+      let(:method_name) { 'antarctican_countries_count' }
     end
 
     context 'when antarctic checkin exist' do
@@ -286,15 +286,15 @@ describe Dashboard::VisitedCountriesCounter do
 
   describe '#cache_key' do
     subject(:cache_key) do
-      counter.send(:cache_key, 'visited_european_countries_count')
+      counter.send(:cache_key, 'european_countries_count')
     end
 
     before { european_checkin }
 
     it do
       expect(cache_key).to eq(
-        'dashboard/visited_countries_counter/visited_european_countries_count/' \
-        "#{user.cache_key}/#{european_checkin.id}"
+        'dashboard/visited_countries_counter/european_countries_count/' \
+        "#{user.cache_key}"
       )
     end
   end

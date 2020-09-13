@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module CacheFetch
-  module_function
-
   CACHE_EXPIRY = 1.week
   private_constant :CACHE_EXPIRY
 
@@ -19,8 +17,7 @@ module CacheFetch
     [
       self.class.to_s.underscore,
       method_name,
-      user.cache_key,
-      last_checkin_id
+      user.cache_key
     ].compact.join('/')
   end
 end
