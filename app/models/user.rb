@@ -25,4 +25,7 @@ class User < ApplicationRecord
   def remember_me
     true
   end
+  def countries_preference
+    countries_cluster || 'all'
+  end
 end

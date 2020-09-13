@@ -110,4 +110,32 @@ describe User, type: :model do
 
     it { is_expected.to be true }
   end
+
+  describe '#countries_preference' do
+    subject { user.countries_preference }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user) }
+
+      it { is_expected.to eq('all') }
+    end
+
+    context 'when all' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'all') }
+
+      it { is_expected.to eq('all') }
+    end
+
+    context 'when independent' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'independent') }
+
+      it { is_expected.to eq('independent') }
+    end
+
+    context 'when un_member' do
+      let(:user) { build_stubbed(:user, countries_cluster: 'un_member') }
+
+      it { is_expected.to eq('un_member') }
+    end
+  end
 end
