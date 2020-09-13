@@ -16,7 +16,11 @@ class VisitedCountriesQuery
   attr_reader :user
 
   def user_checkins
-    @user_checkins ||= user.past_checkins
+    @user_checkins ||=
+      user
+        .past_checkins
+        .joins(:country)
+        .merge(Country.send(user.countries_preference))
   end
 
   def cache_key
