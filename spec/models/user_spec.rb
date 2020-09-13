@@ -7,7 +7,7 @@ describe User, type: :model do
   it { is_expected.to have_many(:countries).through(:checkins) }
 
   it do
-    expect(subject).to have_many(:visited_checkins)
+    expect(subject).to have_many(:past_checkins)
       .class_name('Checkin')
       .inverse_of(:user)
   end
@@ -15,7 +15,7 @@ describe User, type: :model do
   it do
     expect(subject).to have_many(:visited_countries)
       .source(:country)
-      .through(:visited_checkins)
+      .through(:past_checkins)
   end
 
   it do
