@@ -45,7 +45,7 @@ module Dashboard
     attr_reader :user
 
     def countries
-      @countries ||= user.visited_countries
+      @countries ||= user.countries.distinct
     end
 
     def uniq_countries_count(countries)
