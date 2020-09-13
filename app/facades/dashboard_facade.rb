@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DashboardFacade
-  CACHE_EXPIRY = 1.week
+  include CacheFetch
 
   attr_reader :countries
 
@@ -76,20 +76,8 @@ class DashboardFacade
     @visited_countries ||= user.visited_countries.load
   end
 
-  def cache_fetch(method_name)
-    Rails.cache.fetch(cache_key(method_name), expires_in: CACHE_EXPIRY) do
-      Rails.logger.info(cache_key(method_name))
-      yield
-    end
   end
 
-  def cache_key(method_name)
-    [
-      self.class.to_s.underscore,
-      method_name,
-      user.id,
-      last_visited_checkin_id
-    ].compact.join('/')
   end
 
   def last_checkin_id

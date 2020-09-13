@@ -5,7 +5,6 @@ describe CountriesHelper do
     subject { helper.visit_badge(country) }
 
     let(:countries) { [] }
-    let(:visited_countries) { [] }
     let(:country) { instance_double(Country) }
     let(:user) do
       instance_double(

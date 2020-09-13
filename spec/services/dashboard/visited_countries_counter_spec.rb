@@ -41,7 +41,7 @@ describe Dashboard::VisitedCountriesCounter do
       [
         'dashboard/visited_countries_counter',
         method_name,
-        user.id
+        user.cache_key
       ].join('/')
     end
 
@@ -294,7 +294,7 @@ describe Dashboard::VisitedCountriesCounter do
     it do
       expect(cache_key).to eq(
         'dashboard/visited_countries_counter/visited_european_countries_count/' \
-        "#{user.id}/#{european_checkin.id}"
+        "#{user.cache_key}/#{european_checkin.id}"
       )
     end
   end

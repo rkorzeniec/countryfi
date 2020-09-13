@@ -33,7 +33,7 @@ class UniqVisitedCountriesQuery
 
   def cache_key
     [
-      self.class.to_s.underscore, user.id, user.visited_checkins.last&.id
+      self.class.to_s.underscore, user.cache_key, user.past_checkins.last&.id
     ].compact.join('/')
   end
 end

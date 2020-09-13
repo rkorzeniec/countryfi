@@ -16,7 +16,7 @@ describe UniqVisitedCountriesQuery do
 
     context 'with already visited countries' do
       let(:cache_key) do
-        ['uniq_visited_countries_query', user.id, checkin_c.id].join('/')
+        ['uniq_visited_countries_query', user.cache_key, checkin_c.id].join('/')
       end
 
       context 'when countries are uniq' do
@@ -70,7 +70,7 @@ describe UniqVisitedCountriesQuery do
 
     context 'with not visited countries' do
       let(:cache_key) do
-        ['uniq_visited_countries_query', user.id].compact.join('/')
+        ['uniq_visited_countries_query', user.cache_key].compact.join('/')
       end
       let!(:checkin) do
         create(:checkin, user: user, checkin_date: now + 1.day)

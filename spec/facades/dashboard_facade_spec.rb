@@ -10,7 +10,7 @@ describe DashboardFacade do
       [
         'dashboard_facade',
         method_name,
-        user.id
+        user.cache_key
       ].join('/')
     end
 
@@ -144,6 +144,6 @@ describe DashboardFacade do
 
     before { allow(user).to receive(:visited_checkins).and_return([country]) }
 
-    it { is_expected.to eq("dashboard_facade/asian_countries/#{user.id}/99") }
+    it { is_expected.to eq("dashboard_facade/asian_countries/#{user.cache_key}/99") }
   end
 end

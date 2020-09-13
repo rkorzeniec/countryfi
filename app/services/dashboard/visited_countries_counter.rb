@@ -2,7 +2,7 @@
 
 module Dashboard
   class VisitedCountriesCounter
-    CACHE_EXPIRY = 1.week
+    include CacheFetch
 
     def initialize(user)
       @user = user
@@ -52,18 +52,11 @@ module Dashboard
       Set.new(countries).size
     end
 
-    def cache_fetch(method_name)
-      Rails.cache.fetch(cache_key(method_name), expires_in: CACHE_EXPIRY) do
-        Rails.logger.info(cache_key(method_name))
-        yield
-      end
-    end
-
     def cache_key(method_name)
       [
         self.class.to_s.underscore,
         method_name,
-        user.id,
+        user.cache_key,
         last_checkin_id
       ].compact.join('/')
     end
