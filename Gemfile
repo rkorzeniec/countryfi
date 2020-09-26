@@ -7,7 +7,7 @@ gem 'rails', '6.0.3.3'
 
 gem 'bootsnap', '~> 1.4.8', require: false
 gem 'dalli', '~> 2.7.10'
-gem 'devise', '~> 4.7.2'
+gem 'devise', '~> 4.7.3'
 gem 'devise-async', '~> 1.0.0'
 gem 'dotenv-rails', '~> 2.7.6'
 gem 'graphql', '~> 1.11.4'
@@ -49,7 +49,7 @@ group :development do
   gem 'graphiql-rails', '~> 1.7.0'
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.2'
-  gem 'rubocop', '~> 0.91.0', require: false
+  gem 'rubocop', '~> 0.92.0', require: false
   gem 'rubocop-md', '~> 0.4.0', require: false
   gem 'rubocop-performance', '~> 1.8.0', require: false
   gem 'rubocop-rails', '~> 2.8.1', require: false
