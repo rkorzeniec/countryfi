@@ -6,7 +6,7 @@ ruby '2.7.1'
 gem 'rails', '6.0.3.3'
 
 gem 'bootsnap', '~> 1.4.8', require: false
-gem 'dalli', '~> 2.7.10'
+gem 'dalli', '~> 2.7.11'
 gem 'devise', '~> 4.7.3'
 gem 'devise-async', '~> 1.0.0'
 gem 'dotenv-rails', '~> 2.7.6'
