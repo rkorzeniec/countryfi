@@ -155,7 +155,7 @@ GEM
       railties
       sprockets-rails
     graphql (1.11.4)
-    haml (5.1.2)
+    haml (5.2.0)
       temple (>= 0.8.0)
       tilt
     i18n (1.8.5)
@@ -347,7 +347,7 @@ GEM
       net-ssh (>= 2.8.0)
     stub_env (1.0.4)
       rspec (>= 2.0, < 4.0)
-    temple (0.8.1)
+    temple (0.8.2)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     therubyracer (0.12.3)
@@ -408,7 +408,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.1.0)
   graphiql-rails (~> 1.7.0)
   graphql (~> 1.11.4)
-  haml (~> 5.1.2)
+  haml (~> 5.2.0)
   jbuilder (~> 2.10)
   jwt (~> 2.2.2)
   kaminari (~> 1.2.1)
