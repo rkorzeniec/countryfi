@@ -2,7 +2,7 @@
 
 describe Countries::UpdaterLogger do
   let(:updater_klass) do
-    UpdaterTestClass = Class.new do
+    Class.new do
       include Countries::UpdaterLogger
     end
   end

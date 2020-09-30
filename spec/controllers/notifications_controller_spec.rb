@@ -39,11 +39,12 @@ describe NotificationsController do
       let!(:notification_b) { create(:notification, :unread, recipient: user_b) }
 
       let(:rendered_template) do
-        "<div class='dropdown-item-text notification-item text-sm text-muted' " \
+        "<div class='dropdown-item-text notification-item px-3 text-sm text-muted' " \
         "id='notification-#{notification.id}'>\n" \
         "<div class='d-flex justify-content-between'>\nMambo jambo\n" \
-        '<a data-behavior="notification-link" href="#">' \
-        "<i class='fas fa-times text-xs d-block d-sm-none'></i>\n" \
+        "<a id=\"#{notification.id}\" class=\"text-muted\" " \
+        'data-behavior="notification-link" href="#">' \
+        "<i class='fas fa-times text-xs d-block'></i>\n" \
         "</a></div>\n</div>\n"
       end
 
