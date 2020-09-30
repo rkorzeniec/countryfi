@@ -2,7 +2,9 @@
 
 module PreferencesHelper
   def countries_all?(user)
-    user.countries_cluster == Users::PreferencesForm::COUNTRIES[:all]
+    return true if user.countries_cluster.nil?
+
+    user.countries_cluster == (Users::PreferencesForm::COUNTRIES[:all])
   end
 
   def countries_independent?(user)
