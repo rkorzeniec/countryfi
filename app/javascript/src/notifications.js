@@ -12,12 +12,12 @@ const populateNotifications = function (data) {
 }
 
 const bindNotificationLinks = function () {
-  const notificationLinks = document.querySelectorAll("[data-behavior='notification-link']")
-  notificationLinks.forEach(markAsReadListener)
+  const notificationLinks = document.querySelectorAll("[data-behavior='notification-link']");
+  notificationLinks.forEach(markAsReadListener);
 }
 
 const markAsReadListener = function(element) {
-  element.addEventListener('click', markNotificationAsRead)
+  element.addEventListener('click', markNotificationAsRead);
 }
 
 const markNotificationAsRead = function (event) {
@@ -30,7 +30,8 @@ const markNotificationAsRead = function (event) {
 
 const markAsReadCallback = function (data) {
   if (data.success === 'undefined') { return }
-  document.getElementById('notification-' + data.id).remove()
+
+  document.getElementById('notification-' + data.id).remove();
 }
 
 export class Notifications {
@@ -48,7 +49,7 @@ export class Notifications {
 
   handleSuccess(data) {
     if(data.length == 0) { return }
-    // document.getElementById('navbarNotificationsDropdown').text(items.length);
+
     showNotifications();
     populateNotifications(data);
     bindNotificationLinks();
