@@ -4,6 +4,12 @@ describe PreferencesHelper do
   describe '#countries_all?' do
     subject { helper.countries_all?(user) }
 
+    context 'when nil' do
+      let(:user) { build_stubbed(:user, countries_cluster: nil) }
+
+      it { is_expected.to be true }
+    end
+
     context 'when true' do
       let(:user) { build_stubbed(:user, countries_cluster: 'all') }
 

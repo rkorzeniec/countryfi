@@ -169,7 +169,7 @@ describe GraphqlController do
       context 'when in production env' do
         before { allow(Rails.env).to receive(:development?).and_return(false) }
 
-        it { expect { subject }.to raise_error }
+        it { expect { subject }.to raise_error(StandardError) }
       end
     end
   end

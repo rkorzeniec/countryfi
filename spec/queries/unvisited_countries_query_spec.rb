@@ -2,7 +2,7 @@
 
 describe UnvisitedCountriesQuery do
   let(:params) { { user: user } }
-  let(:query) { described_class.new(params) }
+  let(:query) { described_class.new(**params) }
 
   describe '#all' do
     context 'with prefix' do

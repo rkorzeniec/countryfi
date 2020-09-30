@@ -44,6 +44,10 @@ body, .sticky-footer-wrapper {
   left: auto !important;
 }
 
-.notification-item:hover .d-none {
-  display: inline-block !important;
+.notification-item:hover {
+  background-color: #f8f9fa;
+
+  .d-none {
+    display: inline-block !important;
+  }
 }
