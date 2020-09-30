@@ -8,7 +8,7 @@ const showNotifications = function () {
 const populateNotifications = function (data) {
   const items = data.map(notification => notification.template);
   const notificationsDropdown = document.getElementById('navbarNotificationsDropdown');
-  notificationsDropdown.innerHTML = items + notificationsDropdown.innerHTML;
+  notificationsDropdown.innerHTML = items.join("") + notificationsDropdown.innerHTML;
 }
 
 const bindNotificationLinks = function () {
