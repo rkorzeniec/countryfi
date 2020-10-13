@@ -2,7 +2,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^5.2.1",
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^4.5.3",
     "chart.js": "^2.9.3",
     "chartkick": "^3.2.1",
     "easy-pie-chart": "^2.1.7",
