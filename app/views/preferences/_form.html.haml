@@ -5,13 +5,13 @@
 .form-group
   .form-check
     = f.radio_button :countries, :all, checked: countries_all?(current_user), class: 'form-check-input'
-    = f.label :countries, 'all', class: 'form-check-label'
+    = f.label :countries, 'all', class: 'form-check-label', for: 'user_countries_all'
   .form-check
     = f.radio_button :countries, :un_member, checked: countries_un_member?(current_user), class: 'form-check-input'
-    = f.label :countries, 'UN members only', class: 'form-check-label'
+    = f.label :countries, 'UN members only', class: 'form-check-label', for: 'user_countries_un_member'
   .form-check
     = f.radio_button :countries, :independent, checked: countries_independent?(current_user), class: 'form-check-input'
-    = f.label :countries, 'independent only', class: 'form-check-label'
+    = f.label :countries, 'independent only', class: 'form-check-label', for: 'user_countries_independent'
 %hr
 .form-row.mb-3
   .col-md-8.mb-3
