@@ -1,0 +1,17 @@
+!!! 5
+
+<!--[if IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9 gt-ie8"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="gt-ie8 gt-ie9 not-ie"> <!--<![endif]-->
+%html{ lang: 'en' }
+  %head
+    = render 'layouts/head'
+  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }", data: { user_preferences_color: "#{user_preferences_colour}" } }
+    -# = render 'layouts/navbar'
+    %main.nav-spacer{ role: 'main'}
+      .container-fluid.px-4.text-center.pt-5
+        %h1.text-slg
+          %i.fas.fa-check
+          %span
+            countrify
+        = yield

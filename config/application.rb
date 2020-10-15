@@ -73,5 +73,7 @@ module Countryfier
     config.active_job.queue_adapter = :delayed_job
 
     config.eager_load = true
+
+    config.exceptions_app = routes
   end
 end
