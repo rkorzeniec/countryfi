@@ -61,4 +61,12 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
   end
+
+  get '/404', to: 'exceptions#index', code: '404'
+  get '/422', to: 'exceptions#index', code: '422'
+  get '/500', to: 'exceptions#index', code: '500'
+
+  unless Rails.application.config.consider_all_requests_local
+    get '*path', to: 'exceptions#index', code: '404'
+  end
 end
