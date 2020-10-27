@@ -5,7 +5,7 @@ ruby '2.7.1'
 
 gem 'rails', '6.0.3.4'
 
-gem 'bootsnap', '~> 1.4.8', require: false
+gem 'bootsnap', '~> 1.4.9', require: false
 gem 'dalli', '~> 2.7.11'
 gem 'devise', '~> 4.7.3'
 gem 'devise-async', '~> 1.0.0'
