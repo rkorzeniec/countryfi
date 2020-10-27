@@ -4,6 +4,7 @@ import Turbolinks from 'turbolinks';
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';
+import 'controllers';
 
 // custom scripts
 import { Notifications } from '../src/notifications';
