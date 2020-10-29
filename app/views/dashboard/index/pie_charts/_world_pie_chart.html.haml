@@ -1,19 +1,7 @@
 - visited_percent = (visited_countries_count / countries_count.to_f) * 100
-.card
+.card{ 'data-controller': 'pie-chart', 'data-pie-chart-color': '#37BC9B' }
   .card-body.text-center
     .text-sm.text-semibold World
     .py-2
-      #world_pie_chart.pie-chart{ data: { percent: "#{visited_percent}" } }
+      #world_pie_chart.pie-chart{ 'data-target': 'pie-chart.element', data: { percent: "#{visited_percent}" } }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_worlds_path
-= content_for :js do
-  :javascript
-    var element = document.querySelector('#world_pie_chart');
-    new EasyPieChart(element, {
-      animate: 2000,
-      scaleColor: false,
-      lineWidth: 6,
-      lineCap: 'square',
-      size: 90,
-      trackColor: '#e5e5e5',
-      barColor: '#37BC9B'
-    });
