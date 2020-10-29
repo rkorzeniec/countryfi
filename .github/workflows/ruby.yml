@@ -25,7 +25,6 @@ jobs:
           gem install rubocop-rails --no-doc
           gem install rubocop-rspec --no-doc
           gem install rubocop-performance --no-doc
-          gem install rubocop-md --no-doc
           gem install brakeman --no-doc
 
       - name: Check code with rubocop
