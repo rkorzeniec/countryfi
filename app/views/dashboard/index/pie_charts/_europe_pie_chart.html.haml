@@ -3,5 +3,5 @@
   .card-body.text-center
     .text-sm.text-semibold Europe
     .py-2
-      #europe_pie_chart.pie-chart{ 'data-target': 'pie-chart.element', 'data-percent': "#{visited_percent}" }
+      #europe_pie_chart.pie-chart{ data: { target: 'pie-chart.element', percent: "#{visited_percent}" } }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_europeans_path

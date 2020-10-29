@@ -3,5 +3,5 @@
   .card-body.text-center
     .text-sm.text-semibold Oceania
     .py-2
-      #oceania_pie_chart.pie-chart{ 'data-target': 'pie-chart.element', 'data-percent': "#{visited_percent}" }
+      #oceania_pie_chart.pie-chart{ data: { target: 'pie-chart.element', percent: "#{visited_percent}" } }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_oceanians_path
