@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ['element']
 
   connect() {
-    console.log('Hello from stimulus!');
     this.setup()
   }
 
