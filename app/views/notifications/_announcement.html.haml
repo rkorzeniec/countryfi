@@ -1,5 +1,5 @@
-.dropdown-item-text.notification-item.px-3.text-sm.text-muted{ id: "notification-#{notification.id}" }
+.dropdown-item-text.notification-item.px-3.text-sm.text-muted{ id: notification.id, data: { controller: 'notification', target: 'notification.element' } }
   .d-flex.justify-content-between
     = notification.message
-    = link_to '#', id: notification.id, class: 'text-muted', data: { behavior: 'notification-link' } do
+    = link_to '#', id: notification.id, class: 'text-muted', data: { behavior: 'notification-link', action: 'notification#markAsRead' } do
       %i.fas.fa-times.text-xs.d-block

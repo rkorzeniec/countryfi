@@ -31,10 +31,10 @@
           .dropdown-item.text-md= link_to 'Settings', edit_preferences_path, class: 'nav-link'
           .dropdown-divider
           .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
-      %li#navbarNotifications.nav-item.dropdown.d-none
+      %li#navbarNotifications.nav-item.dropdown.d-none{ data: { controller: 'notifications', target: 'notifications.rootElement' } }
         = link_to '#', id: 'navbarNotificationsLink', class: 'nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
           %i.fas.fa-bell.text-danger
-        #navbarNotificationsDropdown.dropdown-menu{ aria: { labelledby: 'navbarNotificationsLink' } }
+        #navbarNotificationsDropdown.dropdown-menu{ aria: { labelledby: 'navbarNotificationsLink' }, data: { target: 'notifications.dropdown' } }
           .dropdown-divider
           .dropdown-item.text-xs.text-muted
             = link_to mark_as_read_notifications_path, method: :post, remote: true, class: 'nav-link' do

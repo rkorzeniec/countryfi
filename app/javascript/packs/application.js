@@ -7,7 +7,6 @@ import 'bootstrap';
 import 'controllers';
 
 // custom scripts
-import { Notifications } from '../src/notifications';
 import { flashTimeout } from '../src/flash';
 
 // css
@@ -19,4 +18,3 @@ window.flashTimeout = flashTimeout;
 
 Rails.start();
 Turbolinks.start();
-new Notifications();
