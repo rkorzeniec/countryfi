@@ -1,8 +1,4 @@
 - flash.each do |message_type, message|
-  .alert{ id: "flash-#{message_type}", class: "alert-#{flash_message_type(message_type)} text-md" }
+  .alert{ id: "flash-#{message_type}", class: "alert-#{flash_message_type(message_type)} text-md", data: { controller: 'timeout', target: 'timeout.element' } }
     %button{ type: 'button', class: 'close', 'data-dismiss': 'alert' }×
     = message
-
-  = content_for :js do
-    :javascript
-      flashTimeout("flash-#{message_type}")
