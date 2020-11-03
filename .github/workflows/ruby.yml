@@ -54,14 +54,14 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
 
-      - name: Install mysql client
-        run: sudo apt-get install mysql-server
+      # - name: Install mysql client
+      #   run: sudo apt-get install mysql-server
 
-      - name: Check mysql installation
-        run: |
-          sudo apt-get install -y mysql-client libmysqlclient-dev
-          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports[3306] }} -uroot -proot -e "SHOW GRANTS FOR 'root'@'localhost'"
-          mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports[3306] }} -uroot -proot mysql
+      # # - name: Check mysql installation
+      # #   run: |
+      # #     sudo apt-get install -y mysql-client libmysqlclient-dev
+      # #     mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports[3306] }} -uroot -proot -e "SHOW GRANTS FOR 'root'@'localhost'"
+      # #     mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports[3306] }} -uroot -proot mysql
 
       - name: Cache ruby gems
         uses: actions/cache@v2
