@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
       @notification.update(read_at: Time.current)
     else
       #rubocop:disable Rails/SkipsModelValidations
-      @notifications.update_all(read_at: Time.current)
+      @notifications.update_all(read_at: Time.current, updated_at: Time.current)
       #rubocop:enable Rails/SkipsModelValidations
     end
   end

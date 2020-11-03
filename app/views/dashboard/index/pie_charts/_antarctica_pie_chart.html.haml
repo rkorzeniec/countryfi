@@ -1,19 +1,7 @@
 - visited_percent = (visited_countries_count / countries_count.to_f) * 100
-.card
+.card{ data: { controller: 'pie-chart', pie_chart_color: '#AAB2BD' } }
   .card-body.text-center
     .text-sm.text-semibold Antarctica
     .py-2
-      #antarctica_pie_chart.pie-chart{ 'data-percent': "#{visited_percent}" }
+      #antarctica_pie_chart.pie-chart{ data: { target: 'pie-chart.element', percent: "#{visited_percent}" } }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_antarcticans_path
-= content_for :js do
-  :javascript
-    var element = document.querySelector('#antarctica_pie_chart');
-    new EasyPieChart(element, {
-      animate: 2000,
-      scaleColor: false,
-      lineWidth: 6,
-      lineCap: 'square',
-      size: 90,
-      trackColor: '#e5e5e5',
-      barColor: '#AAB2BD'
-    });

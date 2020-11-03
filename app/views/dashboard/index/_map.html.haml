@@ -3,7 +3,7 @@
     %span Download map
     %i#download-spinner.spinner-border.spinner-border-sm.d-none{ role: 'status', aria: { hidden: 'true' } }
     %i#download-icon.fas.fa-cloud-download-alt.font-size-24
-.d-flex.flex-row
+.d-flex.flex-row{ data: { controller: 'dashboard-map', dashboard_map_country_codes: @dashboard.country_code_array, dashboard_map_color: user_preferences_colour } }
   .flex-fill{ style: 'max-height: 700px; max-width: 1000px; margin: auto; padding-top: 0;' }
     .d-block.d-xs-none
       = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-desktop'
@@ -14,9 +14,3 @@
 = content_for :js do
   = render 'dashboard/index/maps/world_script_desktop'
   = render 'dashboard/index/maps/world_script_mobile'
-  = render 'dashboard/index/maps/country_checked', countries: @dashboard.country_code_array
-
-  :javascript
-    $(document).on('turbolinks:load', function() {
-      $('.checked').css('fill', $('body').data('user-preferences-color'));
-    });
