@@ -10,4 +10,6 @@ environment.plugins.append(
   })
 );
 
+environment.loaders.delete('nodeModules')
+
 module.exports = environment;
