@@ -12,7 +12,7 @@
         %i.fas.fa-plus.text-sm
         Add checkin
 .row.row-cols-1.justify-content
-  #mapbox.mapbox{ data: { country_geojson: @geojson, country_cca3: @country.cca3, country_lat: @country.latitude, country_lng: @country.longitude } }
+  #mapbox.mapbox{ data: { controller: 'mapbox', target: 'mapbox.element', mapbox_api_key: "#{ENV.fetch('MAPBOX_KEY')}", mapbox_geojson: @geojson, mapbox_cca3: @country.cca3, mapbox_lat: @country.latitude, mapbox_lng: @country.longitude } }
   %hr
 .row.row-cols-1.row-cols-md-2.row-cols-lg-3
   .col
@@ -21,45 +21,3 @@
     = render 'countries/show/geographical_details', country: @country
   .col
     = render 'countries/show/miscellaneous_details', country: @country
-
-= content_for :js do
-  :javascript
-    mapboxgl.accessToken = "#{ENV.fetch('MAPBOX_KEY')}";
-    var mapboxSelector = document.querySelector('#mapbox');
-
-    var map = new mapboxgl.Map({
-        container: 'mapbox', // container id
-        style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
-        center: [mapboxSelector.dataset.countryLng, mapboxSelector.dataset.countryLat], // starting position
-        zoom: 4 // starting zoom
-    });
-
-    var nav = new mapboxgl.NavigationControl({position: 'bottom-right'}); // position is optional
-    map.addControl(nav);
-
-    map.on('load', function() {
-      getCountry(map)
-    });
-
-    function getCountry(map) {
-      var geojson = $.parseJSON(mapboxSelector.dataset.countryGeojson);
-      map.addSource(mapboxSelector.dataset.countryCca3, {
-        'type': 'geojson',
-        'data': geojson
-      });
-
-      map.addLayer({
-        'id': 'route',
-        'type': 'fill',
-        'source': mapboxSelector.dataset.countryCca3,
-        'layout': {},
-        'paint': {
-            'fill-color': '#088',
-            'fill-opacity': 0.8
-        }
-      });
-
-      var bbox = turf.extent(geojson);
-
-      map.fitBounds(bbox, {padding: 20});
-    }
