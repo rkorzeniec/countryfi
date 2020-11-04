@@ -1,5 +1,6 @@
 import { Controller } from 'stimulus'
 import mapboxgl from 'mapbox-gl'
+import { getBoundingBox } from '../src/bounding_box'
 
 export default class extends Controller {
   static targets = ['element']
@@ -34,7 +35,7 @@ export default class extends Controller {
 
   applyCountryLayer() {
     const geojson = JSON.parse(this.data.get('geojson'))
-    const boundingBox = this.getBoundingBox(geojson)
+    const boundingBox = getBoundingBox(geojson)
 
     this.map.addSource(this.data.get('cca3'), {
       'type': 'geojson',
@@ -53,34 +54,5 @@ export default class extends Controller {
     })
 
     this.map.fitBounds(boundingBox, { padding: 20 })
-  }
-
-  getBoundingBox(geojson) {
-    const geometryType = geojson.features[0].geometry.type
-
-    if (geometryType === 'MultiPolygon') {
-      return this.getMultiPolygonBounds(geojson.features[0].geometry.coordinates)
-    }
-    else {
-      return this.getPolygonBounds(geojson.features[0].geometry.coordinates)
-    }
-  }
-
-  getMultiPolygonBounds(coordinates) {
-    const southWest = coordinates[0][0][0]
-    const northEast = coordinates[coordinates.length - 1][0][0]
-
-    return [southWest, northEast]
-  }
-
-  getPolygonBounds(coordinates) {
-    const southWest = coordinates[0][0]
-    const northEast = coordinates[0][coordinates[0].length - 1]
-
-    console.log(coordinates[0])
-    // console.log(southWest)
-    // console.log(northEast)
-
-    return [southWest, northEast]
   }
 }
