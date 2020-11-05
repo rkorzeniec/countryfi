@@ -1,7 +1,0 @@
-$('#timeline').append('<%= escape_javascript render 'checkins/shared/timeline', timeline: timeline %>');
-<% if timeline.next_page %>
-  $('.pagination').replaceWith('<%= escape_javascript paginate(timeline) %>');
-<% else %>
-  $(window).off('scroll');
-  $('.pagination').remove();
-<% end %>

@@ -5,21 +5,21 @@ describe Admin::AnnouncementNotificationsCreator do
     subject { described_class.new(announcement).call }
 
     let(:announcement) { create(:announcement) }
-    let(:notification_1) do
+    let(:notification1) do
       {
         recipient_id: 1,
         notifiable_id: announcement.id,
         notifiable_type: Announcement
       }
     end
-    let(:notification_2) do
+    let(:notification2) do
       {
         recipient_id: 2,
         notifiable_id: announcement.id,
         notifiable_type: Announcement
       }
     end
-    let(:notification_3) do
+    let(:notification3) do
       {
         recipient_id: 3,
         notifiable_id: announcement.id,
@@ -31,7 +31,7 @@ describe Admin::AnnouncementNotificationsCreator do
 
     it do
       expect(Notification).to receive(:insert_all).with(
-        [notification_1, notification_2, notification_3]
+        [notification1, notification2, notification3]
       ).and_call_original
 
       expect { subject }.to change { Notification.count }.from(0).to(3)

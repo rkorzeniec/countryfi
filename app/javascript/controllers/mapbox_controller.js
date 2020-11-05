@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 import mapboxgl from 'mapbox-gl'
-import { getBoundingBox } from '../src/bounding_box'
+import { getBoundingBox } from '../src/utils/bounding_box'
 
 export default class extends Controller {
   static targets = ['element']

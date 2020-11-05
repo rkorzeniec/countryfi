@@ -1,4 +1,5 @@
 import { Controller } from 'stimulus'
+import { getCSRFToken } from '../src/utils/csrf_token'
 
 export default class extends Controller {
   static targets = ['element']
@@ -8,7 +9,7 @@ export default class extends Controller {
     const options = {
       method: 'POST',
       credentials: 'same-origin',
-      headers: { 'X-CSRF-Token': this.getCSRFToken() }
+      headers: { 'X-CSRF-Token': getCSRFToken() }
     }
 
     fetch(url, options)
@@ -17,9 +18,5 @@ export default class extends Controller {
         if (data.success === 'undefined') { return }
         this.elementTarget.remove()
       })
-  }
-
-  getCSRFToken() {
-    return document.head.querySelector("meta[name='csrf-token']").content
   }
 }
