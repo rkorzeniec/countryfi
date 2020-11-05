@@ -76,7 +76,7 @@ GEM
     autoprefixer-rails (9.8.4)
       execjs
     bcrypt (3.1.16)
-    better_errors (2.8.3)
+    better_errors (2.9.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
@@ -383,7 +383,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate (~> 0.14.0)
-  better_errors (~> 2.8.3)
+  better_errors (~> 2.9.0)
   binding_of_caller (~> 0.8.0)
   bootsnap (~> 1.5.0)
   brakeman (~> 4.10.0)
