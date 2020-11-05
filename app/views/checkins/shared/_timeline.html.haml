@@ -7,5 +7,6 @@
       = render 'checkins/shared/year_marker', checkin_year: checkin.checkin_year
     - if timeline.today_marker?(index)
       = render 'checkins/shared/today_marker'
-  .widget-timeline-item.left
-    = render 'checkins/shared/final_item'
+  - unless timeline.next_page
+    .widget-timeline-item.left
+      = render 'checkins/shared/final_item'
