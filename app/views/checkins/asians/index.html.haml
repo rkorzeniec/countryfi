@@ -1,9 +1,1 @@
-- provide(:title, 'My checkins')
-.d-flex.flex-row.justify-content-center
-  #timeline.col-lg-10.col-lg-offset-1
-    = render 'checkins/shared/timeline', timeline: @timeline
-.d-flex.flex-row.justify-content-center
-  .col-sm.12
-    = paginate @timeline
-
-= render 'checkins/shared/pagination_script'
+= render 'checkins/shared/index', timeline: @timeline

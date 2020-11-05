@@ -1,0 +1,8 @@
+- provide(:title, 'My checkins')
+%div{ data: { controller: 'infinite-scroll', action: 'scroll@window->infinite-scroll#scroll' } }
+  .d-flex.flex-row.justify-content-center
+    #timeline.col-lg-10.col-lg-offset-1{ data: { target: 'infinite-scroll.items' } }
+      = render 'checkins/shared/timeline', timeline: timeline
+  .d-flex.flex-row
+    .col-sm.12.d-flex.justify-content-center.text-muted.text-sm.mb-3{ data: { target: 'infinite-scroll.pagination' } }
+      = paginate timeline
