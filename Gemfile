@@ -53,7 +53,7 @@ group :development do
   gem 'rubocop-performance', '~> 1.8.1', require: false
   gem 'rubocop-rails', '~> 2.8.1', require: false
   gem 'spring', '~> 2.1.1'
-  gem 'web-console', '~> 4.0.4'
+  gem 'web-console', '~> 4.1.0'
 end
 
 group :test do
