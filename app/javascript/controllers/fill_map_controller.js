@@ -4,10 +4,10 @@ export default class extends Controller {
   static targets = ['country']
 
   initialize() {
-    this.initMap()
+    this.fillMap()
   }
 
-  initMap() {
+  fillMap() {
     this.countryTargets.forEach((c) => this.fillCountry(c))
   }
 
