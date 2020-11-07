@@ -26,5 +26,4 @@ document.addEventListener("turbolinks:load", () => {
 
   worldSvgCountries.on('mousedown', (e) => $(e.currentTarget).tooltip('hide'))
   worldSvgCountries.on('mouseup', (e) => $(e.currentTarget).tooltip('show'))
-
 })
