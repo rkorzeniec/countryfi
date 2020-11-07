@@ -7,10 +7,10 @@
   .flex-fill{ style: 'max-height: 700px; max-width: 1000px; margin: auto; padding-top: 0;' }
     .d-block.d-xs-none{ data: { controller: 'desktop-svg-map', action: 'resize@window->desktop-svg-map#resize' } }
       = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-desktop'
-    .d-none.d-xs-block
-      = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-mobile'
+    -# .d-none.d-xs-block
+    -#   = render 'dashboard/index/maps/world', dashboard: @dashboard, id: 'world-svg-mobile'
 
 
 = content_for :js do
-  = render 'dashboard/index/maps/world_script_mobile'
   -# = render 'dashboard/index/maps/world_script_desktop'
+  -# = render 'dashboard/index/maps/world_script_mobile'
