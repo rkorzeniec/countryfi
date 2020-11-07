@@ -1,5 +1,6 @@
 import { Controller } from 'stimulus'
 import svgPanZoom from 'svg-pan-zoom'
+import Hammer from 'hammerjs'
 
 export default class extends Controller {
   static targets = ['map']

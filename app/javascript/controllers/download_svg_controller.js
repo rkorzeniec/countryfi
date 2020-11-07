@@ -1,5 +1,5 @@
 import { Controller } from 'stimulus'
-import { saveSvgAsPng }from 'save-svg-as-png'
+import { saveSvgAsPng } from 'save-svg-as-png'
 
 export default class extends Controller {
   static targets = ['svg', 'button', 'icon', 'spinner']
