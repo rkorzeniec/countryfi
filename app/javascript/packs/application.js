@@ -16,7 +16,7 @@ Rails.start();
 Turbolinks.start();
 
 document.addEventListener("turbolinks:load", () => {
-  const worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
+  const worldSvgCountries = $('#world-svg-map [data-toggle="tooltip"]');
   worldSvgCountries.tooltip({
     container: 'body',
     placement: 'right',
