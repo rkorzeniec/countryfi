@@ -54,6 +54,10 @@ export default class extends Controller {
     })
   }
 
+  get map() {
+    return this.svgMap
+  }
+
   resize() {
     this.svgMap.resize()
     this.svgMap.fit()
