@@ -14,3 +14,16 @@ window.$ = $;
 
 Rails.start();
 Turbolinks.start();
+
+document.addEventListener("turbolinks:load", () => {
+  const worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
+  worldSvgCountries.tooltip({
+    container: 'body',
+    placement: 'right',
+    trigger: 'hover',
+    template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'
+  })
+
+  worldSvgCountries.on('mousedown', (e) => $(e.currentTarget).tooltip('hide'))
+  worldSvgCountries.on('mouseup', (e) => $(e.currentTarget).tooltip('show'))
+})

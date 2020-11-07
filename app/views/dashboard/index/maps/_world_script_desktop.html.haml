@@ -1,48 +1,5 @@
 :javascript
-  var worldMap = svgPanZoom('#world-svg-desktop', { controlIconsEnabled: true });
   var worldSvgCountries = $('#world-svg-desktop [data-toggle="tooltip"]');
-
-  document.addEventListener("turbolinks:load", () => {
-    worldSvgCountries.tooltip({
-      container: 'body',
-      placement: 'right',
-      trigger: 'hover',
-      template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'
-    });
-
-    $(window).resize(function(){
-      worldMap.resize();
-      worldMap.fit();
-      worldMap.center();
-    });
-
-    worldSvgCountries.on('mousedown', function() {
-      $(this).on('mousemove', flagged);
-      $(this).tooltip('hide');
-    });
-
-    worldSvgCountries.on('mouseup', function() {
-      $(this).off('mousemove', flagged);
-      $(this).tooltip('show');
-    });
-
-    worldSvgCountries.on('mouseup', function(e) {
-      if (this.isScrolled) {
-        $(this).on('click', preventClick);
-      } else {
-        $(this).off('click', preventClick);
-      }
-      this.isScrolled = false;
-      $(this).off('mousemove', flagged);
-    });
-  });
-
-  function flagged() { this.isScrolled = true; }
-
-  function preventClick(event) {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-  }
 
   function saveSvg(svgEl, name) {
     handleButtonPreDownload();
