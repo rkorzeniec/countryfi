@@ -34,11 +34,10 @@ export default class extends Controller {
 
   initMouseUp() {
     this.mapElements.forEach((e) => {
-      e.addEventListener('mouseup', () => {
+      e.addEventListener('click', (event) => {
         if (this.isDown && this.isMoving) {
-          e.addEventListener('click', this.preventClick.bind(this))
-        } else {
-          e.removeEventListener('click', this.preventClick.bind(this))
+          event.preventDefault()
+          event.stopImmediatePropagation()
         }
 
         this.setMouseEventDefaults()
@@ -55,10 +54,5 @@ export default class extends Controller {
   setMouseEventDefaults() {
     this.isMoving = false
     this.isDown = false
-  }
-
-  preventClick(event) {
-    event.preventDefault()
-    event.stopImmediatePropagation()
   }
 }
