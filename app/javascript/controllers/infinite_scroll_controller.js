@@ -28,7 +28,6 @@ export default class extends Controller {
   }
 
   loadMore(url) {
-    console.log(url)
     const options = {
       method: 'GET',
       headers: {
@@ -36,7 +35,6 @@ export default class extends Controller {
         'Content-Type': 'application/json;charset=utf-8'
       }
     }
-    console.log('fetch')
     this.paginationTarget.innerText = 'Please wait...'
 
     fetch(url, options)
