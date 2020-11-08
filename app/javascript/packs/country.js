@@ -1,2 +1,2 @@
 // css
-import 'css/country';
+import(/* webpackPreload: true */ 'css/country');
