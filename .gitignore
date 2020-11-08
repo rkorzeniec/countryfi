@@ -45,6 +45,7 @@ public/assets/**/*
 !.rubocop.yml
 !.env.sample
 !.env.ci
+!.github
 
 /public/packs
 /public/packs-test
