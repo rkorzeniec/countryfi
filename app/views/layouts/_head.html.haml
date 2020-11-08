@@ -9,6 +9,9 @@
 = yield :layout_custom_head
 = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: 'defer', async: 'async'
 
+= preload_link_tag('fonts/fa-regular-400.woff2')
+= preload_link_tag('fonts/fa-solid-900.woff2')
+
 %link{ href: '/favicon.ico', rel: 'icon', type: 'image/x-icon' }
 %link{ rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
 %link{ rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }
