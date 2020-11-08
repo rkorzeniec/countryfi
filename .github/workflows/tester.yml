@@ -1,4 +1,4 @@
-name: Ruby
+name: Test
 
 env:
   RUBY_VERSION: 2.7
@@ -10,31 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: ${{ env.RUBY_VERSION }}
-
-      - name: Install dependencies
-        run: |
-          gem install rubocop --no-doc
-          gem install rubocop-rails --no-doc
-          gem install rubocop-rspec --no-doc
-          gem install rubocop-performance --no-doc
-          gem install brakeman --no-doc
-
-      - name: Check code with rubocop
-        run: rubocop
-
-      - name: Check code with brakeman
-        run: brakeman
-
   test:
-    needs: lint
     runs-on: ubuntu-latest
 
     services:
