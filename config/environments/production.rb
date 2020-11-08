@@ -71,7 +71,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   config.cache_store =
-    :dalli_store,
+    :mem_cache_store,
     '127.0.0.1:11211',
     {
       namespace: 'countrify',
