@@ -18,7 +18,7 @@
         = mail_to('hello@countrify.net', 'contact me', subject: 'Countrify contact')
         %br
         %span.text-black-50 You enjoy using the app and would like to suport it?
-        = link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank')
+        = link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank', rel: 'noopener noreferrer')
         %br
         %span.text-justify.text-black-50
           made with
@@ -26,5 +26,5 @@
           and
           %i.fas.fa-terminal
           by
-          = link_to('Robert Korzeniec', 'https://github.com/rkorzeniec', target: '_blank')
+          = link_to('Robert Korzeniec', 'https://github.com/rkorzeniec', target: '_blank', rel: 'noopener noreferrer')
           = "\u00A9 #{Date.today.year}"
