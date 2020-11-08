@@ -2,26 +2,3 @@
  *= require_self
  *= require ./pie-chart
  */
-
-main {
-  .container {
-    padding-top: 70px;
-  }
-}
-
- #dashboard-maps {
-  ul {
-    margin-bottom: 10px;
-
-    li {
-      padding: 0 10px;
-      margin-bottom: 10px;
-    }
-  }
-}
-
-#dashboard-pie-charts {
-  .stat-panel .stat-cell {
-    padding-bottom: 0px;
-  }
-}
