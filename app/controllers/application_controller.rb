@@ -5,9 +5,14 @@ class ApplicationController < ActionController::Base
 
   before_action :set_raven_context
   before_action :authenticate_user!
+  before_action :control_rack_mini_profiler
 
   def after_sign_in_path_for(_resource)
     dashboard_path
+  end
+
+  def control_rack_mini_profiler
+    Rack::MiniProfiler.authorize_request if current_user.admin? && params[:rmp]
   end
 
   private
