@@ -7,7 +7,7 @@ import 'bootstrap';
 import 'controllers';
 
 // css
-import (/* webpackPreload: true */ 'css/site');
+import 'css/site';
 
 //custom window bindings
 window.$ = $;
