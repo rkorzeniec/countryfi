@@ -6,8 +6,8 @@ import 'popper.js';
 import 'bootstrap';
 import 'controllers';
 
-// css
-import 'css/site';
+// stylesheets
+import 'stylesheets/site';
 
 //custom window bindings
 window.$ = $;
