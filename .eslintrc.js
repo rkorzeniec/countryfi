@@ -17,10 +17,10 @@ module.exports = {
       webpack: {
         config: {
           resolve: {
-            modules: ['app/javascript', 'node_modules'],
-          },
-        },
-      },
-    },
-  },
+            modules: ['app/javascript', 'node_modules']
+          }
+        }
+      }
+    }
+  }
 }
