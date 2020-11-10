@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "@rails/webpacker": "^5.2.1",
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
@@ -21,9 +22,12 @@
     "eslint": "^7.13.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^16.0.1",
     "eslint-import-resolver-webpack": "^0.13.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
     "prettier": "^2.1.2",
     "webpack-bundle-analyzer": "^4.1.0",
     "webpack-dev-server": "^3.11.0"
