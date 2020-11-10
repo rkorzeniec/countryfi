@@ -71,3 +71,6 @@ Style/CombinableLoops:
 Style/GuardClause:
   Exclude:
     - 'spec/support/*.rb'
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes

@@ -13,10 +13,10 @@ module CountriesHelper
   private
 
   def visit_badge_content(past_visit)
-     past_visit ? 'visited' : 'upcoming'
+    past_visit ? 'visited' : 'upcoming'
   end
 
   def visit_badge_status_class(past_visit)
-     past_visit ? 'badge-success' : 'badge-info'
+    past_visit ? 'badge-success' : 'badge-info'
   end
 end
