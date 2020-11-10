@@ -1,2 +1,2 @@
-// css
-import 'css/country';
+// styles imports
+import 'styles/country'

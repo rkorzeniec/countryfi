@@ -1,2 +1,5 @@
-require('chartkick');
-require('chart.js');
+// JS async imports
+import('src/imports/dashboard')
+
+// styles imports
+import 'styles/dashboard'
