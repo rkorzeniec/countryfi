@@ -1,15 +1,23 @@
 module.exports = {
+  extends: ["eslint-config-airbnb-base", "plugin:prettier/recommended"],
   env: {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'airbnb-base',
-  ],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
   },
-  rules: {
+  rules: {},
+  settings: {
+    "import/resolver": {
+      webpack: {
+        config: {
+          resolve: {
+            modules: ["app/javascript", "node_modules"],
+          },
+        },
+      },
+    },
   },
 };
