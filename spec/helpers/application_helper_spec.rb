@@ -96,43 +96,43 @@ describe ApplicationHelper do
     end
   end
 
-  describe '#flash_message_type' do
-    subject { helper.flash_message_type(message_type) }
+  describe '#flash_message_css_class' do
+    subject { helper.flash_message_css_class(message_type) }
 
     context 'when error' do
       let(:message_type) { 'error' }
 
-      it { is_expected.to eq('danger') }
+      it { is_expected.to eq('alert-danger') }
     end
 
     context 'when alert' do
       let(:message_type) { 'alert' }
 
-      it { is_expected.to eq('danger') }
+      it { is_expected.to eq('alert-danger') }
     end
 
     context 'when success' do
       let(:message_type) { 'success' }
 
-      it { is_expected.to eq('success') }
+      it { is_expected.to eq('alert-success') }
     end
 
     context 'when notice' do
       let(:message_type) { 'notice' }
 
-      it { is_expected.to eq('info') }
+      it { is_expected.to eq('alert-info') }
     end
 
     context 'when info' do
       let(:message_type) { 'info' }
 
-      it { is_expected.to eq('info') }
+      it { is_expected.to eq('alert-info') }
     end
 
     context 'when warning' do
       let(:message_type) { 'warning' }
 
-      it { is_expected.to eq('warning') }
+      it { is_expected.to eq('alert-warning') }
     end
   end
 end

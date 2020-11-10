@@ -25,12 +25,12 @@ module ApplicationHelper
     current_user&.color || '#2E7060'
   end
 
-  def flash_message_type(message_type)
+  def flash_message_css_class(message_type)
     case message_type
-    when 'error' then 'danger'
-    when 'alert' then 'danger'
-    when 'notice' then 'info'
-    else message_type
+    when 'error' then 'alert-danger'
+    when 'alert' then 'alert-danger'
+    when 'notice' then 'alert-info'
+    else "alert-#{message_type}"
     end
   end
 end
