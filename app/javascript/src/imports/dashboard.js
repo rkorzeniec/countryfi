@@ -1,2 +1,2 @@
-import Chartckick from 'chartkick';
-import ChartJs from 'chart.js';
+import Chartckick from 'chartkick'
+import ChartJs from 'chart.js'

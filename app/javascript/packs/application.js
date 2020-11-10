@@ -1,21 +1,21 @@
 // JS inline imports
-import Rails from 'rails-ujs';
-import Turbolinks from 'turbolinks';
-import 'bootstrap';
+import Rails from 'rails-ujs'
+import Turbolinks from 'turbolinks'
+import 'bootstrap'
 
 // JS async imports
-import('src/imports/application');
+import('src/imports/application')
 
 // styles imports
-import 'styles/site';
+import 'styles/site'
 
-window.$ = $;
-Rails.start();
-Turbolinks.start();
+window.$ = $
+Rails.start()
+Turbolinks.start()
 
 // DOM events initialisation
 document.addEventListener("turbolinks:load", () => {
-  const worldSvgCountries = $('#world-svg-map [data-toggle="tooltip"]');
+  const worldSvgCountries = $('#world-svg-map [data-toggle="tooltip"]')
   worldSvgCountries.tooltip({
     container: 'body',
     placement: 'right',

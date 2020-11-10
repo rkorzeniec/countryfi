@@ -1,2 +1,2 @@
 // styles imports
-import 'styles/country';
+import 'styles/country'

@@ -1,5 +1,5 @@
 // JS async imports
-import('src/imports/dashboard');
+import('src/imports/dashboard')
 
 // styles imports
-import 'styles/dashboard';
+import 'styles/dashboard'
