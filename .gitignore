@@ -46,6 +46,7 @@ public/assets/**/*
 !.env.sample
 !.env.ci
 !.github
+!.eslintrc.js
 
 /public/packs
 /public/packs-test
