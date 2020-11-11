@@ -23,7 +23,7 @@ class UniqVisitedCountriesQuery
 
   def country_checkins
     scope = checkins
-    scope.group('country_id')
+    scope.group('country_id').order('year')
   end
 
   def checkins
