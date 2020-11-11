@@ -123,4 +123,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # set Cache-Controll immutable header for static files
+  config.public_file_server.headers = {
+    'Cache-Control': 'public, immutable'
+  }
 end
