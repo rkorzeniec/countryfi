@@ -48,7 +48,7 @@ describe DashboardController do
           visited_oceanian_countries_count: 3,
           visited_antarctican_countries_count: 5,
           country_code_array: [country.cca2],
-          countries_yearly_chart_data: {},
+          yearly_countries_chart: double('decorator', labels: [], series: []),
           top_countries_chart_data: {},
           top_regions_chart_data: {}
         )
