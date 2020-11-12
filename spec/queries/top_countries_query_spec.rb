@@ -51,13 +51,13 @@ describe TopCountriesQuery do
     it do
       is_expected.to eq(
         {
-          'AU' => 2,
-          'CA' => 2,
-          'CH' => 2,
-          'CN' => 4,
-          'CU' => 2,
-          'MG' => 3,
-          'PE' => 2
+          'Australia' => 2,
+          'Canada' => 2,
+          'Switzerland' => 2,
+          'China' => 4,
+          'Cuba' => 2,
+          'Madagascar' => 3,
+          'Peru' => 2
         }
       )
     end
