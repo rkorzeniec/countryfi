@@ -47,7 +47,7 @@ group :development do
   gem 'brakeman', '~> 4.10.0'
   gem 'bullet', '~> 6.1.0', group: 'development'
   gem 'capistrano', '~> 3.14', require: false
-  gem 'capistrano3-delayed-job', '~> 1.7.6'
+  gem 'capistrano-delayed-job', '~> 1.0', require: false
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails', '~> 1.6', require: false
   gem 'capistrano-rvm', require: false
