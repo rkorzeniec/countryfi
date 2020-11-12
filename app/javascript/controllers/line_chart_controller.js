@@ -25,7 +25,18 @@ export default class extends Controller {
       ]
     }
 
+    const responsiveOptions = [
+      ['screen and (max-width: 640px)', {
+        fullWidth: true,
+        chartPadding: { right: 5, left: 2 },
+        axisX: {
+          labelOffset: { x: -12 },
+          labelInterpolationFnc: (value) => "'" + value.toString().slice(-2)
+        }
+      }]
+    ]
+
     /* eslint-disable no-new */
-    new Chartist.Line("#" + this.elementTarget.id, data, options)
+    new Chartist.Line("#" + this.elementTarget.id, data, options, responsiveOptions)
   }
 }
