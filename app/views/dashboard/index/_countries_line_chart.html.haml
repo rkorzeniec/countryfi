@@ -1,8 +1,12 @@
-.card.no-border.no-bg
+.card.no-border.no-bg.mb-5{ data: { controller: 'line-chart', line_chart_labels: @dashboard.yearly_countries_chart.labels, line_chart_values: @dashboard.yearly_countries_chart.series, line_chart_height: 295 } }
   .card-heading.no-border.text-center{ style: 'background: #FFF;' }
     %span.pt-1.text-sm.text-semibold Countries per Year
   .card-body{ style: 'background: #FFF;' }
-    #countries_chart
-      = line_chart @dashboard.countries_yearly_chart_data.map { |graph|  |
-        { name: graph[:name], data: graph[:query] }                      |
-      }, colors: ['#4A89DC', '#DA4453'], defer: true                     |
+    .d-flex.flex-row.justify-content-center.ct-chart-legend
+      .d-flex.flex-row.mx-2
+        %div.mx-2.ct-legend-series.ct-legend-series-a
+        %span.text-sm.text-secondary all
+      .d-flex.flex-row.mx-2
+        %div.mx-2.ct-legend-series.ct-legend-series-b
+        %span.text-sm.text-secondary unique
+    #countries_chart.ct-chart{ data: { target: 'line-chart.element' } }

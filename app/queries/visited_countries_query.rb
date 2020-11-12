@@ -7,7 +7,10 @@ class VisitedCountriesQuery
 
   def count_by_year
     Rails.cache.fetch(cache_key, expires_in: 1.week) do
-      user_checkins.group('year(checkins.checkin_date)').count
+      user_checkins
+        .group('year(checkins.checkin_date)')
+        .order('year(checkins.checkin_date)')
+        .count
     end
   end
 

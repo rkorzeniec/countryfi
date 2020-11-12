@@ -53,32 +53,14 @@ describe DashboardFacade do
     end
   end
 
-  describe '#countries_yearly_chart_data' do
-    subject { facade.countries_yearly_chart_data }
-
-    let(:unique_query) do
-      instance_double(UniqVisitedCountriesQuery, count_by_year: [1, 2, 3])
-    end
-    let(:all_query) do
-      instance_double(VisitedCountriesQuery, count_by_year: [4, 5, 6])
-    end
+  describe '#yearly_countries_chart' do
+    subject { facade.yearly_countries_chart }
 
     it do
-      expect(VisitedCountriesQuery).to receive(:new)
-        .with(user).and_return(all_query)
-      expect(UniqVisitedCountriesQuery).to receive(:new)
-        .with(user).and_return(unique_query)
+      expect(::Dashboard::YearlyCountriesChartDecorator).to receive(:new)
+        .with(user).and_call_original
 
-      is_expected.to eq(
-        [
-          { name: 'all', query: [4, 5, 6] },
-          { name: 'unique', query: [1, 2, 3] }
-        ]
-      )
-    end
-
-    it_behaves_like 'with cached method' do
-      let(:method_name) { 'countries_yearly_chart_data' }
+      is_expected.to be_a_kind_of(::Dashboard::YearlyCountriesChartDecorator)
     end
   end
 

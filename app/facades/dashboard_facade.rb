@@ -20,13 +20,8 @@ class DashboardFacade
     cache_fetch(__method__) { user_countries.pluck(:cca2).uniq }
   end
 
-  def countries_yearly_chart_data
-    cache_fetch(__method__) do
-      [
-        { name: 'all', query: VisitedCountriesQuery.new(user).count_by_year },
-        { name: 'unique', query: UniqVisitedCountriesQuery.new(user).count_by_year }
-      ]
-    end
+  def yearly_countries_chart
+    @yearly_countries_chart ||= ::Dashboard::YearlyCountriesChartDecorator.new(user)
   end
 
   def top_countries_chart_data

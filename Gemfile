@@ -19,7 +19,6 @@ gem 'therubyracer', '~> 0.12.3'
 
 gem 'administrate', '~> 0.14.0'
 gem 'better_errors', '~> 2.9.1'
-gem 'chartkick', '~> 3.4.2'
 gem 'daemons', '~> 1.3.1'
 gem 'delayed_job_active_record', '~> 4.1.4'
 gem 'execjs', '~> 2.7.0'

@@ -1,3 +1,20 @@
+@import "chartist/dist/scss/chartist.scss";
+
+.ct-chart-legend {
+  .ct-legend-series {
+    width: 4em;
+    height: 1.1em;
+  }
+
+  .ct-legend-series-a {
+    background: #d70206;
+  }
+
+  .ct-legend-series-b {
+    background: #f05b4f;
+  }
+}
+
 .pie-chart {
   display: inline-block !important;
   position: relative !important;

@@ -1,9 +1,4 @@
-.card.no-border.no-bg
+.card.no-border.no-bg.mb-2{ data: { controller: 'bar-chart', bar_chart_labels: @dashboard.top_regions_chart_data.keys, bar_chart_values: @dashboard.top_regions_chart_data.values, bar_chart_height: 295 } }
   .card-heading.no-border.text-center{ style: 'background: #FFF;' }
     %span.pt-1.text-sm.text-semibold Top Regions
-  .card-body{ style: 'background: #FFF;' }
-    = bar_chart                                                                           |
-      @dashboard.top_regions_chart_data,                                                  |
-      library: { tooltips: { titleFontSize: 0, titleSpacing: 0, titleMarginBottom: 0 } }, |
-      dataset: { borderWidth: 0, barThickness: 14, backgroundColor: '#DA4453' },          |
-      defer: true                                                                         |
+  #dashboard-top-regions.card-body.ct-chart{ style: 'background: #FFF;', data: { target: 'bar-chart.element' } }

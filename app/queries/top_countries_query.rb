@@ -7,9 +7,9 @@ class TopCountriesQuery
 
   def query
     visited_countries
-      .group('countries.cca2')
+      .group('countries.name_common')
       .limit(7)
-      .order('COUNT(countries.cca2) DESC')
+      .order('COUNT(countries.name_common) DESC')
       .count
   end
 
