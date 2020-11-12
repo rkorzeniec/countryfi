@@ -1,5 +1,6 @@
 import { Controller } from 'stimulus'
 import Chartist from 'chartist'
+import ctPointLabels from 'chartist-plugin-pointlabels'
 
 export default class extends Controller {
   static targets = ['element']
@@ -18,7 +19,10 @@ export default class extends Controller {
       fullWidth: true,
       chartPadding: {
         right: 40
-      }
+      },
+      plugins: [
+        Chartist.plugins.ctPointLabels()
+      ]
     }
 
     /* eslint-disable no-new */
