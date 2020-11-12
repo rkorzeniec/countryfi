@@ -19,6 +19,9 @@ if (process.env.RAILS_ENV === 'production') {
         './app/**/*.html.erb',
         './app/helpers/*.rb'
       ],
+      safelist: {
+        standard: [/^ct-/]
+      },
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:]+/g) || []
     })
   )
