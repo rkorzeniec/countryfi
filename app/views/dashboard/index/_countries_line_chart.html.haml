@@ -1,4 +1,12 @@
 .card.no-border.no-bg.mb-5{ data: { controller: 'line-chart', line_chart_labels: @dashboard.yearly_countries_chart.labels, line_chart_values: @dashboard.yearly_countries_chart.series, line_chart_height: 295 } }
   .card-heading.no-border.text-center{ style: 'background: #FFF;' }
     %span.pt-1.text-sm.text-semibold Countries per Year
-  #countries_chart.card-body.ct-chart{ style: 'background: #FFF;', data: { target: 'line-chart.element' } }
+  .card-body{ style: 'background: #FFF;' }
+    .d-flex.flex-row.justify-content-center.ct-chart-legend
+      .d-flex.flex-row.mx-2
+        %div.mx-2.ct-legend-series.ct-legend-series-a
+        %span.text-sm.text-secondary all
+      .d-flex.flex-row.mx-2
+        %div.mx-2.ct-legend-series.ct-legend-series-b
+        %span.text-sm.text-secondary unique
+    #countries_chart.ct-chart{ data: { target: 'line-chart.element' } }
