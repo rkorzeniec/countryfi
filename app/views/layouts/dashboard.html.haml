@@ -1,5 +1,6 @@
 = content_for :layout_custom_head do
   = stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track' => true
   = preload_link_tag('dashboard.css')
+  = stylesheet_pack_tag 'dashboard', media: 'all', 'data-turbolinks-track' => true
   = javascript_pack_tag 'dashboard', 'data-turbolinks-track': 'reload', defer: 'defer', async: 'async'
 = render 'layouts/application'
