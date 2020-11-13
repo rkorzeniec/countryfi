@@ -1,5 +1,14 @@
 @import "chartist/dist/scss/chartist.scss";
 
+@media (max-width: 767.98px) {
+  .ct-chart-legend {
+    .ct-legend-series {
+      width: 2em !important;
+      height: 0.8em !important;
+    }
+  }
+}
+
 .ct-chart-legend {
   .ct-legend-series {
     width: 4em;
