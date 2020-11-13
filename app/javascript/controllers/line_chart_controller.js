@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 import Chartist from 'chartist'
-import ctPointLabels from 'chartist-plugin-pointlabels'
+import 'chartist-plugin-pointlabels'
 
 export default class extends Controller {
   static targets = ['element']
@@ -26,9 +26,9 @@ export default class extends Controller {
     }
 
     const responsiveOptions = [
-      ['screen and (max-width: 640px)', {
+      ['screen and (max-width: 768px)', {
         fullWidth: true,
-        chartPadding: { right: 5, left: 2 },
+        chartPadding: { right: 5, left: 0 },
         axisX: {
           labelOffset: { x: -12 },
           labelInterpolationFnc: (value) => "'" + value.toString().slice(-2)
