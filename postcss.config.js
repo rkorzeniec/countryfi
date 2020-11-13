@@ -1,3 +1,4 @@
+const railsEnv = process.env.RAILS_ENV
 const environment = {
   plugins: [
     require('postcss-import'),
@@ -11,7 +12,7 @@ const environment = {
   ]
 }
 
-if (process.env.RAILS_ENV === 'production') {
+if (railsEnv === 'development' || railsEnv === 'production') {
   environment.plugins.push(
     require('@fullhuman/postcss-purgecss')({
       content: [
