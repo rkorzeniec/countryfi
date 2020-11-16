@@ -21,7 +21,7 @@ if (railsEnv === 'development' || railsEnv === 'production') {
         './app/helpers/*.rb'
       ],
       safelist: {
-        standard: [/^ct-/]
+        standard: [/^(ct-|tooltip)/]
       },
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:]+/g) || []
     })
