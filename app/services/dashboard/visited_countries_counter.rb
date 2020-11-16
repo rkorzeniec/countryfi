@@ -8,6 +8,14 @@ module Dashboard
       @user = user
     end
 
+    def to_a
+      cache_fetch(__method__) do
+        user.countries.pluck(:cca2).each_with_object(Hash.new(0)) do |result, hash|
+          hash[result] += 1
+        end.to_a
+      end
+    end
+
     def countries_count
       cache_fetch(__method__) { uniq_countries_count(countries) }
     end
