@@ -16,8 +16,10 @@ class DashboardFacade
     @user = user
   end
 
-  def country_code_array
-    cache_fetch(__method__) { user_countries.pluck(:cca2).uniq }
+  def country_counts_array
+    cache_fetch(__method__) do
+      visited_countries_counter.to_a
+    end
   end
 
   def yearly_countries_chart

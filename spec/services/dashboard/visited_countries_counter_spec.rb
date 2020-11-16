@@ -52,6 +52,40 @@ describe Dashboard::VisitedCountriesCounter do
     end
   end
 
+  describe '#to_a' do
+    subject { counter.to_a }
+
+    let(:european_country_b) { create(:country) }
+    let(:european_country_c) { create(:country) }
+    let(:african_country_b) { create(:country, :african) }
+
+    let(:european_checkin_b) do
+      create(:checkin, user: user, country: european_country_b)
+    end
+    let(:european_checkin_c) do
+      create(:checkin, user: user, country: european_country_c)
+    end
+    let(:african_checkin_b) do
+      create(:checkin, user: user, country: african_country_b)
+    end
+
+    before do
+      european_checkin
+      asian_checkin
+      african_checkin
+      south_american_checkin
+      european_checkin_b
+      european_checkin_c
+      african_checkin_b
+    end
+
+    it_behaves_like 'with cached method' do
+      let(:method_name) { 'to_a' }
+    end
+
+    it { is_expected.to eq([['CH', 3], ['CN', 1], ['MG', 2], ['PE', 1]]) }
+  end
+
   describe '#countries_count' do
     subject { counter.countries_count }
 
@@ -100,6 +134,15 @@ describe Dashboard::VisitedCountriesCounter do
         end
 
         it { is_expected.to eq(1) }
+      end
+
+      context 'with other country' do
+        let(:european_country_b) { create(:country) }
+        let!(:european_checkin_b) do
+          create(:checkin, user: user, country: european_country_b)
+        end
+
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -173,6 +216,15 @@ describe Dashboard::VisitedCountriesCounter do
 
         it { is_expected.to eq(1) }
       end
+
+      context 'with other country' do
+        let(:south_american_country_b) { create(:country, :south_american) }
+        let!(:south_american_checkin_b) do
+          create(:checkin, user: user, country: south_american_country_b)
+        end
+
+        it { is_expected.to eq(2) }
+      end
     end
 
     context 'when south american checkin does not exist' do
@@ -198,6 +250,15 @@ describe Dashboard::VisitedCountriesCounter do
         end
 
         it { is_expected.to eq(1) }
+      end
+
+      context 'with other country' do
+        let(:asian_country_b) { create(:country, :asian) }
+        let!(:asian_checkin_b) do
+          create(:checkin, user: user, country: asian_country_b)
+        end
+
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -225,6 +286,15 @@ describe Dashboard::VisitedCountriesCounter do
 
         it { is_expected.to eq(1) }
       end
+
+      context 'with other country' do
+        let(:oceanian_country_b) { create(:country, :oceanian) }
+        let!(:oceanian_checkin_b) do
+          create(:checkin, user: user, country: oceanian_country_b)
+        end
+
+        it { is_expected.to eq(2) }
+      end
     end
 
     context 'when oceanian checkin does not exist' do
@@ -251,6 +321,15 @@ describe Dashboard::VisitedCountriesCounter do
 
         it { is_expected.to eq(1) }
       end
+
+      context 'with other country' do
+        let(:african_country_b) { create(:country, :african) }
+        let!(:african_checkin_b) do
+          create(:checkin, user: user, country: african_country_b)
+        end
+
+        it { is_expected.to eq(2) }
+      end
     end
 
     context 'when african checkin does not exist' do
@@ -276,6 +355,15 @@ describe Dashboard::VisitedCountriesCounter do
         end
 
         it { is_expected.to eq(1) }
+      end
+
+      context 'with other country' do
+        let(:antarctican_country_b) { create(:country, :antarctican) }
+        let!(:antarctican_checkin_b) do
+          create(:checkin, user: user, country: antarctican_country_b)
+        end
+
+        it { is_expected.to eq(2) }
       end
     end
 

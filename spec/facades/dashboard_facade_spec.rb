@@ -34,22 +34,23 @@ describe DashboardFacade do
     end
   end
 
-  describe '#country_code_array' do
-    subject { facade.country_code_array }
+  describe '#country_counts_array' do
+    subject { facade.country_counts_array }
 
-    let(:country_a) { build_stubbed(:country, cca2: 'AA') }
-    let(:country_b) { build_stubbed(:country, cca2: 'BB') }
-    let(:country_c) { build_stubbed(:country, cca2: 'AA') }
-    let(:countries) { [country_a, country_b] }
+    let(:counter) { instance_double(Dashboard::VisitedCountriesCounter) }
+    let(:array) { [['AA', 2], ['BB', 1]] }
 
     before do
-      allow(facade).to receive(:user_countries).and_return(countries)
+      allow(::Dashboard::VisitedCountriesCounter).to receive(:new)
+        .with(user)
+        .and_return(counter)
+      allow(counter).to receive(:to_a).and_return(array)
     end
 
-    it { expect(subject).to eq(%w[AA BB]) }
+    it { expect(subject).to eq(array) }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'country_code_array' }
+      let(:method_name) { 'country_counts_array' }
     end
   end
 
