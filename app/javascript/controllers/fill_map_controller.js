@@ -10,12 +10,8 @@ export default class extends Controller {
   }
 
   init() {
-    const maxStepValue = 40
-
     this.countryCodes = this.getCountryCodes()
     this.countryCounts = [...this.countryCodes.values()]
-    this.countryCountsMax = Math.max(...this.countryCounts)
-    this.fillStep = maxStepValue / (this.countryCountsMax - Math.min(...this.countryCounts))
   }
 
   fillMap() {
@@ -34,6 +30,6 @@ export default class extends Controller {
   }
 
   calcFillScale(count) {
-    return Math.abs(count - this.countryCountsMax) * this.fillStep
+    return count / Math.max(...this.countryCounts) * 100
   }
 }
