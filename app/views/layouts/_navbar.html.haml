@@ -28,7 +28,7 @@
           %span.hidden-md Profile
         .dropdown-menu{ aria: { labelledby: 'navbarProfile' } }
           .dropdown-item.text-md= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link'
-          .dropdown-item.text-md= link_to 'Settings', edit_preferences_path, class: 'nav-link'
+          .dropdown-item.text-md= link_to 'Preferences', edit_preferences_path, class: 'nav-link'
           .dropdown-divider
           .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
       %li#navbarNotifications.nav-item.dropdown.d-none{ data: { controller: 'notifications', target: 'notifications.rootElement' } }
