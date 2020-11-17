@@ -99,6 +99,12 @@ describe ApplicationHelper do
   describe '#flash_message_css_class' do
     subject { helper.flash_message_css_class(message_type) }
 
+    context 'when success' do
+      let(:message_type) { 'success' }
+
+      it { is_expected.to eq('alert-success') }
+    end
+
     context 'when error' do
       let(:message_type) { 'error' }
 
