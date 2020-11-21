@@ -1,8 +1,9 @@
 // JS inline imports
 import Rails from 'rails-ujs'
 import Turbolinks from 'turbolinks'
-import 'bootstrap'
 import 'jquery'
+import 'bootstrap/js/dist/util'
+import 'bootstrap/js/dist/tooltip'
 
 // styles imports
 import 'styles/site'
