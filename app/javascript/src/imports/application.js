@@ -3,8 +3,6 @@ import 'popper.js'
 import 'controllers'
 
 /* eslint-disable no-undef */
-window.$ = $
-
 // DOM events initialisation
 document.addEventListener('turbolinks:load', () => {
   const worldSvgCountries = $("#world-svg-map [data-toggle='tooltip']")
