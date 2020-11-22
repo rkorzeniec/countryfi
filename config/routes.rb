@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   end
 
   get 'about', action: :index, controller: 'about'
+  get 'terms', action: :index, controller: 'terms'
   root 'hello', action: :index, controller: 'hello'
 
   if Rails.env.development?
