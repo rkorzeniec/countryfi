@@ -11,5 +11,8 @@
       = f.submit 'Sign up', data: { "disable-with": "Signing up..." }, class: 'btn btn-primary btn-block'
 .d-flex.flex-row.justify-content-center.mt-3.text-md
   Do you have an account already?
-.d-flex.flex-row.justify-content-center.mt-3.mb-5.text-md
+.d-flex.flex-row.justify-content-center.mt-3.text-md
   = link_to 'Log in', new_user_session_path, class: 'text-slim'
+.d-flex.flex-row.justify-content-center.mt-3.mb-5.text-md
+  By singing up you agree to countrify's &nbsp;
+  = link_to 'terms and privacy policy', terms_path, target: '_blank'
