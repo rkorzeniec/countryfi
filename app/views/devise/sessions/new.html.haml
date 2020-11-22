@@ -10,7 +10,10 @@
 .d-flex.flex-row.justify-content-center.mt-3
   .text-md
     = link_to 'Forgot password?', new_password_path(:user), class: 'forgot text-slim'
-.d-flex.flex-row.justify-content-center.mt-3.mb-5
+.d-flex.flex-row.justify-content-center.mt-3
   .text-md
     Don't have an account yet?
     = link_to 'Sign up', new_user_registration_path, class: 'text-slim'
+.d-flex.flex-row.justify-content-center.mt-3.mb-5.text-md
+  By logging in you agree to countrify's &nbsp;
+  = link_to 'terms and privacy policy', terms_path, target: '_blank'
