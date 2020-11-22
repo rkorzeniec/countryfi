@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     post :mark_as_read, on: :member
   end
 
+  get 'about', action: :index, controller: 'about'
   root 'hello', action: :index, controller: 'hello'
 
   if Rails.env.development?
