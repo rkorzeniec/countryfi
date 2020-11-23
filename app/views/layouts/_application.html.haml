@@ -9,7 +9,7 @@
   %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }" }
     = render 'layouts/navbar'
     %main.nav-spacer{ role: 'main'}
-      .container-fluid.px-4
+      .container-fluid.p-1.px-md-4
         = render 'layouts/flash'
         = yield
     %footer.footer.mt-auto.py-3
