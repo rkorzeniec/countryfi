@@ -3,3 +3,11 @@
 .dropdown-menu {
   width: 300px !important;
 }
+
+@media (max-width: 767.98px) {
+  .dropdown-menu {
+    width: 100% !important;
+    right: 0 !important;
+    left:0 !important;
+  }
+}
