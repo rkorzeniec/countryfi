@@ -30,6 +30,7 @@ export default class extends Controller {
   }
 
   calcFillScale(count) {
-    return count / Math.max(...this.countryCounts) * 100
+    const adjustedCount = count === this.countryCounts ? count : count + 0.5
+    return adjustedCount / Math.max(...this.countryCounts) * 100
   }
 }
