@@ -21,7 +21,7 @@
             Add checkin
       %li.nav-item.text-nowrap= link_to 'Explore', explore_worlds_path, class: 'nav-link '
       %li.nav-item.text-nowrap= link_to 'Checkins', checkins_worlds_path, class: 'nav-link'
-      %li.nav-item.dropdown
+      %li.nav-item.dropdown.position-static
         = link_to '#', id: 'navbarProfile', class: 'dropdown-toggle nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
           -# = image_tag gravatar_url(36), class: 'rounded-circle', data: { toggle: 'tooltip', title: 'Want to change your avatar? Go to gravatar.com'}
           %i.far.fa-user
