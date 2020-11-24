@@ -1,5 +1,4 @@
 - provide(:title, 'Preferences')
-.row
-  .col-xs-12.col-sm-9.col-md-5.mx-auto.w-25.px-lg-5.mt-3
-    = form_for current_user, url: preferences_path, method: :patch do |f|
-      = render 'form', f: f
+.d-flex.flex-row.justify-content-center.mt-3.mb-3.row
+  = form_for current_user, url: preferences_path, method: :patch, html: { class: 'panel col-xs-12 col-sm-10 col-md-8 col-lg-5 col-xl-4 px-4' } do |f|
+    = render 'form', f: f
