@@ -1,4 +1,11 @@
 - render 'shared/error_messages'
+.form-row.mb-3
+  .col-md-8.mb-3
+    = f.label :colour, class: 'col-form-label pb-0'
+    %small.form-text.text-muted Choose your map colour
+  .col-md-4
+    = f.text_field :color, type: 'color', value: user_preferences_colour, class: 'form-control p-1'
+%hr
 .form-group
   = f.label :countries, class: 'col-form-label pb-0'
   %small.form-text.text-muted Choose your country selection for dashboard statistics
@@ -14,10 +21,5 @@
     = f.label :countries, 'independent only', class: 'form-check-label', for: 'user_countries_independent'
 %hr
 .form-row.mb-3
-  .col-md-8.mb-3
-    = f.label :colour, class: 'col-form-label pb-0'
-    %small.form-text.text-muted Choose your map colour
-  .col-md-4
-    = f.text_field :color, type: 'color', value: user_preferences_colour, class: 'form-control p-1'
 .form-group
   = submit_tag 'Save', data: { "disable-with": "Saving..." }, class: 'btn btn-primary btn-block'
