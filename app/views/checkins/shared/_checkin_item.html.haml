@@ -3,9 +3,9 @@
 .card
   .card-body.text-md
     = future_checkin ? 'You are going to visit' : 'You visited'
-    = link_to checkin.country_common_name, country_path(id: checkin.country_cca2)
-    .d-xs-block.d-sm-block.d-md-none
-    = image_tag(checkin.flag_image_path, style: 'height: 32px;')
+    = link_to checkin.country_common_name, country_path(id: checkin.country_cca2), class: 'align-middle'
+    .d-xs-block.d-sm-none
+    = image_tag(checkin.flag_image_path, style: 'height: 32px;', class: 'align-middle')
     - if future_checkin
       in
       = distance_of_time_in_words(Time.current, checkin.checkin_date)
