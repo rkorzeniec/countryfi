@@ -6,19 +6,20 @@
   .col-md-4
     = f.text_field :color, type: 'color', value: user_preferences_colour, class: 'form-control p-1'
 %hr
-.form-group
-  = f.label :countries, class: 'col-form-label pb-0'
-  %small.form-text.text-muted Choose your country selection for dashboard statistics
-.form-group
-  .form-check
-    = f.radio_button :countries, :all, checked: countries_all?(current_user), class: 'form-check-input'
-    = f.label :countries, 'all', class: 'form-check-label', for: 'user_countries_all'
-  .form-check
-    = f.radio_button :countries, :un_member, checked: countries_un_member?(current_user), class: 'form-check-input'
-    = f.label :countries, 'UN members only', class: 'form-check-label', for: 'user_countries_un_member'
-  .form-check
-    = f.radio_button :countries, :independent, checked: countries_independent?(current_user), class: 'form-check-input'
-    = f.label :countries, 'independent only', class: 'form-check-label', for: 'user_countries_independent'
+.form-row.mb-3
+  .col-md-8.mb-3
+    = f.label :countries, class: 'col-form-label pb-0'
+    %small.form-text.text-muted Choose your country selection for dashboard statistics
+  .col-md-4
+    .form-check
+      = f.radio_button :countries, :all, checked: countries_all?(current_user), class: 'form-check-input'
+      = f.label :countries, 'all', class: 'form-check-label', for: 'user_countries_all'
+    .form-check
+      = f.radio_button :countries, :un_member, checked: countries_un_member?(current_user), class: 'form-check-input'
+      = f.label :countries, 'UN members only', class: 'form-check-label', for: 'user_countries_un_member'
+    .form-check
+      = f.radio_button :countries, :independent, checked: countries_independent?(current_user), class: 'form-check-input'
+      = f.label :countries, 'independent only', class: 'form-check-label', for: 'user_countries_independent'
 %hr
 .form-row.mb-3
 .form-group
