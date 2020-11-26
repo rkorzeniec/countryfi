@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 module PreferencesHelper
+  def user_profile_switch_label(user)
+    user.public_profile ? 'Profile: public' : 'Profile: private'
+  end
+
   def countries_all?(user)
     return true if user.countries_cluster.nil?
 

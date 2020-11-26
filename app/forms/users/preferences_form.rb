@@ -4,7 +4,7 @@ module Users
   class PreferencesForm
     include ActiveModel::Validations
 
-    ATTRIBUTES = %i[countries color].freeze
+    ATTRIBUTES = %i[countries color public_profile].freeze
     COUNTRIES = {
       all: 'all',
       un: 'un_member',
@@ -38,7 +38,11 @@ module Users
     attr_reader :user
 
     def params
-      { color: color, countries_cluster: countries }
+      {
+        color: color,
+        countries_cluster: countries,
+        public_profile: public_profile
+      }
     end
   end
 end

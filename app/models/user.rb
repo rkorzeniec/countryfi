@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  store :preferences, accessors: %i[color countries_cluster], coder: JSON
+  store :preferences, accessors: %i[color countries_cluster public_profile], coder: JSON
 
   has_secure_token :jti_token
 

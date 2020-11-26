@@ -1,6 +1,28 @@
 # frozen_string_literal: true
 
 describe PreferencesHelper do
+  describe '#user_profile_switch_label' do
+    subject { helper.user_profile_switch_label(user) }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user, public_profile: nil) }
+
+      it { is_expected.to eq('Profile: private') }
+    end
+
+    context 'when true' do
+      let(:user) { build_stubbed(:user, public_profile: true) }
+
+      it { is_expected.to eq('Profile: public') }
+    end
+
+    context 'when false' do
+      let(:user) { build_stubbed(:user, public_profile: false) }
+
+      it { is_expected.to eq('Profile: private') }
+    end
+  end
+
   describe '#countries_all?' do
     subject { helper.countries_all?(user) }
 
