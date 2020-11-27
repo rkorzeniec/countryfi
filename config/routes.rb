@@ -56,6 +56,10 @@ Rails.application.routes.draw do
     post :mark_as_read, on: :member
   end
 
+  namespace :profile do
+    resource :availability, only: %i[show]
+  end
+
   get 'about', action: :index, controller: 'about'
   get 'terms', action: :index, controller: 'terms'
   root 'hello', action: :index, controller: 'hello'
