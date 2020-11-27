@@ -18,7 +18,8 @@ if (railsEnv === 'development' || railsEnv === 'production') {
       content: [
         './app/**/*.html.haml',
         './app/**/*.html.erb',
-        './app/helpers/*.rb'
+        './app/helpers/*.rb',
+        './app/javascript/controllers/**/*.js'
       ],
       safelist: {
         standard: [/^(ct-|tooltip|mapbox|collaps)/]
