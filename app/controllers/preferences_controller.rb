@@ -22,6 +22,6 @@ class PreferencesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:color, :countries)
+    params.require(:user).permit(:color, :countries, :public_profile, :profile)
   end
 end
