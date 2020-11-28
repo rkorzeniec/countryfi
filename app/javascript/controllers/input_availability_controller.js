@@ -9,6 +9,11 @@ export default class extends Controller {
   }
 
   checkAvailability() {
+    if (this.matchingProfileName()) {
+      this.markTargetAsAvailable()
+      return
+    }
+
     const url = this.getUrl()
     const options = {
       method: 'GET',
@@ -19,9 +24,7 @@ export default class extends Controller {
     fetch(url, options)
       .then(response => response.json())
       .then(data => {
-        if (data.availability || this.matchingProfileName()) {
-          this.markTargetAsAvailable()
-        } else if (this.inputTarget.value) {
+        if (data.availability) {
           this.markTargetAsAvailable()
         } else {
           this.markTargetAsUnavailable()
@@ -45,6 +48,6 @@ export default class extends Controller {
   }
 
   matchingProfileName() {
-    return this.inputTarget.value === this.data.get('current-profile-name')
+    return this.inputTarget.value === this.data.get('current-value')
   }
 }

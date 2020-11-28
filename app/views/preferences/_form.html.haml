@@ -11,7 +11,7 @@
     .custom-control.custom-switch{ data: { controller: 'switch', switch_checked_text: 'Profile: private', switch_unchecked_text: 'Profile: public' } }
       = f.check_box :public_profile, value: current_user.public_profile, class: 'custom-control-input p-1', data: { action: 'switch#updateLabel', toggle: 'collapse', target: '#profile-collapse' }, aria: { expanded: current_user.public_profile, controls: 'profile-collapse' }
       = f.label :public_profile, "#{user_profile_switch_label(current_user)}", class: 'custom-control-label text-muted', for: 'user_public_profile', data: { target: 'switch.label' }
-#profile-collapse.form-row.collapse{ class: "#{'show' if user_profile}", data: { parent: "#user_public_profile", controller: 'input-availability dynamic-uri', input_availability_url: profile_availability_path(:json), input_availability_param: 'profile', dynamic_uri_url: root_url } }
+#profile-collapse.form-row.collapse{ class: "#{'show' if user_profile}", data: { parent: "#user_public_profile", controller: 'input-availability dynamic-uri', input_availability_url: profile_availability_path(:json), input_availability_param: 'profile', input_availability_current_value: "#{user_profile}", dynamic_uri_url: root_url } }
   .col-md-8.mb-3
     = f.label :profile_name, class: 'col-form-label pb-0'
     %small.form-text.text-muted Choose your profile name, this will be used in the link to access your public profile
