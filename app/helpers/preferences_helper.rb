@@ -2,7 +2,7 @@
 
 module PreferencesHelper
   def user_profile_switch_label(user)
-    user.public_profile ? 'Profile: public' : 'Profile: private'
+    user.public_profile? ? 'Profile: public' : 'Profile: private'
   end
 
   def user_profile(user)

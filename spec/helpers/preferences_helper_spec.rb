@@ -11,13 +11,13 @@ describe PreferencesHelper do
     end
 
     context 'when true' do
-      let(:user) { build_stubbed(:user, public_profile: true) }
+      let(:user) { build_stubbed(:user, public_profile: '1') }
 
       it { is_expected.to eq('Profile: public') }
     end
 
     context 'when false' do
-      let(:user) { build_stubbed(:user, public_profile: false) }
+      let(:user) { build_stubbed(:user, public_profile: '0') }
 
       it { is_expected.to eq('Profile: private') }
     end
