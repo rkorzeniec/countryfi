@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   checkAvailability() {
-    if (this.matchingProfileName()) {
+    if (this.matchingValue()) {
       this.markTargetAsAvailable()
       return
     }
@@ -47,7 +47,7 @@ export default class extends Controller {
     this.inputTarget.classList.add('is-invalid')
   }
 
-  matchingProfileName() {
+  matchingValue() {
     return this.inputTarget.value === this.data.get('current-value')
   }
 }
