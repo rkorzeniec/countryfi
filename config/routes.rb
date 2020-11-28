@@ -3,22 +3,6 @@
 Rails.application.routes.draw do
   post '/graphql', to: 'graphql#execute'
 
-  namespace :admin do
-    resources :users
-    resources :border_countries
-    resources :checkins
-    resources :countries
-    resources :announcements
-    resources :notifications
-    resources :country_alternative_spellings
-    resources :country_calling_codes
-    resources :country_languages
-    resources :currencies
-    resources :top_level_domains
-
-    root to: 'users#index'
-  end
-
   get 'dashboard', action: :index, controller: 'dashboard'
 
   devise_for :users
@@ -71,6 +55,22 @@ Rails.application.routes.draw do
   get '/404', to: 'exceptions#index', code: '404'
   get '/422', to: 'exceptions#index', code: '422'
   get '/500', to: 'exceptions#index', code: '500'
+
+  namespace :admin do
+    resources :users
+    resources :border_countries
+    resources :checkins
+    resources :countries
+    resources :announcements
+    resources :notifications
+    resources :country_alternative_spellings
+    resources :country_calling_codes
+    resources :country_languages
+    resources :currencies
+    resources :top_level_domains
+
+    root to: 'users#index'
+  end
 
   unless Rails.application.config.consider_all_requests_local
     get '*path', to: 'exceptions#index', code: '404'
