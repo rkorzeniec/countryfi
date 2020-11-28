@@ -2,6 +2,9 @@
 
 class AddProfileToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_column :users, :profile, :string, after: :admin
+    change_table :users, bulk: true do |t|
+      t.string :profile, after: :admin
+      t.index :profile, unique: true
+    end
   end
 end
