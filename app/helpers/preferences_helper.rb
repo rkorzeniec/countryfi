@@ -5,6 +5,10 @@ module PreferencesHelper
     user.public_profile ? 'Profile: public' : 'Profile: private'
   end
 
+  def user_profile(user)
+    user.profile || SecureRandom.alphanumeric(8)
+  end
+
   def countries_all?(user)
     return true if user.countries_cluster.nil?
 

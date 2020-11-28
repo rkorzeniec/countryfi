@@ -23,6 +23,26 @@ describe PreferencesHelper do
     end
   end
 
+  describe '#user_profile' do
+    subject { helper.user_profile(user) }
+
+    let(:user) { build_stubbed(:user, profile: 'aabbcc') }
+
+    it { is_expected.to eq('aabbcc') }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user, profile: nil) }
+
+      before do
+        expect(SecureRandom).to receive(:alphanumeric)
+          .with(8)
+          .and_return('abcd1234')
+      end
+
+      it { is_expected.to eq('abcd1234') }
+    end
+  end
+
   describe '#countries_all?' do
     subject { helper.countries_all?(user) }
 
