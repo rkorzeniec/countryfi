@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   post '/graphql', to: 'graphql#execute'
 
-  get 'dashboard', action: :index, controller: 'dashboard'
+  get 'dashboard', to: 'dashboard#index'
 
   devise_for :users
 
@@ -44,9 +44,9 @@ Rails.application.routes.draw do
     resource :availability, only: %i[show]
   end
 
-  get 'about', action: :index, controller: 'about'
-  get 'terms', action: :index, controller: 'terms'
-  root 'hello', action: :index, controller: 'hello'
+  get 'about', to: 'about#index'
+  get 'terms', to: 'terms#index'
+  root to: 'hello#index'
 
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
