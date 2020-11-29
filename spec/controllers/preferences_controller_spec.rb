@@ -28,7 +28,16 @@ describe PreferencesController do
       let!(:now) { '2016-01-01' }
 
       context 'when successful' do
-        let(:params) { { user: { countries: 'independent', color: '#FFF' } } }
+        let(:params) do
+          {
+            user: {
+              countries: 'independent',
+              color: '#FFF',
+              public_profile: '1',
+              profile: 'john'
+            }
+          }
+        end
 
         it do
           expect(subject).to redirect_to(edit_preferences_path)
@@ -40,6 +49,10 @@ describe PreferencesController do
             .from(nil).to('#FFF')
             .and change { user.countries_cluster }
             .from('all').to('independent')
+            .and change { user.public_profile }
+            .from(nil).to('1')
+            .and change { user.profile }
+            .from(nil).to('john')
         end
       end
 
