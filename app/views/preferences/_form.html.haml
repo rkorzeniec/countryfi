@@ -1,4 +1,5 @@
 - user_profile =  user_profile(current_user)
+- profile_uri = "#{profile_url}/"
 - render 'shared/error_messages'
 .form-row.mb-3
   .col-md-8
@@ -15,10 +16,10 @@
   .col-xs-12.mb-3
     = f.label :profile_name, class: 'col-form-label pb-0'
     %small.form-text.text-muted Choose your profile name, this will be used in the link to access your public countrify profile.
-  .col-xs-12.input-group{ data: { controller: 'copy', copy_url: root_url } }
+  .col-xs-12.input-group{ data: { controller: 'copy', copy_url: profile_uri } }
     .input-group-prepend
       .input-group-text
-        .text-sm= root_url
+        .text-sm= profile_uri
     = f.text_field :profile, value: user_profile, class: 'form-control', style: 'height: inherit;', maxlength: 20, minlength: 4, pattern: '^[A-Za-z0-9]+$', title: 'Only characters (a-z) and numerics (0-9) are allowed', data: { target: 'input-availability.input copy.source', action: 'input->input-availability#check' }
     .input-group-append
       %a.btn.btn-outline-dark{ data: { action: 'copy#copy' } }
