@@ -234,21 +234,15 @@ describe User, type: :model do
     end
 
     context 'when false' do
-      let(:user) { build_stubbed(:user, public_profile: '0') }
+      let(:user) { build_stubbed(:user, public_profile: false) }
 
       it { is_expected.to be false }
     end
 
     context 'when true' do
-      let(:user) { build_stubbed(:user, public_profile: '1') }
+      let(:user) { build_stubbed(:user, public_profile: true) }
 
       it { is_expected.to be true }
-    end
-
-    context 'when other' do
-      let(:user) { build_stubbed(:user, public_profile: 'mambo') }
-
-      it { is_expected.to be false }
     end
   end
 end

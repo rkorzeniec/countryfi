@@ -9,7 +9,7 @@
       You need to make it public.
   .col-md-4
     .custom-control.custom-switch{ data: { controller: 'switch', switch_checked_text: 'Profile: private', switch_unchecked_text: 'Profile: public' } }
-      = f.check_box :public_profile, value: current_user.public_profile, class: 'custom-control-input p-1', data: { action: 'switch#updateLabel', toggle: 'collapse', target: '#profile-collapse' }, aria: { expanded: current_user.public_profile, controls: 'profile-collapse' }
+      = f.check_box :public_profile, value: current_user.public_profile?, class: 'custom-control-input p-1', data: { action: 'switch#updateLabel', toggle: 'collapse', target: '#profile-collapse' }, aria: { expanded: current_user.public_profile, controls: 'profile-collapse' }
       = f.label :public_profile, "#{user_profile_switch_label(current_user)}", class: 'custom-control-label text-muted', for: 'user_public_profile', data: { target: 'switch.label' }
 #profile-collapse.form-row.collapse{ class: "#{'show' if current_user.public_profile?}", data: { parent: "#user_public_profile", controller: 'input-availability', input_availability_url: profile_availability_path(:json), input_availability_param: 'profile', input_availability_current_value: "#{user_profile}"} }
   .col-xs-12.mb-3

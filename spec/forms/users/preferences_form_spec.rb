@@ -11,10 +11,6 @@ describe Users::PreferencesForm, type: :form do
 
     describe 'public_profile' do
       it { is_expected.to validate_presence_of(:public_profile) }
-      it do
-        is_expected.to validate_inclusion_of(:public_profile)
-          .in_array(%w[0 1])
-      end
     end
 
     describe 'profile' do

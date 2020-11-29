@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_191827) do
+ActiveRecord::Schema.define(version: 2020_11_29_092228) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "message"
@@ -141,12 +141,14 @@ ActiveRecord::Schema.define(version: 2020_11_26_191827) do
     t.string "last_sign_in_ip"
     t.json "preferences"
     t.boolean "admin", default: false
+    t.boolean "public_profile", default: false
     t.string "profile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti_token"], name: "index_users_on_jti_token", unique: true
     t.index ["profile"], name: "index_users_on_profile", unique: true
+    t.index ["public_profile", "profile"], name: "index_users_on_public_profile_and_profile"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

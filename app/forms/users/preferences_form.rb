@@ -17,7 +17,7 @@ module Users
     validates :color,
               format: { with: /\A#([a-fA-F0-9]{3}|[a-fA-F0-9]{6})\z/ },
               allow_nil: true
-    validates :public_profile, presence: true, inclusion: { in: %w[1 0] }
+    validates :public_profile, presence: true
     validates :profile,
               format: { with: /\A[A-Za-z0-9]+\z/ },
               length: { minimum: 4, maximum: 20 },
