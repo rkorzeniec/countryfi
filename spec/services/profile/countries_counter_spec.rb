@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-describe Dashboard::CountriesCounter do
+describe Profile::CountriesCounter do
   let(:counter) { described_class.new(user) }
   let(:user) { build_stubbed(:user) }
 
   shared_context 'with cached method' do
     let(:cache) { instance_double('cache') }
     let(:cache_key) do
-      ['dashboard/countries_counter', method_name, user.cache_key].join('/')
+      ['profile/countries_counter', method_name, user.cache_key].join('/')
     end
 
     it do

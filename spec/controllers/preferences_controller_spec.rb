@@ -50,7 +50,7 @@ describe PreferencesController do
             .and change { user.countries_cluster }
             .from('all').to('independent')
             .and change { user.public_profile }
-            .from(nil).to('1')
+            .from(false).to(true)
             .and change { user.profile }
             .from(nil).to('john')
         end

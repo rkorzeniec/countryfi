@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Dashboard::YearlyCountriesChartDecorator do
+describe Profile::YearlyCountriesChartDecorator do
   let(:decorator) { described_class.new(user) }
   let(:user) { build_stubbed(:user) }
 
@@ -21,7 +21,7 @@ describe Dashboard::YearlyCountriesChartDecorator do
     let(:cache) { instance_double('cache') }
     let(:cache_key) do
       [
-        'dashboard/yearly_countries_chart_decorator',
+        'profile/yearly_countries_chart_decorator',
         method_name,
         user.cache_key
       ].join('/')

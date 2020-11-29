@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DashboardFacade
+class ProfileFacade
   include CacheFetch
 
   DELEGATION_METHODS = %i[
@@ -23,7 +23,7 @@ class DashboardFacade
   end
 
   def yearly_countries_chart
-    @yearly_countries_chart ||= ::Dashboard::YearlyCountriesChartDecorator.new(user)
+    @yearly_countries_chart ||= ::Profile::YearlyCountriesChartDecorator.new(user)
   end
 
   def top_countries_chart_data
@@ -48,11 +48,11 @@ class DashboardFacade
 
   def countries_counter
     @countries_counter ||=
-      ::Dashboard::CountriesCounter.new(user)
+      ::Profile::CountriesCounter.new(user)
   end
 
   def visited_countries_counter
     @visited_countries_counter ||=
-      ::Dashboard::VisitedCountriesCounter.new(user)
+      ::Profile::VisitedCountriesCounter.new(user)
   end
 end

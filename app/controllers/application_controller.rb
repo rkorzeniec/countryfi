@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :control_rack_mini_profiler
 
   def after_sign_in_path_for(_resource)
-    dashboard_path
+    profile_path
   end
 
   def control_rack_mini_profiler

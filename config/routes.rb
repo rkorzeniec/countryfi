@@ -3,7 +3,10 @@
 Rails.application.routes.draw do
   post '/graphql', to: 'graphql#execute'
 
-  get 'dashboard', to: 'dashboard#index'
+  namespace :profile do
+    get '(:profile_name)', action: :show
+    resource :availability, only: %i[show]
+  end
 
   devise_for :users
 
@@ -40,10 +43,6 @@ Rails.application.routes.draw do
     post :mark_as_read, on: :member
   end
 
-  namespace :profile do
-    resource :availability, only: %i[show]
-  end
-
   get 'about', to: 'about#index'
   get 'terms', to: 'terms#index'
   root to: 'hello#index'
@@ -71,6 +70,9 @@ Rails.application.routes.draw do
 
     root to: 'users#index'
   end
+
+  # TODO: remove after a while, because of the switch to profiles
+  get 'dashboard', to: redirect('/profile')
 
   unless Rails.application.config.consider_all_requests_local
     get '*path', to: 'exceptions#index', code: '404'

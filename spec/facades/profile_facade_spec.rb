@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-describe DashboardFacade do
+describe ProfileFacade do
   let(:user) { build_stubbed(:user) }
   let(:facade) { described_class.new(user) }
 
   shared_context 'with cached method' do
     let(:cache) { instance_double('cache') }
-    let(:cache_key) { ['dashboard_facade', method_name, user.cache_key].join('/') }
+    let(:cache_key) { ['profile_facade', method_name, user.cache_key].join('/') }
 
     it do
       expect(Rails).to receive(:cache).and_return(cache)
@@ -37,11 +37,11 @@ describe DashboardFacade do
   describe '#country_counts_array' do
     subject { facade.country_counts_array }
 
-    let(:counter) { instance_double(Dashboard::VisitedCountriesCounter) }
+    let(:counter) { instance_double(Profile::VisitedCountriesCounter) }
     let(:array) { [['AA', 2], ['BB', 1]] }
 
     before do
-      allow(::Dashboard::VisitedCountriesCounter).to receive(:new)
+      allow(::Profile::VisitedCountriesCounter).to receive(:new)
         .with(user)
         .and_return(counter)
       allow(counter).to receive(:to_a).and_return(array)
@@ -58,10 +58,10 @@ describe DashboardFacade do
     subject { facade.yearly_countries_chart }
 
     it do
-      expect(::Dashboard::YearlyCountriesChartDecorator).to receive(:new)
+      expect(::Profile::YearlyCountriesChartDecorator).to receive(:new)
         .with(user).and_call_original
 
-      is_expected.to be_a_kind_of(::Dashboard::YearlyCountriesChartDecorator)
+      is_expected.to be_a_kind_of(::Profile::YearlyCountriesChartDecorator)
     end
   end
 
@@ -105,6 +105,6 @@ describe DashboardFacade do
   describe '#cache_key' do
     subject { facade.send(:cache_key, 'asian_countries') }
 
-    it { is_expected.to eq("dashboard_facade/asian_countries/#{user.cache_key}") }
+    it { is_expected.to eq("profile_facade/asian_countries/#{user.cache_key}") }
   end
 end
