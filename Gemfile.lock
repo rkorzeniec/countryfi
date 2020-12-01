@@ -156,7 +156,7 @@ GEM
       railties
       sprockets-rails
     graphql (1.11.6)
-    haml (5.2.0)
+    haml (5.2.1)
       temple (>= 0.8.0)
       tilt
     i18n (1.8.5)
@@ -413,7 +413,7 @@ DEPENDENCIES
   flamegraph (~> 0.9.5)
   graphiql-rails (~> 1.7.0)
   graphql (~> 1.11.6)
-  haml (~> 5.2.0)
+  haml (~> 5.2.1)
   jbuilder (~> 2.10)
   jwt (~> 2.2.2)
   kaminari (~> 1.2.1)
