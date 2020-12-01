@@ -1,4 +1,4 @@
-- unless @user.public_profile?
+- unless @user.public_profile? || current_user == @user
   = render 'shared/overlay', message: "Unable to access this profile, it does not exist or is not public.\nSorry."
 .row
   .col-sm-12.p-0.mb-2{ data: { controller: 'download-svg svg-map', action: 'resize@window->svg-map#resize', download_svg_filename: 'world_map' } }
