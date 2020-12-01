@@ -223,4 +223,26 @@ describe User, type: :model do
       it { is_expected.to be true }
     end
   end
+
+  describe '#public_profile?' do
+    subject { user.public_profile? }
+
+    context 'when nil' do
+      let(:user) { build_stubbed(:user) }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when false' do
+      let(:user) { build_stubbed(:user, public_profile: false) }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when true' do
+      let(:user) { build_stubbed(:user, public_profile: true) }
+
+      it { is_expected.to be true }
+    end
+  end
 end

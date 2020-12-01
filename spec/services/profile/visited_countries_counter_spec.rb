@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Dashboard::VisitedCountriesCounter do
+describe Profile::VisitedCountriesCounter do
   let(:counter) { described_class.new(user) }
   let(:user) { create(:user) }
 
@@ -39,7 +39,7 @@ describe Dashboard::VisitedCountriesCounter do
     let(:cache) { instance_double('cache') }
     let(:cache_key) do
       [
-        'dashboard/visited_countries_counter',
+        'profile/visited_countries_counter',
         method_name,
         user.cache_key
       ].join('/')
@@ -381,7 +381,7 @@ describe Dashboard::VisitedCountriesCounter do
 
     it do
       expect(cache_key).to eq(
-        'dashboard/visited_countries_counter/european_countries_count/' \
+        'profile/visited_countries_counter/european_countries_count/' \
         "#{user.cache_key}"
       )
     end

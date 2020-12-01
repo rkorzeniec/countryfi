@@ -18,10 +18,11 @@ if (railsEnv === 'development' || railsEnv === 'production') {
       content: [
         './app/**/*.html.haml',
         './app/**/*.html.erb',
-        './app/helpers/*.rb'
+        './app/helpers/*.rb',
+        './app/javascript/controllers/**/*.js'
       ],
       safelist: {
-        standard: [/^(ct-|tooltip|mapbox)/]
+        standard: [/^(ct-|tooltip|mapbox|collaps|modal)/]
       },
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:]+/g) || []
     })

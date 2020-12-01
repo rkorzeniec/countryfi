@@ -31,7 +31,7 @@ describe ApplicationController do
     subject { controller.after_sign_in_path_for(nil) }
 
     it do
-      is_expected.to eq('/dashboard')
+      is_expected.to eq('/profile')
     end
   end
 

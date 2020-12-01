@@ -21,6 +21,6 @@ describe HelloController do
       get(:index)
     end
 
-    it { expect(response).to redirect_to(dashboard_path) }
+    it { expect(response).to redirect_to(profile_path) }
   end
 end

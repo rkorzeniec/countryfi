@@ -2,12 +2,62 @@
 
 describe Users::PreferencesForm, type: :form do
   let(:user) { build_stubbed(:user) }
-  let(:base_params) { { countries: 'all' } }
+  let(:base_params) { { countries: 'all', public_profile: '0' } }
   let(:params) { base_params.merge({}) }
   let(:form) { described_class.new(user, params) }
 
   describe 'validations' do
     subject { form }
+
+    describe 'public_profile' do
+      it { is_expected.to validate_presence_of(:public_profile) }
+    end
+
+    describe 'profile' do
+      let(:base_params) { { countries: 'all', public_profile: '1' } }
+
+      it do
+        is_expected.to validate_length_of(:profile)
+          .is_at_least(4)
+          .is_at_most(20)
+      end
+
+      context 'when only characters' do
+        let(:params) { base_params.merge({ profile: 'abcd' }) }
+
+        it { is_expected.to be_valid }
+      end
+
+      context 'when only numbers' do
+        let(:params) { base_params.merge({ profile: '1234' }) }
+
+        it { is_expected.to be_valid }
+      end
+
+      context 'when alphanumerics' do
+        let(:params) { base_params.merge({ profile: 'abcd1234' }) }
+
+        it { is_expected.to be_valid }
+      end
+
+      context 'when nil' do
+        let(:params) { base_params.merge({ profile: nil }) }
+
+        it do
+          is_expected.to be_invalid
+          expect(form.errors.messages[:profile]).to include('is invalid')
+        end
+      end
+
+      context 'when empty' do
+        let(:params) { base_params.merge({ profile: '' }) }
+
+        it do
+          is_expected.to be_invalid
+          expect(form.errors.messages[:profile]).to include('is invalid')
+        end
+      end
+    end
 
     describe 'countries' do
       it { is_expected.to validate_presence_of(:countries) }

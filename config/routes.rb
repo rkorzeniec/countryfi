@@ -3,23 +3,10 @@
 Rails.application.routes.draw do
   post '/graphql', to: 'graphql#execute'
 
-  namespace :admin do
-    resources :users
-    resources :border_countries
-    resources :checkins
-    resources :countries
-    resources :announcements
-    resources :notifications
-    resources :country_alternative_spellings
-    resources :country_calling_codes
-    resources :country_languages
-    resources :currencies
-    resources :top_level_domains
-
-    root to: 'users#index'
+  namespace :profile do
+    get '(:profile_name)', action: :show
+    resource :availability, only: %i[show]
   end
-
-  get 'dashboard', action: :index, controller: 'dashboard'
 
   devise_for :users
 
@@ -56,9 +43,9 @@ Rails.application.routes.draw do
     post :mark_as_read, on: :member
   end
 
-  get 'about', action: :index, controller: 'about'
-  get 'terms', action: :index, controller: 'terms'
-  root 'hello', action: :index, controller: 'hello'
+  get 'about', to: 'about#index'
+  get 'terms', to: 'terms#index'
+  root to: 'hello#index'
 
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
@@ -67,6 +54,25 @@ Rails.application.routes.draw do
   get '/404', to: 'exceptions#index', code: '404'
   get '/422', to: 'exceptions#index', code: '422'
   get '/500', to: 'exceptions#index', code: '500'
+
+  namespace :admin do
+    resources :users
+    resources :border_countries
+    resources :checkins
+    resources :countries
+    resources :announcements
+    resources :notifications
+    resources :country_alternative_spellings
+    resources :country_calling_codes
+    resources :country_languages
+    resources :currencies
+    resources :top_level_domains
+
+    root to: 'users#index'
+  end
+
+  # TODO: remove after a while, because of the switch to profiles
+  get 'dashboard', to: redirect('/profile')
 
   unless Rails.application.config.consider_all_requests_local
     get '*path', to: 'exceptions#index', code: '404'

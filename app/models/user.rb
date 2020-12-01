@@ -44,4 +44,8 @@ class User < ApplicationRecord
   def un_countries_preference?
     countries_cluster == 'un_member'
   end
+
+  def public_profile?
+    public_profile
+  end
 end
