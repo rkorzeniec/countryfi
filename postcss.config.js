@@ -22,7 +22,7 @@ if (railsEnv === 'development' || railsEnv === 'production') {
         './app/javascript/controllers/**/*.js'
       ],
       safelist: {
-        standard: [/^(ct-|tooltip|mapbox|collaps)/]
+        standard: [/^(ct-|tooltip|mapbox|collaps|modal)/]
       },
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:]+/g) || []
     })

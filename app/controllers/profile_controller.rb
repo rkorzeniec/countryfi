@@ -8,9 +8,7 @@ class ProfileController < ApplicationController
   def show
     @user = params[:profile_name].present? ? find_user : current_user
     @profile = ProfileFacade.new(@user)
-    flash[:info] = profile_message if params[:profile_name].present?
-    # add overlay to profile page, saying that profile is unneccesssible
-    # (could also be used for PWA offline view?)
+    set_flash_message
   end
 
   private
@@ -20,7 +18,10 @@ class ProfileController < ApplicationController
       Users::NullUser.new
   end
 
-  def profile_message
-    "You are visiting \"#{params[:profile_name]}\" profile"
+  def set_flash_message
+    return if params[:profile_name].blank?
+    return unless @user.public_profile?
+
+    flash[:info] = "You are visiting \"#{params[:profile_name]}\" profile"
   end
 end

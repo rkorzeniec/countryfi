@@ -4,6 +4,7 @@ import 'jquery'
 import 'bootstrap/js/dist/util'
 import 'bootstrap/js/dist/collapse'
 import 'bootstrap/js/dist/dropdown'
+import 'bootstrap/js/dist/modal'
 import 'bootstrap/js/dist/tooltip'
 
 /* eslint-disable no-undef */
@@ -18,4 +19,6 @@ worldSvgCountries.tooltip({
 
 worldSvgCountries.on('mousedown', (e) => $(e.currentTarget).tooltip('hide'))
 worldSvgCountries.on('mouseup', (e) => $(e.currentTarget).tooltip('show'))
+
+$('#overlay').modal('show')
 /* eslint-enable no-undef */

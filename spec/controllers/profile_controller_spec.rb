@@ -55,6 +55,7 @@ describe ProfileController do
 
           expect(response).to be_successful
           expect(response).to render_template(:show)
+          expect(flash[:info]).to be_nil
           expect(assigns(:user)).to be_a(Users::NullUser)
         end
 
@@ -66,6 +67,7 @@ describe ProfileController do
 
             expect(response).to be_successful
             expect(response).to render_template(:show)
+            expect(flash[:info]).to eq('You are visiting "mambo" profile')
             expect(assigns(:user)).to eq(user)
           end
         end
@@ -76,7 +78,7 @@ describe ProfileController do
       before { sign_in(user) }
 
       it do
-        get :show, params: { profile_name: 'mambo' }
+        get :show, params: {}
 
         expect(response).to be_successful
         expect(response).to render_template(:show)
@@ -99,6 +101,7 @@ describe ProfileController do
 
             expect(response).to be_successful
             expect(response).to render_template(:show)
+            expect(flash[:info]).to eq('You are visiting "mambo" profile')
             expect(assigns(:user)).to eq(user)
           end
         end
