@@ -1,6 +1,7 @@
 export function shadeColor (color, percent) {
   let decimalValue = Math.round(percent * 255 / 100)
   decimalValue = decimalValue <= 255 ? decimalValue : 255
+  decimalValue = decimalValue < 70 ? 70 : decimalValue
 
   const alpha = percent < 7 ? '0' + toHex(decimalValue) : toHex(decimalValue)
 
