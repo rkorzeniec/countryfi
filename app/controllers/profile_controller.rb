@@ -4,6 +4,7 @@ class ProfileController < ApplicationController
   layout 'dashboard'
 
   skip_before_action :authenticate_user!, if: -> { params[:profile_name] }
+  after_action :clear_flash
 
   def show
     @user = params[:profile_name].present? ? find_user : current_user
@@ -23,5 +24,9 @@ class ProfileController < ApplicationController
     return unless @user.public_profile?
 
     flash[:info] = "You are visiting \"#{params[:profile_name]}\" profile"
+  end
+
+  def clear_flash
+    flash.clear
   end
 end
