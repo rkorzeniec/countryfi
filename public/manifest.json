@@ -1,6 +1,6 @@
 {
-  "name": "Countrify - Your travels tracker",
-  "short_name": "Countrify",
+  "name": "countrify - Your travels tracker",
+  "short_name": "countrify",
   "description": "Track your travels, countries you have visited, explore new ones.",
   "start_url": "/",
   "scope": "/",
