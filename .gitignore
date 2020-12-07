@@ -46,6 +46,7 @@ public/assets/**/*
 !.env.sample
 !.env.ci
 !.github
+!.github/linters/*
 !.eslintrc.js
 
 /public/packs
