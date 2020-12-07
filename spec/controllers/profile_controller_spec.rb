@@ -59,7 +59,7 @@ describe ProfileController do
           expect(assigns(:user)).to be_a(Users::NullUser)
         end
 
-        context 'when profile exists' do
+        context 'when public profile' do
           let!(:user) { create(:user, public_profile: true, profile: 'mambo') }
 
           it do
@@ -67,8 +67,20 @@ describe ProfileController do
 
             expect(response).to be_successful
             expect(response).to render_template(:show)
-            expect(flash[:info]).to eq('You are visiting "mambo" profile')
             expect(assigns(:user)).to eq(user)
+          end
+        end
+
+        context 'when private profile' do
+          let!(:user) { create(:user, public_profile: false, profile: 'mambo') }
+
+          it do
+            get :show, params: { profile_name: 'mambo' }
+
+            expect(response).to be_successful
+            expect(response).to render_template(:show)
+            expect(flash[:info]).to be_nil
+            expect(assigns(:user)).to be_a_kind_of(Users::NullUser)
           end
         end
       end
@@ -101,7 +113,6 @@ describe ProfileController do
 
             expect(response).to be_successful
             expect(response).to render_template(:show)
-            expect(flash[:info]).to eq('You are visiting "mambo" profile')
             expect(assigns(:user)).to eq(user)
           end
         end
