@@ -6,10 +6,13 @@
 %html{ lang: 'en' }
   %head
     = render 'layouts/head'
-  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }" }
+  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }" , data: { controller: 'shell', action: 'load@window->shell#hideSpinner' } }
     = render 'layouts/navbar'
     %main.nav-spacer{ role: 'main'}
-      .container-fluid.p-1.px-md-4
+      .d-flex.justify-content-center
+        .spinner-border.text-secondary{ role: 'status', data: { target: 'shell.spinner' } }
+          %span.sr-only Loading...
+      .container-fluid.p-1.px-md-4.d-none{ data: { target: 'shell.content' } }
         = render 'layouts/flash'
         = yield
     %footer.footer.mt-auto.py-3
