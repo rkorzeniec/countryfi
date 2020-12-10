@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def user_preferences_colour
-    current_user&.color || '#2E7060'
+    current_user&.color || '#D70206'
   end
 
   def flash_message_css_class(message_type)

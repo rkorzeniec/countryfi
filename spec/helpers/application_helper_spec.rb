@@ -86,13 +86,13 @@ describe ApplicationHelper do
 
       before { allow(helper).to receive(:current_user).and_return(user) }
 
-      it { is_expected.to eq('#2E7060') }
+      it { is_expected.to eq('#D70206') }
     end
 
     context 'when no current user' do
       before { allow(helper).to receive(:current_user).and_return(nil) }
 
-      it { is_expected.to eq('#2E7060') }
+      it { is_expected.to eq('#D70206') }
     end
   end
 
