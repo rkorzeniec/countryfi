@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ['spinner', 'content']
 
   hideSpinner() {
-    this.spinnerTarget.classList.add('d-none')
+    this.spinnerTarget.remove()
     this.contentTarget.classList.remove('d-none')
   }
 }
