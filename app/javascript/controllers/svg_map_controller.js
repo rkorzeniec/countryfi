@@ -5,7 +5,7 @@ import Hammer from 'hammerjs'
 export default class extends Controller {
   static targets = ['map']
 
-  initialize() {
+  init() {
     this.initMap()
 
     this.mapElements = this.mapTarget.querySelectorAll('[data-toggle="tooltip"]')
