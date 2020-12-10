@@ -1,7 +1,7 @@
 - unless @user.public_profile? || current_user == @user
   = render 'shared/overlay', message: "Unable to access this profile, it does not exist or is not public.\nSorry."
 .row
-  .col-sm-12.p-0.mb-2{ data: { controller: 'download-svg svg-map', action: 'load@window->svg-map#init resize@window->svg-map#resize', download_svg_filename: 'world_map' } }
+  .col-sm-12.p-0.mb-2{ data: { controller: 'download-svg svg-map', action: 'load@window->svg-map#init', download_svg_filename: 'world_map' } }
     - if current_user == @user
       = render 'profile/shared/map_download'
     = render 'profile/shared/map'
