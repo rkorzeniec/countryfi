@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   get '/422', to: 'exceptions#index', code: '422'
   get '/500', to: 'exceptions#index', code: '500'
 
+  get 'shell', to: 'shell#index'
+
   namespace :admin do
     resources :users
     resources :border_countries
