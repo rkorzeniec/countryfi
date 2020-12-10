@@ -5,7 +5,7 @@ import 'chartist-plugin-pointlabels'
 export default class extends Controller {
   static targets = ['element']
 
-  initialize () {
+  init () {
     const data = {
       labels: eval(this.data.get('labels')),
       series: [
