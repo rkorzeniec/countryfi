@@ -1,11 +1,16 @@
 import { Controller } from 'stimulus'
 import svgPanZoom from 'svg-pan-zoom'
 import Hammer from 'hammerjs'
+import { getControllerName } from '../src/utils/controller_name'
 
 export default class extends Controller {
   static targets = ['map']
 
-  init() {
+  connect() {
+    this.element[getControllerName(this.identifier)] = this
+  }
+
+  render() {
     this.initMap()
 
     this.mapElements = this.mapTarget.querySelectorAll('[data-toggle="tooltip"]')

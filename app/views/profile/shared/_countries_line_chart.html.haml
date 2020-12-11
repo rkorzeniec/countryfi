@@ -1,4 +1,4 @@
-.card.no-border.no-bg.mb-5{ data: { controller: 'line-chart', action: 'load@window->line-chart#init', line_chart_labels: @profile.yearly_countries_chart.labels, line_chart_values: @profile.yearly_countries_chart.series, line_chart_height: 295 } }
+.card.no-border.no-bg.mb-5{ data: { controller: 'line-chart', target: 'shell.element', line_chart_labels: @profile.yearly_countries_chart.labels, line_chart_values: @profile.yearly_countries_chart.series, line_chart_height: 295 } }
   .card-heading.no-border.text-center{ style: 'background: #FFF;' }
     %span.pt-1.text-sm.text-semibold Countries per Year
   .card-body{ style: 'background: #FFF;' }

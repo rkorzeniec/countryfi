@@ -1,11 +1,16 @@
 import { Controller } from 'stimulus'
 import Chartist from 'chartist'
 import 'chartist-plugin-pointlabels'
+import { getControllerName } from '../src/utils/controller_name'
 
 export default class extends Controller {
   static targets = ['element']
 
-  init () {
+  connect() {
+    this.element[getControllerName(this.identifier)] = this
+  }
+
+  render() {
     const data = {
       labels: eval(this.data.get('labels')),
       series: [
