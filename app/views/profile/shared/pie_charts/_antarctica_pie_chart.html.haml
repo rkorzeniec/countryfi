@@ -3,5 +3,5 @@
   .card-body.text-center
     .text-sm.text-semibold Antarctica
     .py-2
-      #antarctica_pie_chart.pie-chart{ data: { target: 'pie-chart.element', percent: "#{visited_percent}" } }
+      #antarctica_pie_chart.pie-chart{ data: { 'pie-chart-target': 'element', percent: "#{visited_percent}" } }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_antarcticans_path

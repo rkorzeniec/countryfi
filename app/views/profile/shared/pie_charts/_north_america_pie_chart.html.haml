@@ -3,5 +3,5 @@
   .card-body.text-center
     .text-sm.text-semibold North America
     .py-2
-      #north_america_pie_chart.pie-chart{ data: { target: 'pie-chart.element', percent: "#{visited_percent}" } }
+      #north_america_pie_chart.pie-chart{ data: { 'pie-chart-target': 'element', percent: "#{visited_percent}" } }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_north_americans_path

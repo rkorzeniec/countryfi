@@ -6,13 +6,13 @@
 %html{ lang: 'en' }
   %head
     = render 'layouts/head'
-  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }" , data: { controller: 'shell', action: 'load@window->shell#hideSpinner' } }
+  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }" , data: { controller: 'shell' } }
     = render 'layouts/navbar'
     %main.nav-spacer{ role: 'main'}
-      .d-flex.justify-content-center.my-5{ data: { target: 'shell.spinner' } }
+      .d-flex.justify-content-center.my-5{ data: { 'shell-target': 'spinner', action: 'load@window->shell#hideSpinner:once' } }
         .spinner-border.text-secondary.my-5{ role: 'status' }
           %span.sr-only Loading...
-      .container-fluid.p-1.px-md-4.d-none{ data: { target: 'shell.content' } }
+      .container-fluid.p-1.px-md-4.d-none{ data: { 'shell-target': 'content' } }
         = render 'layouts/flash'
         = yield
     %footer.footer.mt-auto.py-3
