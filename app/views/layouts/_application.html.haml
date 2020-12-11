@@ -15,6 +15,6 @@
       .container-fluid.p-1.px-md-4.d-none{ data: { 'shell-target': 'content' } }
         = render 'layouts/flash'
         = yield
-    %footer.footer.mt-auto.py-3{ data: { action: 'load@window->shell#hideSpinner:once' } }
+    %footer.footer.mt-auto.py-3{ data: { action: 'load->shell#hideSpinner:once' } }
       = render 'layouts/footer'
     = yield :js
