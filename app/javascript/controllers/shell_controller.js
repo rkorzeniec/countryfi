@@ -3,6 +3,10 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   static targets = ['spinner', 'content', 'element']
 
+  connect() {
+    setTimeout(() => this.hideSpinner(), 50)
+  }
+
   hideSpinner() {
     this.spinnerTarget.remove()
     this.contentTarget.classList.remove('d-none')
