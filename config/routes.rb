@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   get '/500', to: 'exceptions#index', code: '500'
 
   get 'shell', to: 'shell#index'
+  get 'offline', to: 'offline#index'
 
   namespace :admin do
     resources :users

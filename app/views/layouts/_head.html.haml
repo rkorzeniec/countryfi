@@ -10,7 +10,7 @@
 = preload_link_tag('fa-regular-400.woff2')
 = preload_link_tag('fa-solid-900.woff2')
 = yield :layout_custom_head
-= javascript_packs_with_chunks_tag 'application', 'bootstrap', 'data-turbolinks-track': 'reload', defer: true, async: true
+= javascript_packs_with_chunks_tag 'application', 'bootstrap', 'stimulus', 'data-turbolinks-track': 'reload', defer: true, async: true
 
 
 %link{ href: '/favicon.ico', rel: 'icon', type: 'image/x-icon' }
