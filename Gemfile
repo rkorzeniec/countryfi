@@ -70,4 +70,4 @@ group :test do
   gem 'timecop', '~> 0.9.2'
 end
 
-gem 'sdoc', '~> 2.0.2', group: :doc
+gem 'sdoc', '~> 2.0.3', group: :doc
