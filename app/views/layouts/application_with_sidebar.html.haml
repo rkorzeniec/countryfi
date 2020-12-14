@@ -19,4 +19,4 @@
     %footer.footer.mt-auto.py-3
       = render 'layouts/footer'
     = yield :js
-    %script{type: 'text/javascript', defer: :defer, src: 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "5a93cb1dea2d4d26ba5d4b5fe18135f7"}' }
+    %script{type: 'text/javascript', defer: true, src: 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "5a93cb1dea2d4d26ba5d4b5fe18135f7"}' }
