@@ -11,5 +11,6 @@ environment.plugins.append(
 );
 
 environment.loaders.delete('nodeModules')
+environment.splitChunks()
 
 module.exports = environment;

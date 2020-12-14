@@ -6,7 +6,7 @@ import Turbolinks from 'turbolinks'
 import 'styles/site'
 
 // JS async imports
-import('src/imports/application')
+import('controllers')
 
 Rails.start()
 Turbolinks.start()

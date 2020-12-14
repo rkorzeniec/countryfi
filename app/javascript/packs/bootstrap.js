@@ -1,5 +1,4 @@
 import 'popper.js'
-import 'controllers'
 import 'jquery'
 import 'bootstrap/js/dist/util'
 import 'bootstrap/js/dist/collapse'
