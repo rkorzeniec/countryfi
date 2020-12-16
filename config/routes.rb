@@ -47,6 +47,10 @@ Rails.application.routes.draw do
   get 'terms', to: 'terms#index'
   root to: 'hello#index'
 
+
+  get 'shell', to: 'shell#index'
+  get 'offline', to: 'offline#index'
+
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
   end
@@ -54,9 +58,6 @@ Rails.application.routes.draw do
   get '/404', to: 'exceptions#index', code: '404'
   get '/422', to: 'exceptions#index', code: '422'
   get '/500', to: 'exceptions#index', code: '500'
-
-  get 'shell', to: 'shell#index'
-  get 'offline', to: 'offline#index'
 
   namespace :admin do
     resources :users
