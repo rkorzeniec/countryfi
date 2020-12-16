@@ -47,6 +47,8 @@ Rails.application.routes.draw do
   get 'terms', to: 'terms#index'
   root to: 'hello#index'
 
+  # FIXME: once webpacker is able to support service workers
+  get '/service-worker.js', to: 'service_worker#service_worker'
   get '/manifest.json', to: 'service_worker#manifest'
 
   get 'shell', to: 'shell#index'
