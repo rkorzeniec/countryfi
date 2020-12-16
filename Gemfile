@@ -55,7 +55,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rubocop', '~> 1.6.1', require: false
   gem 'rubocop-performance', '~> 1.9.1', require: false
-  gem 'rubocop-rails', '~> 2.9.0', require: false
+  gem 'rubocop-rails', '~> 2.9.1', require: false
   gem 'spring', '~> 2.1.1'
   gem 'web-console', '~> 4.1.0'
 end
