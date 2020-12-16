@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   get 'terms', to: 'terms#index'
   root to: 'hello#index'
 
+  get '/manifest.json', to: 'service_worker#manifest'
 
   get 'shell', to: 'shell#index'
   get 'offline', to: 'offline#index'
