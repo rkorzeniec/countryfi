@@ -22,7 +22,7 @@ export default class extends Controller {
   renderSvgMapController() {
     this.elementTargets
       .find(e => e.dataset.controller.split(' ').includes('svg-map'))
-      .svgMap
+      ?.svgMap
       .render()
   }
 
@@ -35,7 +35,7 @@ export default class extends Controller {
   renderLineChartController() {
     this.elementTargets
       .find(e => e.dataset.controller === 'line-chart')
-      .lineChart
+      ?.lineChart
       .render()
   }
 }
