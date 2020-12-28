@@ -36,7 +36,7 @@ gem 'stackprof', '~> 0.2.16'
 
 group :development, :test do
   gem 'byebug', '~> 11.1.3'
-  gem 'rspec-rails', '~> 4.0.1'
+  gem 'rspec-rails', '~> 4.0.2'
   gem 'simplecov'
   gem 'simplecov-console'
 end
