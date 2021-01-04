@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby '~>2.7.0'
 
-gem 'rails', '6.0.3.4'
+gem 'rails', '6.1.0'
 
 gem 'bootsnap', '~> 1.5.1', require: false
 gem 'dalli', '~> 2.7.11'
