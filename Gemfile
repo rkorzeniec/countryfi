@@ -45,7 +45,7 @@ group :development do
   gem 'binding_of_caller', '~> 1.0.0'
   gem 'brakeman', '~> 4.10.1'
   gem 'bullet', '~> 6.1.2', group: 'development'
-  gem 'capistrano', '~> 3.14', require: false
+  gem 'capistrano', '~> 3.15', require: false
   gem 'capistrano-delayed-job', '~> 1.0', require: false
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails', '~> 1.6', require: false
