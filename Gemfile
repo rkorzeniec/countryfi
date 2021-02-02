@@ -43,7 +43,7 @@ end
 
 group :development do
   gem 'binding_of_caller', '~> 1.0.0'
-  gem 'brakeman', '~> 4.10.1'
+  gem 'brakeman', '~> 5.0.0'
   gem 'bullet', '~> 6.1.3', group: 'development'
   gem 'capistrano', '~> 3.15', require: false
   gem 'capistrano-delayed-job', '~> 1.0', require: false
