@@ -368,7 +368,7 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    timecop (0.9.2)
+    timecop (0.9.3)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
@@ -447,7 +447,7 @@ DEPENDENCIES
   stackprof (~> 0.2.16)
   stub_env
   therubyracer (~> 0.12.3)
-  timecop (~> 0.9.2)
+  timecop (~> 0.9.3)
   uglifier (~> 4.2.0)
   web-console (~> 4.1.0)
   webpacker (~> 5.2.1)
