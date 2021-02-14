@@ -1,3 +1,5 @@
+- shell ||= false
+
 !!! 5
 
 <!--[if IE 8]>         <html class="ie8"> <![endif]-->
@@ -6,13 +8,14 @@
 %html{ lang: 'en' }
   %head
     = render 'layouts/head'
-  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }" , data: { controller: 'shell' } }
+  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }" , data: { controller: "#{shell ? 'shell' : ''}" } }
     = render 'layouts/navbar'
     %main.nav-spacer{ role: 'main'}
-      .d-flex.justify-content-center.my-5{ data: { 'shell-target': 'spinner' } }
-        .spinner-border.text-secondary.my-5{ role: 'status' }
-          %span.sr-only Loading...
-      .container-fluid.p-1.px-md-4.d-none{ data: { 'shell-target': 'content' } }
+      - if shell
+        .d-flex.justify-content-center.my-5{ data: { 'shell-target': 'spinner' } }
+          .spinner-border.text-secondary.my-5{ role: 'status' }
+            %span.sr-only Loading...
+      .container-fluid.p-1.px-md-4{ data: { 'shell-target': 'content' }, class: "#{shell ? 'd-none' : ''}"}
         = render 'layouts/flash'
         = yield
     %footer.footer.mt-auto.py-3

@@ -3,4 +3,5 @@
   = preload_link_tag('dashboard.css')
   = stylesheet_pack_tag 'dashboard', media: 'all', 'data-turbolinks-track' => true
   = javascript_pack_tag 'dashboard', 'data-turbolinks-track': 'reload', defer: true, async: true
-= render 'layouts/application'
+
+= render 'layouts/application', shell: true
