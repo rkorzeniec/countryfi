@@ -1,21 +1,23 @@
 import { Controller } from 'stimulus'
-import mapboxgl from 'mapbox-gl'
 import { getBoundingBox } from '../src/utils/bounding_box'
 
 export default class extends Controller {
   static targets = ['element']
 
   connect() {
-    this.map = null
-    this.initMapbox()
+    import('mapbox-gl').then(mapbox => {
+      this.mapbox = mapbox.default
+      this.map = null
+      this.initMapbox()
+    })
   }
 
   initMapbox() {
     if (!this.elementTarget) { return }
 
-    mapboxgl.accessToken = this.data.get('api-key')
+    this.mapbox.accessToken = this.data.get('api-key')
 
-    this.map = new mapboxgl.Map(this.mapboxOptions())
+    this.map = new this.mapbox.Map(this.mapboxOptions())
     this.map.addControl(this.navigationControl())
     this.map.on('load', () => this.applyCountryLayer())
   }
@@ -30,7 +32,7 @@ export default class extends Controller {
   }
 
   navigationControl() {
-    return new mapboxgl.NavigationControl({position: 'bottom-right'})
+    return new this.mapbox.NavigationControl({position: 'bottom-right'})
   }
 
   applyCountryLayer() {
