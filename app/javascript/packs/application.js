@@ -1,5 +1,5 @@
 // JS inline imports
-import Rails from "rails-ujs"
+import Rails from 'rails-ujs'
 import Turbolinks from 'turbolinks'
 
 // styles imports
