@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-lock '~> 3.15.0'
+lock '~> 3.16'
 
 set :application, 'countrify'
 set :repo_url, 'git@github.com:rkorzeniec/countryfier.git'
