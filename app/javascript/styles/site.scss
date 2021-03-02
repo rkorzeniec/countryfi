@@ -1,5 +1,55 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+@import "./text.scss";
+@import "./footer.scss";
+@import "./sidebar.scss";
+@import "./devise.scss";
+@import "./map.scss";
+@import "./timeline.scss";
+@import "./explore.scss";
+
+body {
+  font-size: .875rem;
+}
+
+body, .sticky-footer-wrapper {
+   min-height:100vh;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Navbar
+ */
+
+.nav-spacer{
+  margin-top: 70px !important;
+}
+
+
+@media (max-width: 767.98px) {
+  .nav-spacer{
+    margin-top: 100px !important;
+  }
+}
+
+.navbar .dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+}
+
+.notification-item:hover {
+  background-color: #f8f9fa;
+
+  .d-none {
+    display: inline-block !important;
+  }
+}
+
 .dropdown-menu {
   width: 300px !important;
 }
