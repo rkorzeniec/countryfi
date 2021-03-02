@@ -1,5 +1,4 @@
 import { Controller } from 'stimulus'
-import Chartist from 'chartist'
 import 'chartist-plugin-pointlabels'
 import { getControllerName } from '../src/utils/controller_name'
 
@@ -7,6 +6,7 @@ export default class extends Controller {
   static targets = ['element']
 
   connect() {
+    import('chartist').then(chartist => this.chartist = chartist.default)
     this.element[getControllerName(this.identifier)] = this
   }
 
@@ -26,7 +26,7 @@ export default class extends Controller {
         right: 40
       },
       plugins: [
-        Chartist.plugins.ctPointLabels()
+        this.chartist.plugins.ctPointLabels()
       ]
     }
 
@@ -42,6 +42,6 @@ export default class extends Controller {
     ]
 
     /* eslint-disable no-new */
-    new Chartist.Line("#" + this.elementTarget.id, data, options, responsiveOptions)
+    new this.chartist.Line("#" + this.elementTarget.id, data, options, responsiveOptions)
   }
 }
