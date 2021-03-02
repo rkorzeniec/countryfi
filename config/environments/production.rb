@@ -76,7 +76,7 @@ Rails.application.configure do
     '127.0.0.1:11211',
     {
       namespace: 'countrify',
-      expires_in: 1.month,
+      expires_in: 2592000,
       compress: true
     }
 
