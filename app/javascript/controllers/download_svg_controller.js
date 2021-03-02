@@ -1,8 +1,11 @@
 import { Controller } from 'stimulus'
-import { saveSvgAsPng } from 'save-svg-as-png'
 
 export default class extends Controller {
   static targets = ['svg', 'button', 'icon', 'spinner']
+
+  connect() {
+    import('save-svg-as-png').then(saveAsSvg => this.saveAsSvg = saveAsSvg.default)
+  }
 
   download() {
     this.handlePreDownload()
@@ -15,7 +18,7 @@ export default class extends Controller {
   downloadSvg() {
     return new Promise((resolve, reject) => {
       setTimeout(() => resolve(
-        saveSvgAsPng(
+        this.saveAsSvg.saveSvgAsPng(
           this.svgTarget,
           this.data.get('filename'),
           { scale: 2, encoderOptions: 1, backgroundColor: '#ffffff' }
