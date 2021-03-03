@@ -4,11 +4,9 @@
 %meta{name: 'description', content: 'Your personal digital country scratch map. Keep track the countries you have visited. Keep up to date with your travels and cross those countries of your bucket list.' }
 %meta{name: 'theme-color', content: '#ffffff' }
 
-= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track' => true
-= preload_link_tag('application.css')
-= preload_link_tag('fa-regular-400.woff2')
-= preload_link_tag('fa-solid-900.woff2')
+= preload_pack_asset('media/webfonts/fa-regular-400.woff2')
+= preload_pack_asset('media/webfonts/fa-solid-900.woff2')
 = yield :layout_custom_head
 = javascript_packs_with_chunks_tag 'application', 'bootstrap', 'stimulus', 'data-turbolinks-track': 'reload', defer: true, async: true
 
