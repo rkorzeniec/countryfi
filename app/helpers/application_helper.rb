@@ -28,8 +28,7 @@ module ApplicationHelper
   def flash_message_css_class(message_type)
     case message_type
     when 'success' then 'alert-success'
-    when 'error' then 'alert-danger'
-    when 'alert' then 'alert-danger'
+    when 'error', 'alert' then 'alert-danger'
     when 'notice' then 'alert-info'
     else "alert-#{message_type}"
     end
