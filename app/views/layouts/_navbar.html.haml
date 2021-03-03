@@ -13,31 +13,31 @@
             %i.fas.fa-bars.text-muted
     - if user_signed_in?
       %li.nav-item.text-nowrap
-        = link_to new_checkin_path, class: 'nav-link my-auto' do
+        = link_to new_checkin_path, class: 'nav-link my-auto text-dark' do
           %span.d-block.d-sm-none
             %i.fas.fa-plus
           %span.d-none.d-sm-block
             %i.fas.fa-plus
             Add checkin
-      %li.nav-item.text-nowrap= link_to 'Explore', explore_worlds_path, class: 'nav-link '
-      %li.nav-item.text-nowrap= link_to 'Checkins', checkins_worlds_path, class: 'nav-link'
+      %li.nav-item.text-nowrap= link_to 'Explore', explore_worlds_path, class: 'nav-link text-dark'
+      %li.nav-item.text-nowrap= link_to 'Checkins', checkins_worlds_path, class: 'nav-link text-dark'
       %li.nav-item.dropdown.position-static
-        = link_to '#', id: 'navbarProfile', class: 'dropdown-toggle nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
+        = link_to '#', id: 'navbarProfile', class: 'dropdown-toggle nav-link text-dark', data: { 'toggle' => 'dropdown' }, role: 'button' do
           -# = image_tag gravatar_url(36), class: 'rounded-circle', data: { toggle: 'tooltip', title: 'Want to change your avatar? Go to gravatar.com'}
           %i.far.fa-user
           %span.hidden-md Profile
         .dropdown-menu{ aria: { labelledby: 'navbarProfile' } }
-          .dropdown-item.text-md= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link'
-          .dropdown-item.text-md= link_to 'Preferences', edit_preferences_path, class: 'nav-link'
+          .dropdown-item.text-md= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link text-dark'
+          .dropdown-item.text-md= link_to 'Preferences', edit_preferences_path, class: 'nav-link text-dark'
           .dropdown-divider
-          .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+          .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link text-dark'
       %li#navbarNotifications.nav-item.dropdown.position-static.d-none{ data: { controller: 'notifications', 'notifications-target': 'rootElement' } }
-        = link_to '#', id: 'navbarNotificationsLink', class: 'nav-link', data: { 'toggle' => 'dropdown' }, role: 'button' do
+        = link_to '#', id: 'navbarNotificationsLink', class: 'nav-link text-dark', data: { 'toggle' => 'dropdown' }, role: 'button' do
           %i.fas.fa-bell.text-danger
         #navbarNotificationsDropdown.dropdown-menu{ aria: { labelledby: 'navbarNotificationsLink' }, data: { 'notifications-target': 'dropdown' } }
           .dropdown-divider
           .dropdown-item.text-xs.text-muted
-            = link_to mark_as_read_notifications_path, method: :post, remote: true, class: 'nav-link' do
+            = link_to mark_as_read_notifications_path, method: :post, remote: true, class: 'nav-link text-dark' do
               %i.fas.fa-check.text-xs
               Mark all as read
     - else
