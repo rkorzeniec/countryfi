@@ -1,24 +1,24 @@
 <div class='map'>
   <svg id="<%= id %>" class='dashboard' data-svg-map-target='map' data-download-svg-target='svg' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1009.6727" height="665.96301" >
     <style>
-    .land {
-      fill: #ececec;
-      stroke: gray;
-    }
+      .land {
+        fill: #ececec;
+        stroke: gray;
+      }
 
-    .land:hover {
-      fill: #2E7060;
-    }
+      .map .dashboard .land:hover {
+        fill: <%= "#{user_preferences_colour || '#2E7060' };" %>
+      }
 
-    .checked {
-      fill: #2E7060;
-    }
+      .checked {
+        fill: <%= "#{user_preferences_colour || '#2E7060' };" %>
+      }
 
-    g {
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-    }
+      g {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
     </style>
     <g>
       <a href="<%= country_path('AE') %>" id='AE' data-toggle='tooltip' data-title="United Arab Emirates (<%= country_counts['AE'] || 0 %>)" data-fill-map-target='country' >
