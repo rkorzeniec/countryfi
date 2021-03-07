@@ -1,11 +1,13 @@
-const CACHE_VERSION = 'v0.1.30';
+const CACHE_VERSION = 'v0.1.33';
 const CACHE_NAME = CACHE_VERSION + ':sw-cache-';
 const REQUIRED_FILES = [
   '<%= profile_path %>',
   '<%= offline_path %>',
   '/favicon.ico',
   '/favicon-16x16.png',
-  '/favicon-32x32.png'
+  '/favicon-32x32.png',
+  '<%= asset_pack_path 'application.css' %>',
+  '<%= asset_pack_path 'media/webfonts/fa-regular-400.woff2' %>',
 ];
 
 const onInstall = (event) => {
