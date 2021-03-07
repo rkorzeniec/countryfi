@@ -11,7 +11,7 @@ const REQUIRED_FILES = [
 ];
 
 const onInstall = (event) => {
-  console.log('[Serviceworker]', "Installing!", event);
+  // console.log('[Serviceworker]', "Installing!", event);
 
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -21,7 +21,7 @@ const onInstall = (event) => {
 }
 
 const onActivate = (event) => {
-  console.log('[Serviceworker]', "Activating!", event);
+  // console.log('[Serviceworker]', "Activating!", event);
 
   event.waitUntil(
     caches.keys()
@@ -47,7 +47,6 @@ const onFetch = (event) => {
         if (response) { return response; }
 
         if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
-          console.log('[Serviceworker]', "Fetching offline content", event);
           return caches.match('/offline');
         }
       })
