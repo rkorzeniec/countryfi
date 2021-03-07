@@ -1,5 +1,5 @@
 .d-flex.flex-row.justify-content-end
-  %button#download-button.btn.btn-sm.btn-outline-secondary.d-none.d-sm-block{ data: { action: 'download-svg#download', target: 'download-svg.button' } }
+  %button#download-button.btn.btn-sm.btn-outline-secondary.d-none.d-sm-block{ data: { action: 'download-svg#download', download_svg_target: 'button' } }
     %span Download map
-    %i#download-spinner.spinner-border.spinner-border-sm.d-none{ role: 'status', aria: { hidden: 'true' }, data: { target: 'download-svg.spinner' } }
-    %i#download-icon.fas.fa-cloud-download-alt.font-size-24{ data: { target: 'download-svg.icon' } }
+    %i#download-spinner.spinner-border.spinner-border-sm.d-none{ role: 'status', aria: { hidden: 'true' }, data: { download_svg_target: 'spinner' } }
+    %i#download-icon.fas.fa-cloud-download-alt.font-size-24{ data: { download_svg_target: 'icon' } }

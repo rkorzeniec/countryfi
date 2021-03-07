@@ -11,7 +11,7 @@
   .col-md-4
     .custom-control.custom-switch{ data: { controller: 'switch', switch_checked_text: 'Profile: private', switch_unchecked_text: 'Profile: public' } }
       = f.check_box :public_profile, value: current_user.public_profile?, class: 'custom-control-input p-1', data: { action: 'switch#updateLabel', toggle: 'collapse', target: '#profile-collapse' }, aria: { expanded: current_user.public_profile, controls: 'profile-collapse' }
-      = f.label :public_profile, "#{user_profile_switch_label(current_user)}", class: 'custom-control-label text-muted', for: 'user_public_profile', data: { target: 'switch.label' }
+      = f.label :public_profile, "#{user_profile_switch_label(current_user)}", class: 'custom-control-label text-muted', for: 'user_public_profile', data: { switch_target: 'label' }
 #profile-collapse.form-row.collapse{ class: "#{'show' if current_user.public_profile?}", data: { parent: "#user_public_profile", controller: 'input-availability', input_availability_url: profile_availability_path(:json), input_availability_param: 'profile', input_availability_current_value: "#{user_profile}"} }
   .col-xs-12.mb-3
     = f.label :profile_name, class: 'col-form-label pb-0'
@@ -20,11 +20,11 @@
     .input-group-prepend
       .input-group-text
         .text-sm= profile_uri
-    = f.text_field :profile, value: user_profile, class: 'form-control', style: 'height: inherit;', maxlength: 20, minlength: 4, pattern: '^[A-Za-z0-9]+$', title: 'Only characters (a-z) and numerics (0-9) are allowed', data: { target: 'input-availability.input copy.source', action: 'input->input-availability#check' }
+    = f.text_field :profile, value: user_profile, class: 'form-control', style: 'height: inherit;', maxlength: 20, minlength: 4, pattern: '^[A-Za-z0-9]+$', title: 'Only characters (a-z) and numerics (0-9) are allowed', data: { input_availability_target: 'input', copy_target: 'source', action: 'input->input-availability#check' }
     .input-group-append
       %a.btn.btn-outline-dark{ data: { action: 'copy#copy' } }
-        %i.far.fa-clipboard{ data: { target: 'copy.icon' } }
-    #profile-feedback{ data: { target: 'input-availability.feedback' } }
+        %i.far.fa-clipboard{ data: { copy_target: 'icon' } }
+    #profile-feedback{ data: { input_availability_target: 'feedback' } }
 %hr
 .form-row.mb-3
   .col-md-8.mb-3
