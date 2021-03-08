@@ -40,7 +40,7 @@ describe NotificationsController do
 
       let(:rendered_template) do
         "<div class='dropdown-item-text notification-item px-3 text-sm text-muted' "\
-        "data-controller='notification' data-target='notification.element'>\n" \
+        "data-controller='notification' data-notification-target='element'>\n" \
         "<div class='d-flex justify-content-between'>\nMambo jambo\n" \
         "<a id=\"#{notification.id}\" class=\"text-muted\" " \
         'data-behavior="notification-link" data-action="notification#markAsRead" '\
