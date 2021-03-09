@@ -2,8 +2,8 @@
 
 Rack::Attack.blocklist('block dodgy paths') do |request|
   request.path.start_with?(
-    '/firma/', '/nyheder/', '/index.php', '/fileadmin/', '/fileadmin/', '/uploads/',
-    '/typo3temp/', '/nc/', '/mekanisk-sikring', '/opslagsstof/'
+    '/firma', '/nyheder', '/index.php', '/fileadmin', '/uploads',
+    '/typo3temp', '/nc', '/mekanisk-sikring', '/opslagsstof'
   )
 end
 
