@@ -15,7 +15,7 @@
         .d-flex.justify-content-center.my-5{ data: { 'shell-target': 'spinner' } }
           .spinner-border.text-secondary.my-5{ role: 'status' }
             %span.sr-only Loading...
-      .container-fluid.p-1.px-md-4{ data: { 'shell-target': 'content' }, class: "#{shell ? 'd-none' : ''}"}
+      .container-fluid{ data: { 'shell-target': 'content' }, class: "#{shell ? 'd-none' : ''}"}
         = render 'layouts/flash'
         = yield
     %footer.footer.mt-auto.py-3
