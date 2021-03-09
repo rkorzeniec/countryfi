@@ -7,6 +7,6 @@ Rack::Attack.blocklist('block dodgy paths') do |request|
   )
 end
 
-Rack::Attack.blocklist('block dodgy referrers') do |request|
-  request.referer&.include?('hfb.dk')
+Rack::Attack.blocklist('block dodgy hosts') do |request|
+  request.host.include?('hfb.dk') || request.referer&.include?('hfb.dk')
 end
