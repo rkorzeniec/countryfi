@@ -31,7 +31,7 @@ describe ExceptionsController, type: :request do
   context 'with unsupported format' do
     %i[pdf json jpeg xml js xls mambojambo].each do |format|
       before do
-        get('/xkcd', headers: { CONTENT_TYPE: format })
+        get('/profile', headers: { CONTENT_TYPE: format })
       end
 
       it do
