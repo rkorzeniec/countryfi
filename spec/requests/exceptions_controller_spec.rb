@@ -27,4 +27,16 @@ describe ExceptionsController, type: :request do
       expect(subject).to render_template('500')
     end
   end
+
+  context 'with unsupported format' do
+    %i[pdf json jpeg xml js xls].each do |format|
+      before do
+        get('/xkcd', headers: { CONTENT_TYPE: format })
+      end
+
+      it do
+        expect(response).to have_http_status('406')
+      end
+    end
+  end
 end

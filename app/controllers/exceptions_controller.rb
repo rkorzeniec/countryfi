@@ -5,7 +5,8 @@ class ExceptionsController < ApplicationController
 
   skip_before_action :authenticate_user!
 
-  rescue_from ActionController::UnknownFormat, with: :rescue_from_unknown_format
+  rescue_from ActionController::UnknownFormat, with: :rescue_from_unsupported_format
+  rescue_from ActionView::MissingTemplate, with: :rescue_from_unsupported_format
 
   def index
     render status_code.to_s, status: status_code
@@ -13,8 +14,8 @@ class ExceptionsController < ApplicationController
 
   private
 
-  def rescue_from_unknown_format
-    render nothing: true, status: :not_found
+  def rescue_from_unsupported_format
+    head :not_acceptable
   end
 
   def status_code
