@@ -14,11 +14,8 @@
     - if user_signed_in?
       %li.nav-item.text-nowrap
         = link_to new_checkin_path, class: 'nav-link my-auto text-dark' do
-          %span.d-block.d-sm-none
-            %i.fas.fa-plus
-          %span.d-none.d-sm-block
-            %i.fas.fa-plus
-            Add checkin
+          %i.fas.fa-plus
+          Add
       %li.nav-item.text-nowrap= link_to 'Explore', explore_worlds_path, class: 'nav-link text-dark'
       %li.nav-item.text-nowrap= link_to 'Checkins', checkins_worlds_path, class: 'nav-link text-dark'
       %li.nav-item.dropdown.position-static
