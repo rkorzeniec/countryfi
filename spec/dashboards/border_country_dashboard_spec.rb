@@ -4,9 +4,7 @@ describe BorderCountryDashboard do
   it do
     expect(described_class::ATTRIBUTE_TYPES).to eq(
       country: Administrate::BaseDashboard::Field::BelongsTo,
-      border_country: Administrate::BaseDashboard::Field::BelongsTo.with_options(
-        class_name: 'Country'
-      ),
+      border_country: Administrate::BaseDashboard::Field::BelongsTo,
       id: Administrate::BaseDashboard::Field::Number,
       border_country_id: Administrate::BaseDashboard::Field::Number,
       created_at: Administrate::BaseDashboard::Field::DateTime,

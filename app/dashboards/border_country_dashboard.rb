@@ -11,7 +11,7 @@ class BorderCountryDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     country: Field::BelongsTo,
-    border_country: Field::BelongsTo.with_options(class_name: 'Country'),
+    border_country: Field::BelongsTo,
     id: Field::Number,
     border_country_id: Field::Number,
     created_at: Field::DateTime,
