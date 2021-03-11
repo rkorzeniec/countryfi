@@ -1,7 +1,6 @@
 - sidebar ||= false
 %nav.navbar.navbar-expand.navbar-light.flex-column.flex-md-row.fixed-top.bg-white.border-bottom.shadow-sm.text-md.font-weight-light
-  - logo_path = user_signed_in? ? profile_path : root_path
-  = link_to logo_path, class: 'navbar-brand p-0' do
+  = link_to root_path, class: 'navbar-brand p-0' do
     %i.fas.fa-check.text-md
     %span.text-bg
       countrify
