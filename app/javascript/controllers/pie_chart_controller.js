@@ -18,7 +18,8 @@ export default class extends Controller {
       lineCap: 'square',
       size: 90,
       trackColor: '#e5e5e5',
-      barColor: this.data.get('color')
+      barColor: this.data.get('color'),
+      animate: { enabled: false }
     });
   }
 }
