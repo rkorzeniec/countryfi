@@ -6,6 +6,7 @@ import Turbolinks from 'turbolinks'
 import 'styles/site'
 
 // JS async imports
+import('src/fontawesome')
 import('src/service_worker')
 
 Rails.start()
