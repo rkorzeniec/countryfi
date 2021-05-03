@@ -19,7 +19,8 @@ import {
   faTimes,
   faClipboard,
   faCloud,
-  faCloudDownloadAlt
+  faCloudDownloadAlt,
+  faShareAltSquare,
 } from '@fortawesome/free-solid-svg-icons'
 
 config.mutateApproach = 'sync'
@@ -43,7 +44,8 @@ library.add(
   faTimes,
   faClipboard,
   faCloud,
-  faCloudDownloadAlt
+  faCloudDownloadAlt,
+  faShareAltSquare
 )
 
 dom.watch()
