@@ -42,6 +42,7 @@ public/assets/**/*
 
 #do not ignore
 !.ruby-version
+!.node-version
 !.rubocop.yml
 !.env.sample
 !.env.ci
