@@ -1,7 +1,7 @@
 - visited_percent = (visited_countries_count / countries_count.to_f) * 100
-.card{ data: { controller: 'pie-chart', pie_chart_color: '#8CC152' } }
+.card{ data: { shell_target: 'element', controller: 'pie-chart', pie_chart_color: '#8CC152' } }
   .card-body.text-center
     .text-sm.text-semibold Asia
     .py-2
-      #asia_pie_chart.pie-chart{ data: { 'pie-chart-target': 'element', percent: "#{visited_percent}" } }
+      #asia_pie_chart.pie-chart{ data: { pie_chart_target: 'element', percent: "#{visited_percent}" } }
         %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_asians_path
