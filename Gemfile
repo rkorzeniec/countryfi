@@ -20,7 +20,7 @@ gem 'therubyracer', '~> 0.12.3'
 
 gem 'administrate', '~> 0.15.0'
 gem 'better_errors', '~> 2.9.1'
-gem 'daemons', '~> 1.3.1'
+gem 'daemons', '~> 1.4.0'
 gem 'delayed_job_active_record', '~> 4.1.6'
 gem 'execjs', '~> 2.7.0'
 gem 'haml', '~> 5.2.1'
