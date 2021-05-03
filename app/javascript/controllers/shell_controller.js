@@ -15,6 +15,7 @@ export default class extends Controller {
 
   render() {
     this.renderSvgMapController()
+    this.renderPieChartController()
     this.renderBarChartController()
     this.renderLineChartController()
   }
@@ -22,8 +23,13 @@ export default class extends Controller {
   renderSvgMapController() {
     this.elementTargets
       .find(e => e.dataset.controller.split(' ').includes('svg-map'))
-      ?.svgMap
-      .render()
+      ?.svgMap.render()
+  }
+
+  renderPieChartController() {
+    this.elementTargets
+      .filter(e => e.dataset.controller === 'pie-chart')
+      .forEach(e => e.pieChart.setup())
   }
 
   renderBarChartController() {
@@ -35,7 +41,6 @@ export default class extends Controller {
   renderLineChartController() {
     this.elementTargets
       .find(e => e.dataset.controller === 'line-chart')
-      ?.lineChart
-      .render()
+      ?.lineChart.render()
   }
 }

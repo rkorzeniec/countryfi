@@ -1,17 +1,22 @@
 import { Controller } from 'stimulus'
+import { getControllerName } from '../src/utils/controller_name'
 
 export default class extends Controller {
   static targets = ['element']
 
   connect() {
-    import('easy-pie-chart').then(easyPieChart => {
-      this.easyPieChart = easyPieChart.default
-      this.setup()
-    })
+    this.element[getControllerName(this.identifier)] = this
   }
 
   setup() {
-    new this.easyPieChart(this.elementTarget, {
+    import('easy-pie-chart').then(easyPieChart => {
+      this.easyPieChart = easyPieChart.default
+      this.render()
+    })
+  }
+
+  render() {
+    this.easyPieChart(this.elementTarget, {
       animate: 2000,
       scaleColor: false,
       lineWidth: 6,
