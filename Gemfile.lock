@@ -359,7 +359,7 @@ GEM
     sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stackprof (0.2.16)
+    stackprof (0.2.17)
     stub_env (1.0.4)
       rspec (>= 2.0, < 4.0)
     temple (0.8.2)
@@ -447,7 +447,7 @@ DEPENDENCIES
   simplecov-console
   skylight (~> 5.0.1)
   spring (~> 2.1.1)
-  stackprof (~> 0.2.16)
+  stackprof (~> 0.2.17)
   stub_env
   therubyracer (~> 0.12.3)
   timecop (~> 0.9.4)
