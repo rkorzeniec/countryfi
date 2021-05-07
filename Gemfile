@@ -18,7 +18,7 @@ gem 'sentry-raven', '~> 3.1.2'
 gem 'skylight', '~> 5.0.1'
 gem 'therubyracer', '~> 0.12.3'
 
-gem 'administrate', '~> 0.15.0'
+gem 'administrate', '~> 0.16.0'
 gem 'better_errors', '~> 2.9.1'
 gem 'daemons', '~> 1.4.0'
 gem 'delayed_job_active_record', '~> 4.1.6'
