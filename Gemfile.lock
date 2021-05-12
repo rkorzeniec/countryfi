@@ -417,7 +417,6 @@ DEPENDENCIES
   devise (~> 4.8.0)
   devise-async (~> 1.0.0)
   dotenv-rails (~> 2.7.6)
-  execjs (~> 2.7.0)
   factory_bot_rails (~> 6.2.0)
   flamegraph (~> 0.9.5)
   graphiql-rails (~> 1.7.0)
