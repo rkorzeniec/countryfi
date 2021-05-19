@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.11'
 gem 'kaminari', '~> 1.2.1'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'uglifier', '~> 4.2.0'
-gem 'webpacker', '~> 5.3.0'
+gem 'webpacker', '~> 5.4.0'
 
 gem 'flamegraph', '~> 0.9.5'
 gem 'memory_profiler', '~> 1.0.0'
