@@ -53,7 +53,7 @@ group :development do
   gem 'graphiql-rails', '~> 1.7.0'
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.5'
-  gem 'rubocop', '~> 1.16.0', require: false
+  gem 'rubocop', '~> 1.17.0', require: false
   gem 'rubocop-performance', '~> 1.11.3', require: false
   gem 'rubocop-rails', '~> 2.10.1', require: false
   gem 'spring', '~> 2.1.1'
