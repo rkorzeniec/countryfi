@@ -14,6 +14,6 @@ export default class extends Controller {
   }
 
   getURLPath() {
-    return '/' + String(document.location).split('/').slice(-2).join('/').replace(/#.*$/, '')
+    return '/' + String(document.location).split('/').slice(-1)
   }
 }
