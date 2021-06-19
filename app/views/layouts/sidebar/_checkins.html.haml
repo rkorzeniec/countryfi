@@ -5,26 +5,26 @@
   #sidebarCheckins.sidebar-collapsable.collapse{ data: { parent: '#sidebar' }, aria: { labelledby: 'sidebarCheckinsHeading', expanded: 'false' } }
     %ul.flex-column.pl-2.nav
       %li.nav-item.text-md
-        = link_to checkins_worlds_path, class: 'nav-link', id: nav_item_id(checkins_worlds_path) do
+        = link_to checkins_path, class: 'nav-link', id: nav_item_id(checkins_path) do
           %span World
       %li.nav-item.text-md
-        = link_to checkins_europeans_path, class: 'nav-link', id: nav_item_id(checkins_europeans_path) do
+        = link_to checkins_path(scope: 'european'), class: 'nav-link', id: nav_item_id(checkins_path, scope: 'european') do
           %span Europe
       %li.nav-item.text-md
-        = link_to checkins_north_americans_path, class: 'nav-link', id: nav_item_id(checkins_north_americans_path) do
+        = link_to checkins_path(scope: 'north_american'), class: 'nav-link', id: nav_item_id(checkins_path, scope: 'north_american') do
           %span Noth America
       %li.nav-item.text-md
-        = link_to checkins_south_americans_path, class: 'nav-link', id: nav_item_id(checkins_south_americans_path) do
+        = link_to checkins_path(scope: 'south_american'), class: 'nav-link', id: nav_item_id(checkins_path, scope: 'south_american') do
           %span South America
       %li.nav-item.text-md
-        = link_to checkins_asians_path, class: 'nav-link', id: nav_item_id(checkins_asians_path) do
+        = link_to checkins_path(scope: 'asian'), class: 'nav-link', id: nav_item_id(checkins_path, scope: 'asian') do
           %span Asia
       %li.nav-item.text-md
-        = link_to checkins_africans_path, class: 'nav-link', id: nav_item_id(checkins_africans_path) do
+        = link_to checkins_path(scope: 'african'), class: 'nav-link', id: nav_item_id(checkins_path, scope: 'african') do
           %span Africa
       %li.nav-item.text-md
-        = link_to checkins_oceanians_path, class: 'nav-link', id: nav_item_id(checkins_oceanians_path) do
+        = link_to checkins_path(scope: 'oceanian'), class: 'nav-link', id: nav_item_id(checkins_path, scope: 'oceanian') do
           %span Oceania
       %li.nav-item.text-md
-        = link_to checkins_antarcticans_path, class: 'nav-link', id: nav_item_id(checkins_antarcticans_path) do
+        = link_to checkins_path(scope: 'antarctican'), class: 'nav-link', id: nav_item_id(checkins_path, scope: 'antarctican') do
           %span Antarctica

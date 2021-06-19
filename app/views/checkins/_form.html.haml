@@ -7,4 +7,4 @@
   = f.date_field :checkin_date, autocomplete:'off', value: render_date(@checkin.checkin_date), class: 'form-control'
 .form-group
   = submit_tag 'Save', data: { "disable-with": "Saving..." }, class: 'btn btn-primary btn-block'
-  = link_to 'Cancel', checkins_worlds_path, class: 'btn btn-block btn-outline-secondary'
+  = link_to 'Cancel', checkins_path, class: 'btn btn-block btn-outline-secondary'

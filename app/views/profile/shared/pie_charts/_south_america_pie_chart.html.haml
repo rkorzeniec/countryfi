@@ -4,4 +4,4 @@
     .text-sm.text-semibold South America
     .py-2
       #south_america_pie_chart.pie-chart{ data: { pie_chart_target: 'element', percent: "#{visited_percent}" } }
-        %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_south_americans_path
+        %span.pie-chart-label= link_to "#{visited_countries_count}/#{countries_count}", checkins_path(scope: 'south_american')
