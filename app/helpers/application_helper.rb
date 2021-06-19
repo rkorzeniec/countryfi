@@ -11,8 +11,9 @@ module ApplicationHelper
     date.strftime('%Y-%m-%d')
   end
 
-  def nav_item_id(path)
-    path.split('/').join('-')[1..]
+  def nav_item_id(path, scope: nil)
+    item_id = path.delete_prefix('/')
+    scope ? "#{item_id}-#{scope}" : item_id
   end
 
   def gravatar_url(size)

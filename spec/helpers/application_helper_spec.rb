@@ -35,10 +35,19 @@ describe ApplicationHelper do
   end
 
   describe '#nav_item_id' do
-    subject { helper.nav_item_id(path) }
+    subject { helper.nav_item_id(path, scope: scope) }
+
+    let(:scope) { nil }
 
     context 'when path is provided' do
-      let(:path) { '/mambo/jambo' }
+      let(:path) { '/mambo' }
+
+      it { is_expected.to eq('mambo') }
+    end
+
+    context 'with scope params' do
+      let(:path) { '/mambo' }
+      let(:scope) { 'jambo' }
 
       it { is_expected.to eq('mambo-jambo') }
     end
