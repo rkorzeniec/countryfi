@@ -11,6 +11,8 @@ describe Checkins::TimelineItemFacade do
 
   describe 'delegations' do
     it { expect(facade).to delegate_method(:country).to(:checkin) }
+    it { expect(facade).to delegate_method(:to_key).to(:checkin) }
+    it { expect(facade).to delegate_method(:model_name).to(:checkin) }
     it { expect(facade).to delegate_method(:flag_image_path).to(:country) }
 
     it do

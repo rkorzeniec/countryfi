@@ -4,7 +4,7 @@ module Checkins
   class TimelineItemFacade
     attr_reader :checkin
 
-    delegate :country, to: :checkin
+    delegate :country, :to_key, :model_name, to: :checkin
     delegate :flag_image_path, to: :country
     delegate :cca2, to: :country, prefix: true
 
