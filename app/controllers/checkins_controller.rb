@@ -19,10 +19,10 @@ class CheckinsController < ApplicationController
   def create
     if @checkin.save
       flash[:success] = 'Checkin done.'
-      redirect_to checkins_path
+      redirect_to checkins_path, status: :see_other
     else
       flash[:error] = 'Checkin not created.'
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -31,10 +31,10 @@ class CheckinsController < ApplicationController
   def update
     if @checkin.update(checkin_params)
       flash[:success] = 'Checkin updated successfully'
-      redirect_to checkins_path
+      redirect_to checkins_path, status: :see_other
     else
       flash[:error] = 'Checkin could not be updated'
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -45,7 +45,7 @@ class CheckinsController < ApplicationController
       flash[:error] = 'Checkin could not be deleted'
     end
 
-    redirect_to checkins_path
+    redirect_to checkins_path, status: :see_other
   end
 
   private

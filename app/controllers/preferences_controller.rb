@@ -8,10 +8,10 @@ class PreferencesController < ApplicationController
   def update
     if @preferences.save
       flash[:success] = 'Your new preferences have been saved.'
-      redirect_to edit_preferences_path
+      redirect_to edit_preferences_path, status: :see_other
     else
       flash[:error] = 'Sorry, something went wrong.'
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
