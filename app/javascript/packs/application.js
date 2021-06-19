@@ -10,4 +10,3 @@ import('src/fontawesome')
 import('src/service_worker')
 
 Rails.start()
-Turbolinks.start()
