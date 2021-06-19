@@ -1,10 +1,10 @@
 .widget-timeline.widget-timeline-centered
-  - timeline.items.each_with_index do |checkin, index|
+  - timeline.items.each_with_index do |checkin_facade, index|
     - future_checkin = timeline.future_checkin?(index)
     .widget-timeline-item{ class: "#{cycle('right', 'left')}" }
-      = render 'checkins/shared/checkin_item', checkin: checkin, future_checkin: future_checkin
+      = render 'checkins/shared/checkin_item', checkin_facade: checkin_facade, future_checkin: future_checkin
     - if timeline.year_marker?(index)
-      = render 'checkins/shared/year_marker', checkin_year: checkin.checkin_year
+      = render 'checkins/shared/year_marker', checkin_year: checkin_facade.checkin_year
     - if timeline.today_marker?(index)
       = render 'checkins/shared/today_marker'
   - unless timeline.next_page
