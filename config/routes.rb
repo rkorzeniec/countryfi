@@ -18,18 +18,7 @@ Rails.application.routes.draw do
       resource :availability, only: %i[show]
     end
 
-    resources :checkins, except: %i[index show]
-
-    namespace :checkins do
-      resources :worlds, only: :index
-      resources :europeans, only: :index
-      resources :north_americans, only: :index
-      resources :south_americans, only: :index
-      resources :asians, only: :index
-      resources :africans, only: :index
-      resources :oceanians, only: :index
-      resources :antarcticans, only: :index
-    end
+    resources :checkins
 
     namespace :explore do
       resources :worlds, only: :index
