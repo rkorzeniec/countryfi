@@ -1,4 +1,5 @@
 // JS inline imports
+import '@hotwired/turbo-rails'
 
 // styles imports
 import 'styles/site'
