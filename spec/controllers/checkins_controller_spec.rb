@@ -71,6 +71,7 @@ describe CheckinsController do
       it do
         expect(response).to be_successful
         expect(subject).to render_template(:show)
+        expect(assigns(:checkin_facade)).to be_kind_of(Checkins::TimelineItemFacade)
       end
     end
 

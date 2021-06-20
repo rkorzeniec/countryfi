@@ -12,7 +12,9 @@ class CheckinsController < ApplicationController
     @timeline = Checkins::TimelineFacade.new(checkins)
   end
 
-  def show; end
+  def show
+    @checkin_facade = Checkins::TimelineItemFacade.new(@checkin)
+  end
 
   def new; end
 
