@@ -3,13 +3,12 @@
 class CheckinsController < ApplicationController
   layout 'application_with_sidebar'
 
-  respond_to :html, :json
-
   before_action :find_checkin, only: %i[show edit update destroy]
   before_action :build_checkin, only: %i[new create]
 
   def index
     @timeline = Checkins::TimelineFacade.new(checkins)
+    respond_to :html, :json
   end
 
   def show
