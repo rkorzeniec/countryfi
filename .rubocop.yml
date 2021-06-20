@@ -31,7 +31,7 @@ Layout/LeadingCommentSpace:
   Enabled: false
 
 Layout/LineLength:
-  Max: 85
+  Max: 95
   Exclude:
     - 'bin/delayed_job'
     - 'bin/spring'
