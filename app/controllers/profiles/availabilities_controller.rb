@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Profile
+module Profiles
   class AvailabilitiesController < ApplicationController
     respond_to :json, :js
 

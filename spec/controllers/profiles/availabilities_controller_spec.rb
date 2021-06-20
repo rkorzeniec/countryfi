@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Profile::AvailabilitiesController do
+describe Profiles::AvailabilitiesController do
   let(:user) { create(:user) }
 
   context 'when user not authenticated' do

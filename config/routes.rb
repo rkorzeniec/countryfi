@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
     namespace :profile do
       get '(:profile_name)', action: :show
+    end
+
+    namespace :profiles do
       resource :availability, only: %i[show]
     end
 
