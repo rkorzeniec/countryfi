@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 describe ExploreFacade do
+  let(:facade) { described_class.new(user: user, scope: region) }
   let(:region) { 'north_america' }
-  let(:subregion) { 'carribean' }
   let(:countries) { nil }
   let(:user) do
     instance_double(
@@ -12,42 +12,54 @@ describe ExploreFacade do
       un_countries_preference?: nil
     )
   end
-  let(:facade) do
-    described_class.new(
-      user: user, region: region, subregions: subregion
-    )
-  end
 
   describe '#discoverable_countries' do
-    subject { facade.discoverable_countries }
+    [
+      { scope: 'europe', region: 'Europe', subregion: nil },
+      { scope: 'africa', region: 'Africa', subregion: nil },
+      { scope: 'asia', region: 'Asia', subregion: nil },
+      { scope: 'oceania', region: 'Oceania', subregion: nil },
+      { scope: 'antarctica', region: 'Antarctica', subregion: nil },
+      {
+        scope: 'north_america', region: 'Americas',
+        subregion: ['North America', 'Central America', 'Caribbean']
+      },
+      { scope: 'south_america', region: 'Americas', subregion: 'South America' }
+    ].each do |test|
+      context "when #{test[:scope]} and no visited countries" do
+        it do
+          expect(
+            described_class.new(user: user, scope: test[:scope]).discoverable_countries
+          ).to be_empty
+        end
 
-    context 'when no visited countries' do
-      it { is_expected.to be_empty }
+        it do
+          expect(UnvisitedCountriesQuery).to receive(:new)
+            .with(user: user, regions: test[:region], subregions: test[:subregion])
+            .and_call_original
 
-      it do
-        expect(UnvisitedCountriesQuery).to receive(:new)
-          .with(user: user, regions: region, subregions: subregion)
-          .and_call_original
+          expect_any_instance_of(UnvisitedCountriesQuery)
+            .to receive(:all)
+            .and_call_original
 
-        expect_any_instance_of(UnvisitedCountriesQuery)
-          .to receive(:all)
-          .and_call_original
-        subject
+          described_class.new(user: user, scope: test[:scope]).discoverable_countries
+        end
       end
-    end
 
-    context 'when visited countries' do
-      let!(:country) { build_stubbed(:country) }
-      let(:countries) { [country] }
+      context "when #{test[:scope]} and visited countries" do
+        let!(:country) { build_stubbed(:country) }
+        let(:countries) { [country] }
 
-      it do
-        expect(UnvisitedCountriesQuery).to receive(:new)
-          .with(user: user, regions: region, subregions: subregion)
-          .and_call_original
-        expect_any_instance_of(UnvisitedCountriesQuery)
-          .to receive(:all)
-          .and_call_original
-        subject
+        it do
+          expect(UnvisitedCountriesQuery).to receive(:new)
+            .with(user: user, regions: test[:region], subregions: test[:subregion])
+            .and_call_original
+          expect_any_instance_of(UnvisitedCountriesQuery)
+            .to receive(:all)
+            .and_call_original
+
+          described_class.new(user: user, scope: test[:scope]).discoverable_countries
+        end
       end
     end
   end

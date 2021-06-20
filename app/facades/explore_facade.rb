@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class ExploreFacade
-  def initialize(user:, region: nil, subregions: nil)
+  def initialize(user:, scope: nil)
     @user = user
-    @region = region
-    @subregions = subregions
+    @scope = scope
   end
 
   def discoverable_countries
@@ -25,7 +24,7 @@ class ExploreFacade
 
   private
 
-  attr_reader :user, :region, :subregions
+  attr_reader :user, :scope
 
   def unvisited_countries
     UnvisitedCountriesQuery.new(
@@ -33,5 +32,20 @@ class ExploreFacade
       regions: region,
       subregions: subregions
     )
+  end
+
+  def region
+    return unless scope
+    return 'Americas' if %w[north_america south_america].include?(scope)
+
+    scope.capitalize
+  end
+
+  def subregions
+    case scope
+    when 'north_america' then ['North America', 'Central America', 'Caribbean']
+    when 'south_america' then 'South America'
+    when 'europe', 'asia', 'africa', 'oceania', 'antarctica' then nil
+    end
   end
 end
