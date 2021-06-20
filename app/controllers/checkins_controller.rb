@@ -29,15 +29,21 @@ class CheckinsController < ApplicationController
 
   def edit; end
 
+  # rubocop:disable Metrics/MethodLength
   def update
     if @checkin.update(checkin_params)
-      flash[:success] = 'Checkin updated successfully'
-      redirect_to checkins_path, status: :see_other
+      redirect_to(
+        checkin_path(@checkin),
+        status: :see_other, notice: 'Checkin created successfully'
+      )
     else
-      flash[:error] = 'Checkin could not be updated'
-      render :edit, status: :unprocessable_entity
+      render(
+        :edit,
+        status: :unprocessable_entity, alert: 'Checkin could not be updated'
+      )
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   def destroy
     if @checkin.destroy
