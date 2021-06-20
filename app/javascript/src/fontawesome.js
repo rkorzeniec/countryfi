@@ -12,16 +12,19 @@ import {
   faTerminal,
   faCheck,
   faBars,
-  faUser,
   faBell,
   faCalendarCheck,
   faSpaceShuttle,
   faTimes,
-  faClipboard,
   faCloud,
   faCloudDownloadAlt,
-  faShareAltSquare,
+  faShareAltSquare
 } from '@fortawesome/free-solid-svg-icons'
+
+import {
+  faUser,
+  faClipboard
+} from '@fortawesome/free-regular-svg-icons'
 
 config.mutateApproach = 'sync'
 
