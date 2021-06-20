@@ -11,6 +11,6 @@ class HelloController < ApplicationController
   def redirect_authenticated
     return unless current_user
 
-    redirect_to profile_path
+    redirect_to profile_path, status: :see_other
   end
 end
