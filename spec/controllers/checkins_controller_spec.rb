@@ -92,7 +92,7 @@ describe CheckinsController do
       end
 
       context 'when successful' do
-        it { expect(subject).to redirect_to(checkins_worlds_path) }
+        it { expect(subject).to redirect_to(checkins_path) }
         it { expect { subject }.to change(Checkin, :count).from(1).to(2) }
 
         it do
@@ -138,7 +138,7 @@ describe CheckinsController do
         before { subject }
 
         it do
-          expect(response).to redirect_to(checkins_worlds_path)
+          expect(response).to redirect_to(checkins_path)
           expect(flash[:success]).to be_present
         end
 
@@ -164,7 +164,7 @@ describe CheckinsController do
       subject { delete(:destroy, params: { id: checkin.id }) }
 
       context 'when successful' do
-        it { expect(subject).to redirect_to(checkins_worlds_path) }
+        it { expect(subject).to redirect_to(checkins_path) }
         it { expect { subject }.to change(Checkin, :count).from(1).to(0) }
 
         it do
@@ -184,7 +184,7 @@ describe CheckinsController do
         let(:checkin) { instance_double(Checkin, id: 1) }
 
         it do
-          expect(subject).to redirect_to(checkins_worlds_path)
+          expect(subject).to redirect_to(checkins_path)
           expect(flash[:error]).to be_present
         end
 
