@@ -1,0 +1,23 @@
+.widget-timeline.widget-timeline-centered
+  - timeline.items.each_with_index do |checkin_facade, index|
+    - future_checkin = checkin_facade.future_checkin?
+    .widget-timeline-item{ class: "#{cycle('right', 'left')}" }
+      = render 'checkin_item', checkin_facade: checkin_facade
+    - if timeline.year_marker?(index)
+      .widget-timeline-section
+        .widget-timeline-marker= checkin_facade.checkin_year
+    - if timeline.today_marker?(index)
+      .widget-timeline-section
+        .widget-timeline-marker.font-weight-semibold.bg-primary.text-white Today
+  - unless timeline.next_page
+    .widget-timeline-item.left
+      .widget-timeline-info
+        .widget-timeline-bullet
+      .card
+        .card-footer.text-md.text-muted
+          That's it.
+          %br
+          Discover somewhere new
+          = link_to 'and add it', new_checkin_path
+          to your timeline
+

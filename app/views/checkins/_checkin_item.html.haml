@@ -1,12 +1,12 @@
 = turbo_frame_tag dom_id(checkin_facade) do
   .widget-timeline-info
-    .widget-timeline-bullet{ class: "#{'bg-primary' if future_checkin}" }
+    .widget-timeline-bullet{ class: "#{'bg-primary' if checkin_facade.future_checkin?}" }
   .card
     .card-body.text-md.px-auto
-      = future_checkin ? 'You are going to visit' : 'You visited'
+      = checkin_facade.future_checkin? ? 'You are going to visit' : 'You visited'
       = link_to checkin_facade.country_common_name, country_path(id: checkin_facade.country_cca2), class: 'align-middle', target: '_top'
       = image_tag(checkin_facade.flag_image_path, style: 'height: 32px;', class: 'align-middle')
-      - if future_checkin
+      - if checkin_facade.future_checkin?
         in
         = distance_of_time_in_words(Time.current, checkin_facade.checkin_date)
     .card-footer
