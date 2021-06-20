@@ -38,6 +38,30 @@ describe Checkins::TimelineItemFacade do
     it { is_expected.to eq(2018) }
   end
 
+  describe '#future_checkin?' do
+    subject { facade.future_checkin? }
+
+    let(:checkin) { instance_double(Checkin, checkin_date: date) }
+
+    context 'when in past' do
+      let(:date) { Date.new(2017, 11, 11) }
+
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when in present' do
+      let(:date) { Date.new(2017, 12, 16) }
+
+      it { is_expected.to be_truthy }
+    end
+
+    context 'when in future' do
+      let(:date) { Date.new(2018, 1, 1) }
+
+      it { is_expected.to be_truthy }
+    end
+  end
+
   describe '#country_cca2' do
     subject { facade.country_cca2 }
 

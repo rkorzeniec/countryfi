@@ -20,6 +20,10 @@ module Checkins
       @checkin_year ||= checkin.checkin_date.year
     end
 
+    def future_checkin?
+      @future_checkin ||= checkin.checkin_date > Time.current
+    end
+
     def country_common_name
       country.name_common
     end
