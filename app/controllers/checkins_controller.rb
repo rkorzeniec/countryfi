@@ -1,15 +1,25 @@
 # frozen_string_literal: true
 
 class CheckinsController < ApplicationController
-  before_action :find_checkin, only: %i[edit update destroy]
+  layout 'application_with_sidebar'
+
+  respond_to :html, :json
+
+  before_action :find_checkin, only: %i[show edit update destroy]
   before_action :build_checkin, only: %i[new create]
+
+  def index
+    @timeline = Checkins::TimelineFacade.new(checkins)
+  end
+
+  def show; end
 
   def new; end
 
   def create
     if @checkin.save
       flash[:success] = 'Checkin done.'
-      redirect_to checkins_worlds_path
+      redirect_to checkins_path
     else
       flash[:error] = 'Checkin not created.'
       render :new
@@ -21,7 +31,7 @@ class CheckinsController < ApplicationController
   def update
     if @checkin.update(checkin_params)
       flash[:success] = 'Checkin updated successfully'
-      redirect_to checkins_worlds_path
+      redirect_to checkins_path
     else
       flash[:error] = 'Checkin could not be updated'
       render :edit
@@ -35,10 +45,16 @@ class CheckinsController < ApplicationController
       flash[:error] = 'Checkin could not be deleted'
     end
 
-    redirect_to checkins_worlds_path
+    redirect_to checkins_path
   end
 
   private
+
+  def checkins
+    TimelineCheckinsQuery
+      .new(current_user, options: params.permit(:page, :scope))
+      .query
+  end
 
   def find_checkin
     @checkin = Checkin.find(params[:id])
