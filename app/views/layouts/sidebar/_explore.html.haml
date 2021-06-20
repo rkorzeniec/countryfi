@@ -5,26 +5,26 @@
   #sidebarExplores.sidebar-collapsable.collapse{ data: { parent: '#sidebar' }, aria: { expanded: 'false' } }
     %ul.flex-column.pl-2.nav
       %li.nav-item.text-md
-        = link_to explore_worlds_path, class: 'nav-link', id: nav_item_id(explore_worlds_path) do
+        = link_to explores_path, class: 'nav-link', id: nav_item_id(explores_path) do
           %span World
       %li.nav-item.text-md
-        = link_to explore_europes_path, class: 'nav-link', id: nav_item_id(explore_europes_path) do
+        = link_to explores_path(scope: 'europe'), class: 'nav-link', id: nav_item_id(explores_path, scope: 'europe') do
           %span Europe
       %li.nav-item.text-md
-        = link_to explore_north_americas_path, class: 'nav-link', id: nav_item_id(explore_north_americas_path) do
+        = link_to explores_path(scope: 'north_america'), class: 'nav-link', id: nav_item_id(explores_path, scope: 'north_america') do
           %span Noth America
       %li.nav-item.text-md
-        = link_to explore_south_americas_path, class: 'nav-link', id: nav_item_id(explore_south_americas_path) do
+        = link_to explores_path(scope: 'south_america'), class: 'nav-link', id: nav_item_id(explores_path, scope: 'south_america') do
           %span South America
       %li.nav-item.text-md
-        = link_to explore_asias_path, class: 'nav-link', id: nav_item_id(explore_asias_path) do
+        = link_to explores_path(scope: 'asia'), class: 'nav-link', id: nav_item_id(explores_path, scope: 'asia') do
           %span Asia
       %li.nav-item.text-md
-        = link_to explore_africas_path, class: 'nav-link', id: nav_item_id(explore_africas_path) do
+        = link_to explores_path(scope: 'africa'), class: 'nav-link', id: nav_item_id(explores_path, scope: 'africa') do
           %span Africa
       %li.nav-item.text-md
-        = link_to explore_oceanias_path, class: 'nav-link', id: nav_item_id(explore_oceanias_path) do
+        = link_to explores_path(scope: 'oceania'), class: 'nav-link', id: nav_item_id(explores_path, scope: 'oceania') do
           %span Oceania
       %li.nav-item.text-md
-        = link_to explore_antarcticas_path, class: 'nav-link', id: nav_item_id(explore_antarcticas_path) do
+        = link_to explores_path(scope: 'antarctica'), class: 'nav-link', id: nav_item_id(explores_path, scope: 'antarctica') do
           %span Antarctica

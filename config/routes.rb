@@ -19,18 +19,7 @@ Rails.application.routes.draw do
     end
 
     resources :checkins
-
-    namespace :explore do
-      resources :worlds, only: :index
-      resources :europes, only: :index
-      resources :north_americas, only: :index
-      resources :south_americas, only: :index
-      resources :asias, only: :index
-      resources :africas, only: :index
-      resources :oceanias, only: :index
-      resources :antarcticas, only: :index
-    end
-
+    resources :explores, only: :index
     resource :preferences, only: %i[edit update]
 
     resources :notifications, only: :index do
