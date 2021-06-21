@@ -2,7 +2,7 @@ import { Controller } from 'stimulus'
 import { getCSRFToken } from '../src/utils/csrf_token'
 
 export default class extends Controller {
-  static targets = ['input', 'feedback']
+  static targets = ['input', 'feedback', 'submit']
 
   check() {
     this.checkAvailability()
@@ -44,6 +44,8 @@ export default class extends Controller {
     this.inputTarget.classList.add('is-valid')
     this.feedbackTarget.classList.add('valid-feedback')
     this.feedbackTarget.innerHTML = 'Profile name is available. Don\'t forget to save.'
+
+    this.submitTarget.disabled = false
   }
 
   markTargetAsUnavailable() {
@@ -53,6 +55,8 @@ export default class extends Controller {
     this.inputTarget.classList.add('is-invalid')
     this.feedbackTarget.classList.add('invalid-feedback')
     this.feedbackTarget.innerHTML = 'Profile name is unavailable. Try a different one.'
+
+    this.submitTarget.disabled = true
   }
 
   matchingValue() {
