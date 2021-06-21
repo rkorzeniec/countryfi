@@ -6,13 +6,13 @@ describe User, type: :model do
   it { is_expected.to have_many(:checkins).dependent(:destroy) }
 
   it do
-    expect(subject).to have_many(:past_checkins)
+    is_expected.to have_many(:past_checkins)
       .class_name('Checkin')
       .inverse_of(:user)
   end
 
   it do
-    expect(subject).to have_many(:visited_countries)
+    is_expected.to have_many(:visited_countries)
       .source(:country)
       .through(:past_checkins)
   end
@@ -41,7 +41,7 @@ describe User, type: :model do
         )
       end
 
-      it { expect(subject).to eq([]) }
+      it { is_expected.to eq([]) }
     end
 
     context 'when already visited' do
@@ -54,41 +54,46 @@ describe User, type: :model do
         )
       end
 
-      it { expect(subject).to eq([country]) }
+      it { is_expected.to eq([country]) }
     end
+  end
+
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_uniqueness_of(:profile).case_insensitive.allow_nil }
   end
 
   describe 'delegations' do
     it do
-      expect(subject).to delegate_method(:european).to(:countries).with_prefix(true)
+      is_expected.to delegate_method(:european).to(:countries).with_prefix(true)
     end
 
     it do
-      expect(subject).to delegate_method(:north_american)
+      is_expected.to delegate_method(:north_american)
         .to(:countries)
         .with_prefix(true)
     end
 
     it do
-      expect(subject).to delegate_method(:south_american)
+      is_expected.to delegate_method(:south_american)
         .to(:countries)
         .with_prefix(true)
     end
 
     it do
-      expect(subject).to delegate_method(:asian).to(:countries).with_prefix(true)
+      is_expected.to delegate_method(:asian).to(:countries).with_prefix(true)
     end
 
     it do
-      expect(subject).to delegate_method(:oceanian).to(:countries).with_prefix(true)
+      is_expected.to delegate_method(:oceanian).to(:countries).with_prefix(true)
     end
 
     it do
-      expect(subject).to delegate_method(:african).to(:countries).with_prefix(true)
+      is_expected.to delegate_method(:african).to(:countries).with_prefix(true)
     end
 
     it do
-      expect(subject).to delegate_method(:antarctican)
+      is_expected.to delegate_method(:antarctican)
         .to(:countries)
         .with_prefix(true)
     end

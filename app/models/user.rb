@@ -16,6 +16,10 @@ class User < ApplicationRecord
            dependent: :destroy,
            inverse_of: :recipient
 
+  validates :email, presence: true
+  validates :profile,
+            uniqueness: { case_sensitive: false }, allow_nil: true
+
   delegate :european, :north_american, :south_american, :asian, :oceanian,
            :african, :antarctican, to: :countries, prefix: true
 
