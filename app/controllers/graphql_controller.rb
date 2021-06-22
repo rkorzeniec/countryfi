@@ -5,7 +5,7 @@ class GraphqlController < ApplicationController
 
   def execute
     query = params[:query]
-    result = CountryfierSchema.execute(query, schema_hash)
+    result = CountryfierSchema.execute(query, **schema_hash)
     render json: result
   rescue StandardError => e
     raise e unless Rails.env.development?

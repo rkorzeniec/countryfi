@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Mutations::AddCheckin do
-  subject { CountryfierSchema.execute(query, schema_hash).as_json }
+  subject { CountryfierSchema.execute(query, **schema_hash).as_json }
 
   let(:schema_hash) { {} }
   let(:country) { create(:country) }
