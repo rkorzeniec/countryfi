@@ -11,6 +11,8 @@ describe Checkins::TimelineItemFacade do
 
   describe 'delegations' do
     it { expect(facade).to delegate_method(:country).to(:checkin) }
+    it { expect(facade).to delegate_method(:to_key).to(:checkin) }
+    it { expect(facade).to delegate_method(:model_name).to(:checkin) }
     it { expect(facade).to delegate_method(:flag_image_path).to(:country) }
 
     it do
@@ -34,6 +36,30 @@ describe Checkins::TimelineItemFacade do
     let(:checkin) { instance_double(Checkin, checkin_date: date) }
 
     it { is_expected.to eq(2018) }
+  end
+
+  describe '#future_checkin?' do
+    subject { facade.future_checkin? }
+
+    let(:checkin) { instance_double(Checkin, checkin_date: date) }
+
+    context 'when in past' do
+      let(:date) { Date.new(2017, 11, 11) }
+
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when in present' do
+      let(:date) { Date.new(2017, 12, 16) }
+
+      it { is_expected.to be_truthy }
+    end
+
+    context 'when in future' do
+      let(:date) { Date.new(2018, 1, 1) }
+
+      it { is_expected.to be_truthy }
+    end
   end
 
   describe '#country_cca2' do

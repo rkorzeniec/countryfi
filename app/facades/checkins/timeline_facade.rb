@@ -27,10 +27,6 @@ module Checkins
       items[index].checkin_year != items[index + 1].checkin_year
     end
 
-    def future_checkin?(index)
-      items[index].checkin_date > current_time
-    end
-
     private
 
     attr_reader :checkins

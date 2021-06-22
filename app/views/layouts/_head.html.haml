@@ -6,9 +6,9 @@
 %meta{ name: 'apple-mobile-web-app-capable', content: 'yes' }
 %meta{ name: 'apple-mobile-web-app-status-bar-style', content: 'white' }
 
-= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track' => true
+= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track' => true
 = yield :layout_custom_head
-= javascript_packs_with_chunks_tag 'application', 'bootstrap', 'stimulus', 'data-turbolinks-track': 'reload', defer: true, async: true
+= javascript_packs_with_chunks_tag 'application', 'bootstrap', 'stimulus', 'data-turbo-track': 'reload', defer: true, async: true
 
 %link{ href: '/favicon.ico', rel: 'icon', type: 'image/x-icon' }
 %link{ rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }

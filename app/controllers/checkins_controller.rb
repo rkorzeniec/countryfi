@@ -3,40 +3,47 @@
 class CheckinsController < ApplicationController
   layout 'application_with_sidebar'
 
-  respond_to :html, :json
-
   before_action :find_checkin, only: %i[show edit update destroy]
   before_action :build_checkin, only: %i[new create]
 
   def index
     @timeline = Checkins::TimelineFacade.new(checkins)
+    respond_to :html, :json
   end
 
-  def show; end
+  def show
+    @checkin_facade = Checkins::TimelineItemFacade.new(@checkin)
+  end
 
   def new; end
 
   def create
     if @checkin.save
       flash[:success] = 'Checkin done.'
-      redirect_to checkins_path
+      redirect_to checkins_path, status: :see_other
     else
       flash[:error] = 'Checkin not created.'
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit; end
 
+  # rubocop:disable Metrics/MethodLength
   def update
     if @checkin.update(checkin_params)
-      flash[:success] = 'Checkin updated successfully'
-      redirect_to checkins_path
+      redirect_to(
+        checkin_path(@checkin),
+        status: :see_other, notice: 'Checkin created successfully'
+      )
     else
-      flash[:error] = 'Checkin could not be updated'
-      render :edit
+      render(
+        :edit,
+        status: :unprocessable_entity, alert: 'Checkin could not be updated'
+      )
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   def destroy
     if @checkin.destroy
@@ -45,7 +52,7 @@ class CheckinsController < ApplicationController
       flash[:error] = 'Checkin could not be deleted'
     end
 
-    redirect_to checkins_path
+    redirect_to checkins_path, status: :see_other
   end
 
   private

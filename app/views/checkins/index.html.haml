@@ -2,7 +2,7 @@
 %div{ data: { controller: 'infinite-scroll', action: 'scroll@window->infinite-scroll#scroll:passive' } }
   .d-flex.flex-row.justify-content-center
     #timeline.col-lg-10.col-lg-offset-1.p-0{ data: { 'infinite-scroll-target': 'items' } }
-      = render 'checkins/shared/timeline', timeline: @timeline
+      = render 'timeline', timeline: @timeline
   .d-flex.flex-row
     .col-sm.12.d-flex.justify-content-center.text-muted.text-sm.mb-3{ data: { 'infinite-scroll-target': 'pagination' } }
       = paginate @timeline

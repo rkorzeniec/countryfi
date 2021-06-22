@@ -1,6 +1,5 @@
 // JS inline imports
-import Rails from 'rails-ujs'
-import Turbolinks from 'turbolinks'
+import '@hotwired/turbo-rails'
 
 // styles imports
 import 'styles/site'
@@ -8,6 +7,3 @@ import 'styles/site'
 // JS async imports
 import('src/fontawesome')
 import('src/service_worker')
-
-Rails.start()
-Turbolinks.start()

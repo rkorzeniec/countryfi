@@ -371,6 +371,8 @@ GEM
     thor (1.1.0)
     tilt (2.0.10)
     timecop (0.9.4)
+    turbo-rails (0.5.11)
+      rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
@@ -450,6 +452,7 @@ DEPENDENCIES
   stub_env
   therubyracer (~> 0.12.3)
   timecop (~> 0.9.4)
+  turbo-rails (~> 0.5)
   uglifier (~> 4.2.0)
   web-console (~> 4.1.0)
   webpacker (~> 5.4.0)

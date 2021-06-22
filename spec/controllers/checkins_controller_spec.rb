@@ -71,6 +71,7 @@ describe CheckinsController do
       it do
         expect(response).to be_successful
         expect(subject).to render_template(:show)
+        expect(assigns(:checkin_facade)).to be_kind_of(Checkins::TimelineItemFacade)
       end
     end
 
@@ -138,8 +139,9 @@ describe CheckinsController do
         before { subject }
 
         it do
-          expect(response).to redirect_to(checkins_path)
-          expect(flash[:success]).to be_present
+          expect(response).to redirect_to(checkin_path(checkin))
+          expect(response).to have_http_status(:see_other)
+          expect(flash[:notice]).to be_present
         end
 
         it do
@@ -154,7 +156,7 @@ describe CheckinsController do
 
         it do
           expect(subject).to render_template(:edit)
-          expect(flash[:error]).to be_present
+          expect(response).to have_http_status(:unprocessable_entity)
           expect(checkin.reload.country_id).to eq(country.id)
         end
       end
