@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '~>2.7.0'
+ruby File.read('.ruby-version').strip
 
 gem 'rails', '6.1.3.2'
 
