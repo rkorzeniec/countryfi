@@ -39,6 +39,7 @@ gem 'stackprof', '~> 0.2.17'
 
 group :development, :test do
   gem 'byebug', '~> 11.1.3'
+  gem 'capybara', '~> 3.35.3'
   gem 'rspec-rails', '~> 5.0.1'
   gem 'simplecov'
   gem 'simplecov-console'
