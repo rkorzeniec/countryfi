@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rubygems'
+require 'capybara/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
