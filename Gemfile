@@ -12,10 +12,7 @@ gem 'devise-async', '~> 1.0.0'
 gem 'dotenv-rails', '~> 2.7.6'
 gem 'graphql', '~> 1.12.12'
 gem 'jwt', '~> 2.2.3'
-gem 'mysql2', '~> 0.5.3'
-gem 'puma', '~> 5.3.2'
 gem 'rack-attack', '~> 6.5.0'
-gem 'rack-timeout', '~> 0.6.0'
 gem 'sentry-raven', '~> 3.1.2'
 gem 'skylight', '~> 5.1.1'
 gem 'therubyracer', '~> 0.12.3'
@@ -56,6 +53,8 @@ group :development do
   gem 'graphiql-rails', '~> 1.7.0'
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.5'
+  gem 'puma', '~> 5.3.2'
+  gem 'rack-timeout', '~> 0.6.0'
   gem 'rubocop', '~> 1.17.0', require: false
   gem 'rubocop-performance', '~> 1.11.3', require: false
   gem 'rubocop-rails', '~> 2.11.1', require: false
