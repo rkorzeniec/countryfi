@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
-gem 'rails', '6.1.3.2'
+gem 'rails', '6.1.4'
 
 gem 'bootsnap', '~> 1.7.5', require: false
 gem 'dalli', '~> 2.7.11'
@@ -58,7 +58,7 @@ group :development do
   gem 'listen', '~> 3.5'
   gem 'rubocop', '~> 1.17.0', require: false
   gem 'rubocop-performance', '~> 1.11.3', require: false
-  gem 'rubocop-rails', '~> 2.11.0', require: false
+  gem 'rubocop-rails', '~> 2.11.1', require: false
   gem 'spring', '~> 2.1.1'
   gem 'web-console', '~> 4.1.0'
 end
