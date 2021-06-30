@@ -1,6 +1,7 @@
 = turbo_frame_tag dom_id(checkin_facade) do
   .widget-timeline-info
     .widget-timeline-bullet{ class: "#{'bg-primary' if checkin_facade.future_checkin?}" }
+    .widget-timeline-time{ class: "#{'bg-primary' if checkin_facade.future_checkin?}" }= checkin_facade.checkin_date
   .card
     .card-body.text-md.px-auto
       = checkin_facade.future_checkin? ? 'You are going to visit' : 'You visited'
@@ -11,7 +12,6 @@
         = distance_of_time_in_words(Time.current, checkin_facade.checkin_date)
     .card-footer
       .d-flex.text-md.text-muted
-        .text-xs.mr-auto= checkin_facade.checkin_date
         = link_to edit_checkin_path(checkin_facade.checkin), class: 'ml-3 btn-sm p-0 m-0' do
           %i.fas.fa-edit
         %span.mx-2= '|'

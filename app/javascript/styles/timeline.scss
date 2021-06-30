@@ -146,11 +146,11 @@ $marker-size: 9px;
 }
 
 .widget-timeline-time {
-  position: absolute;
   z-index: 10;
   display: inline-block;
   padding: 2px 6px;
   border-radius: $border-radius-base;
+  background: #ebebeb;
   font-size: 11px;
   right: 5px;
   left: 50%;
