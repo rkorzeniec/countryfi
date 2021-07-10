@@ -12,7 +12,10 @@ class CheckinsController < ApplicationController
   end
 
   def show
-    @checkin_facade = Checkins::TimelineItemFacade.new(@checkin)
+    render(
+      partial: 'checkin_item',
+      locals: { checkin_facade: Checkins::TimelineItemFacade.new(@checkin) }
+    )
   end
 
   def new; end
@@ -32,9 +35,9 @@ class CheckinsController < ApplicationController
   # rubocop:disable Metrics/MethodLength
   def update
     if @checkin.update(checkin_params)
-      redirect_to(
-        checkin_path(@checkin),
-        status: :see_other, notice: 'Checkin created successfully'
+      render(
+        partial: 'checkin_item',
+        locals: { checkin_facade: Checkins::TimelineItemFacade.new(@checkin) }
       )
     else
       render(

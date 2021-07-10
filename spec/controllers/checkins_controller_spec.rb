@@ -69,9 +69,8 @@ describe CheckinsController do
       before { get(:show, params: { id: checkin.id }) }
 
       it do
-        expect(response).to be_successful
-        expect(subject).to render_template(:show)
-        expect(assigns(:checkin_facade)).to be_kind_of(Checkins::TimelineItemFacade)
+        expect(response).to render_template('checkins/_checkin_item')
+        expect(response).to have_http_status(:ok)
       end
     end
 
@@ -139,9 +138,8 @@ describe CheckinsController do
         before { subject }
 
         it do
-          expect(response).to redirect_to(checkin_path(checkin))
-          expect(response).to have_http_status(:see_other)
-          expect(flash[:notice]).to be_present
+          expect(response).to render_template('checkins/_checkin_item')
+          expect(response).to have_http_status(:ok)
         end
 
         it do
