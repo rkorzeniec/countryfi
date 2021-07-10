@@ -1,7 +1,7 @@
 = turbo_frame_tag dom_id(checkin_facade) do
   .widget-timeline-info
     .widget-timeline-bullet{ class: "#{'bg-primary' if checkin_facade.future_checkin?}" }
-    .widget-timeline-time{ class: "#{'bg-primary' if checkin_facade.future_checkin?}" }= checkin_facade.checkin_date
+    .widget-timeline-time{ class: "#{'bg-primary text-white' if checkin_facade.future_checkin?}" }= checkin_facade.checkin_date
   .card
     .card-body.text-md.px-auto
       = checkin_facade.future_checkin? ? 'You are going to visit' : 'You visited'
