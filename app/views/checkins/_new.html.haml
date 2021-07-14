@@ -1,0 +1,12 @@
+= turbo_frame_tag dom_id(@checkin) do
+  .widget-timeline-info
+    .widget-timeline-icon.bg-primary
+      = link_to new_checkin_path, class: 'text-white text-bold' do
+        %i.fas.fa-plus
+  .card
+    .card-body.text-md.px-auto
+      = form_for @checkin do |f|
+        = render 'form', f: f
+        .form-group
+          = link_to 'Cancel', @checkin, class: 'btn btn-block btn-outline-secondary'
+

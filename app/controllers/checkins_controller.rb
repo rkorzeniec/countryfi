@@ -12,50 +12,38 @@ class CheckinsController < ApplicationController
   end
 
   def show
-    render(
-      partial: 'checkin_item',
-      locals: { checkin_facade: Checkins::TimelineItemFacade.new(@checkin) }
-    )
+    checkin_facade = Checkins::TimelineItemFacade.new(@checkin)
+    render partial: 'checkin_item', locals: { checkin_facade: checkin_facade }
   end
 
-  def new; end
+  def new
+    render partial: 'new'
+  end
 
   def create
     if @checkin.save
-      flash[:success] = 'Checkin done.'
-      redirect_to checkins_path, status: :see_other
+      @checkin_facade = Checkins::TimelineItemFacade.new(@checkin)
+      flash[:success] = 'Checkin created successfully'
     else
-      flash[:error] = 'Checkin not created.'
+      flash[:error] = 'Checkin not created'
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit; end
-
-  # rubocop:disable Metrics/MethodLength
-  def update
-    if @checkin.update(checkin_params)
-      render(
-        partial: 'checkin_item',
-        locals: { checkin_facade: Checkins::TimelineItemFacade.new(@checkin) }
-      )
-    else
-      render(
-        :edit,
-        status: :unprocessable_entity, alert: 'Checkin could not be updated'
-      )
-    end
+  def edit
+    render partial: 'edit'
   end
-  # rubocop:enable Metrics/MethodLength
+
+  def update
+    @checkin.update!(checkin_params)
+    @checkin_facade = Checkins::TimelineItemFacade.new(@checkin)
+
+    flash[:success] = 'Checkin updated successfully'
+  end
 
   def destroy
-    if @checkin.destroy
-      flash[:success] = 'Checkin deleted successfully'
-    else
-      flash[:error] = 'Checkin could not be deleted'
-    end
-
-    redirect_to checkins_path, status: :see_other
+    @checkin.destroy!
+    flash[:success] = 'Checkin deleted successfully'
   end
 
   private

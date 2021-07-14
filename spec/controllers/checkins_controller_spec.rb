@@ -79,12 +79,12 @@ describe CheckinsController do
 
       it do
         expect(response).to be_successful
-        expect(subject).to render_template(:new)
+        expect(subject).to render_template('checkins/_new')
       end
     end
 
     describe 'POST create' do
-      subject { post(:create, params: params) }
+      subject { post(:create, params: params, format: :turbo_stream) }
 
       let!(:now) { Time.current }
       let(:params) do
@@ -92,13 +92,15 @@ describe CheckinsController do
       end
 
       context 'when successful' do
-        it { expect(subject).to redirect_to(checkins_path) }
-        it { expect { subject }.to change(Checkin, :count).from(1).to(2) }
-
         it do
           subject
+
+          expect(response).to render_template(:create)
+          expect(response).to have_http_status(:ok)
           expect(flash[:success]).to be_present
         end
+
+        it { expect { subject }.to change(Checkin, :count).from(1).to(2) }
       end
 
       context 'when unsuccessful' do
@@ -106,7 +108,7 @@ describe CheckinsController do
           { checkin: { country_id: 'not_id', checkin_date: 'not_date' } }
         end
 
-        it { expect(subject).to render_template(:new) }
+        it { expect(subject).to render_template('checkins/_new') }
         it { expect { subject }.not_to change(Checkin, :count) }
 
         it do
@@ -121,14 +123,14 @@ describe CheckinsController do
 
       it do
         expect(response).to be_successful
-        expect(subject).to render_template(:edit)
+        expect(subject).to render_template('checkins/_edit')
         expect(assigns(:checkin)).to eq(checkin)
         expect(response.body).to include(country.name_common)
       end
     end
 
     describe 'PUT update' do
-      subject { post(:update, params: params) }
+      subject { post(:update, params: params, format: :turbo_stream) }
 
       let!(:now) { '2016-01-01' }
 
@@ -138,7 +140,7 @@ describe CheckinsController do
         before { subject }
 
         it do
-          expect(response).to render_template('checkins/_checkin_item')
+          expect(response).to render_template(:update)
           expect(response).to have_http_status(:ok)
         end
 
@@ -150,45 +152,28 @@ describe CheckinsController do
       context 'when unsuccessful' do
         let(:params) { { id: checkin.id, checkin: { checkin_date: nil } } }
 
-        before { subject }
-
         it do
-          expect(subject).to render_template(:edit)
-          expect(response).to have_http_status(:unprocessable_entity)
-          expect(checkin.reload.country_id).to eq(country.id)
+          expect { subject }.to raise_error(
+            ActiveRecord::RecordInvalid,
+            'Validation failed: Checkin date can\'t be blank'
+          )
         end
       end
     end
 
     describe 'DELETE destroy' do
-      subject { delete(:destroy, params: { id: checkin.id }) }
+      subject { delete(:destroy, params: { id: checkin.id }, format: :turbo_stream) }
 
       context 'when successful' do
-        it { expect(subject).to redirect_to(checkins_path) }
-        it { expect { subject }.to change(Checkin, :count).from(1).to(0) }
-
         it do
           subject
+
+          expect(response).to render_template(:destroy)
+          expect(response).to have_http_status(:ok)
           expect(flash[:success]).to be_present
         end
-      end
 
-      context 'when unsuccessful' do
-        before do
-          expect(Checkin).to receive(:find).and_return(checkin)
-          expect(checkin).to receive(:destroy).and_return(false)
-
-          subject
-        end
-
-        let(:checkin) { instance_double(Checkin, id: 1) }
-
-        it do
-          expect(subject).to redirect_to(checkins_path)
-          expect(flash[:error]).to be_present
-        end
-
-        it { expect { subject }.not_to change(Checkin, :count) }
+        it { expect { subject }.to change(Checkin, :count).from(1).to(0) }
       end
     end
   end

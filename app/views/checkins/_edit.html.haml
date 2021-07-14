@@ -5,3 +5,5 @@
     .card-body.text-md.px-auto
       = form_for @checkin do |f|
         = render 'form', f: f
+        .form-group
+          = link_to 'Cancel', @checkin, class: 'btn btn-block btn-outline-secondary'

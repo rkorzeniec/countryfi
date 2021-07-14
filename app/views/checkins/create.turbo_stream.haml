@@ -1,0 +1,3 @@
+= turbo_stream.prepend 'checkins_timeline_list' do
+  .widget-timeline-item.left
+    = render partial: 'checkin_item', locals: { checkin_facade: @checkin_facade }
