@@ -1,5 +1,6 @@
-- flash.each do |message_type, message|
-  .alert.alert-dismissible.fade.show{ id: "flash-#{message_type}", class: "#{flash_message_css_class(message_type)} text-md", role: 'alert', data: { controller: 'flash', flash_target: 'element', flash_value: 3000 } }
-    %button.close.pt-2{ type: 'button', aria: { label: 'Close' }, data: { action: 'flash#close' } }
-      %span{ aria: { hidden: 'true' } } &times;
-    = message
+= turbo_frame_tag 'flash-alerts' do
+  - flash.each do |message_type, message|
+    .alert.alert-dismissible.fade.show{ id: "flash-#{message_type}", class: "#{flash_message_css_class(message_type)} text-md", role: 'alert', data: { controller: 'flash', flash_target: 'element', flash_value: 3000 } }
+      %button.close.pt-2{ type: 'button', aria: { label: 'Close' }, data: { action: 'flash#close' } }
+        %span{ aria: { hidden: 'true' } } &times;
+      = message
