@@ -56,9 +56,9 @@ group :development do
   gem 'listen', '~> 3.5'
   gem 'puma', '~> 5.3.2'
   gem 'rack-timeout', '~> 0.6.0'
-  gem 'rubocop', '~> 1.17.0', require: false
-  gem 'rubocop-performance', '~> 1.11.3', require: false
-  gem 'rubocop-rails', '~> 2.11.1', require: false
+  gem 'rubocop', '~> 1.18.3', require: false
+  gem 'rubocop-performance', '~> 1.11.4', require: false
+  gem 'rubocop-rails', '~> 2.11.3', require: false
   gem 'spring', '~> 2.1.1'
   gem 'web-console', '~> 4.1.0'
 end
@@ -68,7 +68,7 @@ group :test do
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'rails-controller-testing', '~> 1.0.5'
   gem 'rspec-graphql_matchers', '~> 1.3.0'
-  gem 'shoulda-matchers', '~> 4.5.1'
+  gem 'shoulda-matchers', '~> 5.0.0'
   gem 'stub_env'
   gem 'timecop', '~> 0.9.4'
 end
