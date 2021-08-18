@@ -51,7 +51,7 @@ group :development do
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails', '~> 1.6', require: false
   gem 'capistrano-rvm', require: false
-  gem 'graphiql-rails', '~> 1.7.0'
+  gem 'graphiql-rails', '~> 1.8.0'
   gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.6'
   gem 'puma', '~> 5.4.0'
