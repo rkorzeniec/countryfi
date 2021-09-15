@@ -217,7 +217,7 @@ GEM
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
     nio4r (2.5.8)
-    nokogiri (1.12.3)
+    nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -389,7 +389,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (5.4.2)
+    webpacker (5.4.3)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -460,7 +460,7 @@ DEPENDENCIES
   turbo-rails (~> 0.7)
   uglifier (~> 4.2.0)
   web-console (~> 4.1.0)
-  webpacker (~> 5.4.2)
+  webpacker (~> 5.4.3)
 
 RUBY VERSION
    ruby 3.0.2p107
