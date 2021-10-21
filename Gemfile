@@ -26,7 +26,7 @@ gem 'haml', '~> 5.2.2'
 gem 'jbuilder', '~> 2.11'
 gem 'kaminari', '~> 1.2.1'
 gem 'sassc-rails', '~> 2.1.2'
-gem 'turbo-rails', '~> 0.7'
+gem 'turbo-rails', '~> 7.1'
 gem 'uglifier', '~> 4.2.0'
 gem 'webpacker', '~> 5.4.3'
 
