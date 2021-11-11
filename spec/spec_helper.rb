@@ -24,3 +24,7 @@ RSpec.configure do |config|
 
   Kernel.srand config.seed
 end
+
+Bullet.enable        = true
+Bullet.bullet_logger = true
+Bullet.raise         = true
