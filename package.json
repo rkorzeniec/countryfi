@@ -33,7 +33,7 @@
     "prettier": "^2.4.1",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-server": "^4.4.0",
-    "workbox-webpack-plugin": "^6.3.0"
+    "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
     "lint": "yarn run eslint -- --ext .js app/javascript",
