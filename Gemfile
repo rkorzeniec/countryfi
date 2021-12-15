@@ -38,7 +38,6 @@ gem 'stackprof', '~> 0.2.17'
 group :development, :test do
   gem 'byebug', '~> 11.1.3'
   gem 'bullet', '~> 6.1.5'
-  gem 'isolator', '~> 0.7.0'
   gem 'rspec-rails', '~> 5.0.2'
   gem 'simplecov'
   gem 'simplecov-console'
