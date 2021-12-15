@@ -35,6 +35,46 @@ describe ApplicationController do
     end
   end
 
+  describe '#control_rack_mini_profiler' do
+    subject { controller.control_rack_mini_profiler }
+
+    context 'when user not authenticated' do
+      it do
+        expect(Rack::MiniProfiler).not_to receive(:authorize_request)
+        get(:index)
+      end
+    end
+
+    context 'when non-admin signed in' do
+      let(:user) { create(:user) }
+
+      before { sign_in(user) }
+
+      it do
+        expect(Rack::MiniProfiler).not_to receive(:authorize_request)
+        get(:index)
+      end
+    end
+
+    context 'when admin signed in' do
+      let(:user) { create(:user, admin: true) }
+
+      before { sign_in(user) }
+
+      it do
+        expect(Rack::MiniProfiler).not_to receive(:authorize_request)
+        get(:index)
+      end
+
+      context 'with rmp param' do
+        it do
+          expect(Rack::MiniProfiler).to receive(:authorize_request)
+          get(:index, params: { rmp: true })
+        end
+      end
+    end
+  end
+
   describe '#set_raven_context' do
     it 'sets up Raven' do
       expect(Raven).to receive(:user_context).with(id: session[:current_user_id])

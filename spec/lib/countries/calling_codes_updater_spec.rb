@@ -32,8 +32,16 @@ describe Countries::CallingCodesUpdater do
       expect(calling_code.calling_code).to eq('+297')
     end
 
-    context 'without code' do
+    context 'without codes' do
       let(:data) { [] }
+
+      it do
+        expect { subject }.not_to change { country.country_calling_codes.count }
+      end
+    end
+
+    context 'with null codes' do
+      let(:data) { [''] }
 
       it do
         expect { subject }.not_to change { country.country_calling_codes.count }

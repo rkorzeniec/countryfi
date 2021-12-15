@@ -28,6 +28,15 @@ describe ExceptionsController, type: :request do
     end
   end
 
+  context 'with 503 code' do
+    before { get('/500', params: { code: 503 }) }
+
+    it do
+      expect(response).to have_http_status('500')
+      expect(subject).to render_template('500')
+    end
+  end
+
   context 'with unsupported format' do
     %i[pdf json jpeg xml js xls mambojambo].each do |format|
       before do

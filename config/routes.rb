@@ -57,7 +57,7 @@ Rails.application.routes.draw do
 
   get '/404', to: 'exceptions#index', code: '404'
   get '/422', to: 'exceptions#index', code: '422'
-  get '/500', to: 'exceptions#index', code: '500'
+  get '/500', to: 'exceptions#index'
 
   # TODO: remove after a while, because of the switch to profiles
   get 'dashboard', to: redirect('/profile')

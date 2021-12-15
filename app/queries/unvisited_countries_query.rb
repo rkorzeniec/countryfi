@@ -33,7 +33,7 @@ class UnvisitedCountriesQuery
   def subregion_condition(scope)
     return scope if subregions.blank?
 
-    scope.where(subregion: subregions) if subregions.present?
+    scope.where(subregion: subregions)
   end
 
   def independent_condition(scope)
