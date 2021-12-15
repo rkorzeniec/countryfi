@@ -9,7 +9,9 @@ class User < ApplicationRecord
   has_many :past_checkins,
            -> { in_past },
            class_name: 'Checkin',
-           inverse_of: :user
+           inverse_of: :user,
+           dependent: :destroy
+
   has_many :visited_countries, source: :country, through: :past_checkins
   has_many :notifications,
            foreign_key: :recipient_id,
