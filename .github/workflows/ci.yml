@@ -118,5 +118,5 @@ jobs:
       - name: rubocop
         run: bundle exec rubocop
 
-      - name:
-        run: bundle exec breakman
+      - name: brakeman
+        run: bundle exec brakeman
