@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
-gem 'rails', '6.1.4.1'
+gem 'rails', '6.1.4.4'
 
 gem 'bootsnap', '~> 1.9.3', require: false
 gem 'dalli', '~> 3.1.5'
