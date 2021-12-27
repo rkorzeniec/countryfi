@@ -63,13 +63,8 @@ jobs:
         run: |
           sudo apt-get install libpq-dev
 
-      - name: Bundle install
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-
       - name: Yarn install
-        run: yarn
+        run: yarn install --frozen-lockfile --non-interactive
 
       - name: Prepare environment
         run: |
@@ -120,5 +115,5 @@ jobs:
           ruby-version: "${{ steps.ruby_version.outputs.RUBY_VERSION }}"
           bundler-cache: true
 
-      - name: Run rubocop
+      - name: rubocop
         run: bundle exec rubocop
