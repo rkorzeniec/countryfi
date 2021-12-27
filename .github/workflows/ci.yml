@@ -120,3 +120,6 @@ jobs:
 
       - name: brakeman
         run: bundle exec brakeman
+
+      - name: rubycritic
+        run: bundle exec rubycritic -m
