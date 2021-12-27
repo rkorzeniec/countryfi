@@ -236,6 +236,7 @@ GEM
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
+    newrelic_rpm (8.2.0)
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -388,8 +389,6 @@ GEM
       terminal-table
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.2)
-    skylight (5.1.1)
-      activesupport (>= 5.2.0)
     spring (4.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -477,6 +476,7 @@ DEPENDENCIES
   listen (~> 3.7)
   memory_profiler (~> 1.0.0)
   mysql2 (~> 0.5.3)
+  newrelic_rpm (~> 8.2.0)
   puma (~> 5.5.2)
   rack-attack (~> 6.5.0)
   rack-mini-profiler (~> 2.3.3)
@@ -495,7 +495,6 @@ DEPENDENCIES
   shoulda-matchers (~> 5.0.0)
   simplecov
   simplecov-console
-  skylight (~> 5.1.1)
   spring (~> 4.0.0)
   stackprof (~> 0.2.17)
   stub_env
