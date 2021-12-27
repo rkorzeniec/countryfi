@@ -37,6 +37,7 @@ gem 'stackprof', '~> 0.2.17'
 
 group :development, :test do
   gem 'bullet', '~> 6.1.5'
+  gem 'brakeman', '~> 5.2.0'
   gem 'byebug', '~> 11.1.3'
   gem 'rspec-rails', '~> 5.0.2'
   gem 'simplecov'
@@ -45,7 +46,6 @@ end
 
 group :development do
   gem 'binding_of_caller', '~> 1.0.0'
-  gem 'brakeman', '~> 5.2.0'
   gem 'capistrano', '~> 3.16', require: false
   gem 'capistrano-delayed-job', '~> 1.0', require: false
   gem 'capistrano-passenger', require: false

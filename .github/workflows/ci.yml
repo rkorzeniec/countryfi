@@ -117,3 +117,6 @@ jobs:
 
       - name: rubocop
         run: bundle exec rubocop
+
+      - name:
+        run: bundle exec breakman
