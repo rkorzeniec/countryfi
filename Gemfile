@@ -16,7 +16,6 @@ gem 'mysql2', '~> 0.5.3'
 gem 'rack-attack', '~> 6.5.0'
 gem 'sentry-raven', '~> 3.1.2'
 gem 'skylight', '~> 5.1.1'
-gem 'therubyracer', '~> 0.12.3'
 
 gem 'administrate', '~> 0.16.0'
 gem 'better_errors', '~> 2.9.1'
