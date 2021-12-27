@@ -35,8 +35,8 @@ gem 'rack-mini-profiler', '~> 2.3.3'
 gem 'stackprof', '~> 0.2.17'
 
 group :development, :test do
-  gem 'bullet', '~> 6.1.5'
   gem 'brakeman', '~> 5.2.0'
+  gem 'bullet', '~> 6.1.5'
   gem 'byebug', '~> 11.1.3'
   gem 'rspec-rails', '~> 5.0.2'
   gem 'simplecov'

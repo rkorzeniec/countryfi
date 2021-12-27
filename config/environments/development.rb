@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Bullet.alert         = true
+Bullet.alert = true
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
