@@ -11,10 +11,10 @@
           %span
             %i.fas.fa-bars.text-muted
     - if user_signed_in?
-      %li.nav-item.text-nowrap
-        = link_to new_checkin_path, class: 'nav-link my-auto text-dark' do
-          %i.fas.fa-plus
-          Add
+      -# %li.nav-item.text-nowrap
+      -#   = link_to checkins_path, class: 'nav-link my-auto text-dark' do
+      -#     %i.fas.fa-plus
+      -#     Add
       %li.nav-item.text-nowrap= link_to 'Explore', explores_path, class: 'nav-link text-dark'
       %li.nav-item.text-nowrap= link_to 'Checkins', checkins_path, class: 'nav-link text-dark'
       %li.nav-item.dropdown.position-static
