@@ -54,4 +54,10 @@ class User < ApplicationRecord
   def public_profile?
     public_profile
   end
+
+  protected
+
+  def extract_ip_from(_request)
+    super if admin?
+  end
 end

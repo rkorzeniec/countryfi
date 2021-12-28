@@ -250,4 +250,20 @@ describe User, type: :model do
       it { is_expected.to be true }
     end
   end
+
+  describe '#extract_ip_from' do
+    subject { user.send(:extract_ip_from, request) }
+
+    let(:user) { build_stubbed(:user) }
+    let(:request) { double(:request) }
+
+    it { is_expected.to be nil }
+
+    context 'when admin' do
+      let(:user) { build_stubbed(:user, admin: true) }
+      let(:request) { double(:request, remote_ip: '127.0.0.1') }
+
+      it { is_expected.to be request.remote_ip }
+    end
+  end
 end
