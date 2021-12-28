@@ -34,6 +34,8 @@ gem 'memory_profiler', '~> 1.0.0'
 gem 'rack-mini-profiler', '~> 2.3.3'
 gem 'stackprof', '~> 0.2.17'
 
+gem 'net-smtp', require: false
+
 group :development, :test do
   gem 'brakeman', '~> 5.2.0'
   gem 'bullet', '~> 7.0.0'
