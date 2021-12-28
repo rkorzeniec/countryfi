@@ -37,7 +37,7 @@ describe User, type: :model do
           user: user,
           country:
           country,
-          checkin_date: Time.zone.now + 1.day
+          checkin_date: 1.day.from_now
         )
       end
 
@@ -50,7 +50,7 @@ describe User, type: :model do
           :checkin,
           user: user,
           country: country,
-          checkin_date: Time.zone.now - 1.day
+          checkin_date: 1.day.ago
         )
       end
 

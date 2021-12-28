@@ -4,8 +4,6 @@ class Checkin < ApplicationRecord
   belongs_to :user, touch: true
   belongs_to :country
 
-  validates :user, presence: true
-  validates :country, presence: true
   validates :checkin_date, presence: true
 
   scope :in_past, -> { where('checkin_date <= ?', Time.current) }

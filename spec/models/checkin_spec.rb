@@ -152,7 +152,7 @@ describe Checkin do
     end
 
     it do
-      expect { create(:checkin, checkin_date: Time.current + 1.day) }.not_to change {
+      expect { create(:checkin, checkin_date: 1.day.from_now) }.not_to change {
         described_class.in_past.count
       }
     end
