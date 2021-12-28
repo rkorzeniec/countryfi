@@ -23,10 +23,10 @@
           %i.far.fa-user
           %span.hidden-md Profile
         .dropdown-menu{ aria: { labelledby: 'navbarProfile' } }
-          .dropdown-item.text-md= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link text-dark'
-          .dropdown-item.text-md= link_to 'Preferences', edit_preferences_path, class: 'nav-link text-dark'
+          .dropdown-item= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link text-md text-dark'
+          .dropdown-item= link_to 'Preferences', edit_preferences_path, class: 'nav-link text-md text-dark'
           .dropdown-divider
-          .dropdown-item.text-md= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link text-dark'
+          .dropdown-item= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-link btn-sm nav-link text-md text-dark'
       %li#navbarNotifications.nav-item.dropdown.position-static.d-none{ data: { controller: 'notifications', 'notifications-target': 'rootElement' } }
         = link_to '#', id: 'navbarNotificationsLink', class: 'nav-link text-dark', data: { 'toggle' => 'dropdown' }, role: 'button' do
           %i.fas.fa-bell.text-danger
