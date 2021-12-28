@@ -17,12 +17,16 @@ body, .sticky-footer-wrapper {
    min-height:100vh;
 }
 
+.mx-n {
+  margin-left: -25px !important;
+  margin-right: -25px !important;
+}
+
 .feather {
   width: 16px;
   height: 16px;
   vertical-align: text-bottom;
 }
-
 /*
  * Navbar
  */

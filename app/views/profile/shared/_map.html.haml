@@ -1,4 +1,4 @@
 .d-flex.flex-row{ data: { controller: 'fill-map', fill_map_country_codes: @profile.country_counts_array, fill_map_color: user_preferences_colour } }
-  .flex-fill{ style: 'max-height: 700px; max-width: 1000px; margin: auto; padding-top: 0;' }
+  .flex-fill{ style: 'max-width: 1000px; margin: auto; padding-top: 0;' }
     .d-block
       = render 'profile/shared/map/world', id: 'world-svg-map', country_counts: @profile.country_counts_array.to_h
