@@ -59,7 +59,7 @@ describe Mutations::AddCheckin do
           'errors' => [
             {
               'locations' => [{ 'column' => 7, 'line' => 2 }],
-              'message' => "Country must exist and Country can't be blank",
+              'message' => "Country must exist",
               'path' => ['addCheckin']
             }
           ]
