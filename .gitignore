@@ -44,6 +44,7 @@ public/assets/**/*
 !.ruby-version
 !.node-version
 !.rubocop.yml
+!.rubycritic.yml
 !.env.sample
 !.env.ci
 !.github
