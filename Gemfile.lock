@@ -353,7 +353,7 @@ GEM
     rubocop-performance (1.13.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.13.0)
+    rubocop-rails (2.13.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
@@ -451,7 +451,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.5.2)
+    zeitwerk (2.5.3)
 
 PLATFORMS
   ruby
@@ -500,7 +500,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0.2)
   rubocop (~> 1.24.1)
   rubocop-performance (~> 1.13.1)
-  rubocop-rails (~> 2.13.0)
+  rubocop-rails (~> 2.13.1)
   rubycritic (~> 4.6.1)
   sassc-rails (~> 2.1.2)
   sdoc (~> 2.3.0)
