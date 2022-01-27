@@ -40,7 +40,7 @@ group :development, :test do
   gem 'brakeman', '~> 5.2.0'
   gem 'bullet', '~> 7.0.1'
   gem 'byebug', '~> 11.1.3'
-  gem 'rspec-rails', '~> 5.0.2'
+  gem 'rspec-rails', '~> 5.1.0'
   gem 'rubycritic', '~> 4.6.1', require: false
   gem 'simplecov'
   gem 'simplecov-console'
