@@ -37,7 +37,7 @@ gem 'stackprof', '~> 0.2.17'
 gem 'net-smtp', require: false
 
 group :development, :test do
-  gem 'brakeman', '~> 5.2.0'
+  gem 'brakeman', '~> 5.2.1'
   gem 'bullet', '~> 7.0.1'
   gem 'byebug', '~> 11.1.3'
   gem 'rspec-rails', '~> 5.1.0'
