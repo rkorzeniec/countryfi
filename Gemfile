@@ -14,7 +14,7 @@ gem 'graphql', '~> 1.13.8'
 gem 'jwt', '~> 2.3.0'
 gem 'mysql2', '~> 0.5.3'
 gem 'newrelic_rpm', '~> 8.4.0'
-gem 'rack-attack', '~> 6.5.0'
+gem 'rack-attack', '~> 6.6.0'
 gem 'sentry-raven', '~> 3.1.2'
 
 gem 'administrate', '~> 0.16.0'
