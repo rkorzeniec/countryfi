@@ -54,7 +54,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.6', require: false
   gem 'capistrano-rvm', require: false
   gem 'graphiql-rails', '~> 1.8.0'
-  gem 'letter_opener', '~> 1.7.0'
+  gem 'letter_opener', '~> 1.8.0'
   gem 'listen', '~> 3.7'
   gem 'puma', '~> 5.6.2'
   gem 'rack-timeout', '~> 0.6.0'
