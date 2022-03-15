@@ -60,7 +60,7 @@ group :development do
   gem 'rack-timeout', '~> 0.6.0'
   gem 'rubocop', '~> 1.26.0', require: false
   gem 'rubocop-performance', '~> 1.13.3', require: false
-  gem 'rubocop-rails', '~> 2.13.2', require: false
+  gem 'rubocop-rails', '~> 2.14.0', require: false
   gem 'spring', '~> 4.0.0'
   gem 'web-console', '~> 4.2.0'
 end
