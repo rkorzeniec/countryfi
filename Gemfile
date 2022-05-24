@@ -41,7 +41,7 @@ group :development, :test do
   gem 'bullet', '~> 7.0.1'
   gem 'byebug', '~> 11.1.3'
   gem 'rspec-rails', '~> 5.1.1'
-  gem 'rubycritic', '~> 4.6.1', require: false
+  gem 'rubycritic', '~> 4.7.0', require: false
   gem 'simplecov'
   gem 'simplecov-console'
 end
