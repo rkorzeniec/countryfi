@@ -56,7 +56,7 @@ group :development do
   gem 'graphiql-rails', '~> 1.8.0'
   gem 'letter_opener', '~> 1.8.1'
   gem 'listen', '~> 3.7'
-  gem 'puma', '~> 5.6.2'
+  gem 'puma', '~> 5.6.4'
   gem 'rack-timeout', '~> 0.6.0'
   gem 'rubocop', '~> 1.27.0', require: false
   gem 'rubocop-performance', '~> 1.14.0', require: false
