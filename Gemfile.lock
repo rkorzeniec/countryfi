@@ -255,6 +255,8 @@ GEM
     parser (3.1.2.0)
       ast (~> 2.4.1)
     path_expander (1.1.0)
+    psych (4.0.4)
+      stringio
     public_suffix (4.0.7)
     puma (5.6.2)
       nio4r (~> 2.0)
@@ -304,7 +306,8 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rdoc (6.3.3)
+    rdoc (6.4.0)
+      psych (>= 4.0.0)
     reek (6.1.1)
       kwalify (~> 0.7.0)
       parser (~> 3.1.0)
@@ -379,8 +382,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sdoc (2.3.1)
-      rdoc (>= 5.0, < 6.4.0)
+    sdoc (2.4.0)
+      rdoc (>= 5.0)
     selectize-rails (0.12.6)
     semantic_range (3.0.0)
     sentry-raven (3.1.2)
@@ -410,6 +413,7 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     stackprof (0.2.19)
+    stringio (3.0.2)
     stub_env (1.0.4)
       rspec (>= 2.0, < 4.0)
     temple (0.8.2)
@@ -503,7 +507,7 @@ DEPENDENCIES
   rubocop-rails (~> 2.13.2)
   rubycritic (~> 4.7.0)
   sassc-rails (~> 2.1.2)
-  sdoc (~> 2.3.1)
+  sdoc (~> 2.4.0)
   sentry-raven (~> 3.1.2)
   shoulda-matchers (~> 5.1.0)
   simplecov
