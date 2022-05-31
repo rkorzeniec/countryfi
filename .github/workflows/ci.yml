@@ -156,8 +156,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.1
-          # ruby-version: "${{ steps.ruby_version.outputs.RUBY_VERSION }}"
+          ruby-version: "${{ steps.ruby_version.outputs.RUBY_VERSION }}"
           bundler-cache: true
 
       - name: Deploy to production
