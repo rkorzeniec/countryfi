@@ -301,5 +301,5 @@ Devise.setup do |config|
   # Configure the parent class to the devise controllers.
   config.parent_controller = 'TurboController'
 
-  config.secret_key = ENV['DEVISE_TOKEN_AUTH_SECRET_KEY'] if Rails.env.production?
+  config.secret_key = ENV.fetch('DEVISE_TOKEN_AUTH_SECRET_KEY') if Rails.env.production?
 end

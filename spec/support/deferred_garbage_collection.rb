@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DeferredGarbageCollection
-  DEFERRED_GC_THRESHOLD = (ENV['DEFER_GC'] || 25.0).to_f
+  DEFERRED_GC_THRESHOLD = (ENV.fetch('DEFER_GC') { 25.0 }).to_f
 
   @@last_gc_run = Time.zone.now
 

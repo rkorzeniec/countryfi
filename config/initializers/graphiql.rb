@@ -2,5 +2,5 @@
 
 if Rails.env.development?
   GraphiQL::Rails.config.headers['Authorization'] =
-    ->(_context) { "bearer #{ENV['JWT_TOKEN']}" }
+    ->(_context) { "bearer #{ENV.fetch('JWT_TOKEN')}" }
 end
