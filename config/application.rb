@@ -9,7 +9,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 Raven.configure do |config|
-  config.dsn = "https://#{ENV.fetch('SENTRY_PUBLIC_KEY')}:#{ENV.fetch('SENTRY_PRIVATE_KEY')}@sentry.io/#{ENV.fetch('SENTRY_PROJECT_ID')}"
+  config.dsn = "https://#{ENV.fetch('SENTRY_PUBLIC_KEY', nil)}:#{ENV.fetch('SENTRY_PRIVATE_KEY', nil)}@sentry.io/#{ENV.fetch('SENTRY_PROJECT_ID', nil)}"
 end
 
 module Countryfier
