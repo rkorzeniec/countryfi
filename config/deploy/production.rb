@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-server '78.47.203.108', user: 'deploy', roles: %w[web app db]
+server '116.203.201.175', user: 'deploy', roles: %w[web app db]
 
 set :branch, 'master'
 set :conditionally_migrate, true
