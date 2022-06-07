@@ -57,7 +57,7 @@ group :development do
   gem 'letter_opener', '~> 1.8.1'
   gem 'listen', '~> 3.7'
   gem 'puma', '~> 5.6.4'
-  gem 'rack-timeout', '~> 0.6.0'
+  gem 'rack-timeout', '~> 0.6.1'
   gem 'rubocop', '~> 1.27.0', require: false
   gem 'rubocop-performance', '~> 1.14.0', require: false
   gem 'rubocop-rails', '~> 2.13.2', require: false
