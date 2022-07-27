@@ -414,7 +414,7 @@ GEM
     sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stackprof (0.2.19)
+    stackprof (0.2.20)
     stringio (3.0.2)
     stub_env (1.0.4)
       rspec (>= 2.0, < 4.0)
@@ -515,7 +515,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   spring (~> 4.0.0)
-  stackprof (~> 0.2.19)
+  stackprof (~> 0.2.20)
   stub_env
   timecop (~> 0.9.5)
   turbo-rails (~> 1.1)
