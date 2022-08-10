@@ -58,7 +58,7 @@ group :development do
   gem 'listen', '~> 3.7'
   gem 'puma', '~> 5.6.4'
   gem 'rack-timeout', '~> 0.6.3'
-  gem 'rubocop', '~> 1.32.0', require: false
+  gem 'rubocop', '~> 1.34.1', require: false
   gem 'rubocop-performance', '~> 1.14.3', require: false
   gem 'rubocop-rails', '~> 2.13.2', require: false
   gem 'spring', '~> 4.0.0'
