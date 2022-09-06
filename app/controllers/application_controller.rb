@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_raven_context
   before_action :authenticate_user!
+  before_action :set_current_user
   before_action :control_rack_mini_profiler
 
   def after_sign_in_path_for(_resource)
@@ -20,5 +21,9 @@ class ApplicationController < ActionController::Base
   def set_raven_context
     Raven.user_context(id: session[:current_user_id])
     Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+  end
+
+  def set_current_user
+    Current.user = current_user if current_user
   end
 end
