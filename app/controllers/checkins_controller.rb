@@ -23,9 +23,9 @@ class CheckinsController < ApplicationController
   def create
     if @checkin.save
       @checkin_facade = Checkins::TimelineItemFacade.new(@checkin)
-      flash[:success] = 'Checkin created successfully'
+      flash[:success] = I18n.t('checkins.create.success')
     else
-      flash[:error] = 'Checkin not created'
+      flash[:error] = I18n.t('checkins.create.error')
       render :new, status: :unprocessable_entity
     end
   end
@@ -38,12 +38,12 @@ class CheckinsController < ApplicationController
     @checkin.update!(checkin_params)
     @checkin_facade = Checkins::TimelineItemFacade.new(@checkin)
 
-    flash[:success] = 'Checkin updated successfully'
+    flash[:success] = I18n.t('checkins.update.success')
   end
 
   def destroy
     @checkin.destroy!
-    flash[:success] = 'Checkin deleted successfully'
+    flash[:success] = I18n.t('checkins.destroy.success')
   end
 
   private

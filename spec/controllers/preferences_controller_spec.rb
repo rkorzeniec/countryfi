@@ -66,7 +66,9 @@ describe PreferencesController do
 
         it do
           expect(subject).to render_template(:edit)
-          expect(flash[:error]).to eq('Sorry, something went wrong.')
+          expect(flash[:error]).to eq(
+            'Sorry, something went wrong. Please verify your changes and try again.'
+          )
         end
       end
     end
