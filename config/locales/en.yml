@@ -30,4 +30,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  checkins:
+    create:
+      success: "Checkin created successfully"
+      failure: "Checkin could not be created"
+    update:
+      success: "Checkin updated successfully"
+    destroy:
+      success: "Checkin deleted successfully"
+  preferences:
+    update:
+      success: "Your new preferences have been saved."
+      failure: "Sorry, something went wrong. Please verify your changes and try again."

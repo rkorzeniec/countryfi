@@ -7,10 +7,10 @@ class PreferencesController < ApplicationController
 
   def update
     if @preferences.save
-      flash[:success] = 'Your new preferences have been saved.'
+      flash[:success] = I18n.t('preferences.update.success')
       redirect_to edit_preferences_path, status: :see_other
     else
-      flash[:error] = 'Sorry, something went wrong.'
+      flash[:error] = I18n.t('preferences.update.failure')
       render :edit, status: :unprocessable_entity
     end
   end
