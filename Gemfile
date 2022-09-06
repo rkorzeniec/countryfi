@@ -17,7 +17,7 @@ gem 'newrelic_rpm', '~> 8.6.0'
 gem 'rack-attack', '~> 6.6.1'
 gem 'sentry-raven', '~> 3.1.2'
 
-gem 'administrate', '~> 0.17.0'
+gem 'administrate', '~> 0.18.0'
 gem 'better_errors', '~> 2.9.1'
 gem 'daemons', '~> 1.4.1'
 gem 'delayed_job_active_record', '~> 4.1.7'
