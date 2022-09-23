@@ -180,8 +180,9 @@ GEM
       railties
       sprockets-rails
     graphql (1.13.16)
-    haml (5.2.2)
-      temple (>= 0.8.0)
+    haml (6.0.1)
+      temple (>= 0.8.2)
+      thor
       tilt
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -480,7 +481,7 @@ DEPENDENCIES
   flamegraph (~> 0.9.5)
   graphiql-rails (~> 1.8.0)
   graphql (~> 1.13.16)
-  haml (~> 5.2.2)
+  haml (~> 6.0.1)
   jbuilder (~> 2.11)
   jwt (~> 2.5.0)
   kaminari (~> 1.2.2)
