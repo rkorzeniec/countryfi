@@ -30,7 +30,7 @@ gem 'uglifier', '~> 4.2.0'
 gem 'webpacker', '~> 5.4.3'
 
 gem 'flamegraph', '~> 0.9.5'
-gem 'memory_profiler', '~> 1.0.0'
+gem 'memory_profiler', '~> 1.0.1'
 gem 'rack-mini-profiler', '~> 3.0.0'
 gem 'stackprof', '~> 0.2.21'
 
