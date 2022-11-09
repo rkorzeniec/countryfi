@@ -61,7 +61,7 @@ group :development do
   gem 'rubocop', '~> 1.38.0', require: false
   gem 'rubocop-performance', '~> 1.15.0', require: false
   gem 'rubocop-rails', '~> 2.15.2', require: false
-  gem 'spring', '~> 4.0.0'
+  gem 'spring', '~> 4.1.0'
   gem 'web-console', '~> 4.2.0'
 end
 
