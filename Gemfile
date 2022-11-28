@@ -35,6 +35,8 @@ gem 'rack-mini-profiler', '~> 3.0.0'
 gem 'stackprof', '~> 0.2.22'
 
 gem 'net-smtp', require: false
+gem 'ed25519', '~> 1.3.0'
+gem 'bcrypt_pbkdf', '~> 1.1.0'
 
 group :development, :test do
   gem 'brakeman', '~> 5.4.0'
