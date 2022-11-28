@@ -5,7 +5,7 @@ ruby File.read('.ruby-version').strip
 
 gem 'rails', '6.1.4.4'
 
-gem 'bootsnap', '~> 1.14.0', require: false
+gem 'bootsnap', '~> 1.15.0', require: false
 gem 'dalli', '~> 3.2.3'
 gem 'devise', '~> 4.8.1'
 gem 'devise-async', '~> 1.0.0'
