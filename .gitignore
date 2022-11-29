@@ -15,6 +15,9 @@
 /log/*
 /log
 /tmp
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
 *~
 .*
 
