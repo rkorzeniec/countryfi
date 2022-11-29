@@ -38,7 +38,7 @@ gem 'net-smtp', require: false
 
 group :development, :test do
   gem 'brakeman', '~> 5.4.0'
-  gem 'bullet', '~> 7.0.3'
+  gem 'bullet', '~> 7.0.4'
   gem 'byebug', '~> 11.1.3'
   gem 'rspec-rails', '~> 6.0.1'
   gem 'rubycritic', '~> 4.7.0', require: false
