@@ -89,6 +89,7 @@ jobs:
       - name: Run tests
         run: COVERAGE=true bundle exec rspec  --require rails_helper
         env:
+          CI: true
           DB_USER: root
           DB_PASSWORD: root
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
