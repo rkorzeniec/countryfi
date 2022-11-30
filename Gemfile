@@ -72,7 +72,7 @@ group :test do
   gem 'rspec-graphql_matchers', '~> 1.3.1'
   gem 'shoulda-matchers', '~> 5.2.0'
   gem 'stub_env'
-  gem 'timecop', '~> 0.9.5'
+  gem 'timecop', '~> 0.9.6'
 end
 
 gem 'sdoc', '~> 2.4.0', group: :doc
