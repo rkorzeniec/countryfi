@@ -75,10 +75,10 @@ describe ApplicationController do
     end
   end
 
-  describe '#set_raven_context' do
-    it 'sets up Raven' do
-      expect(Raven).to receive(:user_context).with(id: session[:current_user_id])
-      expect(Raven).to receive(:extra_context).with(
+  describe '#set_sentry_context' do
+    it 'sets up Sentry' do
+      expect(Sentry).to receive(:set_user).with(id: session[:current_user_id])
+      expect(Sentry).to receive(:set_extras).with(
         params: { 'action' => 'index', 'controller' => 'anonymous' },
         url: 'http://test.host/anonymous'
       )

@@ -8,10 +8,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Raven.configure do |config|
-  config.dsn = "https://#{ENV.fetch('SENTRY_PUBLIC_KEY', nil)}:#{ENV.fetch('SENTRY_PRIVATE_KEY', nil)}@sentry.io/#{ENV.fetch('SENTRY_PROJECT_ID', nil)}"
-end
-
 module Countryfier
   class Application < Rails::Application
     config.load_defaults 7.0
