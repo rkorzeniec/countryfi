@@ -13,4 +13,10 @@ Rails.application.config.filter_parameters += %i[
   mutation
   auth_token
   authentication_token
+  secret
+  _key
+  crypt
+  salt
+  certificate
+  otp
 ]
