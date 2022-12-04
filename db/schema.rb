@@ -2,23 +2,22 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_29_092228) do
-
-  create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2020_11_29_092228) do
+  create_table "announcements", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.string "message"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "border_countries", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "border_countries", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.integer "border_country_id"
     t.datetime "created_at"
@@ -26,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.index ["country_id"], name: "fk_rails_dbcc34e82e"
   end
 
-  create_table "checkins", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "checkins", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "country_id"
     t.date "checkin_date"
@@ -36,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.index ["user_id"], name: "index_checkins_on_user_id"
   end
 
-  create_table "countries", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "countries", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.string "name_common"
     t.string "name_official"
     t.string "cca2"
@@ -59,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.decimal "longitude", precision: 10, default: "0"
   end
 
-  create_table "country_alternative_spellings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "country_alternative_spellings", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "name"
     t.datetime "created_at"
@@ -67,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.index ["country_id"], name: "fk_rails_4501639dad"
   end
 
-  create_table "country_calling_codes", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "country_calling_codes", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "calling_code"
     t.datetime "created_at"
@@ -75,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.index ["country_id"], name: "fk_rails_7d6ab3b33a"
   end
 
-  create_table "country_languages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "country_languages", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "name"
     t.datetime "created_at"
@@ -84,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.index ["country_id"], name: "fk_rails_512239a8b1"
   end
 
-  create_table "currencies", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "currencies", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "code"
     t.string "name", limit: 100
@@ -94,7 +93,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.index ["country_id"], name: "fk_rails_47700155d2"
   end
 
-  create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "delayed_jobs", charset: "latin1", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
     t.text "handler", null: false
@@ -109,17 +108,17 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "notifications", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.integer "recipient_id", null: false
     t.string "notifiable_type", null: false
     t.bigint "notifiable_id", null: false
     t.datetime "read_at"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
   end
 
-  create_table "top_level_domains", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "top_level_domains", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.integer "country_id"
     t.string "name"
     t.datetime "created_at"
@@ -127,7 +126,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_092228) do
     t.index ["country_id"], name: "fk_rails_24af1ffde5"
   end
 
-  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "users", id: :integer, charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "jti_token", null: false
     t.string "encrypted_password", default: "", null: false
