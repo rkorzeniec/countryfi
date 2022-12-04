@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :set_raven_context
+  before_action :set_sentry_context
   before_action :authenticate_user!
   before_action :set_current_user
   before_action :control_rack_mini_profiler
@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_raven_context
-    Raven.user_context(id: session[:current_user_id])
-    Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+  def set_sentry_context
+    Sentry.set_user(id: session[:current_user_id])
+    Sentry.set_extras(params: params.to_unsafe_h, url: request.url)
   end
 
   def set_current_user
