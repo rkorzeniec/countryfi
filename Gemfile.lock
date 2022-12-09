@@ -411,6 +411,8 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     stackprof (0.2.22)
+    stimulus-rails (1.2.0)
+      railties (>= 6.0.0)
     stringio (3.0.2)
     stub_env (1.0.4)
       rspec (>= 2.0, < 4.0)
@@ -517,6 +519,7 @@ DEPENDENCIES
   simplecov-console
   spring (~> 4.1.0)
   stackprof (~> 0.2.22)
+  stimulus-rails (~> 1.2.0)
   stub_env
   timecop (~> 0.9.5)
   turbo-rails (~> 1.1)

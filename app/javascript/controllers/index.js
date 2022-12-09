@@ -1,6 +1,5 @@
-import { Application } from 'stimulus'
-import { definitionsFromContext } from 'stimulus/webpack-helpers'
+import { application } from "controllers/application"
 
-const application = Application.start(document.documentElement)
-const context = require.context('.', true, /_controller\.js$/)
-application.load(definitionsFromContext(context))
+// Eager load all controllers defined in the import map under controllers/**/*_controller
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+eagerLoadControllersFrom("controllers", application)

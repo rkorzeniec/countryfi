@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import { shadeColor } from '../src/utils/shade_color'
 
 export default class extends Controller {

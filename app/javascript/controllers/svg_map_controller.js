@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import svgPanZoom from 'svg-pan-zoom'
 import Hammer from 'hammerjs'
 import { getControllerName } from '../src/utils/controller_name'

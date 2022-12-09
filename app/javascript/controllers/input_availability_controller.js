@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import { getCSRFToken } from '../src/utils/csrf_token'
 
 export default class extends Controller {

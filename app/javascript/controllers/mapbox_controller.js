@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import { getBoundingBox } from '../src/utils/bounding_box'
 
 export default class extends Controller {

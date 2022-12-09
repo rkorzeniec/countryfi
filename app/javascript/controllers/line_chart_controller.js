@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import 'chartist-plugin-pointlabels'
 import { getControllerName } from '../src/utils/controller_name'
 
