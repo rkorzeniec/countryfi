@@ -8,7 +8,7 @@
 
 = stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track' => true
 = yield :layout_custom_head
-= javascript_packs_with_chunks_tag 'application', 'bootstrap', 'stimulus', 'data-turbo-track': 'reload', defer: true, async: true
+= javascript_importmap_tags
 
 %link{ href: '/favicon.ico', rel: 'icon', type: 'image/x-icon' }
 %link{ rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
