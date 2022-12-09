@@ -2,7 +2,7 @@
 
 Sentry.init do |config|
   config.dsn = ENV.fetch('SENTRY_DSN', nil)
-  config.environment = 'production'
+  config.enabled_environments = %w[production]
 
   config.rails.report_rescued_exceptions = true
   config.breadcrumbs_logger = %i[sentry_logger http_logger active_support_logger]
