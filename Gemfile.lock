@@ -416,6 +416,8 @@ GEM
     stringio (3.0.2)
     stub_env (1.0.4)
       rspec (>= 2.0, < 4.0)
+    tailwindcss-rails (2.0.21)
+      railties (>= 6.0.0)
     temple (0.8.2)
     terminal-table (3.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
@@ -521,6 +523,7 @@ DEPENDENCIES
   stackprof (~> 0.2.22)
   stimulus-rails (~> 1.2.0)
   stub_env
+  tailwindcss-rails (~> 2.0)
   timecop (~> 0.9.5)
   turbo-rails (~> 1.1)
   uglifier (~> 4.2.0)
