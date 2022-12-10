@@ -7,5 +7,6 @@ describe NullUser do
     subject { user.unread_notifications }
 
     it { is_expected.to be_empty }
+    it { expect(subject.exists?).to be_falsey }
   end
 end

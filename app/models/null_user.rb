@@ -2,6 +2,6 @@
 
 class NullUser
   def unread_notifications
-    []
+    Notification.none
   end
 end
