@@ -12,4 +12,8 @@ class Notification < ApplicationRecord
   def mark_as_read
     update(read_at: Time.current)
   end
+
+  def notification_type
+    notifiable_type.underscore
+  end
 end
