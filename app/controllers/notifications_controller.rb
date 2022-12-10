@@ -21,9 +21,6 @@ class NotificationsController < ApplicationController
   private
 
   def fetch_notifications
-    @notifications = Notification
-      .includes(:notifiable)
-      .where(recipient: current_user)
-      .unread
+    @notifications = Current.user.unread_notifications
   end
 end
