@@ -7,6 +7,7 @@ class Notification < ApplicationRecord
   delegate :message, to: :notifiable
 
   scope :unread, -> { where(read_at: nil) }
+  scope :with_notifiable, -> { includes(:notifiable) }
 
   def mark_as_read
     update(read_at: Time.current)

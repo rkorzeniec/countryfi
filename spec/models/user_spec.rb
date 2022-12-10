@@ -24,6 +24,15 @@ describe User, type: :model do
       .inverse_of(:recipient)
   end
 
+  it do
+    is_expected.to have_many(:unread_notifications)
+      .class_name('Notification')
+      .with_foreign_key(:recipient_id)
+      .dependent(:destroy)
+      .inverse_of(:recipient)
+      .conditions(read_at: nil)
+  end
+
   describe 'countries extended associations' do
     subject { user.visited_countries }
 

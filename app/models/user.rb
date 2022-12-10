@@ -14,8 +14,9 @@ class User < ApplicationRecord
 
   has_many :visited_countries, source: :country, through: :past_checkins
   has_many :notifications,
-           foreign_key: :recipient_id,
-           dependent: :destroy,
+           foreign_key: :recipient_id, dependent: :destroy, inverse_of: :recipient
+  has_many :unread_notifications, -> { unread.with_notifiable },
+           class_name: 'Notification', foreign_key: :recipient_id, dependent: :destroy, 
            inverse_of: :recipient
 
   validates :email, presence: true

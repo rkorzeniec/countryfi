@@ -16,6 +16,7 @@ gem 'mysql2', '~> 0.5.4'
 gem 'newrelic_rpm', '~> 8.13.1'
 gem 'rack-attack', '~> 6.6.1'
 gem 'redis', '~> 4.0' # Use Redis for Action Cable
+
 gem 'sentry-delayed_job', '~> 5.7.0'
 gem 'sentry-rails', '~> 5.7.0'
 gem 'sentry-ruby', '~> 5.7.0'

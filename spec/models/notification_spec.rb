@@ -27,6 +27,17 @@ describe Notification do
     end
   end
 
+  describe '.with_notifiable' do
+    let(:notification) { create(:notification, :unread) }
+
+    it do
+      expect { notification }.to change { described_class.with_notifiable.count }
+        .from(0).to(1)
+
+      expect(described_class.with_notifiable.first).to eq(notification)
+    end
+  end
+
   describe '#mark_as_read' do
     subject { notification.mark_as_read }
 
