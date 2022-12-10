@@ -24,6 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_user
-    Current.user = current_user if current_user
+    Current.user = current_user || NullUser.new
   end
 end

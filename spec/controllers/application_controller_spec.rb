@@ -2,7 +2,13 @@
 
 describe ApplicationController do
   controller do
+    skip_before_action :authenticate_user!, only: :new
+
     def index
+      head :ok
+    end
+
+    def new
       head :ok
     end
   end
@@ -84,6 +90,26 @@ describe ApplicationController do
       )
 
       get(:index)
+    end
+  end
+
+  describe '#set_current_user' do
+    context 'when authenticated' do
+      let(:user) { create(:user) }
+
+      before { sign_in(user) }
+
+      it 'sets up Current with user' do
+        expect(Current).to receive(:user=).with(user).and_call_original
+        get(:index)
+      end
+    end
+
+    context 'when unauthenticated' do
+      it 'sets up Current with NullUser instance' do
+        expect(Current).to receive(:user=).with(an_instance_of(NullUser)).and_call_original
+        get(:new)
+      end
     end
   end
 end
