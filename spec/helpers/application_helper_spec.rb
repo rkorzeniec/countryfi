@@ -150,4 +150,24 @@ describe ApplicationHelper do
       it { is_expected.to eq('alert-warning') }
     end
   end
+
+  describe '#user_has_unread_notifications?' do
+    subject { helper.user_has_unread_notifications? }
+
+    before { expect(Current).to receive(:user).and_return(user) }
+
+    context 'with unread notifications' do
+      let(:user) do
+        instance_double(User, unread_notifications: double(:relation, exists?: true))
+      end
+
+      it { is_expected.to eq(true) }
+    end
+
+    context 'without unread notifications' do
+      let(:user) { instance_double(User) }
+
+      it { is_expected.to eq(false) }
+    end
+  end
 end

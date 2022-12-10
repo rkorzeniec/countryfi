@@ -34,4 +34,8 @@ module ApplicationHelper
     else "alert-#{message_type}"
     end
   end
+
+  def user_has_unread_notifications?
+    Current.user.unread_notifications.exists?
+  end
 end
