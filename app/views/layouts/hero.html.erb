@@ -1,0 +1,22 @@
+<!--[if IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9 gt-ie8"> <![endif]-->
+<!--[if gt IE 9]> .    <html class="gt-ie8 gt-ie9 not-ie"> <![endif]-->
+<html lang='en'>
+  <head>
+    <%= render 'layouts/head' %>
+  </head>
+  <body class='h-full bg-[#E7E9F2]'>
+    <div class="flex flex-col h-screen justify-between">
+      <div class='w-full isolate'>
+        <%= render 'layouts/static/navbar' %>
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+      </div>
+      <footer class='px-4 mb-5 md:px-10 mx-auto w-full'>
+        <%= render 'layouts/footer' %>
+      </footer>
+    </div>
+    <%= yield :js %>
+    <script type='text/javascript' async=true defer=true src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token"="5a93cb1dea2d4d26ba5d4b5fe18135f7"}'></script>
+  </body>
+</html>

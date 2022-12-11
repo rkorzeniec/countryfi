@@ -4,6 +4,8 @@ class HelloController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :redirect_authenticated
 
+  layout 'hero'
+
   def index; end
 
   private

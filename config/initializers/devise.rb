@@ -303,3 +303,11 @@ Devise.setup do |config|
 
   config.secret_key = ENV.fetch('DEVISE_TOKEN_AUTH_SECRET_KEY') if Rails.env.production?
 end
+
+Rails.application.config.to_prepare do
+  Devise::RegistrationsController.layout proc { |_controller| user_signed_in? ? 'application' : 'hero' }
+  Devise::SessionsController.layout 'hero'
+  Devise::ConfirmationsController.layout 'hero'
+  Devise::UnlocksController.layout 'hero'
+  Devise::PasswordsController.layout 'hero'
+end

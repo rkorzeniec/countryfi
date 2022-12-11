@@ -5,5 +5,7 @@ class TermsController < ApplicationController
 
   respond_to :html
 
+  layout 'hero'
+
   def index; end
 end
