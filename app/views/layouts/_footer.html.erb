@@ -2,11 +2,11 @@
   <div>
     <p>
       <span>Any feature ideas or issues?</span>
-      <%= mail_to('hello@countrify.net', 'hello@countrify.net', subject: 'countrify') %>
+      <%= mail_to('hello@countrify.net', 'hello@countrify.net', subject: 'countrify', class: 'text-gray-900 font-semibold hover:text-indigo-600') %>
     </p>
     <p class="mb-4">
       <span>You enjoy using the app and would like to suport it?</span>
-      <%= link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank', rel: 'noopener noreferrer') %>
+      <%= link_to('Why don\'t you buy me a coffee?', 'https://paypal.me/rkorzeniec', target: '_blank', rel: 'noopener noreferrer', class: 'text-gray-900 font-semibold hover:text-indigo-600') %>
     </p>
     <div class="flex items-center gap-1">
       made with
@@ -18,14 +18,14 @@
         <path fill-rule="evenodd" d="M2.25 6a3 3 0 013-3h13.5a3 3 0 013 3v12a3 3 0 01-3 3H5.25a3 3 0 01-3-3V6zm3.97.97a.75.75 0 011.06 0l2.25 2.25a.75.75 0 010 1.06l-2.25 2.25a.75.75 0 01-1.06-1.06l1.72-1.72-1.72-1.72a.75.75 0 010-1.06zm4.28 4.28a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" clip-rule="evenodd" />
       </svg>
       by
-      <%= link_to('Robert Korzeniec', 'https://github.com/rkorzeniec', target: '_blank', rel: 'noopener noreferrer') %>
+      <%= link_to('Robert Korzeniec', 'https://github.com/rkorzeniec', target: '_blank', rel: 'noopener noreferrer', class: 'text-gray-900 font-semibold hover:text-indigo-600') %>
       <%= "\u00A9 #{Date.today.year}" %>
     </div>
   </div>
   <div>
     <ul class="text-right">
-      <li><%= link_to 'About', about_path %></li>
-      <li><%= link_to 'Terms and Privacy Policy', terms_path %></li>
+      <li><%= link_to 'About', about_path, class: 'text-gray-900 font-semibold hover:text-indigo-600' %></li>
+      <li><%= link_to 'Terms and Privacy Policy', terms_path, class: 'text-gray-900 font-semibold hover:text-indigo-600' %></li>
     </ul>
   </div>
 </div>
