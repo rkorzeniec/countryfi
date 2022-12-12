@@ -12,3 +12,4 @@ pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin '@hotwired/turbo-rails', to: '@hotwired--turbo-rails.js' # @7.2.4
 pin '@hotwired/turbo', to: '@hotwired--turbo.js' # @7.2.4
 pin '@rails/actioncable/src', to: '@rails--actioncable--src.js' # @7.0.4
+pin "svg-pan-zoom" # @3.6.1
