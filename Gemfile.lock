@@ -235,7 +235,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     net-ssh (7.0.1)
-    newrelic_rpm (8.13.1)
+    newrelic_rpm (8.14.0)
     nio4r (2.5.8)
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
@@ -484,7 +484,7 @@ DEPENDENCIES
   memory_profiler (~> 1.0.1)
   mysql2 (~> 0.5.4)
   net-smtp
-  newrelic_rpm (~> 8.13.1)
+  newrelic_rpm (~> 8.14.0)
   puma (~> 6.0.0)
   rack-attack (~> 6.6.1)
   rack-mini-profiler (~> 3.0.0)
