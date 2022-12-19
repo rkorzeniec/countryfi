@@ -380,7 +380,7 @@ GEM
     sentry-raven (3.1.2)
       faraday (>= 1.0)
     sexp_processor (4.16.1)
-    shoulda-matchers (5.2.0)
+    shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
     simplecov (0.21.2)
       docile (~> 1.1)
@@ -500,7 +500,7 @@ DEPENDENCIES
   sassc-rails (~> 2.1.2)
   sdoc (~> 2.4.0)
   sentry-raven (~> 3.1.2)
-  shoulda-matchers (~> 5.2.0)
+  shoulda-matchers (~> 5.3.0)
   simplecov
   simplecov-console
   spring (~> 4.1.0)
