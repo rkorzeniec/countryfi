@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ProfileController < ApplicationController
-  layout 'dashboard'
-
   skip_before_action :authenticate_user!, if: -> { params[:profile_name] }
   after_action :clear_flash
 
