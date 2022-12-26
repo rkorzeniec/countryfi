@@ -11,6 +11,12 @@ module ApplicationHelper
     date.strftime('%Y-%m-%d')
   end
 
+  def active_nav_class(name)
+    return unless current_controller?(name)
+
+    '!text-white'
+  end
+
   def nav_item_id(path, scope: nil)
     item_id = path.delete_prefix('/')
     scope ? "#{item_id}-#{scope}" : item_id

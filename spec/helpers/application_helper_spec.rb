@@ -34,6 +34,30 @@ describe ApplicationHelper do
     end
   end
 
+  describe '#active_nav_class' do
+    subject { helper.active_nav_class('profile') }
+
+    before do
+      without_partial_double_verification do
+        allow(helper).to receive(:current_controller?).and_return(false)
+      end
+    end
+
+    context 'with match' do
+      before do
+        without_partial_double_verification do
+          allow(helper).to receive(:current_controller?).and_return(true)
+        end
+      end
+
+      it { is_expected.to eq('!text-white') }
+    end
+
+    context 'without match' do
+      it { is_expected.to be_nil }
+    end
+  end
+
   describe '#nav_item_id' do
     subject { helper.nav_item_id(path, scope: scope) }
 

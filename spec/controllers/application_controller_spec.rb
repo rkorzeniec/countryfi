@@ -81,6 +81,50 @@ describe ApplicationController do
     end
   end
 
+  describe '#current_controller?' do
+    subject { controller.current_controller?(names) }
+
+    let(:names) { [] }
+
+    before do
+      allow(controller).to receive(:params).and_return({ controller: 'profile' })
+    end
+
+    context 'without controller param' do
+      before { allow(controller).to receive(:params).and_return({}) }
+
+      it { is_expected.to be false }
+    end
+
+    context 'with singular names' do
+      context 'with match' do
+        let(:names) { 'profile' }
+
+        it { is_expected.to be true }
+      end
+
+      context 'without match' do
+        let(:names) { 'mambo' }
+
+        it { is_expected.to be false }
+      end
+    end
+
+    context 'with multiple names' do
+      context 'when match' do
+        let(:names) { %w[profile mambo] }
+
+        it { is_expected.to be true }
+      end
+
+      context 'without match' do
+        let(:names) { %w[mambo jambo] }
+
+        it { is_expected.to be false }
+      end
+    end
+  end
+
   describe '#set_sentry_context' do
     it 'sets up Sentry' do
       expect(Sentry).to receive(:set_user).with(id: session[:current_user_id])
