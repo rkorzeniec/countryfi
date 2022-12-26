@@ -12,4 +12,9 @@ pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin '@hotwired/turbo-rails', to: '@hotwired--turbo-rails.js' # @7.2.4
 pin '@hotwired/turbo', to: '@hotwired--turbo.js' # @7.2.4
 pin '@rails/actioncable/src', to: '@rails--actioncable--src.js' # @7.0.4
-pin "svg-pan-zoom" # @3.6.1
+
+pin 'svg-pan-zoom' # @3.6.1
+pin 'hammerjs' # @2.0.8
+pin 'chartist-plugin-pointlabels' # @0.0.6
+pin 'chartist' # @1.3.0
+pin "save-svg-as-png" # @1.4.17
