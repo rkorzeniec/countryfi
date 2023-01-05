@@ -4,12 +4,12 @@ export default class extends Controller {
   static targets = ['spinner', 'content', 'element']
 
   connect() {
-    setTimeout(() => this.hideSpinner(), 300)
+    setTimeout(() => this.hideSpinner(), 350)
   }
 
   hideSpinner() {
     this.spinnerTarget.remove()
-    this.contentTarget.classList.remove('d-none')
+    this.contentTarget.classList.remove('invisible')
     this.render()
   }
 

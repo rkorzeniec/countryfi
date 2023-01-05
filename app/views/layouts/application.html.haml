@@ -6,10 +6,13 @@
 %html{ lang: 'en' }
   %head
     = render 'layouts/head'
-  %body
+  %body{ data: { controller: 'shell' } }
     %nav{ class: 'bg-gray-800' }
       = render 'layouts/navbar'
-    %div{ class: "relative bg-[#E7E9F2]" }
+
+    = render 'layouts/spinner'
+          
+    %div{ class: "relative bg-[#E7E9F2] invisible", data: { 'shell-target': 'content' } } 
       %div{ class: 'flex flex-col h-srceen justify-between antialiased' }
         %div{ class: 'w-full' }
           = render 'layouts/flash'
