@@ -19,3 +19,4 @@ pin 'hammerjs' # @2.0.8
 pin 'chartist-plugin-pointlabels' # @0.0.6
 pin 'chartist' # @1.3.0
 pin 'save-svg-as-png' # @1.4.17
+pin 'easy-pie-chart' # @2.1.7
