@@ -1,11 +1,11 @@
 <%- scope ||= nil %>
 <%- visited_percent = (visited_countries_count / countries_count.to_f) * 100 %>
 
-<div data-shell-target='element' data-controller='pie-chart' data-pie-chart-color=<%= color %>>
-  <div class="text-sm text-semibold text-center">
+<div class="p-2" data-shell-target='element' data-controller='pie-chart' data-pie-chart-color=<%= color %>>
+  <div class="text-sm text-semibold text-center whitespace-nowrap">
     <%= title %>
   </div>
-  <div class="py-2">
+  <div class="flex justify-center py-2">
      <div class="pie-chart" data-pie-chart-target='element', data-percent="<%= visited_percent %>">
         <span class="pie-chart-label">
           <%= link_to "#{visited_countries_count}/#{countries_count}", checkins_path(scope: scope) %>

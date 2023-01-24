@@ -1,9 +1,31 @@
-<dl class="grid grid-cols-2 gap-2 mb-4">
-  <div class="relative bg-white m-5 p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden">
-    <dd class="flex items-start justify-evenly">
-      <%= render 'profile/shared/pie_chart',  color: '#37BC9B', title: 'World', countries_count: @profile.countries_count, visited_countries_count: @profile.visited_countries_count %>
-    </dd>
+<div class="relative bg-white m-5 p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-3 gap-4 justify-center">
+      <div>
+        <%= render 'profile/shared/pie_chart',  color: '#37BC9B', title: 'World', countries_count: @profile.countries_count, visited_countries_count: @profile.visited_countries_count %>
+      </div>
+      <div>
+        <%= render 'profile/shared/pie_chart',  color: '#4A89DC', title: 'Europe', countries_count: @profile.european_countries_count, visited_countries_count: @profile.visited_european_countries_count, scope: 'european' %>
+      </div>
+      <div>
+        <%= render 'profile/shared/pie_chart',  color: '#DA4453', title: 'North America', countries_count: @profile.north_american_countries_count, visited_countries_count: @profile.visited_north_american_countries_count, scope: 'north_american' %>
+      </div>
+      <div>
+        <%= render 'profile/shared/pie_chart',  color: '#E9573F', title: 'South America', countries_count: @profile.south_american_countries_count, visited_countries_count: @profile.visited_south_american_countries_count, scope: 'south_american' %>
+      </div>
+      <div>
+        <%= render 'profile/shared/pie_chart',  color: '#8CC152', title: 'Asia', countries_count: @profile.asian_countries_count, visited_countries_count: @profile.visited_asian_countries_count, scope: 'asian' %>
+      </div>
+      <div>
+        <%= render 'profile/shared/pie_chart',  color: '#F6BB42', title: 'Africa', countries_count: @profile.countries_count, visited_countries_count: @profile.visited_countries_count, scope: 'african' %>
+      </div>
+      <div>
+        <%= render 'profile/shared/pie_chart',  color: '#3BAFDA', title: 'Oceania', countries_count: @profile.oceanian_countries_count, visited_countries_count: @profile.visited_oceanian_countries_count, scope: 'oceanian' %>
+      </div>
+      <div>
+        <%= render 'profile/shared/pie_chart',  color: '#AAB2BD', title: 'Antarctica', countries_count: @profile.antarctican_countries_count, visited_countries_count: @profile.visited_antarctican_countries_count, scope: 'antarctican' %>
+      </div>
   </div>
+</div>
 
   <div class="relative bg-white m-5 p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden">
     <dd class="flex items-start justify-evenly">
