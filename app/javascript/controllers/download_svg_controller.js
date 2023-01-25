@@ -29,16 +29,16 @@ export default class extends Controller {
 
   handlePreDownload() {
     this.buttonTarget.disabled = true
-    this.iconTarget.classList.add('d-none')
-    this.spinnerTarget.classList.remove('d-none')
+    this.iconTarget.classList.add('hidden')
+    this.spinnerTarget.classList.remove('hidden')
 
     this.svgMapController.resize()
     this.svgMapController.map.disableControlIcons();
   }
 
   handlePostDownload() {
-    this.spinnerTarget.classList.add('d-none')
-    this.iconTarget.classList.remove('d-none')
+    this.spinnerTarget.classList.add('hidden')
+    this.iconTarget.classList.remove('hidden')
     this.buttonTarget.disabled = false
 
     this.svgMapController.map.enableControlIcons();

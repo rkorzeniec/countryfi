@@ -1,0 +1,17 @@
+<%- unless can_show_profile?(@user) %>
+  <%= render 'shared/overlay', message: "Unable to access this profile, it does not exist or is not public.\nSorry." %>
+<% end %>
+<div class="mx-5">
+  <div class="flex items-stretch grid grid-cols-1 xl:grid-cols-3 gap-5 mb-5 ">
+    <div class="flex justify-center lg:col-span-2 relative bg-white my-2 p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden" data-controller='download-svg svg-map' data-action='resize@window->svg-map#resize' data-shell-target= 'element' data-download-svg-filename='world_map'>
+      <%- if current_user?(@user) %>
+        <%= render 'profile/map_download' %>
+      <% end %>
+      <%= render 'profile/shared/map' %>
+    </div>
+
+    <div class="flex justify-evenly relative bg-white my-2 p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-3 content-evenly">
+      <%= render 'profile/shared/continent_progress_charts' %>
+    </div>
+  </div>
+</div>
