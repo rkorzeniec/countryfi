@@ -27,7 +27,7 @@ gem 'kaminari', '~> 1.2.2'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'turbo-rails', '~> 1.1'
 gem 'uglifier', '~> 4.2.0'
-gem 'webpacker', '~> 5.4.3'
+gem 'webpacker', '~> 5.4.4'
 
 gem 'flamegraph', '~> 0.9.5'
 gem 'memory_profiler', '~> 1.0.1'
