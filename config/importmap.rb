@@ -7,7 +7,6 @@ pin 'application', preload: true
 pin '@hotwired/stimulus', to: '@hotwired--stimulus.js' # @3.2.1
 pin '@hotwired/stimulus-loading', to: 'stimulus-loading.js', preload: true
 pin 'tailwindcss-stimulus-components' # @3.0.4
-pin 'stimulus-popover' # @6.2.0
 pin_all_from 'app/javascript/controllers', under: 'controllers'
 
 pin '@hotwired/turbo-rails', to: '@hotwired--turbo-rails.js' # @7.2.4

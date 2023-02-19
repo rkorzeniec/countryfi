@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v0.3.1';
+const CACHE_VERSION = 'v0.4.1';
 const CACHE_NAME = CACHE_VERSION + ':sw-cache-countrify';
 const REQUIRED_FILES = [
   '<%= profile_path %>',
@@ -6,7 +6,8 @@ const REQUIRED_FILES = [
   '/favicon.ico',
   '/favicon-16x16.png',
   '/favicon-32x32.png',
-  '<%= asset_pack_path 'application.css' %>'
+  '<%= stylesheet_link_tag 'application' %>',
+  '<%= stylesheet_link_tag 'tailwind' %>'
 ];
 
 const onInstall = (event) => {
