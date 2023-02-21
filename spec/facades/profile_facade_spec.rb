@@ -54,14 +54,19 @@ describe ProfileFacade do
     end
   end
 
-  describe '#yearly_countries_chart' do
-    subject { facade.yearly_countries_chart }
+  describe '#yearly_countries_chart_data' do
+    subject { facade.yearly_countries_chart_data }
+
+    let(:decorator) { instance_double(Profile::YearlyCountriesChartDecorator) }
 
     it do
       expect(::Profile::YearlyCountriesChartDecorator).to receive(:new)
-        .with(user).and_call_original
+        .with(user)
+        .and_return(decorator)
 
-      is_expected.to be_a_kind_of(::Profile::YearlyCountriesChartDecorator)
+      expect(decorator).to receive(:call).and_return({})
+
+      is_expected.to eq({})
     end
   end
 

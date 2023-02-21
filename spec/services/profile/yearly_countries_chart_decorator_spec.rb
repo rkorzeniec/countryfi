@@ -34,11 +34,11 @@ describe Profile::YearlyCountriesChartDecorator do
     end
   end
 
-  describe '#labels' do
-    subject { decorator.labels }
+  describe '#call' do
+    subject { decorator.call }
 
     it_behaves_like 'with cached method' do
-      let(:method_name) { 'labels' }
+      let(:method_name) { 'call' }
     end
 
     it do
@@ -47,24 +47,12 @@ describe Profile::YearlyCountriesChartDecorator do
       expect(UniqVisitedCountriesQuery).to receive(:new)
         .with(user).and_return(unique_query)
 
-      is_expected.to include(1992, 2000, 2001, 2005, 2019, 2020)
-    end
-  end
-
-  describe '#series' do
-    subject { decorator.series }
-
-    it_behaves_like 'with cached method' do
-      let(:method_name) { 'series' }
-    end
-
-    it do
-      expect(VisitedCountriesQuery).to receive(:new)
-        .with(user).and_return(all_query)
-      expect(UniqVisitedCountriesQuery).to receive(:new)
-        .with(user).and_return(unique_query)
-
-      is_expected.to eq([[2, 4, 2, 10], [1, 2, 1, 5]])
+      is_expected.to eq(
+        [
+          { name: 'all', data: { 1992 => 2, 2000 => 4, 2019 => 2, 2020 => 10 } },
+          { name: 'unique', data: { 1992 => 1, 2001 => 2, 2005 => 1, 2020 => 5} }
+        ]
+      )
     end
   end
 end
