@@ -16,19 +16,14 @@
   <div class="flex justify-evenly relative bg-white p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 content-evenly">
     <%= render 'profile/shared/continent_progress_charts' %>
   </div>
-  <div class="flex justify-evenly relative bg-white p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 content-evenly">
-    <%= render 'profile/shared/top_countries_chart' %>
+  <div class="flex justify-evenly relative bg-white p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden grid grid-cols-2 gap-10">
+    <%= bar_chart @profile.top_countries_chart_data, dataset: { responsive: true, borderWidth: 0, barThickness: 10, backgroundColor: '#E9573F' } %>
+    <%= bar_chart @profile.top_regions_chart_data, dataset: { responsive: true, borderWidth: 0, barThickness: 10, backgroundColor: '#E9573F' } %>
   </div>
 </div>
 
-
-.row
-  .col-md-12.col-xl-6.px-1.mx-auto
-
-  .col-sm-12.col-md-6.col-xl-3.p-1
-    '
-  .col-sm-12.col-md-6.col-xl-3.p-1
-    = render 'profile/shared/top_regions_chart'
-.row
-  .col.p-1
-    = render 'profile/shared/countries_line_chart'
+<div class="flex items-stretch grid grid-cols-1 gap-5">
+  <div class="flex justify-evenly relative bg-white p-6 shadow-md shadow-violet-900/5 rounded-xl overflow-hidden">
+    <%= line_chart @profile.yearly_countries_chart_data, colors: ["#E9573F", "#4A89DC"] %>
+  </div>
+</div>

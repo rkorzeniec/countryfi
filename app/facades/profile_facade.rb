@@ -22,8 +22,8 @@ class ProfileFacade
     end
   end
 
-  def yearly_countries_chart
-    @yearly_countries_chart ||= ::Profile::YearlyCountriesChartDecorator.new(user)
+  def yearly_countries_chart_data
+    @yearly_countries_chart_data ||= ::Profile::YearlyCountriesChartDecorator.new(user).call
   end
 
   def top_countries_chart_data

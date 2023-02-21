@@ -8,15 +8,12 @@ module Profile
       @user = user
     end
 
-    def labels
+    def call
       cache_fetch(__method__) do
-        all_visited_countries.keys | unique_visited_countries.keys
-      end
-    end
-
-    def series
-      cache_fetch(__method__) do
-        [all_visited_countries.values, unique_visited_countries.values]
+        [
+          { name: 'all', data: all_visited_countries },
+          { name: 'unique', data: unique_visited_countries }
+        ]
       end
     end
 
