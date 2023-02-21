@@ -33,6 +33,7 @@ gem 'stimulus-rails', '~> 1.2.0'
 gem 'tailwindcss-rails', '~> 2.0'
 gem 'turbo-rails', '~> 1.1'
 gem 'uglifier', '~> 4.2.0'
+gem 'chartkick', '~> 5.0.1'
 
 gem 'flamegraph', '~> 0.9.5'
 gem 'memory_profiler', '~> 1.0.1'

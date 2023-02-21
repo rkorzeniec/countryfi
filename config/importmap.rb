@@ -17,3 +17,5 @@ pin 'svg-pan-zoom' # @3.6.1
 pin 'hammerjs' # @2.0.8
 pin 'save-svg-as-png' # @1.4.17
 pin 'easy-pie-chart' # @2.1.7
+pin 'chartkick', to: 'chartkick.js'
+pin 'Chart.bundle', to: 'Chart.bundle.js'
