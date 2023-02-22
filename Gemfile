@@ -13,7 +13,7 @@ gem 'dotenv-rails', '~> 2.8.1'
 gem 'graphql', '~> 1.13.17'
 gem 'jwt', '~> 2.5.0'
 gem 'mysql2', '~> 0.5.4'
-gem 'newrelic_rpm', '~> 8.13.1'
+gem 'newrelic_rpm', '~> 9.0.0'
 gem 'rack-attack', '~> 6.6.1'
 gem 'sentry-raven', '~> 3.1.2'
 
