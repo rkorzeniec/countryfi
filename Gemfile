@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 gem 'rails', '~> 7.0.4'
-gem 'jsbundling-rails', '~> 1.1.1'
+
+gem 'jsbundling-rails', '~> 1.1.2'
 
 gem 'bootsnap', '~> 1.15.0', require: false
 gem 'dalli', '~> 3.2.3'
