@@ -5,9 +5,12 @@
         <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl text-gray-800">
           countrify
         </h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
+        <p class="my-8 text-lg leading-8 text-gray-600 sm:text-center">
           To track the countries you visited.
         </p>
+        <div>
+          <%= render 'map' %>
+        </div>
         <div class="mt-8 flex gap-x-4 sm:justify-center">
           <%= link_to new_user_registration_path, class: 'inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700' do %>
             Get started
@@ -18,9 +21,6 @@
             <span class="text-gray-400" aria-hidden="true">&rarr;</span>
           </a>
         </div>
-      </div>
-      <div>
-        <%# <%= image_tag "world_map.png", class: "rounded-2xl grayscale" %> %>
       </div>
     </div>
   </div>

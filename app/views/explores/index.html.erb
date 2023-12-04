@@ -1,0 +1,24 @@
+<div class='flex grid grid-cols-1'>
+  <div class='text-sm'>
+    Countries you still haven't explored...
+  </div>
+
+  <div id='countriesAccordion'>
+    <ul class='list-none '>
+      <%- @explore_facade.country_categories.each do |category| %>
+        <li class='country-category'>
+          <%= link_to category, "#country-#{category}", id: category, data: { toggle: 'collapse' }, aria: { controls: "country-#{category}", expanded: all_countries_category(category) }, role: 'button' %>
+        </li>
+      <% end %>
+    </ul>
+    <%- @explore_facade.country_categories.each do |category| %>
+      <div id='country-<%= category %>', class='country-content <%= 'show' if all_countries_category(category) %>', data-parent='#countriesAccordion' aria-labelledby='<%= category %>'>
+        <%- @explore_facade.discoverable_countries_by_category(category).each do |country| %>
+          <div>
+            <%= link_to country.name_common, country_path(country.cca2) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -14,24 +14,24 @@ class TurboFailureApp < Devise::FailureApp
   end
 end
 
-class TurboController < ApplicationController
-  class Responder < ActionController::Responder
-    def to_turbo_stream
-      controller.render(options.merge(formats: :html))
-    rescue ActionView::MissingTemplate => e
-      raise e if get?
+# class TurboController < ApplicationController
+#   class Responder < ActionController::Responder
+#     def to_turbo_stream
+#       controller.render(options.merge(formats: :html))
+#     rescue ActionView::MissingTemplate => e
+#       raise e if get?
 
-      if has_errors? && default_action
-        render rendering_options.merge(formats: :html, status: :unprocessable_entity)
-      else
-        redirect_to navigation_location
-      end
-    end
-  end
+#       if has_errors? && default_action
+#         render rendering_options.merge(formats: :html, status: :unprocessable_entity)
+#       else
+#         redirect_to navigation_location
+#       end
+#     end
+#   end
 
-  self.responder = Responder
-  respond_to :html, :turbo_stream
-end
+#   self.responder = Responder
+#   respond_to :html, :turbo_stream
+# end
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
@@ -299,7 +299,7 @@ Devise.setup do |config|
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  config.parent_controller = 'TurboController'
+  # config.parent_controller = 'TurboController'
 
   config.secret_key = ENV.fetch('DEVISE_TOKEN_AUTH_SECRET_KEY') if Rails.env.production?
 end

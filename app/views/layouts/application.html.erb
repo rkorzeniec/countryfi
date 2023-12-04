@@ -5,10 +5,11 @@
 <html lang='en'>
   <head>
     <%= render 'layouts/head' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body data-controller='shell'>
     <nav class='bg-gray-800'>
-      <%= render 'layouts/navbar' %>
+      <%= render 'layouts/nav' %>
     </nav>
 
     <%= render 'layouts/spinner' %>
@@ -25,7 +26,9 @@
         <%= render 'layouts/footer' %>
       </footer>
     </div>
+
     <%= yield :js %>
+
     <script type='text/javascript' async=true defer=true, src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5a93cb1dea2d4d26ba5d4b5fe18135f7"}'></script>
   </body>
 </html>

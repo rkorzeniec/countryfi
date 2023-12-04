@@ -1,14 +1,13 @@
-import { Application } from '@hotwired/stimulus'
-import { Dropdown } from 'tailwindcss-stimulus-components'
-import 'chartkick'
-import 'Chart.bundle'
+// import { Application } from '@hotwired/stimulus'
+// import { Dropdown } from 'tailwindcss-stimulus-components'
+// import 'chartkick/chart.js'
 
-const application = Application.start()
+// const application = Application.start()
 
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
+// // Configure Stimulus development experience
+// application.debug = false
+// window.Stimulus   = application
 
-application.register('dropdown', Dropdown)
+// application.register('dropdown', Dropdown)
 
-export { application }
+// export { application }

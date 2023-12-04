@@ -1,4 +1,4 @@
-<div class="w-[80%] drop-shadow-lg border border-white border-1 hover:border-slate-200" data-controller='fill-map' data-fill-map-country-codes="<%= @profile.country_counts_array %>" data-fill-map-color="<%= user_preferences_colour %>">
+<div class="w-[80%] drop-shadow-lg border border-white border-1" data-controller='fill-map' data-fill-map-country-codes="<%= @profile.country_counts_array %>" data-fill-map-color="<%= user_preferences_colour %>">
   <%= render 'profile/shared/world', id: 'world-svg-map', country_counts: @profile.country_counts_array.to_h %>
 </div>
 

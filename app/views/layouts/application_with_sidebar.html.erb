@@ -1,0 +1,59 @@
+!!! 5
+
+<!--[if IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9 gt-ie8"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="gt-ie8 gt-ie9 not-ie"> <!--<![endif]-->
+%html{ lang: 'en' }
+  %head
+    = render 'layouts/head'
+  %body.d-flex.flex-column.h-100.sticky-footer-wrapper{ class: "#{ yield :page_specific_body_class }" }
+    = render 'layouts/navbar', sidebar: true
+    %main{ role: 'main'}
+      .container-fluid
+        .row
+          .col-md-3.col-lg-2.mt-md-5.pb-auto.sidebar
+            = render 'layouts/sidebar'
+          .col-md-9.col-lg-10.ml-xs-auto.mt-md-5.py-md-4.px-4.content
+            = render 'layouts/flash'
+            = yield
+    %footer.footer.mt-auto.py-3
+      = render 'layouts/footer'
+    = yield :js
+    %script{type: 'text/javascript', defer: true, src: 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "5a93cb1dea2d4d26ba5d4b5fe18135f7"}' }
+
+
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9 gt-ie8"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="gt-ie8 gt-ie9 not-ie"> <!--<![endif]-->
+<html lang='en'>
+  <head>
+    <%= render 'layouts/head' %>
+  </head>
+  <body class='<%= yield :page_specific_body_class %>'>
+    <nav class='bg-gray-800'>
+      <%= render 'layouts/nav' %>
+    </nav>
+
+    <div class='relative bg-[#E7E9F2]'>
+      <section class="relative flex h-96 min-h-full items-start justify-center overflow-y-hidden border">
+        <%= render 'layouts/sidenav' %>
+
+        <div class='flex flex-col h-srceen justify-between antialiased'>
+          <div class='w-full'>
+            <%= render 'layouts/flash' %>
+            <%= yield %>
+          </div>
+        </div>
+      </section>
+
+      <footer class='px-4 mb-5 md:px-10 mx-auto w-full'>
+        <%= render 'layouts/footer' %>
+      </footer>
+    </div>
+
+    <%= yield :js %>
+
+    <script type='text/javascript' async=true defer=true, src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5a93cb1dea2d4d26ba5d4b5fe18135f7"}'></script>
+  </body>
+</html>

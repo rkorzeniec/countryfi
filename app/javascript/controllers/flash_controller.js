@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = ['element']
 
   initialize() {
+    console.log('FLASM')
     setTimeout(() => {
       this.elementTarget.classList.toggle('show')
       setTimeout(() => this.elementTarget.remove(), 250)
@@ -11,6 +12,7 @@ export default class extends Controller {
   }
 
   close() {
+    console.log('FLASM CLOSE')
     this.elementTarget.remove()
   }
 }
